@@ -1,0 +1,80 @@
+/* pages/login/index.wxss */
+page {
+  height: 100%; //这里用 100% 或者 100vh 都可
+  background: linear-gradient(225deg, #5694FF 0%, #346FFF 100%);
+}
+
+.login-container {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+
+  @footer-height:472rpx;
+
+  .header {
+    height: calc(100% - @footer-height);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    .logo {
+      display: block;
+      width: 150px;
+      // height: 122px;
+      margin: 0 auto;
+    }
+
+    .title {
+      display: block;
+      text-align: center;
+      font-size: 36rpx;
+      color: #fff;
+      font-family: PingFangSC-Medium, PingFang SC;
+      font-weight: bold;
+      margin-top: 34rpx;
+    }
+  }
+
+  .footer {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+
+    .van-button {
+      width: 85%;
+      margin-left: 7.5%;
+      margin-right: 7.5%;
+      height: 100rpx;
+      border-radius: 8px 8px 8px 8px;
+      opacity: 1;
+      box-sizing: border-box;
+      font-size: 36rpx;
+      font-weight: normal;
+    }
+
+    .btn1 {
+      margin-bottom: 32rpx;
+
+      .van-button {
+        background: #fff;
+        color: #3670FF;
+        border-radius: 8px 8px 8px 8px;
+        border: transparent;
+      }
+    }
+
+    .btn2 {
+      .van-button {
+        color: #FFFFFF;
+        background: rgba(255, 255, 255, 0);
+        border-radius: 8px 8px 8px 8px;
+        border: 2px solid #FFFFFF;
+      }
+    }
+  }
+
+
+
+
+
+}

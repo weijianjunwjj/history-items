@@ -1,0 +1,55 @@
+# 依赖及生成的小程序依赖
+node_modules/
+miniprogram_npm/
+
+# 构建产物
+/dist/
+**/dist/
+dist-ssr/
+.output/
+.nuxt/
+unpackage/
+coverage/
+
+# 缓存及本地历史
+.cache/
+.vite/
+.turbo/
+.next/
+.history/
+.lh/
+.eslintcache
+.stylelintcache
+*.tsbuildinfo
+
+# 日志
+logs/
+*.log
+
+# 本地环境配置，允许提交脱敏示例
+.env
+.env.*
+!.env.example
+!.env.sample
+!.env.template
+
+# 系统及本地编辑器文件
+.DS_Store
+Thumbs.db
+Desktop.ini
+.idea/
+.hbuilderx/
+*.swp
+*.swo
+**/.claude/settings.local.json
+
+# 私有凭据容器
+*.key
+*.p12
+*.pfx
+*.keystore
+*.jks
+
+# 含硬编码 SECRETKEY 的本地文件，不纳入版本控制
+/码上售后 App 与设备物联/qrcode-app-master/debug/GenerateTestUserSig.js
+/码上售后 App 与设备物联/qrcode-kefu-master/debug/GenerateTestUserSig.js

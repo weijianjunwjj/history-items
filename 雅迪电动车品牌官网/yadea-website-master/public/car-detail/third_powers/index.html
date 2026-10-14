@@ -1,0 +1,970 @@
+<!DOCTYPE html>
+<!-- saved from url=(0053)http://118.31.68.153:3389/home/core/third_powers.html -->
+<html lang="zh" style="font-size: 225.467px;">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <style class="vjs-styles-defaults">
+    .video-js {
+      width: 300px;
+      height: 150px;
+    }
+
+    .vjs-fluid {
+      padding-top: 56.25%
+    }
+  </style>
+
+  <title>雅迪 动力能效科技</title>
+  <meta name="viewport"
+    content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no,minimal-ui, viewport-fit=cover">
+  <meta name="keywords" content="雅迪 动力能效科技">
+  <meta name="description" content="雅迪 动力能效科技 ">
+  <meta name="applicable-device" content="pc,mobile">
+  <link rel="preload" href='../assets/icon/HYQiHei-65J.ttf' as="font" type="font/ttf" crossorigin="anonymous">
+  <link rel="preload" href='../assets/icon/EncodeSansSemiExpanded-Regular.ttf' as="font" type="font/ttf"
+    crossorigin="anonymous">
+  <link rel="preload" href='../assets/icon/iconfont.ttf' as="font" type="font/ttf" crossorigin="anonymous">
+  <link rel="preload" href='../assets/icon/iconfont.woff' as="font" type="font/woff" crossorigin="anonymous">
+  <link rel="preload" href='../assets/icon/iconfont.woff2' as="font" type="font/woff2" crossorigin="anonymous">
+  <link rel="stylesheet" href='../assets/css/common/animate.min.css'>
+  <link rel="stylesheet" href='../assets/css/common/swiper.min.css'>
+  <link rel="stylesheet" href='../assets/css/base.css'>
+  <link rel="stylesheet" href='../assets/css/common/header.css'>
+  <link rel="stylesheet" href='../assets/css/common/aside.css'>
+  <link rel="stylesheet" href='../assets/css/common/style.css'>
+  <link rel="stylesheet" href='../assets/css/common/cps.css'>
+  <link rel="stylesheet" href='../assets/css/common/other.css'>
+  <link rel="stylesheet" href='../assets/css/common/join.css'>
+  <link rel="stylesheet" href='../assets/css/common/edit202012.css'>
+  <link rel="stylesheet" href='../assets/css/common/new_index.css'>
+  <link rel="stylesheet" href='../assets/css/common/new.css'>
+  <link rel="stylesheet" href='../assets/css/common/video-js.min.css'>
+  <link rel="stylesheet" href='../assets/plugin/layer/skin/layer.css' id="layui_layer_skinlayercss">
+  <link rel="stylesheet" href='../assets/css/header/index.css'>
+  <link rel="stylesheet" href='../assets/css/footer/index.css'>
+  <link rel="stylesheet" href='../assets/css/common.css'>
+  <script src='../assets/js/common/hm.js'></script>
+  <script type="text/javascript" src='../assets/js/common/media.js'></script>
+  <script type="text/javascript" src='../assets/js/common/jquery-1.12.3.min.js'></script>
+  <script type="text/javascript" src='../assets/js/common/jquery.min.js'></script>
+  <script src="../assets/plugin/lodash.min.js"></script>
+  <script src='../assets/js/common.js'></script>
+  <script type="text/javascript" src='../assets/plugin/layer/layer.js'></script>
+  <script type="text/javascript" src="../assets/js/common/swiper.min.js"></script>
+  <script type="text/javascript" src="../assets/js/common/script.js"></script>
+  <script type="text/javascript" src="../assets/js/common/zUI.js"></script>
+  <script type="text/javascript" src="../assets/js/common/wow.js"></script>
+  <script type="text/javascript" src="../assets/js/common/jquery.nicescroll.min.js"></script>
+  <script type="text/javascript" src="../assets/js/common/lottie.js"></script>
+  <script type="text/javascript" src="../assets/js/common/jquery-ui.js"></script>
+  <script type="text/javascript" src="../assets/js/common/jquery.ui.touch.js"></script>
+  <script type="text/javascript" src="../assets/js/common/video.min.js"></script>
+  <script type="text/javascript" src="../assets/js/common/jsencrypt.min.js"></script>
+  <script src="../assets/js/common/jweixin-1.4.0.js"></script>
+  <script src="../assets/js/common/vue.js"></script>
+  <script src="../assets/js/header-pc.js"></script>
+  <script src="../assets/js/footer-pc.js"></script>
+  <script src="../assets/js/header-phone.js"></script>
+  <script src="../assets/js/footer-phone.js"></script>
+  <script src="../assets/js/common/buryingPoint.js"></script>
+  <script>
+    wow = new WOW({
+      animateClass: 'animated',
+      offset: 0
+    });
+    wow.init();
+    initBuryingPoint();
+  </script>
+
+
+</head>
+
+<body class="safe-area-inset-bottom" style="">
+
+  
+  <!-- pc端头部start -->
+  <div id='headerPc' class="header-pc-show">
+    <header v-cloak class="page-header"
+      :class="[isHomePage ? isMove && 'page-header-move' : 'page-header-move', !isShowHeader && 'hide-header']">
+      <div class="page-header-menu flex-vc-aside">
+        <div class="flex-vc">
+          <div class="logo header-logo">
+            <a href="/" class="flex-hvc">
+              <img :src="replaceImgUrl(imgLogo)" class="full" alt="logo" />
+            </a>
+          </div>
+          <div class="menu flex fs-18-vw fs-max-16">
+            <div v-for="(item, index) of menus" :key="index" class="menu-item fw-500 fs-18-vw cur-point fade-in"
+              :class="[activeIndex === index && 'menu-item-hover', `header-menu-item-${index}`]"
+              @mouseenter="mouseOverMenu(item, index)" @mouseleave="mouseOutMenu(item, index)">
+              <span>{{ item.name }}</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="options flex-vc">
+          <div class="oversea mr-8">
+            <template v-if="isHomePage">
+              <a v-show="isMove" href="https://www.yadea.com" target="_blank" class="flex-hvc">
+                <img src='../assets/images/svg/vector.svg' class="svg-vector" />
+              </a>
+              <a v-show="!isMove" href="https://www.yadea.com" target="_blank" class="flex-hvc">
+                <img src='../assets/images/svg/vector-white.svg' class="svg-vector" />
+              </a>
+            </template>
+            <template v-else>
+              <a href="https://www.yadea.com" target="_blank" class="flex-hvc">
+                <img src='../assets/images/svg/vector.svg' class="svg-vector" />
+              </a>
+            </template>
+          </div>
+          <div class="shop-mall-container" @mouseenter="handleEnterShopMall" @mouseleave="handleOutShopMall">
+            <div class="shop-mall fs-16 border-box">
+              <div class="flex-hvc">
+                <img src='../assets/images/svg/shopmall.svg' class="svg-shopmall" />
+                <span class="shop-mall-txt">商城</span>
+              </div>
+            </div>
+            <div v-show="showMall" class="show-mall-box">
+              <div class="mall-link fs-12-vw">
+                <a href="/car-detail/shop/index.html">官方商城</a>
+              </div>
+              <div class="mall-link fs-12-vw">
+                <a
+                  href="https://mall.jd.com/index-1000160101.html?cu=true&utm_source=www.catv1.com&utm_medium=tuiguang&utm_campaign=t_84122001_&utm_term=67361533163240aaa105d6e24ce6de39">
+                  京东
+                </a>
+              </div>
+              <div class="mall-link fs-12-vw">
+                <a
+                  href="https://yadea.tmall.com/shop/view_shop.htm?user_number_id=2817130358&ali_trackid=2%3Amm_26534443_1954650123_110945750366%3A1678263078_018_567139338&union_lens=recoveryid%3A1678263078_018_567139338&bxsign=tbkNopySEA0Bm-GzQwyUK3vnl_o3y1lMpTxrJw9XAlTZGymXJdvXmoNnQyD-E8kNS1y_RTD_c1DM8bnwFIUMKzfIplOCistvAiebW-vPE0yDTNaJC5XSqmTojZrdivhVMct4_cSg9kctbKDTdoJJCy8Ow">
+                  天猫
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- 浮窗 -->
+      <div class="page-header-mask" :class="isShowMask ? 'page-header-mask-active' : ''">
+        <div class="page-header-mask-content" :class="isShowMask ? 'page-header-mask-content-active' : ''"
+          @mouseenter="mouseOverMask" @mouseleave="mouseOutMask">
+          <div ref="maskRefs" class="pos-rel">
+            <cycling-products v-show="activeIndex === 0" :index="0" :update-height="updateHeight" :hide-mask="hideMask">
+            </cycling-products>
+            <cycling-life v-show="activeIndex === 1" :index="1" :update-height="updateHeight" :hide-mask="hideMask">
+            </cycling-life>
+            <cycling-technology v-show="activeIndex === 2" :index="2" :update-height="updateHeight"
+              :hide-mask="hideMask"></cycling-technology>
+            <buy-support v-show="activeIndex === 3" :index="3" :update-height="updateHeight" :hide-mask="hideMask">
+            </buy-support>
+            <service-support v-show="activeIndex === 4" :index="4" :update-height="updateHeight" :hide-mask="hideMask">
+            </service-support>
+            <about-yadea v-show="activeIndex === 5" :index="5" :update-height="updateHeight" :hide-mask="hideMask">
+            </about-yadea>
+
+            <span v-if="activeIndex === 0 || activeIndex === 1" class="icon-hide-mask cur-point" @click="hideMask">
+              <img src="../assets/images/svg/cha.svg" alt="" class="svg-cha" />
+            </span>
+          </div>
+        </div>
+      </div>
+    </header>
+  </div>
+  <!-- pc端头部end -->
+
+  <!-- 移动端头部start -->
+  <div id="app" class="header-phone-show">
+    <div class="header-container" :class="{ 'white-header': isScrollYMove || show }">
+      <div class="logo-box" @click="handleShowDropDown">
+        <img v-if="show" src='../assets/images/svg/close.svg' />
+        <img v-else
+          :src="isScrollYMove ? '../assets/images/svg/classifyblack.svg' : '../assets/images/svg/classifyblack.svg'" />
+      </div>
+      <div class="yadea-box flex-hvc">
+        <a href="/mob" class="">
+          <img :src="replaceImgUrl(imgLogo)" class="full" alt="logo" />
+        </a>
+      </div>
+      <div class="yadea-shop">
+        <div class="yadea-shop-box" @mouseenter="handleEnterShopMall" @mouseleave="handleOutShopMall">
+          <button class='shop-mall'>
+            <img class='shop-icon' src='../assets/images/svg/shopmall.svg' />
+            <span class="ml-1 fs-12-mvw">商城</span>
+          </button>
+          <Transition name="showMall">
+            <div v-if="showMall" class="show-mall-box">
+              <div class="mall-link fs-12-mvw">
+                <a href="/car-detail/shop/index.html">官方商城</a>
+              </div>
+              <div class="mall-link fs-12-mvw">
+                <a
+                  href="https://mall.jd.com/index-1000160101.html?cu=true&utm_source=www.catv1.com&utm_medium=tuiguang&utm_campaign=t_84122001_&utm_term=67361533163240aaa105d6e24ce6de39">
+                  京东
+                </a>
+              </div>
+              <div class="mall-link fs-12-mvw">
+                <a
+                  href="https://yadea.tmall.com/shop/view_shop.htm?user_number_id=2817130358&ali_trackid=2%3Amm_26534443_1954650123_110945750366%3A1678263078_018_567139338&union_lens=recoveryid%3A1678263078_018_567139338&bxsign=tbkNopySEA0Bm-GzQwyUK3vnl_o3y1lMpTxrJw9XAlTZGymXJdvXmoNnQyD-E8kNS1y_RTD_c1DM8bnwFIUMKzfIplOCistvAiebW-vPE0yDTNaJC5XSqmTojZrdivhVMct4_cSg9kctbKDTdoJJCy8Ow">
+                  天猫
+                </a>
+              </div>
+            </div>
+          </Transition>
+        </div>
+      </div>
+    </div>
+    <Transition>
+      <div v-if="show" class="header-dropdown-box">
+        <div class="menu-box">
+          <template v-for="(item, index) in mobileHeaderMenus" :key="item.id">
+            <div class="menu-items">
+              <div class="menu-items-title" @click="handleOpenMenuItems(item.id)">
+                <span class="fs-14-mvw">{{ item.name }}</span>
+                <img src="../assets/images/svg/down.svg" :class="menusShow === item.id && 'rotate-180'" />
+              </div>
+              <Transition name="menus">
+                <div v-if="menusShow === item.id">
+                  <template v-for="(subItem, subIndex) in item.category" :key="subItem.id">
+                    <div v-if="urlOfParamsMap[item.apis]" class="menu-items-drop">
+                      <div v-if="index === 0 && subIndex === 0" class="menu-items-title" @click="handleGoAllModels">
+                        <span class="fs-14-mvw">全部车型</span>
+                        <img src="../assets/images/svg/down.svg" />
+                      </div>
+                      <div class="menu-items-title" @click="handleOpenDropItems(item.apis, item.id, subItem.id)">
+                        <span class="fs-14-mvw">{{ subItem.name }}</span>
+                        <img src="../assets/images/svg/down.svg" :class="dropsShow === subItem.id && 'rotate-180'" />
+                      </div>
+                      <Transition name="menus">
+                        <div v-if="dropsShow === subItem.id" class="drop-detail">
+                          <div v-if="subItem.children.length !== 0">
+                            <template v-for="threeItem in subItem.children" :key="threeItem.id">
+                              <div v-if="threeItem.attributes.picUrl" class="car-detail-box"
+                                @click="handleGoCarDetail(threeItem.attributes.model_static)">
+                                <div v-if="false" class="need-driving-license">
+                                  <img src="../assets/images/svg/drive.svg" />
+                                  <span class="fs-12-mvw">需驾照</span>
+                                </div>
+                                <div class="car-image">
+                                  <img :src="replaceImgUrl(threeItem.attributes.picUrl?.data[0]?.attributes.url)"
+                                    alt="图片" />
+                                </div>
+                                <div class="car-info">
+                                  <p class="fs-14-mvw fw-bold">{{ threeItem.attributes.name }}</p>
+                                  <span class="fs-12-mvw">{{ threeItem.attributes.desc1 }}</span>
+                                </div>
+                              </div>
+                              <div v-else class="text-detail-box"
+                                @click="handleGoCarDetail(threeItem.attributes.model_static)">
+                                <span>{{ threeItem.attributes.name }}</span>
+                              </div>
+                            </template>
+                          </div>
+                          <div v-else>暂时为空</div>
+                        </div>
+                      </Transition>
+                    </div>
+                    <div v-else class="menu-items-drop">
+                      <div class="menu-items-title" @click="jump(subItem)">
+                        <span class="fs-14-mvw">{{ subItem.name }}</span>
+                      </div>
+                    </div>
+                  </template>
+                </div>
+              </Transition>
+            </div>
+          </template>
+        </div>
+        <div class="international">
+          <img src="../assets/images/svg/vector.svg" alt="" />
+          <span class="fs-14-mvw"><a href="https://www.yadea.com/" target="_blank">雅迪国际站</a></span>
+        </div>
+      </div>
+    </Transition>
+  </div>
+  <!-- 移动端头部end -->
+
+
+
+
+  <script type="text/javascript">
+    $("#closeIcon").click(function () {
+      $(this).parent().parent().addClass('header-info-close')
+      $('.header .headr .sc .navcon').addClass('top')
+    })
+
+    $("#openApp").click(function () {
+      window.location.href = 'https://tspapph5.yadeaiot.com.cn/#/'
+    })
+
+    // console.log(winw);
+    var swipercx1 = new Swiper('.header .headc li .navcon.cx .cx1 .swiper-container', {
+      observer: true,
+      observeParents: true,
+      observeSlideChildren: true,
+      spaceBetween: 0,
+      breakpoints: {
+        1560: {
+          grabCursor: true,
+          slidesPerView: 7,
+          freeMode: false,
+          direction: 'horizontal',
+        },
+        769: {
+          grabCursor: true,
+          slidesPerView: 'auto',
+          freeMode: false,
+          direction: 'horizontal',
+        },
+        0: {
+          slidesPerView: 'auto',
+          freeMode: true,
+          scrollbar: {
+            el: '.header .headc li .navcon.cx .cx1 .swiper-scrollbar',
+            draggable: true,
+            snapOnRelease: false,
+          },
+          mousewheel: true,
+        }
+      },
+      navigation: {
+        nextEl: '.header .headc li .navcon.cx .cx1 .next',
+        prevEl: '.header .headc li .navcon.cx .cx1 .prev',
+      },
+    });
+    var swipercx2 = new Swiper('.header .headc li .navcon.cx .cx2 .swiper-container', {
+      observer: true,
+      observeParents: true,
+      observeSlideChildren: true,
+      spaceBetween: 0,
+      breakpoints: {
+        1560: {
+          grabCursor: true,
+          slidesPerView: 7,
+          freeMode: false,
+          direction: 'horizontal',
+        },
+        769: {
+          grabCursor: true,
+          slidesPerView: 'auto',
+          freeMode: false,
+          direction: 'horizontal',
+        },
+        0: {
+          slidesPerView: 'auto',
+          freeMode: true,
+          scrollbar: {
+            el: '.header .headc li .navcon.cx .cx2 .swiper-scrollbar',
+            draggable: true,
+            snapOnRelease: false,
+          },
+          mousewheel: true,
+        }
+      },
+      navigation: {
+        nextEl: '.header .headc li .navcon.cx .cx2 .next',
+        prevEl: '.header .headc li .navcon.cx .cx2 .prev',
+      },
+    });
+    $(function () {
+      if ($(window).innerWidth() > 768) {
+        $(".x-new-car-a[data-id='77']").attr('href', 'https://item.jd.com/10065287145570.html')
+        $('.header_placeholder').show()
+        // $('.header').css('background-color','rgba(255,255,255,1);')
+        // $('.header').css('color','#000;')
+        $('.headc').removeClass('wap-show')
+        // $('.headr .pro').addClass('pro')
+
+      } else {
+        $('.header_placeholder').hide()
+        // $('.header').css('background-color','rgba(255,255,255,0)')
+        // $('.proheader .fixed').css('background-color','rgba(255,255,255,0)')
+        $('.headc').addClass('wap-show')
+        $('.header').addClass('wap')
+      }
+
+      $('.header .headc li .navcon.cx .item .xinghao').hover(function () {
+        if ($(window).innerWidth() > 768) {
+          var i = $(this).attr('belong');
+          $(this).parents('.item').find('.img').css('display', 'none')
+          $(this).parents('.item').find('.img').eq(i).css('display', 'block')
+        }
+      }, function () {
+        // $(this).parents('.item').find('.img').css('display','block')
+        // $(this).parents('.item').find('.img.hide').css('display','none')
+      })
+      // mySwiper.destroy(false);
+
+
+      $(".car-selected").on("mouseenter", ".x-new-car-label", function () {
+        $(this).addClass('active').siblings().removeClass('active')
+        var index = $(this).attr('data-index')
+        $(this).parent().parent().find('.x-new-car-content[data-index=' + index + ']').addClass('x-common-show').siblings().removeClass('x-common-show')
+      })
+      $(".other-selected").on("mouseenter", ".x-new-car-label", function () {
+        $(this).addClass('active').parent().siblings().find('.x-new-car-label').removeClass('active')
+        var index = $(this).attr('data-index')
+        // $(this).parent().parent().parent().find('.x-new-car-img[data-index='+index+']').addClass('x-common-show').siblings().removeClass('x-common-show')
+        $(this).parent().parent().parent().find('.x-new-car-item-list').removeClass('x-common-flex')
+        $(this).parent().parent().parent().find('.x-new-car-item-list[data-index=' + index + ']').addClass('x-common-flex')
+      })
+
+
+      // phone
+      $(".phone-car-selected").on("click", ".x-phone-new-car-title", function () {
+        $(this).toggleClass('active')
+        $(this).next().find(".x-phone-new-car-list-item-content").slideUp(0)
+        $(this).next().find(".x-phone-new-car-list-item-title").removeClass('active')
+        if ($(this).hasClass('active')) {
+          $(this).parent().parent().siblings().find(".x-phone-new-car-title").removeClass('active')
+          $(this).parent().parent().siblings().find(".x-phone-new-car-list").slideUp(0)
+          $(this).next().slideDown(300)
+        } else {
+          $(this).next().slideUp(300)
+        }
+      })
+
+      $(".phone-car-selected").on("click", ".x-phone-new-car-list-item-title", function () {
+        $(this).toggleClass('active')
+        if ($(this).hasClass('active')) {
+          $(this).parent().siblings().find(".x-phone-new-car-list-item-title").removeClass('active')
+          $(this).parent().siblings().find(".x-phone-new-car-list-item-content").slideUp(0)
+          $(this).next().slideDown(300)
+        } else {
+          $(this).next().slideUp(300)
+        }
+      })
+
+      $(".phone-other-selected").on("click", ".x-phone-new-car-title", function () {
+        $(this).toggleClass('active')
+        $(this).next().find(".x-phone-new-car-list-item-title-sub").slideUp(0)
+        $(this).next().find(".x-phone-new-car-list-item-title").removeClass('active')
+        if ($(this).hasClass('active')) {
+          $(this).parent().parent().siblings().find(".x-phone-new-car-title").removeClass('active')
+          $(this).parent().parent().siblings().find(".x-phone-new-car-list").slideUp(0)
+          $(this).next().slideDown(300)
+        } else {
+          $(this).next().slideUp(300)
+        }
+      })
+
+      $(".phone-other-selected").on("click", ".x-phone-new-car-list-item-title", function () {
+        $(this).toggleClass('active')
+        if ($(this).hasClass('active')) {
+          $(this).parent().siblings().find(".x-phone-new-car-list-item-title").removeClass('active')
+          $(this).parent().siblings().find(".x-phone-new-car-list-item-title-sub").slideUp(0)
+          $(this).next().slideDown(300)
+        } else {
+          $(this).next().slideUp(300)
+        }
+      })
+
+    })
+
+    $("#oIcon").click(function () {
+      window.open('https://www.yadea.com/')
+    })
+
+    $("#callBtn").draggable({ containment: 'body' })
+
+
+    function changeCodeImg () {
+      var url = window.location.href
+      var width1 = $(window).width()
+      if (url.indexOf('53') > -1) {
+        $("#jdBtn").parent().remove()
+        if (width1 > 768) {
+          $("#tmBtn").attr('href', 'https://detail.tmall.com/item.htm?id=650559156933&ns=1&abbucket=16')
+        } else {
+          $("#tmBtn").attr('href', 'https://m.tb.cn/h.UbGX8nL?tk=2OJ62F7ZLhH CZ3457')
+          $("#gfBtn").attr('href', 'https://196051346.shop.n.weimob.com/bos/shop/196051346/6001683797346/2748822346/goods/detail/index?wid=-16615056753681632&recommendType=-1&bizVid=6001683797346&id=1355259420189')
+        }
+      }
+      if (url.indexOf('54') > -1) {
+        $("#jdBtn").parent().remove()
+        $("#tmBtn").parent().remove()
+        if (width1 > 768) {
+
+        } else {
+          $("#gfBtn").attr('href', 'https://196051346.shop.n.weimob.com/bos/shop/196051346/6001683640346/2748822346/goods/detail/index?wid=-16615056753681632&recommendType=-1&activityId=21005868741405&activityType=3&bizVid=6001683640346&id=1365615220189')
+        }
+      }
+      if (url.indexOf('55') > -1) {
+        $("#jdBtn").parent().remove()
+        $("#tmBtn").parent().remove()
+        if (width1 > 768) {
+
+        } else {
+          $("#gfBtn").attr('href', 'https://196051346.shop.n.weimob.com/bos/shop/196051346/6001683640346/2748822346/goods/detail/index?wid=-16615056753681632&recommendType=-1&activityId=21005868741405&activityType=3&bizVid=6001683640346&id=1352296670189')
+        }
+      }
+      if (url.indexOf('56') > -1) {
+        $("#jdBtn").parent().remove()
+        $("#tmBtn").parent().remove()
+        if (width1 > 768) {
+
+        } else {
+          $("#gfBtn").attr('href', 'https://196051346.shop.n.weimob.com/bos/shop/196051346/6001683640346/2748822346/goods/detail/index?wid=-16615056753681632&recommendType=-1&activityId=21005868741405&activityType=3&bizVid=6001683640346&id=1366130010189')
+        }
+      }
+      if (url.indexOf('57') > -1) {
+        $("#tmBtn").parent().remove()
+        if (width1 > 768) {
+
+        } else {
+          $("#gfBtn").attr('href', 'https://196051346.shop.n.weimob.com/bos/shop/196051346/6001683640346/2748822346/goods/detail/index?wid=-16615056753681632&recommendType=-1&activityId=21005868741405&activityType=3&bizVid=6001683640346&id=1359935990189')
+        }
+        $("#jdBtn").attr('href', 'https://item.jd.com/100028820538.html')
+      }
+      if (url.indexOf('58') > -1) {
+        $("#tmBtn").parent().remove()
+        if (width1 > 768) {
+
+        } else {
+          $("#gfBtn").attr('href', 'https://196051346.shop.n.weimob.com/bos/shop/196051346/6001683640346/2748822346/goods/detail/index?wid=-16615056753681632&recommendType=-1&activityId=21005868741405&activityType=3&bizVid=6001683640346&id=1411013120189')
+        }
+        $("#jdBtn").attr('href', 'https://item.jd.com/100021328890.html')
+      }
+    }
+    changeCodeImg()
+  </script>
+
+  <script type="text/javascript">
+    function getUrlParams () {
+      var url = window.location.href
+      if (url.indexOf('53') > -1 || url.indexOf('54') > -1 || url.indexOf('55') > -1 || url.indexOf('56') > -1 || url.indexOf('57') > -1 || url.indexOf('58') > -1 || url.indexOf('59') > -1 || url.indexOf('60') > -1 || url.indexOf('80') > -1 || url.indexOf('81') > -1) {
+        return true
+      } else {
+        return false
+      }
+    }
+
+    if (getUrlParams()) {
+      $("#detailParameter").remove()
+      $(".procodebtn").html('在线购买')
+    }
+
+    $("#xuhangParameter").remove()
+
+    $(function () {
+      if ($(window).innerWidth() > 768) {
+        // ..
+      } else {
+        $('.proheader').addClass('wap-show')
+        var jumpUrl = $('.wap_jumpurl_c').val() || '#';
+        $('.procodebtn').attr('href', jumpUrl);
+      }
+    })
+
+  </script>
+
+
+  <link rel="stylesheet" href="https://osswebsite.yadea.com.cn/third_powers/powers.css">
+
+  <!-- 主体 -->
+  <div class="m5_page pc_show" style="background: #0A0A0F">
+    <div class="normal_box" id="tPage">
+      <div class="first-floor">
+        <div class="title1">雅迪 轮边电机</div>
+        <div class="title2">减速器、控制器、电机三合一 双控算法 迅猛加速超乎想象</div>
+      </div>
+      <img src="https://osswebsite.yadea.com.cn/third_powers/t-2.png" alt="" class="second-floor">
+      <img src="https://osswebsite.yadea.com.cn/third_powers/t-3.png" alt="" class="third-floor">
+      <div class="fourth-floor">
+        <div class="left">
+          <div class="title1">双控算法<br>给你非凡加速感</div>
+          <div class="line"></div>
+          <div class="title2">MTPA+MTPV双控算法，系统效率提高约80%，0~50米加速时间仅约4.65S。</div>
+        </div>
+        <div class="right">
+          <div class="title1">专业调校<br>骑行体验更出众</div>
+          <div class="line"></div>
+          <div class="title2">基于谐波电流注入法的永磁同步电机抑制转矩脉动，提高整车舒适性，给你带来更佳骑行体验。</div>
+        </div>
+      </div>
+      <div class="clear"></div>
+      <div class="fifth-floor">
+        <div class="left">
+          <div class="title1">高密度功率<br>复杂路况不在话下</div>
+          <div class="line"></div>
+          <div class="title2">单线绕组，电机功率密度高，高转速和大扭矩工况性能俱佳，让你在各种复杂路况下，都能享受驾驶的乐趣。</div>
+        </div>
+        <div class="right">
+          <div class="title1">汽车级变压器<br>行车更安全</div>
+          <div class="line"></div>
+          <div class="title2">采用汽车级高可靠性的旋转变压器，提高电机转子位置检测精度和可靠性，整车安全性更高。</div>
+        </div>
+      </div>
+      <div class="clear"></div>
+      <div class="separate"></div>
+      <div class="sixth-floor">
+        <!--      <div class="left">-->
+        <!--        <img src="/static/home/images/powers/t-4.jpg" class="bg-img">-->
+        <!--        <div class="title1">雅迪TTFAR电机</div>-->
+        <!--        <div class="title2" onclick="goUrl('first_powers.html')">进一步了解 ></div>-->
+        <!--      </div>-->
+        <div class="right">
+          <img src="https://osswebsite.yadea.com.cn/third_powers/t-5.jpg" class="bg-img">
+
+        </div>
+        <div class="l-p">
+          <div class="title1">雅迪中置电机</div>
+          <div class="title2" onclick="goUrl('/car-detail/power-efficiency-technology/index.html')">进一步了解 &gt;</div>
+        </div>
+      </div>
+      <div class="clear"></div>
+      <!-- <div class="tips">
+        * TTFAR石墨烯电池，充放电循环寿命约1000次左右，普通铅酸电池充放电循环寿命约300次左右； <br>
+        * 普通电池充电最多可承受 3A 电流；3小时满电是选配10A的TTFAR快充充电器，且基于60V26Ah TTFAR石墨烯3代电池充电的理论时长，支持1小时快充80% 需选配20A的TTFAR快充充电器和专用充电接口； <br>
+        * 雅迪TTFAR石墨烯3代电池，24个月如有质量问题，经检测后免费换新； <br>
+        * 根据国家轻型电动车及电池产品质量监督检验中心检测，雅迪TTFAR石墨烯3代电池与同体积铅酸电池对比，容量提升约25%； <br>
+        * 搭载TTFAR石墨烯3代电池的雅迪冠能系列电动车，比使用普通铅酸电池的电动车里程增加约50%； <br>
+        * 根据国家动力及储能电池产品质量监督检验中心监测，在-20℃±2℃的低温环境下，同等体积下，TTFAR石墨烯3代电池比普通电池容量高出约4Ah。 <br>
+        * 上述所有关于雅迪TTFAR石墨烯3代电池的描述数据，均为实验室数据； <br>
+        * TTFAR石墨烯电池专利技术申请中，申请号201910663164.5、201910663179.1。<br>
+    </div> -->
+    </div>
+  </div>
+
+  <div class="m5_page wap_show" style="background: #0A0A0F">
+    <div class="normal_box" id="mtPage">
+      <div class="first-floor">
+        <img src="https://osswebsite.yadea.com.cn/third_powers/mt-1.png" alt="" class="img">
+      </div>
+      <img src="https://osswebsite.yadea.com.cn/third_powers/mt-2.png" alt="" class="second-floor">
+      <img src="https://osswebsite.yadea.com.cn/third_powers/mt-3.png" alt="" class="third-floor">
+      <div class="fourth-floors">
+        <div class="title">双控算法<br>给你非凡加速感</div>
+        <div class="line"></div>
+        <div class="subtitle">MTPA+MTPV双控算法，系统效率提高约80%，0~50米加速时间仅约4.65S。</div>
+      </div>
+      <div class="fourth-floors">
+        <div class="title">专业调校<br>骑行体验更出众</div>
+        <div class="line"></div>
+        <div class="subtitle">基于谐波电流注入法的永磁同步电机抑制转矩脉动，提高整车舒适性，给你带来更佳骑行体验。</div>
+      </div>
+      <div class="fourth-floors">
+        <div class="title">高密度功率<br>复杂路况不在话下</div>
+        <div class="line"></div>
+        <div class="subtitle">单线绕组，电机功率密度高，高转速和大扭矩工况性能俱佳，让你在各种复杂路况下，都能享受驾驶的乐趣。</div>
+      </div>
+      <div class="fourth-floors">
+        <div class="title">汽车级变压器<br>行车更安全</div>
+        <div class="line"></div>
+        <div class="subtitle">采用汽车级高可靠性的旋转变压器，提高电机转子位置检测精度和可靠性，整车安全性更高。</div>
+      </div>
+      <div class="separation-line"></div>
+      <!--    <div class="normal_box fifth-floor">-->
+      <!--      <img src="/static/home/images/powers/mt-4.jpg" alt="" class="bg-img">-->
+      <!--      <div class="title">-->
+      <!--        <div class="content">雅迪TTFAR电机</div>-->
+      <!--        <div class="subtitle" onclick="goUrl('first_powers.html')">进一步了解 ></div>-->
+      <!--      </div>-->
+      <!--    </div>-->
+      <div class="normal_box fifth-floor">
+        <img src="https://osswebsite.yadea.com.cn/third_powers/mt-5.jpg" alt="" class="bg-img">
+        <div class="title">
+          <div class="content">雅迪中置电机</div>
+          <div class="subtitle" onclick="goUrl('/car-detail/power-efficiency-technology/index.html')">进一步了解 &gt;</div>
+        </div>
+      </div>
+      <!-- <div class="tips">
+        * TTFAR石墨烯电池，充放电循环寿命约1000次左右，普通铅酸电池充放电循环寿命约300次左右； <br>
+        * 普通电池充电最多可承受 3A 电流；3小时满电是选配10A的TTFAR快充充电器，且基于60V26Ah TTFAR石墨烯3代电池充电的理论时长，支持1小时快充80% 需选配20A的TTFAR快充充电器和专用充电接口； <br>
+        * 雅迪TTFAR石墨烯3代电池，24个月如有质量问题，经检测后免费换新； <br>
+        * 根据国家轻型电动车及电池产品质量监督检验中心检测，雅迪TTFAR石墨烯3代电池与同体积铅酸电池对比，容量提升约25%； <br>
+        * 搭载TTFAR石墨烯3代电池的雅迪冠能系列电动车，比使用普通铅酸电池的电动车里程增加约50%； <br>
+        * 根据国家动力及储能电池产品质量监督检验中心监测，在-20℃±2℃的低温环境下，同等体积下，TTFAR石墨烯3代电池比普通电池容量高出约4Ah。 <br>
+        * 上述所有关于雅迪TTFAR石墨烯3代电池的描述数据，均为实验室数据； <br>
+        * TTFAR石墨烯电池专利技术申请中，申请号201910663164.5、201910663179.1。<br>
+    </div> -->
+    </div>
+  </div>
+  <script type="text/javascript">
+    $(function () {
+      setTimeout(function () {
+        var width = document.body.clientWidth
+        var height = $(window).height()
+        $("html, body").stop().animate({
+          scrollTop: "0px"
+        }, 0);
+
+        // var wow = new WOW({
+        //   animateClass: 'animated',
+        //   offset: 0
+        // });
+        //
+        // wow.init();
+
+
+      }, 500)
+    })
+
+    // function toggleSlide(obj) {
+    //     $(obj).parent().parent().parent().toggleClass('active')
+    //     $(obj).parent().parent().css('zIndex', 0).siblings().css('zIndex', 9)
+    //     $(obj).parent().parent().addClass('de-common-hide').siblings().removeClass('de-common-hide')
+    // }
+    function showFunc (obj) {
+      $(obj).addClass('de-common-hide').next().removeClass('de-common-hide')
+      $(obj).parent().find('.i-content').addClass('hide')
+      $(obj).parent().find('.i-content-sub').addClass('show')
+      $(obj).parent().find('.i-content-sub-1').addClass('show')
+    }
+    function hideFunc (obj) {
+      $(obj).addClass('de-common-hide').prev().removeClass('de-common-hide')
+      $(obj).parent().find('.i-content').removeClass('hide')
+      $(obj).parent().find('.i-content-sub').removeClass('show')
+      $(obj).parent().find('.i-content-sub-1').removeClass('show')
+    }
+
+    function goUrl (url) {
+      window.location.href = url
+    }
+
+  </script>
+
+
+  <!-- 底部pc端start -->
+  <div id="footerPc" class="page-footer">
+    <div class="page-footer">
+      <div class="page-footer-top">
+        <div class="footer-top-wrap">
+          <div class="footer-top-left">
+            <div class="test-drive" @click="goBookingRide">
+              <img src="../../car-detail/assets/images/footer/test-drive.png" alt="图片" />
+              <span>预约试驾</span>
+            </div>
+            <div class="car-contrast" @click="goModelContrast">
+              <img src="../../car-detail/assets/images/footer/car-contrast.png" alt="图片" />
+              <span>车型对比</span>
+            </div>
+            <div class="online-service online-kf-id">
+              <img src="../../car-detail/assets/images/footer/online-service.png" alt="图片" />
+              <span>在线客服</span>
+            </div>
+          </div>
+          <div class="footer-top-right">
+            <div class="contact-phone">400-900-1212</div>
+            <div class="contact-time">8:00-20:00,周一至周日</div>
+          </div>
+        </div>
+      </div>
+      <div class="page-footer-middle">
+        <div class="link-box">
+          <div class="link-box-left">
+            <template v-for="item of footerMenuList" :key="item.id">
+              <dl class="footer-middle-item">
+                <template v-if="!item.categoryTitle">
+                  <dt>{{ item.name }}</dt>
+                  <template v-for="item2 in item.category" :key="item2.name">
+                    <dd>
+                      <span v-if="urlOfParamsMap[item.apis]" @click="handleOpenSubMenu(item2, item.apis)">
+                        {{ item2.name }}
+                        <img src="../../car-detail/assets/images/svg/arrow-right-white.svg" class="arrow-svg"
+                          :class="item2.show && 'rotate-90'" />
+                      </span>
+                      <span v-else @click="jump(item2)">
+                        {{ item2.name }}
+                      </span>
+                      <Transition>
+                        <div v-if="item2.show" class="link-item-detail">
+                          <template v-for="threeItem in threeMenus" :key="threeItem.id">
+                            <span class="txt-white fs-14-mvw opt65 mt-3-vw"
+                              @click="handleGoCarDetail(threeItem.attributes.model_static)">
+                              {{ threeItem.attributes.name }}
+                            </span>
+                          </template>
+                        </div>
+                      </Transition>
+                    </dd>
+                  </template>
+                </template>
+
+                <template v-else>
+                  <dt>{{ item.name }}</dt>
+                  <template v-for="item3 in item.category" :key="item3.name">
+                    <dd>
+                      <span v-if="urlOfParamsMap[item.apis]" @click="handleOpenSubMenu(item3, item.apis)">
+                        {{ item3.name }}
+                        <img src="../../car-detail/assets/images/svg/arrow-right-white.svg" class="arrow-svg"
+                          :class="item3.show && 'rotate-90'" />
+                      </span>
+                      <span v-else @click="jump(item3)">
+                        {{ item3.name }}
+                      </span>
+                      <Transition>
+                        <div v-if="item3.show" class="link-item-detail">
+                          <template v-for="threeItem in threeMenus" :key="threeItem.id">
+                            <span class="txt-white fs-14-mvw opt65 mt-3-vw"
+                              @click="handleGoCarDetail(threeItem.attributes.model_static)">
+                              {{ threeItem.attributes.name }}
+                            </span>
+                          </template>
+                        </div>
+                      </Transition>
+                    </dd>
+                  </template>
+                  <dt>{{ item.categoryTitle.name }}</dt>
+                  <template v-for="item3 in item.categoryTitle.category" :key="item3.name">
+                    <dd>
+                      <span @click="handleOpenSubMenu(item3, item.categoryTitle.apis)">
+                        {{ item3.name }}
+                        <img src="../../car-detail/assets/images/svg/arrow-right-white.svg" class="arrow-svg"
+                          :class="item3.show && 'rotate-90'" />
+                      </span>
+                      <Transition>
+                        <div v-if="item3.show" class="link-item-detail">
+                          <template v-for="threeItem in threeMenus" :key="threeItem.id">
+                            <span class="txt-white fs-14-mvw opt65 mt-3-vw"
+                              @click="handleGoCarDetail(threeItem.attributes.model_static)">
+                              {{ threeItem.attributes.name }}
+                            </span>
+                          </template>
+                        </div>
+                      </Transition>
+                    </dd>
+                  </template>
+                </template>
+              </dl>
+            </template>
+          </div>
+
+          <dl class="footer-middle-item">
+            <dt class="vector-box">
+              <a target="_blank" href="https://www.yadea.com/">
+                <img src='../../car-detail/assets/images/svg/vector-white.svg' class="vector-w" />
+                <span>雅迪国际站</span>
+              </a>
+            </dt>
+          </dl>
+        </div>
+        <div class="back-top" @click="handleBackTop">
+          <span>返回顶部</span>
+          <img src='../../car-detail/assets/images/footer/arrow-top.svg' class="ml-2" />
+          <!--          <SvgIcon name="arrow-top" size="18" class="ml-2" />-->
+        </div>
+      </div>
+      <div class="page-footer-bottom">
+       <div class="footer-bottom-left">© 2022 雅迪科技集团有限公司 All Rights Reserved <a class="c-888" target="_blank" href="https://beian.miit.gov.cn/">苏ICP备12080415号</a> <a class="c-888" target="_blank" href="https://www.beian.gov.cn/portal/registerSystemInfo?recordcode=32020502000068"><img class="police-badge" src="https://osswebsite.yadea.com.cn/foot_icp_55db42dcdc.png" alt="" />苏公网安备 32020502000068号</a></div>
+        <div class="footer-bottom-right">
+          <div class="footer-bottom-right-box">
+            <img src='../../car-detail/assets/images/footer/dy.svg' class="svg-social-media"
+              @mouseenter="footerModalEnter(0)" @mouseleave="footerModalOut" />
+            <div class="footer-bottom-right-modal" v-show="footerModalIndex === 0">
+              <img src="../../car-detail/assets/images/footer/dy.png" alt="" />
+            </div>
+          </div>
+          <div class="footer-bottom-right-box">
+            <img src='../../car-detail/assets/images/footer/kf.svg' class="svg-social-media"
+              @mouseenter="footerModalEnter(1)" @mouseleave="footerModalOut" />
+            <div class="footer-bottom-right-modal" v-show="footerModalIndex === 1">
+              <img src="../../car-detail/assets/images/footer/kf.png" alt="" />
+            </div>
+          </div>
+          <div class="footer-bottom-right-box">
+            <img src='../../car-detail/assets/images/footer/wechat.svg' class="svg-social-media"
+              @mouseenter="footerModalEnter(2)" @mouseleave="footerModalOut" />
+            <div class="footer-bottom-right-modal" v-show="footerModalIndex === 2">
+              <img src="../../car-detail/assets/images/footer/wx.jpg" alt="" />
+            </div>
+          </div>
+          <div class="footer-bottom-right-box">
+            <img src='../../car-detail/assets/images/footer/weibo.svg' class="svg-social-media"
+              @mouseenter="footerModalEnter(3)" @mouseleave="footerModalOut" />
+            <div class="footer-bottom-right-modal" v-show="footerModalIndex === 3">
+              <img src="../../car-detail/assets/images/footer/wb.png" alt="" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- 底部pc端end -->
+  <!-- 底部phone端start -->
+  <div id="appFooter" class="footer-phone-show">
+    <footer class="footer-box">
+      <div class="back-top txt-white fs-14-mvw">
+        <span @click="handleBackTop">
+          返回顶部
+          <!-- <SvgIcon name="backtop" class="vector-w" /> -->
+        </span>
+        <img src='../../car-detail/assets/images/footer/backtop.svg' class="ml-2" />
+      </div>
+      <div class="extension-box">
+        <div class="extension-top">
+          <div class="extension-top-left txt-white">联系我们</div>
+          <div class="extension-top-right">
+            <div class="fs-20-mvw fw-bold txt-red">
+              <a href="#" class="fs-20-mvw fw-bold">400-900-1212</a>
+            </div>
+            <span class="txt-white fs-12-mvw">8:00-20:00,周一至周日</span>
+          </div>
+        </div>
+      </div>
+      <div class="link-box">
+        <template v-for="item in footerMenuList" :key="item.id">
+          <div class="link-item">
+            <div class="link-item-title" @click="handleOpenLinkBox(item.id)">
+              <span class="txt-white fs-14-mvw">{{ item.name }}</span>
+              <img
+                :src="footerShow === item.id ? '../../car-detail/assets/images/svg/shut.svg' : '../../car-detail/assets/images/svg/open.svg'"
+                class="svg-social-media" />
+            </div>
+            <Transition>
+              <div v-if="footerShow === item.id" class="link-item-detail">
+                <template v-for="subItem in item.category" :key="subItem.id">
+                  <div v-if="urlOfParamsMap[item.apis]" class="txt-white subItem-title fs-14-mvw"
+                    @click="handleOpenDropItems(item.apis, subItem)">
+                    {{ subItem.name }}
+                    <img src="../../car-detail/assets/images/svg/arrow-right-white.svg" alt="" class="svg-social-media"
+                      :class="subItem.show && 'rotate-90'" />
+                  </div>
+                  <div v-else class="txt-white subItem-title fs-14-mvw" @click="handleGoDetail(subItem)">
+                    {{ subItem.name }}
+                  </div>
+                  <Transition>
+                    <div v-if="subItem.show" class="three-item-detail">
+                      <template v-for="threeItem in threeMenus" :key="threeItem.id">
+                        <div class="txt-white fs-14-mvw" @click="handleGoCarDetail(threeItem.attributes.model_static)">
+                          {{ threeItem.attributes.name }}
+                        </div>
+                      </template>
+                    </div>
+                  </Transition>
+                </template>
+              </div>
+            </Transition>
+          </div>
+        </template>
+      </div>
+      <div class="extension-bottom-box">
+        <div class="international" onclick="toInt()">
+          <img src='../../car-detail/assets/images/svg/vector-white.svg' class="svg-vector" />
+          <span class="fs-13-mvw txt-white">雅迪国际站</span>
+        </div>
+        <div class="extension-bottom">
+          <img src='../../car-detail/assets/images/svg/dyf.svg' class="svg-social-media" onclick="toDY()" />
+          <img src='../../car-detail/assets/images/svg/kff.svg' class="svg-social-media online-kf-id" />
+          <div class="pos-rel" @mouseenter="handleEnterWC" @mouseleave="handleLeaveWC">
+            <img src='../../car-detail/assets/images/svg/wechatf.svg' class="svg-social-media" @click="handleEnterWC" />
+            <img v-show="showWC" class="wechat-img" src="../assets/images/wx.jpg"  alt="" />
+          </div>
+          <img src='../../car-detail/assets/images/svg/weibof.svg' class="svg-social-media" onclick="toWB()" />
+        </div>
+      </div>
+      <div class="record-box fs-12-mvw">
+        © 2022 雅迪科技集团有限公司 All Rights Reserved <a class="c-aaa" target="_blank" href="https://beian.miit.gov.cn/">苏ICP备12080415号</a>
+        <a class="c-aaa" target="_blank" href="https://www.beian.gov.cn/portal/registerSystemInfo?recordcode=32020502000068"><img class="police-badge" src="https://osswebsite.yadea.com.cn/foot_icp_55db42dcdc.png" alt="" />苏公网安备 32020502000068号</a>
+      </div>
+    </footer>
+  </div>
+  <!-- 底部phone端end -->
+ 
+
+
+
+</body>
+
+</html>

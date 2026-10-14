@@ -1,0 +1,12 @@
+<view class="wx-pay-score">
+  <image class src="https://zyt-network.oss-cn-qingdao.aliyuncs.com/images/index-icon/wx-pay-score.png" />
+
+  <block wx:if="{{type==1}}">
+    <text class="txt ml-8 mr-8">微信支付分</text>
+    <text class="line"></text>
+    <text class="txt ml-8">先寄后付</text>
+  </block>
+  <block wx:else>
+    <text class="txt ml-8">微信支付分优享</text>
+  </block>
+</view>

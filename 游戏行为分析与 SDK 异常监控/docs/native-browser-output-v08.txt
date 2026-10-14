@@ -1,0 +1,1 @@
+{"exitCode": 2, "entry": {"status": "BLOCKED_BY_ENVIRONMENT", "detail": "Page.goto: net::ERR_BLOCKED_BY_ADMINISTRATOR at http://127.0.0.1:34635/\nCall log:\n  - navigating to \"http://127.0.0.1:34635/\", waiting until \"load\"\n"}, "count": 0}

@@ -1,0 +1,748 @@
+@fs: 10, 11, 12, 13, 14, 16, 18, 20, 24, 26, 28, 30, 32, 40, 42, 48, 56, 60;
+
+
+.fs-14-vw{
+  font-size: 14pxvw;
+}
+
+each(@fs, {
+    .fs-@{value} {
+      font-size: @value * 1px;
+
+      &-vw {
+        font-size: @value * 1pxvw;
+
+        @media screen and (min-width: @max-media-width) {
+          font-size: @value * 1px;
+        }
+      }
+
+      &-mvw {
+        font-size: @value * 1mpxvw;
+      }
+    }
+
+    .fs-@{value}-i {
+      font-size: @value * 1px !important;
+
+      &-vw {
+        font-size: @value * 1pxvw!important;
+      }
+
+      &-mvw {
+        font-size: @value * 1mpxvw!important;
+      }
+    }
+
+  }
+
+)
+/*
+ * @Description: 原子类
+ */
+
+// xxx-1: 5px
+// xxx-2: 10px
+// xxx-3: 15px
+// xxx-4: 20px
+
+// xxx-1-i: 5px!important
+// xxx-2-i: 10px!important
+// xxx-3-i: 15px!important
+// xxx-4-i: 20px!important
+
+each(range(10), {
+
+    // margin
+    .mt-@{value} {
+      margin-top: @value * 5px;
+
+      &-vw {
+        margin-top: @value * 5pxvw;
+      }
+
+      &-mvw {
+        margin-top: @value * 5mpxvw;
+      }
+    }
+
+    .mb-@{value} {
+      margin-bottom: @value * 5px;
+
+      &-vw {
+        margin-bottom: @value * 5pxvw;
+      }
+
+      &-mvw {
+        margin-bottom: @value * 5mpxvw;
+      }
+    }
+
+    .ml-@{value} {
+      margin-left: @value * 5px;
+
+      &-vw {
+        margin-left: @value * 5pxvw;
+      }
+
+      &-mvw {
+        margin-left: @value * 5mpxvw;
+      }
+    }
+
+    .mr-@{value} {
+      margin-right: @value * 5px;
+
+      &-vw {
+        margin-right: @value * 5pxvw;
+      }
+
+      &-mvw {
+        margin-right: @value * 5mpxvw;
+
+        &-i {
+          margin-right: @value * 5mpxvw !important;
+        }
+      }
+    }
+
+    .mlr-@{value} {
+      margin-left: @value * 5px;
+      margin-right: @value * 5px;
+
+      &-vw {
+        margin-left: @value * 5pxvw;
+        margin-right: @value * 5pxvw;
+      }
+
+      &-mvw {
+        margin-left: @value * 5mpxvw;
+        margin-right: @value * 5mpxvw;
+      }
+    }
+
+    .mtb-@{value} {
+      margin-top: @value * 5px;
+      margin-bottom: @value * 5px;
+
+      &-vw {
+        margin-top: @value * 5pxvw;
+        margin-bottom: @value * 5pxvw;
+      }
+
+      &-mvw {
+        margin-top: @value * 5mpxvw;
+        margin-bottom: @value * 5mpxvw;
+      }
+    }
+
+    .m-@{value} {
+      margin: @value * 5px;
+
+      &-vw {
+        margin: @value * 5pxvw;
+      }
+
+      &-mvw {
+        margin: @value * 5mpxvw;
+      }
+    }
+
+    // ------------------------
+    .mt-@{value}-i {
+      margin-top: @value * 5px !important;
+    }
+
+    .mb-@{value}-i {
+      margin-bottom: @value * 5px !important;
+    }
+
+    .ml-@{value}-i {
+      margin-left: @value * 5px !important;
+    }
+
+    .mr-@{value}-i {
+      margin-right: @value * 5px !important;
+    }
+
+    .m-@{value}-i {
+      margin: @value * 5px !important;
+    }
+
+    .mlr-@{value}-i {
+      margin-left: @value * 5px !important;
+      margin-right: @value * 5px !important;
+    }
+
+    .mtb-@{value}-i {
+      margin-top: @value * 5px !important;
+      margin-bottom: @value * 5px !important;
+    }
+
+    // ------------------------
+
+    // padding
+    .pt-@{value} {
+      padding-top: @value * 5px;
+
+      &-vw {
+        padding-top: @value * 5pxvw;
+      }
+
+      &-mvw {
+        padding-top: @value * 5mpxvw;
+      }
+    }
+
+    .pb-@{value} {
+      padding-bottom: @value * 5px;
+
+      &-vw {
+        padding-bottom: @value * 5pxvw;
+      }
+
+      &-mvw {
+        padding-bottom: @value * 5mpxvw;
+      }
+
+    }
+
+    .pl-@{value} {
+      padding-left: @value * 5px;
+
+      &-vw {
+        padding-left: @value * 5pxvw;
+      }
+
+      &-mvw {
+        padding-left: @value * 5mpxvw;
+      }
+    }
+
+    .pr-@{value} {
+      padding-right: @value * 5px;
+
+      &-vw {
+        padding-right: @value * 5pxvw;
+      }
+
+      &-mvw {
+        padding-right: @value * 5mpxvw;
+
+        &-i {
+          padding-right: @value * 5mpxvw !important;
+        }
+      }
+    }
+
+    .p-@{value} {
+      padding: @value * 5px;
+
+      &-vw {
+        padding: @value * 5pxvw;
+      }
+
+      &-mvw {
+        padding: @value * 5mpxvw;
+      }
+    }
+
+    .plr-@{value} {
+      padding-left: @value * 5px;
+      padding-right: @value * 5px;
+
+      &-vw {
+        padding-left: @value * 5pxvw;
+        padding-right: @value * 5pxvw;
+      }
+
+      &-mvw {
+        padding-left: @value * 5mpxvw;
+        padding-right: @value * 5mpxvw;
+      }
+    }
+
+    .ptb-@{value} {
+      padding-top: @value * 5px;
+      padding-bottom: @value * 5px;
+
+      &-vw {
+        padding-top: @value * 5pxvw;
+        padding-bottom: @value * 5pxvw;
+      }
+
+      &-mvw {
+        padding-top: @value * 5mpxvw;
+        padding-bottom: @value * 5mpxvw;
+      }
+    }
+
+    // -----------------------------------
+    .pt-@{value}-i {
+      padding-top: @value * 5px !important;
+    }
+
+    .pb-@{value}-i {
+      padding-bottom: @value * 5px !important;
+    }
+
+    .pl-@{value}-i {
+      padding-left: @value * 5px !important;
+    }
+
+    .pr-@{value}-i {
+      padding-right: @value * 5px !important;
+    }
+
+    .p-@{value}-i {
+      padding: @value * 5px !important;
+    }
+
+    .plr-@{value}-i {
+      padding-left: @value * 5px;
+      padding-right: @value * 5px;
+    }
+
+    .ptb-@{value}-i {
+      padding-top: @value * 5px;
+      padding-bottom: @value * 5px;
+    }
+
+  }
+
+);
+
+each(range(10), {
+    .ellipsis-@{value} {
+      overflow: hidden; // 溢出隐藏
+      text-overflow: ellipsis; // 文字溢出显示省略号
+      /* 3.设置盒子属性为-webkit-box  必须的 */
+      display: -webkit-box;
+      /* 4.-webkit-line-clamp 设置为2，表示超出2行的部分显示省略号，如果设置为3，那么就是超出3行部分显示省略号 */
+      -webkit-line-clamp: @value;
+      /* 5.字面意思：单词破坏：破坏英文单词的整体性，在英文单词还没有在一行完全展示时就换行  即一个单词可能会被分成两行展示 */
+      word-break: break-all;
+      /* 6.盒子实现多行显示的必要条件，文字是垂直展示，即文字是多行展示的情况下使用 */
+      -webkit-box-orient: vertical;
+    }
+
+    .ellipsis-1 {
+      display: inline-block;
+      overflow: hidden; // 溢出隐藏
+      text-overflow: ellipsis; // 文字溢出显示省略号
+      /* 3.设置盒子属性为-webkit-box  必须的 */
+      white-space: nowrap
+    }
+  }
+
+);
+
+.opt65,
+.op65 {
+  opacity: 0.65;
+}
+
+.opt85,
+.op85 {
+  opacity: 0.85;
+}
+
+
+.w100 {
+  width: 100%;
+}
+
+.m-auto {
+  margin: 0 auto;
+}
+
+.m0 {
+  margin: 0 !important;
+}
+
+.p0 {
+  padding: 0 !important;
+}
+
+.mt-0 {
+  margin-top: 0 !important;
+}
+
+.mb-0 {
+  margin-bottom: 0 !important;
+}
+
+.full {
+  width: 100%;
+  height: 100%;
+
+  &-w {
+    width: 100%;
+  }
+
+  &-h {
+    height: 100%;
+  }
+
+  &-wh {
+    width: 100vw;
+    height: 100vh;
+  }
+
+  &-vh {
+    height: 100vh;
+  }
+
+  &-lh {
+    line-height: 100%;
+  }
+}
+
+.circle {
+  border-radius: 50%;
+}
+
+
+.w-33 {
+  width: 33%;
+}
+
+// position
+.pos-rel {
+  position: relative;
+}
+
+.pos-abs {
+  position: absolute;
+}
+
+.pos-full {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+.pos-center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate3d(-50%, -50%, 0);
+}
+
+.pos-mid {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+}
+
+
+.pos-middle-v,
+.pos-center-v {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.pos-middle-h,
+.pos-center-h {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+// float
+.fl {
+  float: left;
+}
+
+.fr {
+  float: right;
+}
+
+// clearfix
+.clearfix {
+  zoom: 1;
+
+  &::before,
+  &::after {
+    display: table;
+    content: '';
+  }
+
+  &::after {
+    clear: both;
+  }
+}
+
+.bold {
+  font-weight: bold;
+}
+
+// 溢出...
+.omit {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.o-h {
+  overflow: hidden;
+}
+
+// 文本换行
+.text-wrap {
+  white-space: pre-wrap;
+  word-wrap: break-word;
+}
+
+
+.align-center {
+  align-items: center;
+}
+
+.just-center {
+  justify-content: center;
+}
+
+.full-w {
+  width: 100%;
+}
+
+
+.flex {
+  display: flex
+}
+
+.flex-c {
+  display: flex;
+  align-items: center;
+}
+
+.flex-sb {
+  .flex;
+  .just-sb;
+}
+
+.just-sa{
+  .flex;
+  .just-sa;
+}
+
+.flex-l {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+
+.flex-1 {
+  flex: 1
+}
+
+
+.fd-col {
+  flex-direction: column;
+}
+
+.fd-row {
+  flex-direction: row;
+}
+
+.flex-col {
+  .flex;
+  .fd-col;
+}
+
+.flex-row {
+  .flex;
+  .fd-row;
+}
+
+.flex-c-sb {
+  .flex;
+  .align-center;
+  .just-sb;
+}
+
+.flex-col-sb {
+  .flex-col;
+  .just-sb;
+}
+
+
+.flex-vc {
+  .flex;
+  .align-center;
+}
+
+.flex-start{
+  align-items: flex-start;
+}
+
+
+.flex-hc {
+  .flex;
+  .just-center;
+  .full-w;
+}
+
+.flex-hvc {
+  .flex;
+  .just-center;
+  .align-center;
+}
+
+.just-sb {
+  justify-content: space-between;
+}
+
+.just-sa{
+  justify-content: space-around;
+}
+
+.flex-aside {
+  .flex;
+  .just-sb;
+}
+
+.flex-vc-aside {
+  .flex;
+  .align-center;
+  .just-sb;
+}
+
+// 光标-指针
+.cur-point {
+  cursor: pointer;
+}
+
+// text
+.txt-l {
+  text-align: left;
+}
+
+.txt-r {
+  text-align: right;
+}
+
+.txt-white {
+  color: white;
+}
+
+.txt-white-i {
+  color: white !important;
+}
+
+.txt-grey {
+  color: #666666;
+}
+
+.dis-ib {
+  display: inline-block;
+}
+
+.hide {
+  display: none;
+}
+
+.hide2 {
+  visibility: hidden;
+}
+
+.uline {
+  text-decoration: underline !important;
+}
+
+.aa {
+  text-decoration: underline !important;
+}
+
+.fit {
+  object-fit: contain;
+}
+
+
+.txt-c {
+  text-align: center;
+}
+
+.txt-j {
+  text-align: justify;
+}
+
+.fw-500 {
+  font-weight: 500;
+}
+
+.fw-600 {
+  font-weight: 600;
+}
+
+.border-box {
+  box-sizing: border-box;
+}
+
+.fw-bold {
+  font-weight: bold;
+}
+
+.fw-500 {
+  font-weight: 500;
+}
+
+.fw-600 {
+  font-weight: 600;
+}
+
+.opacity-8 {
+  opacity: 0.8 !important;
+}
+
+.fm-DIN {
+  font-family: DINPro-Bold, Source Han Sans CN, Open Sans, PingFang SC, Microsoft YaHei, Helvetica Neue, Hiragino Sans GB, WenQuanYi Micro Hei, Arial, "sans-serif" !important;
+}
+
+.fm-normal {
+  font-family: Source Han Sans CN, Open Sans, PingFang SC, Microsoft YaHei, Helvetica Neue, Hiragino Sans GB, WenQuanYi Micro Hei, Arial, "sans-serif" !important;
+}
+
+.txt-special {
+  color: #ff5f00;
+}
+
+.a-btn {
+  text-decoration: none;
+  color: #666;
+  text-align: center;
+}
+
+.img-full {
+  .full;
+  object-fit: cover;
+  object-position: center center;
+}
+.bgi-full {
+  .full;
+  background-size: cover;
+  background-position: center center;
+}
+
+.lh32 {
+  line-height: 32mpxvw;
+}
+
+.a-nbl a{
+    text-decoration: none;
+}
+
+.flex-end{
+  justify-content: flex-end;
+}
+
+.l0{
+  line-height: 0!important;
+}

@@ -1,0 +1,11 @@
+{
+    "id": "QC2168-better-draggable-ball",
+    "name": "better-draggable-ball",
+    "version": "1.0.1",
+    "description": "这是一款使用纯TYPESCRIPT开发的可拖拽悬浮球，这意味着它不需要安装其他依赖即可直接导入到你的开发项目当中使用",
+    "keywords": [
+        "拖拽",
+        "悬浮球",
+        "可拖拽悬浮球"
+    ]
+}

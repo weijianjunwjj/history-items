@@ -1,0 +1,15 @@
+page {
+  background: #f6f6f6;
+}
+:deep(uni-page-body) {
+  height: 100%;
+}
+:deep(.wot-theme-light) {
+  height: 100%;
+}
+.communityDetailContainer {
+  width: 100%;
+  background: #f6f6f6;
+  padding: 20rpx 28rpx 158rpx 28rpx;
+  box-sizing: border-box;
+}

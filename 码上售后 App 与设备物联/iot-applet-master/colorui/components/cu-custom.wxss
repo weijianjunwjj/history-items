@@ -1,0 +1,8 @@
+/* colorui/components/cu-custom.wxss */
+.content{
+  font-size: 24rpx;
+  color: #FFFFFF;
+}
+.cu-custom{
+  z-index: 1998;
+}

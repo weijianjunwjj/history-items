@@ -1,0 +1,67 @@
+@font-face {
+  font-family: "iconfont"; /* Project id 3619284 */
+  src: url('iconfont.woff2?t=1661848145792') format('woff2'),
+       url('iconfont.woff?t=1661848145792') format('woff'),
+       url('iconfont.ttf?t=1661848145792') format('truetype');
+}
+
+.iconfont {
+  font-family: "iconfont" !important;
+  font-size: 16px;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-canshu:before {
+  content: "\eb61";
+}
+
+.icon-shebei:before {
+  content: "\ebb7";
+}
+
+.icon-user-weights:before {
+  content: "\e64a";
+}
+
+.icon-detail:before {
+  content: "\e639";
+}
+
+.icon-assigning-roles:before {
+  content: "\e749";
+}
+
+.icon-reset-password:before {
+  content: "\e60a";
+}
+
+.icon-work-order:before {
+  content: "\ec36";
+}
+
+.icon-add-device:before {
+  content: "\e6c8";
+}
+
+.icon-questionnaire:before {
+  content: "\e6df";
+}
+
+.icon-maintenance:before {
+  content: "\e62a";
+}
+
+.icon-dealer:before {
+  content: "\e64b";
+}
+
+.icon-binding:before {
+  content: "\e700";
+}
+
+.icon-unbinding:before {
+  content: "\e702";
+}
+

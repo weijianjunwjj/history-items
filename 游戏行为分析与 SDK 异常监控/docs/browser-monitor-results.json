@@ -1,0 +1,132 @@
+{
+  "harness": "Chromium set_content / native Blob modules / opaque-origin memory fallback. Not native storage persistence.",
+  "results": [
+    {
+      "name": "M01 独立监控应用挂载，固定快照4张循环卡片",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "M02 平台筛选真正改变数据并更新URL",
+      "status": "PASS",
+      "detail": "['25台', '524次'] → ['12台', '234次']"
+    },
+    {
+      "name": "M03 大区切换与平台回显正常，条件不混用",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "M04 类型过滤只影响可见卡片，已选顺序不丢失",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "M05 时间粒度改桶数，指标切换按次数/设备数绘图",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "M06 整段选点→产品分布→全部设备清单，UV/PV一致",
+      "status": "PASS",
+      "detail": "10 台 / 25 次"
+    },
+    {
+      "name": "M07 产品设备数下钻只显示所选产品样本",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "M08 昨日同期使用独立样本，导出真实CSV",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "M09 放大图表复用相同数据与选点能力",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "M10 选择器打开读取当前列表，取消不污染页面",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "M11 搜索/类型筛选与真实拖入可选图表",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "M12 选择器拖拽和按钮排序，确认与页面同步",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "M13 页面拖拽排序后重新打开选择器仍一致",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "M14 图表上限10，点击禁用与拖入校验一致",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "M15 空选择有明确入口，可恢复4卡片",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "M16 本地关注需确认，其他卡片独立且无真实通知",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "M17 复合铃铛打开告警明细，空原因阻断完成",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "M18 分析复选联动去重汇总且原因草稿保留",
+      "status": "PASS",
+      "detail": "两窗口直接相加32台，合并去重24台"
+    },
+    {
+      "name": "M19 告警设备数→返回保留草稿，取消不提交原因/状态",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "M20 模拟处理中→完成→重开回显；其他事件不串改",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "M21 模拟处理按平台隔离，固定快照重算不随机刷新或重置状态",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "M22 卸载清理定时器、返回只恢复1个；配置与笔记同会话恢复",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "M23 导出真实JSON，包含顺序/关注/模拟处理，明确simulation标记",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "M24 键盘选点/Escape与1100、768宽度无横向溢出",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "M25 全程无脚本异常、控制台错误和外部HTTP请求",
+      "status": "PASS",
+      "detail": ""
+    }
+  ],
+  "errors": [],
+  "externalRequests": []
+}

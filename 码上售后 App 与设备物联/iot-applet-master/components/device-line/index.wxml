@@ -1,0 +1,71 @@
+<!--components/device-line/index.wxml-->
+
+<view class="device-line {{className}} flex" bindtap="onTap">
+  <view class="left-border" style="background: {{state.status[item.status].color}};"></view>
+  <view class="content flex-v just-sb">
+    <view class="content-top flex-c-sb">
+      <view class="content-top-left">
+        <view class="txt1">{{item.productName}}</view>
+        <view class="txt2">{{item.sn}}</view>
+      </view>
+      <view class="content-top-right flex-c">
+        <view class="flex-h status-list mr-1">
+          <view class="flex just-sb">
+            <image style="width:24rpx;height:24rpx;margin-right: 4rpx;" src="{{state.status[item.status].icon_path}}"></image>
+            <text style="color:{{state.status[item.status].color}}">{{state.status[item.status].text}}</text>
+          </view>
+
+
+          <view class="flex just-sb" wx:if="{{state.warn[item.status]}}">
+            <image style="width:24rpx;height:24rpx;margin-right: 4rpx;" src="{{state.warn[item.status].icon_path}}" mode="widthFix"></image>
+            <text style="color:{{state.warn[item.status].color}}">{{state.warn[item.status].text}}</text>
+          </view>
+          <view class="flex just-sb" wx:if="{{state.repair[item.status]}}">
+            <image style="width:24rpx;height:24rpx;margin-right: 4rpx;" src="{{state.repair[item.status].icon_path}}" mode="widthFix"></image>
+            <text style="color:{{state.repair[item.status].color}}">{{state.repair[item.status].text}}</text>
+          </view>
+
+        </view>
+
+        <image style="width:80rpx;height: 80rpx;" src="{{item.deviceImage}}" mode="widthFix"></image>
+      </view>
+    </view>
+    <view class="content-bottom">
+      <view class="content-bottom-item">
+        <image class="img-time" src="/images/home-page/time.png" mode="widthFix" bindload="imageLoad"></image>
+        <view>
+          {{item.deviceData.workTime}}
+        </view>
+      </view>
+      <view class="content-bottom-item">
+        <image class="img-area" src="/images/home-page/area.png" mode="widthFix"></image>
+
+        <view>
+          -
+        </view>
+      </view>
+      <view class="content-bottom-item">
+        <image class="img-water" src="/images/home-page/water.png" mode="widthFix"></image>
+        <view>
+          -
+        </view>
+      </view>
+      <view class="content-bottom-item">
+        <image class="img-signal" src="/images/home-page/signal.png" mode="widthFix"></image>
+        <view>
+          -
+        </view>
+      </view>
+      <view class="content-bottom-item">
+        <image class="img-electric" src="/images/home-page/electric.png" mode="widthFix"></image>
+
+        <view>
+          -
+        </view>
+      </view>
+
+
+
+    </view>
+  </view>
+</view>

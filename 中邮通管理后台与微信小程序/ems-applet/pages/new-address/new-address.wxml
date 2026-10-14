@@ -1,0 +1,155 @@
+<view class="new-address">
+  <!-- rightIcon="https://zyt-network.oss-cn-qingdao.aliyuncs.com/images/camera.png" -->
+  <e-input
+    placeholder="请粘贴/输入地址，可智能识别"
+    background="#fff"
+    bind:click-icon="openShow2"
+    bind:updateValue="onInput"
+  ></e-input>
+
+  <view class="form-box mlr-def">
+    <van-cell-group class="my-cell-group" custom-class="my-cell-group bgw">
+      <van-field
+        class="my-field"
+        title-width="125rpx"
+        label="姓名"
+        model:value="{{ form.name }}"
+        placeholder="请输入姓名"
+        border="{{ false }}"
+        error-message="{{ nameErrMsg }}"
+        bind:blur="checkName"
+        bind:change="onChange1"
+      >
+        <view slot="right-icon" class="theme-c fs-26 flex-c">
+          <text style="height: 42rpx;border: 1rpx solid #DFE1E3;"></text>
+          <view class="ml-4" bind:tap="toAddressList">地址簿</view>
+        </view>
+      </van-field>
+      <van-field
+        class="my-field"
+        title-width="125rpx"
+        label="手机号"
+        model:value="{{ form.phone }}"
+        placeholder="请输入手机号"
+        error-message="{{phoneErrMsg}}"
+        border="{{ false }}"
+        bind:blur="checkPhone"
+        bind:change="onChange2"
+      />
+
+      <view class="e-form-group bgw">
+        <view class="title" style="width:125rpx">省市区</view>
+
+        <view class="flex-sb-c flex-1" bindtap="onClickShow">
+          <view class="picker fs-28 {{form.pcr?'black':'c-aaa'}} txt-l pl-6">{{form.pcr||'请选择省市区'}}</view>
+          <image
+            style="width:40rpx;height:40rpx"
+            class="ml-2"
+            src="https://zyt-network.oss-cn-qingdao.aliyuncs.com/images/new-address/arrow-down.png"
+          />
+        </view>
+      </view>
+
+      <van-field
+        disabled="{{disabledAddr}}"
+        type="textarea"
+        class="my-field my-field-addr"
+        title-width="125rpx"
+        label="详细地址"
+        model:value="{{ form.address }}"
+        placeholder="请输入小区/写字楼，可精准定位识别"
+        autosize="{{autosize}}"
+        right-icon="{{!disabledAddr && 'https://zyt-network.oss-cn-qingdao.aliyuncs.com/images/new-address/map.png'}}"
+        border="{{ false }}"
+        bind:click-icon="openLocation"
+        error-message="{{addressErrMsg}}"
+        bind:blur="checkAddress"
+        bind:change="onChange4"
+      />
+
+      <view class="mlr-def">
+        <van-divider custom-style="margin-top: 0px;" />
+
+        <van-checkbox
+          class="fs-26"
+          value="{{ saveAddrChecked }}"
+          bind:change="onChangeSaveAddrChecked"
+          icon-size="16"
+        >{{!edit ? '新增地址保存到地址薄':'修改地址更新到地址薄'}}</van-checkbox>
+      </view>
+
+      <view class="mb-6 hide2">1</view>
+    </van-cell-group>
+  </view>
+
+  <view class="plr-def mt-12 full-vw">
+    <van-button
+      round
+      type="primary"
+      custom-style="width:100%"
+      bind:tap="onSave"
+      wx:if="{{edit==0}}"
+    >保存</van-button>
+    <van-button round type="primary" custom-style="width:100%" bind:tap="onUpdate" wx:else>确认修改</van-button>
+  </view>
+
+  <van-action-sheet
+    show="{{ show }}"
+    title="城市地区"
+    z-index="{{200}}"
+    class="my-action-sheet"
+    bind:close="onClosePop"
+  >
+    <van-search
+      value="{{ searchCity }}"
+      bind:search="onSearch"
+      shape="round"
+      placeholder="请输入省份/城市/市区搜索"
+    />
+
+    <view class="plr-def">
+      <view class="mt-5 mb-2 fs-28 black">热门城市</view>
+
+      <view class="grid-4">
+        <block wx:for="{{hotCitys}}" wx:key="index">
+          <e-button
+            class="{{btnGroup1 === index ? 'theme' : 'grey' }}"
+            data-index="{{index}}"
+            plain="{{btnGroup1 !== index}}"
+            bind:tap="onBtnGroup1Click"
+            customStyle="width: 156rpx;height: 72rpx;"
+          >{{item}}</e-button>
+        </block>
+      </view>
+
+      <van-area
+        class="my-area"
+        value="{{pcrValue}}"
+        area-list="{{ areaList }}"
+        title="城市"
+        cancel-button-text="省份"
+        confirm-button-text="区县"
+        bind:change="onAreaChange"
+      />
+
+      <view class="flex-jc">
+        <e-button
+          class="theme"
+          type="primary"
+          bind:tap="onSaveCity"
+          round
+          customStyle="width: 408rpx;height: 88rpx;font-size: 36rpx;letter-spacing: 5px;"
+        >保存</e-button>
+      </view>
+    </view>
+  </van-action-sheet>
+
+  <van-action-sheet
+    show="{{ show2 }}"
+    actions="{{ actions }}"
+    bind:close="onClose2"
+    bind:select="onSelect2"
+    cancel-text="取消"
+    bind:cancel="onClose2"
+  />
+</view>

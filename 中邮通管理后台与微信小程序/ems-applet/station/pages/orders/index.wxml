@@ -1,0 +1,72 @@
+<view class="orders">
+  <van-search value="{{ idOrNameOrMobile }}" bind:change="onSearch" shape="round" input-align="center" placeholder="请输入单号/寄件人姓名/手机号查询" />
+  <van-tabs active="{{ active }}" bind:change="onTabChange" color="#007f70" animated swipeable sticky>
+    <van-tab title="待揽收">
+      <view class="rel">
+        <van-divider class="mt0" custom-style="margin-top:0;margin-bottom:0" />
+        <view class="btns plr-def bgw" style="padding-top: 14rpx;padding-bottom: 18rpx;">
+          <e-button plain round type="default" class="{{btnActive==0 ? 'easy-theme2' : 'grey2'}} mr-4" customStyle="padding-left:10rpx!important;padding-right:10rpx!important;height:50rpx" bind:tap="onBtnActive" data-active="0" data-order-select="1">
+            全部
+            <block wx:if="{{unGotTotalCount}}">({{unGotTotalCount}})</block>
+          </e-button>
+          <e-button plain round type="default" class="{{btnActive==1 ? 'easy-theme2' : 'grey2'}} mr-4" customStyle="padding-left:10rpx!important;padding-right:10rpx!important;height:50rpx" bind:tap="onBtnActive" data-active="1" data-order-select="2">
+            今日
+            <block wx:if="{{unGotTodayCount}}">({{unGotTodayCount}})</block>
+          </e-button>
+          <e-button plain round type="default" class="{{btnActive==2 ? 'easy-theme2' : 'grey2'}}" customStyle="padding-left:10rpx!important;padding-right:10rpx!important;height:50rpx" bind:tap="onBtnActive" data-active="2" data-order-select="3">
+            已超时
+            <block wx:if="{{unGotOverTimeCount}}">({{unGotOverTimeCount}})</block>
+          </e-button>
+        </view>
+        <block wx:if="{{tab1List.length}}">
+          <view class="mlr-def">
+            <scroll-view scroll-y="true" scroll-top="{{scrollTop}}" bindscrolltolower="bindscrolltolower" lower-threshold="{{ 500 }}" style="width: 100%; height: calc(100vh - 620rpx);">
+              <e-orderList-item wx:for="{{tab1List}}" item="{{item}}" :key="key" data-id="{{item.id}}" data-item="{{item}}" bind:tap="toDetail" />
+            </scroll-view>
+          </view>
+        </block>
+        <block wx:else>
+          <e-empty isPos="{{false}}" text="暂无订单哦~" style="margin-top:204rpx" />
+        </block>
+      </view>
+    </van-tab>
+    <van-tab title="已完成">
+      <view class="rel">
+        <van-divider class="mt0" custom-style="margin-top:0;margin-bottom:0" />
+        <view class="btns plr-def bgw flex-sb-c" style="padding-top: 14rpx;padding-bottom: 18rpx;">
+          <view class="flex-c">
+            <e-button plain round type="default" class="{{btnActive==0 ? 'easy-theme2' : 'grey2'}} mr-4" customStyle="padding-left:10rpx!important;padding-right:10rpx!important;" bind:tap="onBtnActive" data-active="0" data-order-select="4">
+              全部
+              <block wx:if="{{completedTotalCount}}">({{completedTotalCount}})</block>
+            </e-button>
+            <e-button plain round type="default" class="{{btnActive==1 ? 'easy-theme2' : 'grey2'}} mr-4" customStyle="padding-left:10rpx!important;padding-right:10rpx!important;" bind:tap="onBtnActive" data-active="1" data-order-select="5">
+              已取消
+              <block wx:if="{{completedCancelCount}}">({{completedCancelCount}})</block>
+            </e-button>
+            <e-button plain round type="default" class="{{btnActive==2 ? 'easy-theme2' : 'grey2'}}" customStyle="padding-left:10rpx!important;padding-right:10rpx!important;" bind:tap="onBtnActive" data-active="2" data-order-select="6">
+              已揽收
+              <block wx:if="{{completedGotCount}}">({{completedGotCount}})</block>
+            </e-button>
+          </view>
+          <view class="flex-c" bind:tap="onOpen1">
+            <text class="fs-24">{{dateAt}}</text>
+            <image style="width: 34rpx;height:34rpx" src="../../../images/station/time_sel.png" />
+          </view>
+        </view>
+        <block wx:if="{{tab1List.length}}">
+          <view class="mlr-def">
+            <scroll-view scroll-y="true" scroll-top="{{scrollTop2}}" style="width: 100%; height: calc(100vh - 620rpx);" bindscrolltolower="bindscrolltolower" lower-threshold="{{ 500 }}">
+              <e-orderList-item wx:for="{{tab1List}}" item="{{item}}" wx:key="key" data-id="{{item.id}}" data-item="{{item}}" bind:tap="toDetail" />
+            </scroll-view>
+          </view>
+        </block>
+        <block wx:else>
+          <e-empty isPos="{{false}}" text="暂无订单哦~" style="margin-top:204rpx" />
+        </block>
+      </view>
+    </van-tab>
+  </van-tabs>
+  <van-popup show="{{ show1 }}" position="bottom" custom-style="height: 50%" bind:close="onClose1">
+    <van-picker show-toolbar title="选择年月" columns="{{columns}}" bind:cancel="onCancel" bind:confirm="onConfirm" bind:change="onYearChange"></van-picker>
+  </van-popup>
+</view>

@@ -1,0 +1,11 @@
+{
+  "extends": "../tsconfig.json",
+  "compilerOptions": {
+    "paths": {
+      "@/*": ["main/src/*"],
+      "@hx/packages/*": ["packages/*"],
+    },
+  },
+  "include": ["src/**/*", "src/**/*.vue"],
+  "exclude": ["node_modules"]
+}

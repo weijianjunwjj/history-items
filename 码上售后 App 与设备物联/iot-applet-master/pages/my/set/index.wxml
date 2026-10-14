@@ -1,0 +1,76 @@
+<cu-custom isBack="{{true}}">
+  <view slot="content">设置</view>
+</cu-custom>
+
+<view class="my-container">
+  <view class="header">
+    <view class="header-title bold fc-1">
+      个人信息同步
+    </view>
+
+    <view class="header-info flex-c-sb">
+      <view class="flex-c">
+        <image class="circle" style="width: 90rpx;height: 90rpx;" src="{{userInfo.avatar || '/images/portrait.png'}}"></image>
+        <text class="ml-2 fs-16 bold fc-1">{{userInfo.username}}</text>
+      </view>
+
+      <view class="flex-c ">
+        <image class="point" style="width: 32rpx;height: 32rpx;" src="/images/my-page/refresh-wx-info.png"></image>
+        <text class="fs-12 ml-2 def-theme " bindtap="getUserProfile" wx:if="{{canIUseGetUserProfile}}">同步微信消息</text>
+        <text class="fs-12 ml-2 def-theme " bindtap="getUserInfo" wx:else open-type="getUserInfo">同步微信消息</text>
+      </view>
+
+    </view>
+
+  </view>
+
+  <view class="content">
+
+    <view class="title">
+      更多设置
+    </view>
+    <view class="list">
+      <view class="list-item">
+        <view class="list-item-left  align-center">
+          <image style="width: 48rpx;height:48rpx;" src="/images/my-page/about-us.png"></image>
+        </view>
+        <view class="list-item-right ">
+          <view>关于我们</view>
+          <text class="cuIcon-right" bindtap="to_tab1"></text>
+        </view>
+      </view>
+      <view class="list-item">
+        <view class="list-item-left flex align-center">
+          <image style="width: 48rpx;height:48rpx;" src="/images/my-page/version.png">
+            </image>
+        </view>
+        <view class="list-item-right">
+          <view>软件版本</view>
+          <text bindtap="to_tab2" class="cuIcon-right"></text>
+        </view>
+      </view>
+
+      <view class="list-item">
+        <view class="list-item-left flex align-center">
+          <image style="width: 48rpx;height:48rpx;" src="/images/my-page/feedback.png"></image>
+        </view>
+        <view class="list-item-right">
+          <view>意见和建议</view>
+          <text class="cuIcon-right"></text>
+        </view>
+      </view>
+
+      <view class="list-item last-item" bindtap="toLogout">
+        <view class="list-item-left flex align-center">
+          <image style="width: 48rpx;height:48rpx;" src="/images/my-page/logout.png"></image>
+        </view>
+        <view class="list-item-right ">
+          <view>退出登录</view>
+          <text class="cuIcon-right"></text>
+        </view>
+      </view>
+    </view>
+
+  </view>
+
+</view>

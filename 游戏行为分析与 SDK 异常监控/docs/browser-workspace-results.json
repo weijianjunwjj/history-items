@@ -1,0 +1,67 @@
+{
+  "harness": "Chromium set_content / same-build Blob ESM / independent opaque documents with memory fallback; not native storage persistence",
+  "results": [
+    {
+      "name": "W01 四张讲解卡有操作入口，空白不预填历史贡献",
+      "status": "PASS"
+    },
+    {
+      "name": "W02 两张卡内容隔离，切换恢复文字与回忆状态",
+      "status": "PASS"
+    },
+    {
+      "name": "W03 实际导出Markdown保留两张卡、自述边界和历史索引",
+      "status": "PASS"
+    },
+    {
+      "name": "W04 真实页面生成日志和CRM的已保存数据、独立草稿、笔记",
+      "status": "PASS"
+    },
+    {
+      "name": "W05 总备份实际包含配置、未提交草稿、笔记和讲解，不混成一份",
+      "status": "PASS"
+    },
+    {
+      "name": "W06 新文档选文件只预览，不立即写入，恢复需单独确认",
+      "status": "PASS"
+    },
+    {
+      "name": "W07 独立新文档导入后两分区逐条一致，恢复前备份确实下载",
+      "status": "PASS"
+    },
+    {
+      "name": "W08 恢复后进入真实业务，CRM保存与草稿分开，日志草稿和讲解可继续编辑",
+      "status": "PASS"
+    },
+    {
+      "name": "W09 损坏JSON拒绝恢复，工作区逐条未变",
+      "status": "PASS"
+    },
+    {
+      "name": "W10 取消预览不丢当前数据，不暗中导入",
+      "status": "PASS"
+    },
+    {
+      "name": "W11 旧版笔记合并不清空业务／讲解，HTML样式文字不会执行",
+      "status": "PASS"
+    },
+    {
+      "name": "W12 运行检查区分内存和原生，不把一次回读当成跨刷新验证",
+      "status": "PASS"
+    },
+    {
+      "name": "W13 1100和768宽度可操作，无整页横向溢出",
+      "status": "PASS"
+    },
+    {
+      "name": "W14 讲解卡可打开原自动演示，退出后文字未被隔离会话覆盖",
+      "status": "PASS"
+    },
+    {
+      "name": "W15 新链路无脚本异常、控制台错误和外部HTTP请求",
+      "status": "PASS"
+    }
+  ],
+  "errors": [],
+  "external": []
+}

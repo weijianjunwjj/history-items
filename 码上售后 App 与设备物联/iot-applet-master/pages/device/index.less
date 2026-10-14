@@ -1,0 +1,134 @@
+/* pages/device/index.wxss */
+.device-container {
+  .header {
+    height: 284rpx;
+    background:  var(--def-bgc);
+    border-radius: 0px 0px 16px 16px;
+    padding-left: 46rpx;
+
+    .welcome {
+      font-size: 40rpx;
+      color: #FFFFFF;
+    }
+
+    .info {
+      margin-top: 24rpx;
+
+      text {
+        font-size: 24rpx;
+        color: #FFFFFF;
+      }
+
+      image {
+        width: 34rpx;
+      }
+
+
+    }
+  }
+
+  .content {
+    width: 660rpx;
+    margin: auto;
+
+    .status-box {
+      display: flex;
+      height: 112rpx;
+      background: #FFFFFF;
+      box-shadow: 0px 4px 10px 1px rgba(0, 0, 0, 0.10000000149011612);
+      border-radius: 6px 6px 6px 6px;
+      margin: -32rpx auto 0;
+
+      &-item {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        width: 25%;
+        margin: 0;
+
+        .num {
+          font-size: 48rpx;
+          font-weight: normal;
+          color: #3670FF;
+        }
+
+        .status {
+          font-size: 10px;
+          font-weight: normal;
+          color: #4D4D66;
+
+          &-color {
+            display: inline-block;
+            width: 10rpx;
+            height: 10rpx;
+            border-radius: 50%;
+            margin-right: 3px;
+          }
+        }
+      }
+
+
+    }
+
+    &-top {
+      height: 40rpx;
+      margin-top: 36rpx;
+      margin-bottom: 22rpx;
+
+      &-left {
+        font-size: 28rpx;
+        font-weight: 600;
+        color: #4D4D66;
+      }
+
+      &-right {
+        padding: 5rpx;
+        background: #FFFFFF;
+        box-shadow: 0px 3px 8px 1px #E7EDF7;
+        border-radius: 40px 40px 40px 40px;
+
+        image {
+          width: 30rpx;
+          height: 30rpx;
+        }
+        >view{
+          width: 42rpx;
+          height: 42rpx;
+        }
+
+        .list-mode-block1{
+          margin-right: 7rpx;
+        }
+
+        .list-mode-line1 {
+          background: linear-gradient(309deg, #5694FF 0%, #326DFD 100%);
+        }
+
+        .list-mode-block2{
+          background: linear-gradient(309deg, #5694FF 0%, #326DFD 100%);
+          margin-right: 7rpx;
+        }
+
+        .list-mode-line2 {
+        }
+      }
+    }
+
+  }
+
+}
+
+
+.red-point {
+  position: absolute;
+  top: -1px;
+  right: -1px;
+  width: 16rpx;
+  height: 16rpx;
+  border-radius: 50%;
+  background-color: #FF4E33;
+}
+
+
+

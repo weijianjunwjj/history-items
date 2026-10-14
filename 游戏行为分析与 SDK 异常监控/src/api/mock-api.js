@@ -1,0 +1,10 @@
+import {sqlClient} from '../shared/store.js';
+import {trace} from '../shared/trace.js';
+import {analysis,deviceRows,aggregate,groupDetails,moduleRows,paginate,validateContext} from '../domain/queries.js';
+import {DEVICE_COLUMNS,EVENT_COLUMNS} from '../domain/modules.js';
+import {rawTable,toTable} from './mapper.js';
+const wait=(value)=>new Promise(resolve=>setTimeout(()=>resolve(value),90));
+export async function getAnalysis(q,mode){if(sqlClient()){const {result,meta}=await sqlClient().query('analysis',{q,mode});trace('query','getAnalysis',q,{...meta,summary:result.summary});return result;}const value=analysis(q,mode);trace('query','getAnalysis',q,{source:q.dataset==='sdk'?'SDK shared repository':'EBI training fixture',summary:value.summary});return wait(value);}
+export async function getDevices(q,page=1,pageSize=10,group=null){if(sqlClient()){const {result,meta}=await sqlClient().query('devices',{q,page,pageSize,group});trace('query','getDevices',{...q,page,pageSize,group},{...meta,devices:result.total});return result;}validateContext(q);const rows=group?groupDetails(q,group):deviceRows(q);trace('query','getDevices',{...q,page,pageSize,group},{devices:rows.length,events:rows.reduce((n,r)=>n+r.events,0),mapping:'heads + positional rows → toTable'});return toTable(await wait(rawTable(paginate(rows,page,pageSize),DEVICE_COLUMNS.map(c=>c.key))));}
+export async function getGroups(q,fields){if(sqlClient()){const {result,meta}=await sqlClient().query('groups',{q,fields});trace('query','getGroups',{...q,fields},{...meta,groups:result.total});return result;}validateContext(q);const value=aggregate(q,fields);trace('query','getGroups',{...q,fields},{groups:value.total});return wait(value);}
+export async function getModule(q,key,state){if(sqlClient()){const {result,meta}=await sqlClient().query('module',{q,key,state});trace('query','getModule',{...q,module:key},{...meta,records:result.total});return result;}validateContext(q);trace('query','getModule',{...q,module:key},{records:moduleRows(q,key,state).length});return toTable(await wait(rawTable(paginate(moduleRows(q,key,state),state.page,state.pageSize),['id',...EVENT_COLUMNS.map(c=>c.key)])));}

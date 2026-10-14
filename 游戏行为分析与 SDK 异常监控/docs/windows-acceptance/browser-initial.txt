@@ -1,0 +1,30 @@
+
+> youyi-replay-local@0.8.0 test:browser
+> python tests/browser_local.py
+
+Traceback (most recent call last):
+  File "D:\VSCode\history-items\游戏行为分析与 SDK 异常监控\tests\browser_local.py", line 44, in <module>
+    page.goto(base,timeout=15000);expect(page.locator('h1')).to_have_text('业务流程总览');settled(page)
+                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\VSCode\history-items\游戏行为分析与 SDK 异常监控\data\test-tools\playwright\sync_api\_generated.py", line 15528, in to_have_text
+    self._sync(
+  File "D:\VSCode\history-items\游戏行为分析与 SDK 异常监控\data\test-tools\playwright\_impl\_sync_base.py", line 111, in _sync
+    return task.result()
+           ^^^^^^^^^^^^^
+  File "D:\VSCode\history-items\游戏行为分析与 SDK 异常监控\data\test-tools\playwright\_impl\_assertions.py", line 648, in to_have_text
+    await self._expect_impl(
+  File "D:\VSCode\history-items\游戏行为分析与 SDK 异常监控\data\test-tools\playwright\_impl\_assertions.py", line 128, in _expect_impl
+    _record_soft_or_raise(
+  File "D:\VSCode\history-items\游戏行为分析与 SDK 异常监控\data\test-tools\playwright\_impl\_assertions.py", line 60, in _record_soft_or_raise
+    raise error
+AssertionError: Locator expected to have text '业务流程总览'
+Actual value: 业务流程与技术架构 
+Call log:
+  - Expect "to_have_text" locator("h1") with timeout 5000ms
+  - waiting for locator("h1")
+    8 × locator resolved to <h1>业务流程与技术架构</h1>
+      - unexpected value "业务流程与技术架构"
+
+Aria snapshot:
+- heading "业务流程与技术架构" [level=1]
+{"exitCode": 1, "entry": null, "count": 1}

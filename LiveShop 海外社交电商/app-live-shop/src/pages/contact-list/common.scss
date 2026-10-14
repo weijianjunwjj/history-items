@@ -1,0 +1,59 @@
+.noticeItemInfo {
+  margin-bottom: 20rpx;
+  .dynamicItemInfo_leftIcon {
+    position: relative;
+    width: 102rpx;
+    height: 102rpx;
+    margin-right: 32rpx;
+    padding-bottom: 18rpx;
+    box-sizing: border-box;
+    .contactsAdver {
+      width: 102rpx;
+      height: 102rpx;
+      border-radius: 50%;
+    }
+    .contactsSexIcon {
+      position: absolute;
+      width: 32rpx;
+      height: 32rpx;
+      right: 0;
+      bottom: 0;
+    }
+  }
+  .noticeItemInfo_leftIcon {
+    padding-right: 32rpx;
+    padding-bottom: 18rpx;
+    box-sizing: border-box;
+    .lefNoticeIcon {
+      width: 103rpx;
+      height: 102rpx;
+    }
+  }
+  .noticeItemInfo_rigMessage {
+    padding-bottom: 18rpx;
+    box-sizing: border-box;
+    .sysTitle {
+      font-weight: 800;
+      font-size: 32rpx;
+      color: #404040;
+    }
+    .sysTime {
+      font-weight: 500;
+      font-size: 24rpx;
+      color: #404040;
+    }
+    .messageContent {
+      font-weight: 500;
+      font-size: 24rpx;
+      color: #404040;
+      margin-top: 10rpx;
+      // height: 68rpx;
+    }
+    .messageNum {
+      width: 78rpx;
+      :deep(.wd-badge__content) {
+        border: none;
+      }
+    }
+  }
+}

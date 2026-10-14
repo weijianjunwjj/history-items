@@ -1,0 +1,30 @@
+  "tabBar": {
+    "custom": false,
+    "color": "#9092A6",
+    "selectedColor": "#3670FF",
+    "list": [{
+        "pagePath": "pages/device/index",
+        "text": "设备",
+        "iconPath": "/images/tabbar/device.png",
+        "selectedIconPath": "/images/tabbar/device1.png"
+      },
+      {
+        "pagePath": "pages/map/index",
+        "text": "地图",
+        "iconPath": "/images/tabbar/map.png",
+        "selectedIconPath": "/images/tabbar/map1.png"
+      },
+      {
+        "pagePath": "pages/data/index",
+        "text": "数据",
+        "iconPath": "/images/tabbar/data.png",
+        "selectedIconPath": "/images/tabbar/data1.png"
+      },
+      {
+        "pagePath": "pages/my/index",
+        "text": "我的",
+        "iconPath": "/images/tabbar/my.png",
+        "selectedIconPath": "/images/tabbar/my1.png"
+      }
+    ]
+  },

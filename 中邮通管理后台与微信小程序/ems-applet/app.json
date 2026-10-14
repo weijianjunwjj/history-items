@@ -1,0 +1,114 @@
+{
+  "pages": [
+    "pages/online-shipping/online-shipping",
+    "pages/active-detail/active-detail",
+    "pages/order-success-payScore/order-success-payScore",
+    "pages/my/my",
+    "pages/station-master/station-master",
+    "pages/new-address/new-address",
+    "pages/order-history/order-history",
+    "pages/login/login",
+    "pages/order-success/order-success",
+    "pages/bubble-counting-standard/bubble-counting-standard",
+    "pages/china-post-service-agreement/china-post-service-agreement",
+    "pages/address-book/address-book",
+    "pages/order-detail/order-detail",
+    "pages/service-agreement/service-agreement",
+    "pages/prohibited-item/prohibited-item",
+    "pages/scan-code/scan-code",
+    "pages/active-history/active-history",
+    "pages/webview/webview"
+  ],
+  "subPackages": [
+    {
+      "root": "station/",
+      "pages": [
+        "pages/login/login",
+        "pages/orders-detail/index",
+        "pages/home/home"
+      ]
+    }
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "逍遥邮",
+    "navigationBarTextStyle": "black"
+  },
+  "onReachBottomDistance": 200,
+  "usePrivacyCheck":true,
+  "navigateToMiniProgramAppIdList": [
+    "wx487ed7596fe0d9a0"
+  ],
+  "requiredPrivateInfos": [
+    "chooseLocation"
+  ],
+  "permission": {
+    "scope.userFuzzyLocation": {
+      "desc": "你的位置信息将用于小程序定位"
+    },
+    "scope.subscribeMessage": {
+      "desc": "接收订阅消息"
+    }
+  },
+  "navigateToMiniProgramAppIdList": [
+    "wx8abaf00ee8c3202e"
+  ],
+  "networkTimeout": {
+    "request": 5000
+  },
+  "usingComponents": {
+    "van-tab": "@vant/weapp/tab/index",
+    "van-tabs": "@vant/weapp/tabs/index",
+    "van-collapse": "@vant/weapp/collapse/index",
+    "van-collapse-item": "@vant/weapp/collapse-item/index",
+    "van-stepper": "@vant/weapp/stepper/index",
+    "van-dialog": "@vant/weapp/dialog/index",
+    "van-divider": "@vant/weapp/divider/index",
+    "van-area": "@vant/weapp/area/index",
+    "van-notice-bar": "@vant/weapp/notice-bar/index",
+    "van-checkbox": "@vant/weapp/checkbox/index",
+    "van-search": "@vant/weapp/search/index",
+    "van-checkbox-group": "@vant/weapp/checkbox-group/index",
+    "van-radio-group": "@vant/weapp/radio-group/index",
+    "van-radio": "@vant/weapp/radio/index",
+    "van-submit-bar": "@vant/weapp/submit-bar/index",
+    "van-tag": "@vant/weapp/tag/index",
+    "van-action-sheet": "@vant/weapp/action-sheet/index",
+    "van-field": "@vant/weapp/field/index",
+    "van-cell-group": "@vant/weapp/cell-group/index",
+    "van-cell": "@vant/weapp/cell/index",
+    "van-sidebar": "@vant/weapp/sidebar/index",
+    "van-sidebar-item": "@vant/weapp/sidebar-item/index",
+    "van-button": "@vant/weapp/button/index",
+    "van-tabbar": "@vant/weapp/tabbar/index",
+    "van-tabbar-item": "@vant/weapp/tabbar-item/index",
+    "van-grid": "@vant/weapp/grid/index",
+    "van-row": "@vant/weapp/row/index",
+    "van-col": "@vant/weapp/col/index",
+    "van-image": "@vant/weapp/image/index",
+    "van-empty": "@vant/weapp/empty/index",
+    "van-loading": "@vant/weapp/loading/index",
+    "van-popup": "@vant/weapp/popup/index",
+    "van-picker": "@vant/weapp/picker/index",
+    "van-grid-item": "@vant/weapp/grid-item/index",
+    "van-uploader": "@vant/weapp/uploader/index",
+    "van-dropdown-menu": "@vant/weapp/dropdown-menu/index",
+    "van-dropdown-item": "@vant/weapp/dropdown-item/index",
+    "e-pop": "components/e-pop/index",
+    "e-empty": "components/e-empty/index",
+    "e-footer": "components/e-footer/index",
+    "e-button": "components/e-button/index",
+    "e-title": "components/e-title/index",
+    "e-input": "components/e-input/index",
+    "e-pay-score": "components/wx-pay-score/index",
+    "web-socket": "components/web-socket/index",
+    "e-pay": "components/wx-pay/index",
+    "e-dialog": "components/e-dialog/index",
+    "e-orderList-item": "station/components/e-orderList-item/index",
+    "e-status": "station/components/e-status/index",
+    "cu-custom": "colorui/components/cu-custom",
+    "e-card": "components/e-card/index"
+  },
+  "sitemapLocation": "sitemap.json"
+}

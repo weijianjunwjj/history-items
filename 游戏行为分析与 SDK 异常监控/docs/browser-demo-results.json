@@ -1,0 +1,182 @@
+{
+  "harness": "Chromium set_content; same-build native Blob ESM inside srcdoc; isolated in-memory store",
+  "results": [
+    {
+      "name": "D01 总览和全局按钮可进入自动演示",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "D02 独立会话实际加载，默认自动播放可立即暂停，无递归播放器",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "D03 暂停停留当前站，不自动推进",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "D04 第2站真实操作与结果核对",
+      "status": "PASS",
+      "detail": "✓ 实际结果：URL 指向同一个登录异常事件定义"
+    },
+    {
+      "name": "D05 第3站真实操作与结果核对",
+      "status": "PASS",
+      "detail": "✓ 实际结果：字段树已加载 9 个节点"
+    },
+    {
+      "name": "D06 第4站真实操作与结果核对",
+      "status": "PASS",
+      "detail": "✓ 实际结果：列名已实际修改并保存到独立演示内存"
+    },
+    {
+      "name": "D07 第5站真实操作与结果核对",
+      "status": "PASS",
+      "detail": "✓ 实际结果：新列名出现在表头；同源 524 条上报记录"
+    },
+    {
+      "name": "D08 第6站真实操作与结果核对",
+      "status": "PASS",
+      "detail": "✓ 实际结果：212 行计数样本 → 524 次上报 / 25 台设备"
+    },
+    {
+      "name": "D09 第7站真实操作与结果核对",
+      "status": "PASS",
+      "detail": "✓ 实际结果：登录异常卡片读取同源 524 次上报"
+    },
+    {
+      "name": "D10 第8站真实操作与结果核对",
+      "status": "PASS",
+      "detail": "✓ 实际结果：04:00—04:30：10 台设备 / 25 次上报"
+    },
+    {
+      "name": "D11 第9站真实操作与结果核对",
+      "status": "PASS",
+      "detail": "✓ 实际结果：通过跨页核对：10 台 / 25 次，窗口参数完整"
+    },
+    {
+      "name": "D12 第10站真实操作与结果核对",
+      "status": "PASS",
+      "detail": "✓ 实际结果：设备清单保留原时间窗口；目标范围 10 台设备"
+    },
+    {
+      "name": "D13 第11站真实操作与结果核对",
+      "status": "PASS",
+      "detail": "✓ 实际结果：按操作系统聚合，第一组 6 台设备"
+    },
+    {
+      "name": "D14 第12站真实操作与结果核对",
+      "status": "PASS",
+      "detail": "✓ 实际结果：只查看本组 6 台；选中 SDK-DEMO-1-1002，4 次异常"
+    },
+    {
+      "name": "D15 第13站真实操作与结果核对",
+      "status": "PASS",
+      "detail": "✓ 实际结果：SDK-DEMO-1-1002：上游 4 次 = 单用户 4 条"
+    },
+    {
+      "name": "D16 第14站真实操作与结果核对",
+      "status": "PASS",
+      "detail": "✓ 实际结果：实际 getModule 请求、设备 ID、查询参数与结果已显示"
+    },
+    {
+      "name": "D17 第15站真实操作与结果核对",
+      "status": "PASS",
+      "detail": "✓ 实际结果：切换到独立 CRM 应用；没有伪造 SDK → 抽奖业务因果"
+    },
+    {
+      "name": "D18 第16站真实操作与结果核对",
+      "status": "PASS",
+      "detail": "✓ 实际结果：奖品 A → B → A，修改后的名称保留"
+    },
+    {
+      "name": "D19 第17站真实操作与结果核对",
+      "status": "PASS",
+      "detail": "✓ 实际结果：预期校验通过：110% 被阻断，仍停留在奖品设置"
+    },
+    {
+      "name": "D20 第18站真实操作与结果核对",
+      "status": "PASS",
+      "detail": "✓ 实际结果：70% 允许保存；返回列表重开，奖品名称与 20% 概率均保留"
+    },
+    {
+      "name": "D21 第19站真实操作与结果核对",
+      "status": "PASS",
+      "detail": "✓ 实际结果：业务主线 + 技术调用 + CRM 配置闭环均已实际操作完成"
+    },
+    {
+      "name": "D22 全流程完成后停止，不无限循环",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "D23 导出19站实际结果，不把未运行的步骤标为成功",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "D24 跳回事件分析会重建前置现场并核对10台25次",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "D25 上一步恢复监控窗口，不落在错误弹窗状态",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "D26 手动接管停止自动操作并移除高亮",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "D27 手动接管后恢复播放先重建现场",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "D28 退出保留原URL、未保存草稿和笔记",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "D29 自动计时实际推进到下一站，速度切换生效",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "D30 缺少目标按钮会超时停住，不假报成功",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "D31 失败后可以重建并重试当前步骤",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "D32 用户直接点业务界面自动切换手动接管",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "D33 1100/768宽度控制区可见，无整页横向溢出",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "D34 加载时关闭会取消任务，不继续驱动页面",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "D35 无脚本错误、控制台错误、外部HTTP请求",
+      "status": "PASS",
+      "detail": ""
+    }
+  ],
+  "errors": [],
+  "external": []
+}

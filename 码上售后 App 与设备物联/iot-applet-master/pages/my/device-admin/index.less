@@ -1,0 +1,35 @@
+/* pages/my/device-admin/index.wxss */
+
+.list {
+  &-item {
+    height: 196rpx;
+    position: relative;
+    background: #FFFFFF;
+    border-radius: 0px 0px 0px 0px;
+    display: flex;
+    align-items: center;
+    padding: 24rpx 48rpx;
+
+    &::before {
+      content: "";
+      width: calc(100% - 214rpx);
+      border-bottom: 0.5px solid #D8D8D8;
+      position: absolute;
+      bottom: 0px;
+      right: 0;
+    }
+
+
+    &-left {
+      margin-right: 40rpx;
+    }
+
+    &-right {
+      flex: 1;
+      display: flex;
+      justify-content: space-between;
+
+    }
+  }
+
+}

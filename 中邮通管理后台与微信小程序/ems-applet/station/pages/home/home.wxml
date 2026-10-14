@@ -1,0 +1,33 @@
+<view style="display: {{PageCur==='my'?'none':'block'}};">
+  <cu-custom whiteArrow="{{false}}">
+    <view slot="content" class="black">{{title}}</view>
+  </cu-custom>
+</view>
+<!-- wx:if="{{PageCur!=='my'}}" -->
+
+<view wx:if="{{PageCur =='orders'}}">
+  <orders></orders>
+</view>
+<view wx:if="{{ PageCur=='bills' }}">
+  <bills></bills>
+</view>
+<view wx:if="{{ PageCur=='my' }}">
+  <my></my>
+</view>
+<van-tabbar active="{{ active }}" bind:change="onTabChange">
+  <van-tabbar-item wx:for="{{ list }}" wx:key="index">
+    <text style="color:{{active===index?'#007F70':'#B0B0B0'}}">{{item.text}}</text>
+    <image
+      slot="icon"
+      src="{{ item.iconPath }}"
+      mode="aspectFit"
+      style="width: 30px; height: 18px;"
+    />
+    <image
+      slot="icon-active"
+      src="{{ item.selectedIconPath }}"
+      mode="aspectFit"
+      style="width: 30px; height: 18px;"
+    />
+  </van-tabbar-item>
+</van-tabbar>

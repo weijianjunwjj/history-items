@@ -1,0 +1,148 @@
+.page-mt {
+  margin-top: @layout-header-height;
+}
+.page-pt {
+  padding-top: @layout-header-height;
+}
+.m-page-pt {
+  padding-top: @layout-m-header-height;
+}
+
+.page-bgc {
+  background-color: @page-bgc;
+}
+
+.page-pl {
+  padding-left: @header-pl;
+}
+.page-pr {
+  padding-right: @header-pl;
+}
+.m-page-pl {
+  padding-left: @m-header-pl;
+}
+.m-page-pr {
+  padding-right: @m-header-pl;
+}
+
+.page-plr {
+  .page-pl;
+  .page-pr;
+}
+.m-page-plr {
+  .m-page-pl;
+  .m-page-pr;
+}
+
+.page-ml {
+  margin-left: @header-pl;
+}
+.page-mr {
+  margin-right: @header-pl;
+}
+.m-page-mr {
+  margin-right: @m-header-pl;
+}
+.m-page-ml {
+  margin-left: @m-header-pl;
+}
+
+.page-mlr {
+  .page-ml;
+  .page-mr;
+}
+.m-page-mlr {
+  .m-page-ml;
+  .m-page-mr;
+}
+
+.page-menu-pl {
+  padding-left: calc(@header-pl - 20px);
+}
+
+.theme-color {
+  color: @theme-color;
+}
+
+.icon-search {
+  .w(22);
+  .h(22);
+}
+
+.homepage-title {
+  font-size: 48pxvw !important;
+  // font-weight: bold;
+}
+.homepage-sub-title {
+  font-size: 24pxvw !important;
+  font-weight: 500;
+}
+
+.bgs-full {
+  background-size: 100% 100% !important;
+}
+
+.buypop {
+  position: fixed;
+  z-index: 1000;
+  width: 320px;
+  height: 360px;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+  background-color: #fff;
+  box-shadow: 0px 3px 10px 0px rgb(0 0 0 / 20%);
+}
+
+.full-modal {
+  .ant-modal {
+    max-width: 100%;
+    top: 0;
+    padding-bottom: 0;
+    margin: 0;
+  }
+
+  .ant-modal-content {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    z-index: 999;
+  }
+
+  .ant-modal-body {
+    flex: 1;
+  }
+}
+
+
+a.c-888{
+  color: #888888;
+}
+
+a.c-888:hover{
+  color: #888888;
+  text-decoration: none!important;
+}
+
+a.c-aaa{
+  color: #aaaaaa;
+}
+
+a.c-aaa:hover{
+  color: #aaaaaa;
+  text-decoration: none!important;
+}
+
+.police-badge {
+  display: inline-block;
+  width: 20px;
+  padding: 2px;
+  vertical-align: bottom;
+}
+
+// .ant-table-cell:last-child {
+//   padding-right: 0 !important;
+// }

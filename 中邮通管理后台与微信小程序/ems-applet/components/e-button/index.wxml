@@ -1,0 +1,10 @@
+<van-button
+  plain="{{plain}}"
+  loading="{{loading}}"
+  round="{{round}}"
+  type="{{type}}"
+  class="{{className}}"
+  custom-style="{{customStyle}}"
+>
+  <slot />
+</van-button>

@@ -1,0 +1,10 @@
+<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="Group 699">
+<rect id="Rectangle 747" width="24" height="24" fill="white"/>
+<g id="Group 692">
+<path id="Rectangle 739" d="M8.82 18.5997H4C2.89543 18.5997 2 17.7042 2 16.5997V7.88672C2 6.78215 2.89543 5.88672 4 5.88672H8.82" stroke="#FF5F00" stroke-linecap="round"/>
+<path id="Rectangle 742" d="M16.18 18.5997H21C22.1046 18.5997 23 17.7042 23 16.5997V7.88672C23 6.78215 22.1046 5.88672 21 5.88672H16.18" stroke="#FF5F00" stroke-width="0.5" stroke-linecap="round" stroke-dasharray="2 2"/>
+</g>
+<rect id="Rectangle 741" x="12" y="4" width="1" height="17" rx="0.5" fill="#FF5F00"/>
+</g>
+</svg>

@@ -1,0 +1,102 @@
+page {
+  background: #f6f6f6;
+}
+:deep(uni-page-body) {
+  height: 100%;
+  background: #f6f6f6;
+}
+:deep(.wot-theme-light) {
+  height: 100%;
+}
+.myMessagesContainer {
+  width: 100%;
+  padding: 36rpx 28rpx 0 28rpx;
+  box-sizing: border-box;
+  background: #f6f6f6;
+  .tabListCub {
+    width: 100%;
+    padding: 0 140rpx 28rpx 140rpx;
+    box-sizing: border-box;
+    border-bottom: 2rpx solid #efefef;
+    margin-bottom: 16rpx;
+    .tabItem {
+      .tabIcon {
+        width: 81rpx;
+        height: 80rpx;
+      }
+      p {
+        font-weight: 500;
+        font-size: 26rpx;
+        color: #404040;
+      }
+    }
+    .activeTab {
+      p {
+        font-weight: 500;
+        font-size: 26rpx;
+        color: #00dba1;
+      }
+    }
+  }
+
+  .noticeItemInfo {
+    margin-top: 20rpx;
+    .dynamicItemInfo_leftIcon {
+      position: relative;
+      width: 102rpx;
+      height: 102rpx;
+      margin-right: 32rpx;
+      padding-bottom: 18rpx;
+      box-sizing: border-box;
+      .contactsAdver {
+        width: 102rpx;
+        height: auto;
+        aspect-ratio:1/1;
+        border-radius: 50%;
+      }
+      .contactsSexIcon {
+        position: absolute;
+        width: 32rpx;
+        height: 32rpx;
+        right: 0;
+        bottom: 0;
+      }
+    }
+    .noticeItemInfo_leftIcon {
+      padding-right: 32rpx;
+      padding-bottom: 18rpx;
+      box-sizing: border-box;
+      .lefNoticeIcon {
+        width: 103rpx;
+        height: 102rpx;
+      }
+    }
+    .noticeItemInfo_rigMessage {
+      border-bottom: 2rpx solid #efefef;
+      padding-bottom: 18rpx;
+      box-sizing: border-box;
+      .sysTitle {
+        font-weight: 800;
+        font-size: 32rpx;
+        color: #404040;
+      }
+      .sysTime {
+        font-weight: 500;
+        font-size: 24rpx;
+        color: #404040;
+      }
+      .messageContent {
+        font-weight: 500;
+        font-size: 24rpx;
+        color: #404040;
+        margin-top: 10rpx;
+      }
+      .messageNum {
+        width: 78rpx;
+        :deep(.wd-badge__content) {
+          border: none;
+        }
+      }
+    }
+  }
+}

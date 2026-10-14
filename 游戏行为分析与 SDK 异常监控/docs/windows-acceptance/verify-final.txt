@@ -1,0 +1,282 @@
+
+> youyi-replay-local@0.8.0 verify
+> npm run build && npm test && npm run doctor
+
+
+> youyi-replay-local@0.8.0 build
+> node scripts/build.mjs
+
+Built all → dist. Database untouched.
+
+> youyi-replay-local@0.8.0 test
+> node --test tests/domain.test.mjs tests/crm.test.mjs tests/report.test.mjs tests/monitor.test.mjs tests/journey.test.mjs tests/tour.test.mjs tests/recap.test.mjs tests/workspace.test.mjs tests/sql.test.mjs tests/sql-client.test.mjs tests/server.test.mjs
+
+✔ CRM 两个产品组各自合规；跨组概率之和不需≤100% (1.5002ms)
+✔ CRM 75%与恰好100%允许；100.01%定位到超额产品组 (0.3405ms)
+✔ CRM 拒绝空、非数、无穷和负概率 (0.2427ms)
+✔ CRM 低概率余量不自动填充或发奖 (0.2707ms)
+✔ CRM 条件字段留在草稿，非生效字段不进入提交数据 (0.1694ms)
+✔ CRM 实物SKU/游戏资源条件校验，通用组禁用游戏道具 (0.1532ms)
+✔ CRM 限次限天启用时要求正整数，隐藏时不参与校验 (0.159ms)
+✔ CRM 库存必须非负整数且数值字符串正确转换 (0.1857ms)
+✔ CRM 移动奖品保留对象/ID/表单缓存，不串另一组 (0.2981ms)
+✔ CRM 删除选中奖品返回邻居，空组有明确错误 (0.2085ms)
+✔ CRM 基础步骤与全量校验分开，不能跨步绕过空字段 (0.7004ms)
+✔ CRM 保存后新API实例读回；编辑副本不污染保存结果 (1.9249ms)
+✔ CRM 不合规保存不写存储 (0.2406ms)
+✔ CRM 配额失败抛出错误，不能返回成功 (0.2927ms)
+✔ CRM 创建新记录不覆盖原记录并标记已保存 (0.2006ms)
+✔ CRM 提交order依据当前排序生成，且不把存储元数据冒充接口字段 (0.1153ms)
+✔ CRM 重复产品组、奖品ID禁止提交 (0.0964ms)
+✔ CRM 领奖说明为空阻断最终保存 (0.1141ms)
+✔ CRM 存储格式损坏不静默覆盖用户数据 (0.1338ms)
+✔ 固定数据只有脱敏标识，无随机设备断链 (7.0607ms)
+✔ 七模块名与历史配置索引一致 (0.769ms)
+✔ 每会话有序漏斗拒绝逆序和跨会话补齐 (0.5659ms)
+✔ 漏斗区间设备数单调，PV 与 UV 分开 (21.1039ms)
+✔ 所有日期、渠道和步骤下，图表 UV 等于下钻设备列表长度 (35.8945ms)
+✔ 事件 PV/UV 与设备汇总事件次数一致 (21.4637ms)
+✔ 组合分组设备数与弹窗设备精确对应 (37.8387ms)
+✔ 聚合 Top N 披露截断，拒绝空字段和伪字段 (1.2255ms)
+✔ 单设备七模块记录不混入其他设备或日期 (2.6721ms)
+✔ 未知设备返回空列表，非伪造记录 (0.5481ms)
+✔ 模块局部筛选有效，不影响其他模块状态 (0.8572ms)
+✔ 日期有效性与漏斗七天边界 (0.5194ms)
+✔ 分页钳制越界且不修改原数据 (0.2411ms)
+✔ heads/list 转换映射字段与行，不按固定顺序猜测 (0.4965ms)
+✔ 分享快照恢复展开/分页/筛选/列顺序，而非 loaded 缓存 (0.5966ms)
+✔ 畸形分享数据可控拒绝，非法模块状态清理 (0.2659ms)
+✔ URL 中文、空格、特殊字符与分享状态完整往返 (0.6574ms)
+✔ CSV BOM、引号/换行转义、公式注入保护 (0.282ms)
+✔ 异步模拟接口经过 mapper 后保留对应关系 (388.1951ms)
+✔ 普通动作按钮不是表单提交，避免列配置重置分页 (1.7715ms)
+✔ 恢复初始状态清空偏好但保留用户笔记 (0.7981ms)
+✔ 联动源确定：212计数样本→524上报→25设备 (30.2929ms)
+✔ 不同事件/大区/平台/产品/时段 SDK PV UV等于EBI，不只验证首页 (441.3113ms)
+✔ 所有展开行ID唯一，可回指真实模拟计数样本，数量严格为reports (7.4097ms)
+✔ 前一日下钻保持日期，不替换为今日 (7.9874ms)
+✔ 窗口左闭右开，拆分后PV可加、UV不可直接相加 (26.7422ms)
+✔ 链接包含所有筛选约束，URL往返不丢中文与时间窗 (1.1489ms)
+✔ 未知事件/大区/产品/日期/时间窗明确拒绝 (0.6877ms)
+✔ 设备汇总与SDK统计一致，设备列表总PV守恒 (3.9512ms)
+✔ 组合分组→分组设备仍是原记录子集 (5.4439ms)
+✔ 设备下钻异常模块PV等于设备行，不生成额外正常行为 (457.7082ms)
+✔ 异常快照拒绝构造漏斗，旧样本仍支持原漏斗 (21.7743ms)
+✔ 未知SDK设备为零记录，不伪造用户行为 (3.0635ms)
+✔ 联动事件可通过既有配置校验，投影数据来自同一批记录 (11.7879ms)
+✔ 自定义列名顺序不改变事实；未采集字段不乱填 (5.6355ms)
+✔ 配置预览查询设备得到同ID真实子集 (17.71ms)
+✔ 配置保存重开保留dataSource、sdkScope与列配置 (9.0751ms)
+✔ SDK来源与旧EBI练习隔离，不污染正常查询 (7.0734ms)
+✔ 过程请求记录保存真实参数并返回拷贝 (0.3771ms)
+✔ 流程导航保留标识，单用户使用明确设备ID (0.5025ms)
+✔ SDK演示渠道筛选与来源页口径一致 (7.5843ms)
+✔ 空时段不带错误默认设备跳转 (8.3378ms)
+✔ SDK：默认4卡片，目录12项ID唯一，默认偏好独立 (1.0962ms)
+✔ SDK：参数枚举合法，拒绝非法大区平台指标和时间粒度 (0.9561ms)
+✔ SDK：选择不超过10个，去重与ID校验，允许空选择 (0.286ms)
+✔ SDK：选择列表副本不污染原来页面 (0.1439ms)
+✔ SDK：移动稳定ID保留成员，不修改原数组 (0.2081ms)
+✔ SDK：类型筛选只改变可见列表，不改变共享顺序 (0.1788ms)
+✔ SDK：固定样本可重复，全部为模拟设备与合法日期 (19.5917ms)
+✔ SDK：大区筛选隔离，系统分区合并等于全量 (10.3662ms)
+✔ SDK：日期筛选、边界时段无效均拒绝 (3.4107ms)
+✔ SDK：左闭右开分桶，无重复无遗漏 (54.286ms)
+✔ SDK：不同粒度不改变区间总数，桶数匹配 (25.4991ms)
+✔ SDK：PV各桶相加等于全区间，UV不能直接按桶相加 (3.0135ms)
+✔ SDK：各产品分布与图表口径一致（样本每台设备归属唯一产品） (3.1439ms)
+✔ SDK：昨天对比来自另一日样本，不伪造百分比 (4.9349ms)
+✔ SDK：设备明细去重与分布总数完全一致 (10.9096ms)
+✔ SDK：空条件结果的统计、设备列表可稳定返回 (0.176ms)
+✔ SDK：告警样例规则独立于图表粒度和指标，最多4窗口 (12.5681ms)
+✔ SDK：告警多选分析跨窗口按设备去重，不直接相加 (14.5006ms)
+✔ SDK：模拟处理按事件大区平台隔离 (0.2293ms)
+✔ SDK：处理完成原因必填，200字符上限、非法状态阻断 (2.8056ms)
+✔ SDK：草稿不污染已保存，处理独立复制 (0.2763ms)
+✔ SDK：序列化和偏好回读保持排序关注与模拟处理 (0.2493ms)
+✔ SDK：不合法偏好降级为默认，不启用未知通知键 (0.1217ms)
+✔ SDK：定时器默认关闭，重复启用不增加实例 (0.1706ms)
+✔ SDK：隐藏、返回、卸载清理页面定时器，5分钟周期 (0.1207ms)
+✔ SDK：时间标签和区间边界可读 (0.0454ms)
+✔ recap: four tracks have known evidence and actionable routes, CRM stays separate (0.9222ms)
+✔ recap: blank form never preclaims contribution or generates historical metrics (1.3383ms)
+✔ recap: unknown statuses normalize without prototype access; entries bounded (0.1629ms)
+✔ recap: export preserves own narrative and corrections, not just canned descriptions (0.2232ms)
+✔ recap: separate values are normalized as independent copies (0.2167ms)
+✔ recap: reset preferences retains notes and recap while removing business data (2.3493ms)
+✔ 日志配置：固定样本字段与事件通过完整校验 (2.2431ms)
+✔ 日志配置：字段名称、别名、类型、产品和上报枚举验证 (0.3279ms)
+✔ 日志配置：基础字段必填，新事件不能直接保存 (0.9786ms)
+✔ 日志配置：复制字段快照与通用库相互独立 (0.2572ms)
+✔ 日志配置：禁止重复同级别名，但不同父节点可同名 (0.5291ms)
+✔ 日志配置：字段树递归路径与动态层级正确 (0.3226ms)
+✔ 日志配置：不能给标量增加子节点 (0.1683ms)
+✔ 日志配置：父级移动防自身、后代环，失败不修改原树 (0.6429ms)
+✔ 日志配置：移动时深度计入整个子树 (0.3279ms)
+✔ 日志配置：上级移动保留稳定引用与三套配置 (0.6121ms)
+✔ 日志配置：新增目标不合法和冲突别名均禁止 (0.5472ms)
+✔ 日志配置：三个区域克隆配置，加入不会移动源字段 (0.4085ms)
+✔ 日志配置：supportQuery=false 或对象字段不能进入查询区域 (0.4112ms)
+✔ 日志配置：区域拒绝重复字段和原型键 (0.3838ms)
+✔ 日志配置：列表和查询显示文案独立校验 (0.3899ms)
+✔ 日志配置：列宽和查询操作符根据类型验证 (0.3175ms)
+✔ 日志配置：排序保持对象缓存，其他区域不受影响 (0.3537ms)
+✔ 日志配置：删除子树清理全部区域引用而不影响其他字段 (0.4066ms)
+✔ 日志配置：数据类型与children冲突不能保存 (0.2638ms)
+✔ 日志配置：提交根据当前顺序生成order，排除存储元数据 (0.5303ms)
+✔ 日志配置：语义变更检测包括排序，恢复原值则无变更 (0.4608ms)
+✔ 日志配置：保存后新API实例回读，草稿不污染保存结果 (3.6504ms)
+✔ 日志配置：没有变化不写存储也不增加版本 (0.5788ms)
+✔ 日志配置：新字段创建，编辑原ID与产品内别名唯一 (1.456ms)
+✔ 日志配置：新事件创建不覆盖其他事件且别名产品内唯一 (0.8447ms)
+✔ 日志配置：不合规或配额不足不返回保存成功 (0.586ms)
+✔ 日志配置：损坏存储不静默恢复覆盖 (0.2117ms)
+✔ 日志配置：预览的列表过滤与详情共用固定样本 (1.2235ms)
+✔ 日志配置：数值查询真实生效，无效数字不命中 (0.5863ms)
+✔ 日志配置：配置被删除后旧的隐藏查询值不限制结果 (0.2894ms)
+(node:53684) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+(Use `node --trace-warnings ...` to show where the warning was created)
+✔ HTTP: real server starts and reports SQLite (65.685ms)
+✔ HTTP: bootstrap and SQL snapshots come from the real repository (457.8835ms)
+✔ HTTP: parameterized SQL query preserves 10 / 25 and reports source (9.4847ms)
+✔ HTTP: missing token, cross-site origin and wrong Host are rejected (11.3852ms)
+✔ HTTP: database files, server code and path traversal are not served (11.1836ms)
+✔ HTTP: invalid methods and body types return explicit errors (6.9475ms)
+✔ HTTP: all six independent micro-app entries and manifests are available (46.939ms)
+✔ HTTP: CSP keeps scripts and connections local; external sites cannot frame the app (2.9001ms)
+✔ HTTP + browser client code: CRM save acknowledgement, relational rows and fresh-client hydration (12.963ms)
+✔ HTTP + browser client code: event edit, SQL projection, and draft separation survive fresh hydration (12.317ms)
+✔ HTTP: stale client write returns 409 and does not mutate other keys (6.3401ms)
+✔ SQL client: accepted cache writes are pending, not database saved (6.1589ms)
+✔ SQL client: newer typing while request is in flight is never discarded (0.8135ms)
+✔ SQL client: ambiguous network failure retries the EXACT same idempotent request (1.3151ms)
+✔ SQL client: conflict is visible, keeps local unsaved data and does not force overwrite (0.6077ms)
+✔ SQL client: storage probe is temporary and never sent as a workspace mutation (0.3295ms)
+✔ SQL client: local and draft partitions do not overwrite each other (0.5161ms)
+✔ SQL client: repeated unchanged assignment does not create another commit (0.5818ms)
+✔ SQL client: rejected writes never advance the saved revision (1.8468ms)
+(node:34656) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+(Use `node --trace-warnings ...` to show where the warning was created)
+✔ SQL: schema, real relational tables, deterministic seed (2.2783ms)
+✔ SQL: actual SUM / COUNT DISTINCT = 10 devices, 25 reports (1.7933ms)
+✔ SQL: event analysis and ordered normal funnel preserve old semantics (79.23ms)
+✔ SQL: scope combinations agree with the existing SDK domain (51.8187ms)
+✔ SQL: paging, grouping, same-device four-record drill-down (5.0493ms)
+✔ SQL: data is really read from SQL, not a JS fixture fallback (0.4846ms)
+✔ SQL: unknown and injection-looking device IDs select no rows (0.4283ms)
+✔ SQL: notes and saved CRM update in one transaction and populate prize rows (1.9076ms)
+✔ SQL: idempotent commit retry does not increment revisions twice (0.9235ms)
+✔ SQL: stale same-key writes cannot overwrite; transaction remains atomic (0.9894ms)
+✔ SQL: independent keys from different windows can commit without a false global conflict (0.5515ms)
+✔ SQL: invalid saved business config rolls back both snapshot and projections (1.0949ms)
+✔ SQL: allowlist, prototype and broken JSON validation fail closed (0.4842ms)
+✔ SQL: deletion tombstones stop stale re-creation; config reset restores original projection (0.9263ms)
+✔ SQL: legacy v0.7 portable backup can become a single SQL transaction (0.6348ms)
+✔ SQL: on-disk state survives a NEW Node process, including a path with spaces and Chinese (1254.1453ms)
+✔ SQL: VACUUM INTO produces a readable consistent SQLite backup, not JSON renamed (182.1046ms)
+✔ SQL: actual page-generated CRM/report/draft/recap backup passes server transaction validation (259.8426ms)
+✔ tour:19 uniquely named steps explicitly separate business, technical and CRM tracks (1.7802ms)
+✔ tour:start creates a fresh environment and executes the first business step (1.8467ms)
+✔ tour:auto mode schedules one advance, never one timer per render (8.0143ms)
+✔ tour:pause clears auto timer and resume schedules exactly one (0.5839ms)
+✔ tour:speed changes dwell without executing more actions (0.3535ms)
+✔ tour:manual next remains paused and reuses current environment (0.4057ms)
+✔ tour:jump recreates prerequisites without timed narration and keeps only executed receipts (0.542ms)
+✔ tour:previous rebuilds reproducible state rather than relying on changed DOM (0.5021ms)
+✔ tour:takeover aborts actions, clears clock, and prevents normal next (0.3905ms)
+✔ tour:business action failure stops and cannot create a fake successful receipt (0.4425ms)
+✔ tour:retry reconstructs the current failed step (0.4041ms)
+✔ tour:pause while loading finishes only the current atomic action (2.7439ms)
+✔ tour:late action completion after close cannot restart playback (0.7878ms)
+✔ tour:cancelled step result cannot contaminate a new playback (0.678ms)
+✔ tour:final auto transition reaches complete, without cycling (0.7818ms)
+✔ tour:invalid jumps fail explicitly, snapshots do not expose mutable receipts (1.0233ms)
+✔ tour:sandbox never even accesses native localStorage/sessionStorage (2.4908ms)
+✔ tour:source iframe sandbox detection needs no inline script or native storage (1.4466ms)
+✔ backup: roundtrip saved configs, monitor, drafts, notes and recap exactly (12.1782ms)
+✔ backup: only app allowlist is exported; foreign and unsupported keys excluded (0.8959ms)
+✔ backup: restoring replaces owned keys but never clears foreign keys (0.7734ms)
+✔ backup: empty workspace is a valid deliberate reset, counted as zero (0.7163ms)
+✔ backup: invalid JSON and oversized file fail without mutation (16.3653ms)
+✔ backup: unknown schema version or module-specific export is rejected (1.5437ms)
+✔ backup: foreign key and wrong partition fail closed (0.3557ms)
+✔ backup: duplicate keys and invalid stored JSON are rejected (1.2281ms)
+✔ backup: prototype keys inside raw payload or stored JSON are rejected (0.482ms)
+✔ backup: incomplete activity or event array fails before changing any storage (3.1008ms)
+✔ backup: structure guards allow unfinished but structurally valid drafts (5.1383ms)
+✔ backup: old notes JSON merges notes only and preserves business/recap/session (0.9794ms)
+✔ backup: old notes cannot smuggle arbitrary object values or unknown note ids (0.3432ms)
+✔ backup: forged merge flag cannot apply to business data (1.2701ms)
+✔ backup: single quota failure rolls both stores back to exact prior contents (0.9687ms)
+✔ backup: persistent storage rejection reports incomplete rollback honestly (0.7993ms)
+✔ backup: export snapshot contains raw copies, not live references (0.4638ms)
+✔ backup: excess nesting and overlong recap fields are rejected (0.964ms)
+✔ backup: silent dropped write cannot be reported as success (0.7634ms)
+ℹ tests 197
+ℹ suites 0
+ℹ pass 197
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 3644.9766
+
+> youyi-replay-local@0.8.0 doctor
+> node scripts/doctor.mjs
+
+(node:12360) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+(Use `node --trace-warnings ...` to show where the warning was created)
+{
+  "ok": true,
+  "checks": [
+    {
+      "check": "Node",
+      "status": "PASS",
+      "value": "v24.14.1"
+    },
+    {
+      "check": "数据库目录写入权限",
+      "status": "PASS"
+    },
+    {
+      "check": "SQLite schema / seed / quick_check",
+      "status": "PASS",
+      "tables": [
+        {
+          "name": "behavior_records",
+          "rows": 12923
+        },
+        {
+          "name": "sdk_samples",
+          "rows": 36720
+        },
+        {
+          "name": "crm_activities",
+          "rows": 2
+        },
+        {
+          "name": "crm_prizes",
+          "rows": 4
+        },
+        {
+          "name": "report_fields",
+          "rows": 8
+        },
+        {
+          "name": "report_events",
+          "rows": 1
+        },
+        {
+          "name": "workspace_state",
+          "rows": 5
+        }
+      ]
+    },
+    {
+      "check": "构建入口",
+      "status": "PASS",
+      "note": "npm start 会自动构建"
+    }
+  ],
+  "boundary": "命令行自检不等于浏览器端或Windows/macOS验收。"
+}

@@ -1,0 +1,5 @@
+<view class="e-status flex-c" style="background:{{item.bgc}}">
+  <image src="{{item.icon}}" style="margin-right: 5rpx;width: 28rpx;height:28rpx" />
+
+  <text style="color:{{item.color}};font-size:26rpx">{{item.text}}</text>
+</view>

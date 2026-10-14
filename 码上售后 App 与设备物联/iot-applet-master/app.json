@@ -1,0 +1,47 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/device/index",
+    "pages/device/detail/index",
+    "pages/login/sms-login/index",
+    "pages/running-log/index",
+    "pages/running-log/detail/index",
+    "pages/my/index",
+    "pages/my/device-admin/index",
+    "pages/my/device-admin/device-share/index",
+    "pages/my/notice/index",
+    "pages/my/set/index",
+    "pages/map/index",
+    "pages/map/device-map-list/index",
+    "pages/login/index",
+    "pages/data/index"
+  ],
+  "window": {
+    "navigationStyle": "custom",
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#5694FF",
+    "navigationBarTitleText": "设备物联云",
+    "navigationBarTextStyle": "black"
+  },
+  "permission": {
+    "scope.userLocation": {
+      "desc": "你的位置信息将用于小程序位置接口的效果展示"
+    }
+  },
+  "usingComponents": {
+    "loading":"components/loading/index",
+    "cu-custom": "colorui/components/cu-custom",
+    "van-button": "@vant/weapp/button/index",
+    "van-tabbar": "@vant/weapp/tabbar/index",
+    "van-tabbar-item": "@vant/weapp/tabbar-item/index",
+    "van-grid": "@vant/weapp/grid/index",
+    "van-row":"@vant/weapp/row/index",
+    "van-col":"@vant/weapp/col/index",
+    "van-image":"@vant/weapp/image/index",
+    "van-empty":"@vant/weapp/empty/index",
+    "van-loading":"@vant/weapp/loading/index",
+    "van-popup":"@vant/weapp/popup/index",
+    "van-grid-item": "@vant/weapp/grid-item/index"
+  },
+  "sitemapLocation": "sitemap.json"
+}

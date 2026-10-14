@@ -1,0 +1,127 @@
+.flexAlign {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+:deep(uni-page-body) {
+  height: 100%;
+  background: #f6f6f6;
+}
+
+:deep(.wot-theme-light) {
+  height: 100%;
+}
+
+page {
+  background: #f6f6f6;
+}
+
+.convertRecordContainer {
+  box-sizing: border-box;
+  width: 100%;
+  padding-bottom: 20rpx;
+  background: #f6f6f6;
+
+  .searchHeadInputBox {
+    box-sizing: border-box;
+    padding: 32rpx 48rpx;
+
+    .wdCustomSearchInputClass {
+      height: 78rpx;
+      padding: 0;
+      background: #ffffff;
+      border: 2rpx solid #d4d4d4;
+      border-radius: 40rpx 40rpx 40rpx 40rpx;
+
+      :deep(.wd-search__block) {
+        background: none;
+      }
+    }
+  }
+
+  .recoredListInfoBox {
+    box-sizing: border-box;
+    padding: 0 14px;
+
+    .recordList_itembox {
+      box-sizing: border-box;
+      padding: 24rpx 10px;
+      margin-bottom: 16rpx;
+      background: #ffffff;
+
+      .recordGoodsInfo {
+        display: flex;
+
+        .recordgoods_img {
+          border-radius: 16rpx;
+
+          .regoodsImg {
+            border-radius: 14rpx;
+            width: 93px !important;
+            height: 93px !important;
+          }
+        }
+
+        .recordgoods_content {
+          display: flex;
+          flex: 1;
+          flex-direction: column;
+          justify-content: space-between;
+          margin-left: 22rpx;
+
+          .record_title {
+            width: calc(100vw - 155px);
+            word-break: break-word;
+            font-size: 14px;
+            font-weight: 500;
+            color: #313131;
+          }
+
+          .record_num {
+            display: flex;
+            flex: 1;
+            align-items: center;
+            font-size: 14px;
+            font-weight: 400;
+            color: #959595;
+          }
+
+          .record_time {
+            display: flex;
+            align-items: center;
+            font-size: 14px;
+            font-weight: 400;
+            color: #959595;
+          }
+        }
+      }
+
+      .recodeBotttom {
+        box-sizing: border-box;
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        padding-top: 16rpx;
+        margin-top: 26rpx;
+        font-size: 16px;
+        font-weight: 600;
+        color: #313131;
+        border-top: 2rpx solid #efefef;
+
+        .recordIconimg {
+          width: 16px;
+          height: 15px;
+          margin-right: 4rpx;
+        }
+
+        .recordCoinIconimg {
+          margin-bottom: 3px;
+          width: 16px;
+          height: 16px;
+          margin-right: 4rpx;
+        }
+      }
+    }
+  }
+}

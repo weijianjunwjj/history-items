@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link
+      rel="shortcut icon"
+      type="image/x-icon"
+      href="./src/assets/images/title.ico"
+    />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>码上售后 - 客服系统</title>
+  </head>
+  <body>
+    <div id="app"></div>
+    <script type="module">
+      const env = import.meta.env
+      window.SITE_CONFIG = {
+        ...env,
+        title: '码上售后 - 客服系统',
+        dynamicAttrHasAdded: false,
+      }
+    </script>
+    <script type="module" src="/debug/GenerateTestUserSig.js"></script>
+    <script
+      type="module"
+      src="/debug/lib-generate-test-usersig.min.js"
+    ></script>
+    <script src="https://map.qq.com/api/gljs?v=1.exp&libraries=service&key=V3GBZ-WISL5-XCVIW-QZIZG-DRRLF-BLBQF"></script>
+    <!--定位-->
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>

@@ -1,0 +1,30 @@
+<view class="sms-login-container">
+  <cu-custom fixed="{{true}}" isBack="{{true}}">
+  </cu-custom>
+  <view class="header">
+    <view>
+      <image class="logo" mode="widthFix" src="../../../images/logo.png"></image>
+      <text class="title">设备物联云</text>
+    </view>
+  </view>
+
+  <view class="form-box">
+    <view class="form-box-title">短信验证码登录</view>
+    <view class="cu-form-group">
+      <view class="title">手机号</view>
+      <input placeholder="请输入手机号" bindblur="mobileInput" value="{{form.mobile}}" maxlength="11" type="number" placeholder-class="placeholderStyle"></input>
+    </view>
+    <view class="cu-form-group">
+      <view class="title">验证码</view>
+      <input placeholder="短信验证码" value="{{form.smsCode}}" maxlength="5" type="number" placeholder-class="placeholderStyle"></input>
+      <van-button class="sms-btn ml-3" bindtap="sendCode" disabled="{{smsFlag}}" style="color:{{sendColor}}">
+        {{sendTime}}
+      </van-button>
+    </view>
+    <van-button class="login-btn" bindtap="onLogin">登录</van-button>
+
+    <view class="read">
+      登录即表示您已阅读并同意<text class="terms">《注册会员服务条款》</text>
+    </view>
+  </view>
+</view>

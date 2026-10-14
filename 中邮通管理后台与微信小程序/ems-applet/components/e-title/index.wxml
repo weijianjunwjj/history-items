@@ -1,0 +1,4 @@
+<view class="e-title">
+  <view class="line"></view>
+  <view class="title">{{ text }}</view>
+</view>

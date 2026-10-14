@@ -1,0 +1,22 @@
+{
+  "menuBo": {
+    "perms": [],
+    "permsType": "and",
+    "role": [
+      "服务商",
+      "超级管理员"
+    ],
+    "roleType": "yes",
+    "type": 1,
+    "icon": "trophy-1",
+    "parentId": 1,
+    "access": 2,
+    "name": "test",
+    "url": "/test",
+    "orderNum": "1"
+  },
+  "pageBo": {
+    "pageSize": 5,
+    "pageNum": 1
+  }
+}

@@ -1,0 +1,100 @@
+{
+  "id": "3619284",
+  "name": "测试项目",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon-",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "3868257",
+      "name": "调试",
+      "font_class": "canshu",
+      "unicode": "eb61",
+      "unicode_decimal": 60257
+    },
+    {
+      "icon_id": "4506836",
+      "name": "设备管理",
+      "font_class": "shebei",
+      "unicode": "ebb7",
+      "unicode_decimal": 60343
+    },
+    {
+      "icon_id": "417389",
+      "name": "会员等级",
+      "font_class": "user-weights",
+      "unicode": "e64a",
+      "unicode_decimal": 58954
+    },
+    {
+      "icon_id": "1371933",
+      "name": "详情",
+      "font_class": "detail",
+      "unicode": "e639",
+      "unicode_decimal": 58937
+    },
+    {
+      "icon_id": "14303335",
+      "name": "分配角色",
+      "font_class": "assigning-roles",
+      "unicode": "e749",
+      "unicode_decimal": 59209
+    },
+    {
+      "icon_id": "524416",
+      "name": "重置密码",
+      "font_class": "reset-password",
+      "unicode": "e60a",
+      "unicode_decimal": 58890
+    },
+    {
+      "icon_id": "5769241",
+      "name": "工单确认",
+      "font_class": "work-order",
+      "unicode": "ec36",
+      "unicode_decimal": 60470
+    },
+    {
+      "icon_id": "8361811",
+      "name": "添加设备",
+      "font_class": "add-device",
+      "unicode": "e6c8",
+      "unicode_decimal": 59080
+    },
+    {
+      "icon_id": "9874538",
+      "name": "KHCFDC_问卷",
+      "font_class": "questionnaire",
+      "unicode": "e6df",
+      "unicode_decimal": 59103
+    },
+    {
+      "icon_id": "11016137",
+      "name": "维保",
+      "font_class": "maintenance",
+      "unicode": "e62a",
+      "unicode_decimal": 58922
+    },
+    {
+      "icon_id": "29186479",
+      "name": "经销商销售数据",
+      "font_class": "dealer",
+      "unicode": "e64b",
+      "unicode_decimal": 58955
+    },
+    {
+      "icon_id": "19397056",
+      "name": "gis_绑定",
+      "font_class": "binding",
+      "unicode": "e700",
+      "unicode_decimal": 59136
+    },
+    {
+      "icon_id": "19397072",
+      "name": "gis_解绑",
+      "font_class": "unbinding",
+      "unicode": "e702",
+      "unicode_decimal": 59138
+    }
+  ]
+}

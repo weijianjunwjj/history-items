@@ -1,0 +1,11 @@
+<cu-custom  isBack="{{true}}">
+  <view slot="content">运行日志</view>
+</cu-custom>
+
+<view class="container">
+  <list-group wx:for="{{list}}" title="{{item.title}}" list="{{item.content}}"  data-item="{{item}}" />
+</view>
+
+<van-empty wx:if="{{!list.length}}" description="暂无数据" />
+
+

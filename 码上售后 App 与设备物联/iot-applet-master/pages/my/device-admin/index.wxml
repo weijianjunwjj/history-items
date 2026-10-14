@@ -1,0 +1,39 @@
+<cu-custom isBack="{{true}}">
+  <view slot="content">设备管理</view>
+</cu-custom>
+
+<view class="container">
+  <view class="list-item" wx:for="{{list}}"  data-item="{{item}}" bindtap="toDetail">
+    <view class="list-item-left">
+      <image style="width:128rpx;" mode="widthFix"  src="{{item.deviceImage}}"></image>
+    </view>
+
+    <view class="list-item-right flex-c-sb">
+      <view>
+        <view class="fs-12 bold">{{item.productName}}</view>
+        <view class="fs-10 mt-2">
+          {{item.sn}}
+        </view>
+      </view>
+      <view>
+        <block wx:if="{{!item.ownerStatus}}">
+          <view class="flex-c">
+            <view class="circle def-theme-bgc mr-2  fs-10 flex-hvc" style="width: 32rpx;height:32rpx;color: #fff;">
+            {{item.shareNum}}
+            </view>
+          <text class="cuIcon-right" ></text>
+          </view>
+        </block>
+
+        <block wx:else>
+            <view class="fs-10 bold" style="color:#F78E16">
+              共享的设备
+            </view>
+        </block>
+
+
+
+      </view>
+    </view>
+  </view>
+</view>

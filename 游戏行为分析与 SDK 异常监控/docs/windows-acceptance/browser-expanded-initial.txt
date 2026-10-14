@@ -1,0 +1,22 @@
+
+> youyi-replay-local@0.8.0 test:browser
+> python tests/browser_local.py
+
+PASS L01 真实HTTP启动与SQLite初始化；无内存后备
+PASS L02 数据库页面真实SQL核对10台/25次
+PASS L03 浏览器刷新后正式配置与未提交草稿仍分开
+PASS L04 服务进程重启并刷新后SQL配置与笔记保留
+PASS L05 SQL事件分析→10台设备→同设备4条异常
+PASS L06 工作区JSON预览/确认/SQL事务恢复
+PASS L07 写请求故障不假报成功，恢复后幂等重试；焦点在SQL重试按钮时Escape仍关闭复盘
+PASS L07b SQL提交后响应丢失仍不报成功，同请求ID重试不重复写入
+PASS L08 EBI独立入口可启动并读取同一个SQL服务
+PASS X01 日志嵌套树与三配置区域SQL保存刷新恢复，非法查询和空文案拦截
+Traceback (most recent call last):
+  File "D:\VSCode\history-items\游戏行为分析与 SDK 异常监控\tests\browser_local.py", line 102, in <module>
+    run_extra(page,ctx,base,settled,data,ok,OUT)
+  File "D:\VSCode\history-items\游戏行为分析与 SDK 异常监控\tests\browser_acceptance_checks.py", line 165, in run_extra
+    assert cards() == expected_cards
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError
+{"exitCode": 1, "entry": {"status": "PASS"}, "count": 11}

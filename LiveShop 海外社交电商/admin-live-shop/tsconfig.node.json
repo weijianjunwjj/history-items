@@ -1,0 +1,29 @@
+{
+    "compilerOptions": {
+        "jsx": "react",
+        "composite": true,
+        "esModuleInterop": true,
+        "allowSyntheticDefaultImports": true,
+        "skipLibCheck": true,
+        "module": "ESNext",
+        "moduleResolution": "node",
+        "baseUrl": "./",
+        "paths": {
+            "@/*": [
+                "src/*"
+            ],
+            "__ROOT__/*": [
+                "*"
+            ]
+        }
+    },
+    "include": [
+        "src/**/*.ts",
+        "src/**/*.d.ts",
+        "src/**/*.tsx",
+        "src/**/*.vue",
+        "config/index.ts",
+        "src/components.d.ts",
+        "src/auto-import.d.ts"
+, "src/view/goods/center/data.ts.bak"    ]
+}

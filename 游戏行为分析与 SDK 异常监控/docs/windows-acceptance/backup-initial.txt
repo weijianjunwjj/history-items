@@ -1,0 +1,7 @@
+
+> youyi-replay-local@0.8.0 db:backup
+> node scripts/database.mjs backup
+
+(node:48424) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+(Use `node --trace-warnings ...` to show where the warning was created)
+已生成一致性SQLite备份：D:\VSCode\history-items\游戏行为分析与 SDK 异常监控\data\backups\replay-2026-10-14T04-06-33-861Z.sqlite

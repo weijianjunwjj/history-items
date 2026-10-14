@@ -1,0 +1,5 @@
+<view class="center mt-2" wx:if="{{!show}}">
+  <van-loading color="var(--def-theme)" size="24px" vertical>
+    <text class="def-theme">加载中...</text>
+  </van-loading>
+</view>

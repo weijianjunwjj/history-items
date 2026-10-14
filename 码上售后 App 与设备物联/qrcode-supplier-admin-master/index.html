@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link
+      rel="shortcut icon"
+      type="image/x-icon"
+      href="./src/assets/images/title.ico"
+    />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, user-scalable=no"  />
+    <title>IoTive智慧物联</title>
+    <script src="https://map.qq.com/api/gljs?v=1.exp&libraries=service&key=V3GBZ-WISL5-XCVIW-QZIZG-DRRLF-BLBQF"></script>
+  </head>
+  <body>
+    <div id="app"></div>
+    <script type="module">
+      //全局钩子
+      const env = import.meta.env
+      window.SITE_CONFIG = {
+        ...env,
+        apiURL: env.VITE_API_BASE_URL,
+        dev: env.VITE_USER_NODE_ENV === 'dev',
+        dynamicMenuRoutesHasAdded: false,
+      }
+      //  console.log(`window.SITE_CONFIG`, window.SITE_CONFIG)
+    </script>
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>

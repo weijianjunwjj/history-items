@@ -1,0 +1,17 @@
+FROM node:iron-alpine3.20 AS builder
+LABEL authors="zhaoxiang"
+
+WORKDIR /build
+
+RUN npm config set registry https://registry.npmmirror.com/
+RUN npm install -g pnpm
+COPY . .
+
+RUN pnpm install
+RUN pnpm run test
+
+FROM nginx:alpine3.20-slim
+
+COPY --from=builder /build/dist/ /usr/share/nginx/html/
+
+EXPOSE 80

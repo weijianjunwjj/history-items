@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "device-card": "/components/device-card/index",
+    "device-line": "/components/device-line/index"
+  }
+}

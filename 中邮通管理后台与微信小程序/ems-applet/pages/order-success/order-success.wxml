@@ -1,0 +1,89 @@
+<view class="order-success">
+  <view class="box m-def p-def bgw txt-c br-16">
+    <view class="mod1 flex-vc">
+      <image
+        class
+        style="width:224rpx;height:224rpx"
+        src="https://zyt-network.oss-cn-qingdao.aliyuncs.com/images/order-success.png"
+      />
+      <text class="black" style="font-size:44rpx">下单成功</text>
+    </view>
+
+    <view class="mod2 flex-vc">
+      <!-- <text class="fs-28 c-777 mt-10">预计上门时间：明天09:00-12:00</text> -->
+
+      <view class="fs-26 c-aaa mt-10 mb-10 my-red flex">
+        <image
+          style="width:38rpx;height:34rpx;margin-top:1px"
+          class="mr-2"
+          src="https://zyt-network.oss-cn-qingdao.aliyuncs.com/images/order-success/pour.png"
+        />
+        <text>预计明天微信提醒支付邮费\n逾期支付的包裹会退回！</text>
+      </view>
+    </view>
+
+    <view class="mod3">
+      <view class="flex-sb-c mb-2">
+        <van-button
+          round
+          plain
+          type="primary"
+          custom-style="width:280rpx;height:90rpx"
+          bind:tap="checkOrder"
+        >查看订单</van-button>
+        <van-button
+          round
+          type="primary"
+          custom-style="width:280rpx;height:90rpx"
+          bind:tap="anotherOrder"
+        >再来一单</van-button>
+      </view>
+    </view>
+  </view>
+
+  <view class="m-def bgw" style="border-radius: 16rpx;">
+    <van-notice-bar
+      class="my-notice-bar"
+      left-icon="https://zyt-network.oss-cn-qingdao.aliyuncs.com/images/alert.png"
+      text="下单后支付运费，未支付的包裹会退回哦！"
+      scrollable="{{false}}"
+    />
+  </view>
+
+  <van-dialog
+    use-slot
+    title="{{null}}"
+    show="{{ show1 }}"
+    showConfirmButton="{{false}}"
+    bind:close="onClose6"
+    round
+    class="my-dialog6"
+    custom-class="my-dialog6-class"
+  >
+    <view class="show6-dialog rel flex-vc">
+      <view class="white txt-c full-w">
+        <view class="fs-36 mt-10 mb-3">重要通知</view>
+        <view class="fs-28">已下单成功!</view>
+      </view>
+
+      <view class="main fs-28">
+        <view style="margin-top:40px">1.明天8点后微信推送运费支付</view>
+        <view style="margin-top:20px">2.您还可以搜索【逍遥邮】小程序支付</view>
+        <view style="margin-top:20px" class="my-red">3.逾期支付的包裹会退回! ! !</view>
+      </view>
+
+      <e-button
+        type="primary"
+        class="theme btn-br-48 fs-28 mt-9 mb-10"
+        customStyle="width:280px;height: 44px;"
+        bindtap="gotIt"
+      >知道了</e-button>
+
+      <image
+        bindtap="gotIt"
+        class="close"
+        src="https://zyt-network.oss-cn-qingdao.aliyuncs.com/images/order-success/icon-close.png"
+      />
+    </view>
+  </van-dialog>
+</view>

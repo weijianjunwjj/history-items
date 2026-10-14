@@ -1,0 +1,262 @@
+.flexAlign {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.flex_cn {
+  display: flex;
+  align-items: center;
+}
+.moneyTxt {
+  color: #fba345; 
+  font-weight: 600; 
+  font-size: 20px
+}
+.money{
+	font-size: 16px;
+	font-style: normal;
+	font-weight: 600;
+	color:#313131;
+}
+.flex_cn_bw {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+:deep(uni-page-body) {
+  height: 100%;
+  background: #f6f6f6;
+}
+.confirmShopOrder {
+  width: 100%;
+  height: 100%;
+  padding-bottom: constant(safe-area-inset-bottom);
+  padding-bottom: env(safe-area-inset-bottom);
+  background: #f6f6f6;
+	&-status{
+		background: #000000;
+		padding: 38rpx 62rpx;
+		padding-bottom: 78rpx;
+		margin-bottom: -76rpx;
+		.status-text {
+			font-size: 34rpx;
+			font-weight: bold;
+			color: #fff;
+		}
+
+		.status-desc {
+			font-size: 28rpx;
+			color: #c9e4dd;
+		}
+	}
+  .confirmShopOrder_contenter {
+    box-sizing: border-box;
+    padding: 20rpx 28rpx 160rpx 28rpx;
+
+    .confirmShopAddressInfo {
+      margin-bottom: 20rpx;
+      box-sizing: border-box;
+      padding: 30rpx 20rpx;
+      padding-bottom: 20rpx;
+      background: #ffffff;
+      display: flex;
+      position: relative;
+			align-items: flex-start;
+      border-radius: 16rpx;
+      .broderBottomLine {
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+        height: 4rpx;
+        left: 0;
+      }
+
+			.addressRightArea{
+				flex:1;
+				display:flex;
+				align-items:center;
+				.emptyAddress{
+					flex:1;
+					display:flex;
+					justify-content: space-between;
+					.title{
+						color:#313131;
+            font-size: 16px;
+            font-weight: 400;
+					}
+					.content{
+						color:#959595;
+            font-size: 14px;
+            font-weight: 400;
+					}
+				}
+				.addressInfoTextContent {
+				  flex: 1;
+				  margin-right: 30rpx;
+				  p {
+				    font-weight: 400;
+				    font-size: 28rpx;
+				    color: #959595;
+
+				    span {
+				      display: inline-block;
+				      padding: 8rpx 10rpx;
+				      box-sizing: border-box;
+				      background: #000000;
+				      font-weight: 400;
+				      font-size: 20rpx;
+				      color: #ffffff;
+				      margin-right: 10rpx;
+				    }
+				  }
+				  .addressDetails {
+            width: calc(100vw - 84px - 26px);
+            font-weight: 600;
+            font-size: 32rpx;
+            color: #313131;
+
+            display: -webkit-box; /* 创建弹性盒子布局 */
+            -webkit-box-orient: vertical; /* 设置为垂直方向 */
+            -webkit-line-clamp: 2; /* 限制为两行 */
+            word-break: break-word;
+            overflow: hidden; /* 隐藏溢出的内容 */
+            text-overflow: ellipsis; /* 显示省略号 */
+				  }
+				}
+			}
+
+    }
+
+    .productInfomation {
+      box-sizing: border-box;
+      display: flex;
+      padding: 30rpx 28rpx;
+      border-radius: 16rpx;
+      background: #ffffff;
+      .confirmShopLefImgbox {
+        width: 162rpx;
+        .shopGoodsImg {
+          width: 100%;
+          border-radius: 8px;
+        }
+      }
+      .confirmShopContent {
+        width: 446rpx;
+        display: flex;
+        flex: 1;
+        flex-direction: column;
+        margin-left: 42rpx;
+        .shop_title {
+          font-size: 14px;
+          font-weight: 500;
+          color: #313131;
+        }
+        .shop_specil {
+          flex: 1;
+          font-weight: 400;
+          font-size: 28rpx;
+          color: #afafaf;
+          padding-top: 20rpx;
+          box-sizing: border-box;
+        }
+        .shop_desc {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          font-size: 32rpx;
+          font-weight: bold;
+          color: #313131;
+          .shop_desctextIconimg {
+            width: 16px;
+            height: 15px;
+            margin-right: 4rpx;
+          }
+          .shop_desctextCoinIconimg {
+            width: 16px;
+            height: 16px;
+            margin-right: 4rpx;
+          }
+          p {
+            font-weight: 400;
+            font-size: 28rpx;
+            color: #afafaf;
+          }
+        }
+      }
+    }
+    .productPricesGroups_top_border {
+      border-radius: 16rpx 16rpx 0 0;
+    }
+    .productPricesGroups {
+      box-sizing: border-box;
+      margin-top: 22rpx;
+      background: #ffffff;
+      &-itemsLone {
+        margin-bottom: 30rpx;
+        font-size: 32rpx;
+        font-weight: bold;
+        color: #313131;
+        &:last-child {
+          margin: 0;
+        }
+        .proprig_label {
+          font-size: 28rpx;
+          font-weight: 400;
+          color: #313131;
+        }
+        .proprig_labelValue {
+          display: flex;
+          font-size: 28rpx;
+          font-weight: 400;
+          color: #959595;
+        }
+        .textIconimg {
+          width: 16px;
+          height: 15px;
+          margin-right: 4rpx;
+        }
+        .textCoinIconimg {
+          width: 16px;
+          height: 16px;
+          margin-right: 4rpx;
+        }
+      }
+    }
+  }
+  .confirmShopOrder_bottombtnbox {
+    position: fixed;
+    bottom: 0;
+    box-sizing: border-box;
+    width: 100%;
+    padding: 14rpx 28rpx 50rpx 48rpx;
+    background: #ffffff;
+    display: flex;
+    align-items: center;
+    .speciBotLeftmoney {
+      font-weight: 400;
+      font-size: 36rpx;
+      color: #313131;
+      .specimoneyIconimg {
+        width: 16px;
+        height: 15px;
+        margin-right: 4rpx;
+      }
+      .specimoneyCoinIconimg {
+        width: 16px;
+        height: 16px;
+        margin-right: 4rpx;
+      }
+    }
+    .specipopSureBtn {
+      width: 240rpx;
+      height: 80rpx;
+      background: #000000;
+      margin: 0;
+    }
+  }
+}
+
+.productPricesGroups-marginTop {
+  margin-top: 0 !important;
+  border-radius: 0 0 16rpx 16rpx;
+}

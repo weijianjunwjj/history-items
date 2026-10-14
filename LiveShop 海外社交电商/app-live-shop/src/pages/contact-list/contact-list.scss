@@ -1,0 +1,44 @@
+page {
+  background: #f6f6f6;
+}
+:deep(uni-page-body) {
+  height: 100%;
+  background: #f6f6f6;
+}
+:deep(.wot-theme-light) {
+  height: 100%;
+}
+.myMessagesContainer {
+  width: 100%;
+  padding: 36rpx 28rpx 0 28rpx;
+  box-sizing: border-box;
+  background: #f6f6f6;
+  .tabListCub {
+    width: 100%;
+    padding: 0 0 28rpx 0;
+    box-sizing: border-box;
+    border-bottom: 2rpx solid #efefef;
+    margin-bottom: 36rpx;
+    .tabItem {
+      width: 33.333%;
+      .tabIcon {
+        width: 81rpx;
+        height: 80rpx;
+      }
+      p {
+        font-weight: 500;
+        font-size: 26rpx;
+        color: #404040;
+      }
+    }
+    .activeTab {
+      p {
+        font-weight: 500;
+        font-size: 26rpx;
+        color: #00dba1;
+      }
+    }
+  }
+
+
+}

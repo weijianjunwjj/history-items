@@ -1,0 +1,110 @@
+.container {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100vw;
+  padding-bottom: env(safe-area-inset-bottom);
+
+  .inputArea {
+    background-color: #fff;
+    padding: 20rpx 28rpx;
+
+    .messageInput {
+      background-color: #F7F7F7;border-radius: 12rpx;width: 468rpx;height: 64rpx;
+    }
+
+    .voiceButton {
+      height: 64rpx;
+      width: 468rpx;
+      border-radius: 12rpx;
+      border: 2rpx solid #DFDFDF;
+      background-color: #F7F7F7;
+      font: {
+        size: 28rpx;
+        weight: 400;
+      }
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .isSpeaking {
+      background-color: #00DBA1;
+      border: none;
+    }
+
+    .icon {
+      height: 60rpx;
+
+    }
+
+    .voice {
+      margin-right: 18rpx;
+    }
+
+    .emoji {
+      margin-left: 18rpx;
+      margin-right: 5rpx;
+    }
+
+
+    .send {
+      margin-left: 5rpx;
+    }
+  }
+
+  //  面板部分
+  .panel {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #fff;
+    height: 266rpx;
+    padding: 0 60rpx;
+
+    &_item {
+      display: flex;
+      align-items: center;
+      flex-direction: column;
+
+      &_icon {
+        width: 112rpx;
+        height: 112rpx;
+        border-radius: 16rpx;
+        background-color: #F7F7F7;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        .icon {
+          height: 64rpx;
+        }
+      }
+
+      &_text {
+        margin-top: 16rpx;
+        font: {
+          size: 28rpx;
+          weight: 400;
+        }
+        color: #4D4D4D;
+      }
+    }
+  }
+
+  //  表情选择
+  .emojiPanel {
+    width: calc(100vw - 88rpx);
+    height: 500rpx;
+    background-color: #FFFFFF;
+    padding: 0 44rpx 22rpx 44rpx;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    display: grid;
+    grid-template-columns: repeat(8, 1fr);
+    grid-gap: 24rpx;
+    align-items: center;
+    justify-items: center; /* 水平居中 */
+  }
+
+}

@@ -1,0 +1,7 @@
+{
+  "usingComponents": {},
+  "navigationBarTitleText": "订单记录",
+  "enablePullDownRefresh": false ,
+  "backgroundTextStyle": "dark", 
+  "navigationBarBackgroundColor": "#fff"
+}

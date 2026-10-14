@@ -1,0 +1,42 @@
+{
+  "name": "@hx/main",
+  "description": "Arco Design Pro for Vue",
+  "version": "1.0.0",
+  "private": true,
+  "author": "ArcoDesign Team",
+  "license": "MIT",
+  "scripts": {
+    "dev": "vite --config ./config/vite.config.ts",
+    "build:dev": "vite build --mode production.dev --config ./config/vite.config.ts",
+    "build": "vite build --config ./config/vite.config.ts",
+    "report": "cross-env REPORT=true npm run build",
+    "lint-staged": "npx lint-staged",
+    "lint": "eslint src/**/*.{vue,js,jsx,ts,tsx} --fix"
+  },
+  "dependencies": {
+    "@hx/packages": "workspace:^1.0.0",
+    "@types/js-cookie": "^3.0.2",
+    "@types/moment": "^2.13.0",
+    "@types/qs": "^6.9.7",
+    "ck-color-picker": "^0.0.8",
+    "el-color-picker": "^1.1.0",
+    "js-cookie": "^3.0.1",
+    "moment": "^2.29.3",
+    "moment-duration-format": "^2.3.2",
+    "qs": "^6.10.3",
+    "tim-js-sdk": "^2.15.0",
+    "tim-upload-plugin": "^1.0.3",
+    "trtc-calling-js": "^1.0.3",
+    "trtc-js-sdk": "^4.11.10",
+    "tsignaling": "^0.9.0",
+    "unplugin-auto-import": "^0.7.1",
+    "vue-i18n": "^9.2.0-beta.17"
+  },
+  "devDependencies": {
+    "@types/moment-duration-format": "^2.2.3",
+    "@types/trtc-calling-js": "^0.6.2",
+    "vite-plugin-html": "^3.2.0",
+    "vite-plugin-style-import": "1.4.1",
+    "vite-plugin-vue-setup-extend": "^0.4.0"
+  }
+}

@@ -1,0 +1,55 @@
+@font-face {
+  font-family: "DINPro-Bold";
+  font-weight: normal;
+  src: url("https://osswebsite.yadea.com.cn/font/DINPro-Bold.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "DINPro";
+  font-weight: normal;
+  src: url("https://osswebsite.yadea.com.cn/font/DINPro.otf") format("truetype");
+}
+
+@font-face {
+  font-family: "HYQiHei-55J";
+  src: url("../fonts/HYQiHei-55J.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "HYQiHei-65J";
+  src: url("../fonts/HYQiHei-65J.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "HYQiHei";
+  font-weight: 400;
+  src: url("../fonts/HYQiHei-55J.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "HYQiHei";
+  font-weight: 500;
+  src: url("../fonts/HYQiHei-55J.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "HYQiHei";
+  font-weight: 600;
+  src: url("../fonts/HYQiHei-65J.ttf") format("truetype");
+}
+
+html,
+body {
+  font-family: HYQiHei !important;
+  /* font-family: Source Han Sans SC, PingFang SC, Microsoft YaHei, Helvetica Neue,
+    Hiragino Sans GB, WenQuanYi Micro Hei, Arial, "sans-serif" !important; */
+}
+
+.HYQiHei {
+  font-family: HYQiHei-55J;
+}
+
+.HYQiHei-bold {
+  font-weight: 500;
+  font-family: HYQiHei-65J;
+}

@@ -1,0 +1,76 @@
+<!--pages/map/map.wxml-->
+<cu-custom isBack="{{false}}">
+  <view slot="content">设备地图</view>
+</cu-custom>
+
+<image class="fixed ml-1" style="width: 130rpx;z-index: 111;" mode="widthFix" src="/images/map-more.png" bindtap="deviceMapList"></image>
+
+<view class="bgBox" id="titleBox" style="min-height: {{ navbarBtn.height + navbarBtn.top }}px;">
+  <van-icon class="returnBtn" style="height:{{ navbarBtn.height }}px; top:{{ navbarBtn.top }}px; left: 20px;" name="../../images/device/mapDrawer.png" catchtap="toDeviceList" size="50rpx" />
+</view>
+
+<view class="pageBox">
+  <view class="map">
+    <map id="myMap" style="width: 100%; height: 100%;" scale="{{ mapData.scale }}" latitude="{{ mapData.latitude }}" longitude="{{ mapData.longitude }}" markers="{{ mapData.markers }}" show-location bindmarkertap="onMarkerChange"></map>
+  </view>
+</view>
+<van-popup show="{{ popVisible }}" round position="bottom" overlay="{{ false }}" custom-style="height: 35%;z-index:0;margin-bottom:50px;border-radius: 25px 25px 0px 0px;" bind:close="onClose">
+  <view class="popConatiner" bindtouchstart="touchStart" bindtouchmove="touchMove">
+    <view class="flex-sb">
+      <view class="info-box-text">
+        <view class="mb-1 fc-2 fs-12">
+          {{detail.sn}}
+        </view>
+        <view class="mb-1 fc-1 fs-14 bold">
+          {{detail.productName}}
+        </view>
+        <view class="fs-12 fc-1">
+          {{detail.customName}}
+        </view>
+      </view>
+      <view class="info-box-img">
+        <van-image width="75" height="75" fit="contain" src="{{detail.deviceImage}}">
+        </van-image>
+        <!-- <image style="width:150rpx;height: 150rpx;"   src="{{detail.deviceImage}}"></image> -->
+      </view>
+    </view>
+
+    <view class="flex-sb">
+      <view class="flex status-list">
+        <view class="flex-c just-sb">
+          <image style="width:24rpx;height:24rpx;margin-right: 4rpx;" src="{{state.status[detail.status].icon_path}}"></image>
+          <text style="color:{{state.status[detail.status].color}}">{{state.status[detail.status].text}}</text>
+        </view>
+        <view class="flex-c  just-sb" wx:if="{{state.warn[detail.status]}}">
+          <image style="width:24rpx;height:24rpx;margin-right: 4rpx;" src="{{state.warn[detail.status].icon_path}}" mode="widthFix"></image>
+          <text style="color:{{state.warn[detail.status].color}}">{{state.warn[detail.status].text}}</text>
+        </view>
+        <view class="flex-c  just-sb" wx:if="{{state.repair[detail.status]}}">
+          <image style="width:24rpx;height:24rpx;margin-right: 4rpx;" src="{{state.repair[detail.status].icon_path}}" mode="widthFix"></image>
+          <text style="color:{{state.repair[detail.status].color}}">{{state.repair[detail.status].text}}</text>
+        </view>
+      </view>
+      <view class="def-theme bold" bindtap="lookDetail">
+        查看详情
+        <text class="cuIcon-right "></text>
+      </view>
+    </view>
+    <scroll-view scroll-x="true" enable-flex="true" class="nowrap mt-3 mb-2" style="width:100%;height: 130rpx;">
+      <view class="card mr-2" wx:for="{{device_info}}" key="{{item.key}}">
+        <view class="flex-c">
+          <!-- <van-image class="mr-1" width="12.83" height="12.83" src="/images/home-page/time.png">
+          </van-image> -->
+          <view >
+            {{item.name}}
+          </view>
+        </view>
+        <view>{{detail.deviceData[item.key]}}{{item.unit}}</view>
+      </view>
+    </scroll-view>
+    <view class="flex-c">
+      <text class="cuIcon-locationfill fc-3"></text>
+      <text class="fs-12 fc-2 ml-1">{{address}}</text>
+    </view>
+
+  </view>
+</van-popup>

@@ -1,0 +1,8 @@
+<view class="flex-c">
+  <image
+    style="width:34rpx;height:32rpx"
+    class="mr-2"
+    src="https://zyt-network.oss-cn-qingdao.aliyuncs.com/images/page1/wechatpay.png"
+  />
+  <view class="picker fs-24 c-777">微信支付</view>
+</view>

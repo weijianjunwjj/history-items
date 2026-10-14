@@ -1,0 +1,442 @@
+<view class="order-history">
+  <wxs module="m2">
+    var isShowPays=function (item){
+    return ( item.prepayResponse && item.orderStatus != -1) || (item.payType===1 && item.orderStatus != -1)
+    }
+    var isShowPays2=function (item){
+    return ( item.prepayResponse && item.settleStatus !== 1 ) || (item.payType===1 && item.orderStatus != -1)
+    }
+    var isShowPaysTip=function (item){
+    return item.payType==1 && item.settleStatus!=1 && item.orderStatus!=-1
+    }
+    module.exports.isShowPays=isShowPays
+    module.exports.isShowPays2=isShowPays2
+    module.exports.isShowPaysTip=isShowPaysTip
+  </wxs>
+  <view>
+    <van-search
+      value="{{ searchValue }}"
+      shape="round"
+      placeholder="请输入快递单号/收发件人姓名/收发件人电话"
+      bind:change="onSearch"
+    />
+    <view style="margin-top:-10px"></view>
+    <van-tabs
+      active="{{ active }}"
+      bind:change="onTabChange"
+      color="#007f70"
+      animated
+      swipeable
+      sticky
+    >
+      <van-tab title="待支付({{ total2 }})">
+        <block wx:if="{{ payList.length }}">
+          <scroll-view
+            scroll-y="true"
+            refresher-enabled="{{ true }}"
+            refresher-triggered="{{ refresherTriggered2 }}"
+            bindrefresherpulling="refresherpulling2"
+            bindrefresherrefresh="refresherrefresh2"
+            bindscrolltolower="bindscrolltolower2"
+            lower-threshold="{{ lowerThreshold2 }}"
+            style="width: 100%; height: calc(100vh - 90px - 64px);"
+          >
+            <e-card wx:for="{{ payList }}" wx:key="index">
+              <view class="p-def rel" data-id="{{ item.orderId }}">
+                <!-- <image
+                  class="top-right"
+                  src="https://zyt-network.oss-cn-qingdao.aliyuncs.com/images/order-history/top-right.png"
+                />-->
+                <view>
+                  <text class="fs-24 black">
+                    <text class="mr-2">{{ item.masked==0 ? Express[item.cpCode] : '****'}}</text>
+                    <text>{{item.waybillCode}}</text>
+                  </text>
+                  <e-button
+                    class="grey ml-3 fs-20 c-777"
+                    customStyle="width: 60rpx;height: 34rpx;padding:0"
+                    catch:tap="copyC"
+                    data-text="{{ item.waybillCode }}"
+                  >复制</e-button>
+                </view>
+                <view class="flex-c mt-3">
+                  <view class="flex-vc w33">
+                    <text class="fs-36 black">{{item.sendName}}</text>
+                    <text class="fs-24 c-777 mt-2">{{item.sendCity}}</text>
+                  </view>
+                  <view class="w33 flex-jc">
+                    <image
+                      style="width: 84rpx;height:84rpx"
+                      src="https://zyt-network.oss-cn-qingdao.aliyuncs.com/images/order-history/arrow-right3.png"
+                    />
+                  </view>
+                  <view class="flex-vc w33">
+                    <text class="fs-36 black">{{item.recipientName}}</text>
+                    <text class="fs-24 c-777 mt-2">{{item.recipientCity}}</text>
+                  </view>
+                </view>
+                <view class="info fs-24">
+                  <view class="mt-9">
+                    <text class="info-label c-777">收件地址：</text>
+                    <text class="info-value c-333">{{item.recipientAddress}}</text>
+                  </view>
+                  <view class="mt-3">
+                    <text class="info-label c-777">下单时间：</text>
+                    <text class="info-value c-333">{{item.createAt}}</text>
+                  </view>
+                  <view class="mt-3">
+                    <text class="info-label c-777">订单号：</text>
+                    <text class="info-value c-333">{{item.id}}</text>
+                  </view>
+                  <view class="mt-3" wx:if="{{ item.courierName }}">
+                    <text class="info-label c-777">快递员信息：</text>
+                    <text class="info-value c-333">
+                      <text class="mr-4">{{item.courierName}}</text>
+                      <text style="color: #0062DE;">{{item.courierPhone}}</text>
+                    </text>
+                  </view>
+                  <view class="mt-3 flex">
+                    <text class="info-label c-777">付款方式：</text>
+                    <e-pay-score wx:if="{{ item.payType===1 }}" />
+                    <e-pay wx:else />
+                  </view>
+                  <view class="mt-3 flex-sb" wx:if="{{ m2.isShowPays(item) }}">
+                    <view class="flex-c">
+                      <text class="info-label c-777">支付状态：</text>
+                      <text class="info-value green" wx:if="{{ item.settleStatus==1 }}">已支付</text>
+                      <text class="info-value red" wx:else>待支付</text>
+                    </view>
+                    <view class="red">¥ {{item.totalFee || '---'}}</view>
+                  </view>
+                  <view class="mt-3 flex" wx:if="{{m2.isShowPaysTip(item) }}">
+                    <text class="info-label c-777">代扣提醒：</text>
+                    <text
+                      class="info-value c-333 flex-1"
+                      style="text-align:left"
+                    >请保持微信余额充足，稍后微信会自动代扣</text>
+                  </view>
+                </view>
+                <van-divider />
+                <van-collapse
+                  value="{{ item.activeNames }}"
+                  bind:close="onClose"
+                  bind:open="onOpen"
+                  class="my-collapse"
+                >
+                  <van-collapse-item
+                    name="{{ index }}"
+                    data-index="{{ index }}"
+                    class="my-collapse-item"
+                    right-icon="1"
+                  >
+                    <view slot="title">
+                      <view class="flex-c">
+                        <text class="fs-24 flex-c">更多</text>
+                        <image
+                          style="width:40rpx;height:40rpx"
+                          src="https://zyt-network.oss-cn-qingdao.aliyuncs.com/images/order-history/arrow-bottom.png"
+                          class="{{ item.activeNames.length ? 'reverse-v' : '' }}"
+                        />
+                      </view>
+                    </view>
+                    <view class="sub-content">
+                      <view class="flex-sb-c">
+                        <text class="info-label c-777" style="width:251rpx">下单重量：</text>
+                        <text class="info-value c-333">{{item.packageInfoDto.weight || '---'}}kg</text>
+                      </view>
+                      <view class="flex-sb-c">
+                        <text class="info-label c-777" style="width:251rpx">网点实际计费重量：</text>
+                        <text class="info-value c-333">{{item.orderWeight || '---'}}kg</text>
+                      </view>
+                      <view class="flex-sb-c">
+                        <text class="info-label c-777" style="width:251rpx">最终支付运费：</text>
+                        <text class="info-value c-333">¥ {{item.totalFee || '---'}}</text>
+                      </view>
+                    </view>
+                    <view slot="value">
+                      <view class="right {{item.payType===0 && 'flex-c'}}">
+                        <e-button
+                          round
+                          plain
+                          class="grey fs-24 black"
+                          customStyle="width: 140rpx;height: 50rpx;"
+                          data-item="{{ item }}"
+                          catch:tap="toDetail"
+                        >订单详情</e-button>
+                        <e-button
+                          round
+                          plain
+                          class="grey ml-3 fs-24 orange"
+                          customStyle="width: 140rpx;height: 50rpx;"
+                          catch:tap="toPay"
+                          data-item="{{ item }}"
+                          wx:if="{{item.payType===0}}"
+                        >
+                          <view class="flex-c just-c">
+                            <view style="padding-top:3px;margin-left: 6px;">去支付</view>
+                            <image
+                              style="width:30rpx;height:30rpx;"
+                              src="https://zyt-network.oss-cn-qingdao.aliyuncs.com/images/order-history/arrow-right2.png"
+                            />
+                          </view>
+                        </e-button>
+                      </view>
+                    </view>
+                  </van-collapse-item>
+                </van-collapse>
+              </view>
+            </e-card>
+          </scroll-view>
+        </block>
+        <view wx:else class="rel" style="height:80vh">
+          <e-empty />
+        </view>
+      </van-tab>
+      <van-tab title="我的寄件({{ total }})">
+        <block wx:if="{{ list.length }}">
+          <scroll-view
+            scroll-y="true"
+            lower-threshold="{{ lowerThreshold }}"
+            refresher-enabled="{{ true }}"
+            refresher-triggered="{{ refresherTriggered }}"
+            bindrefresherpulling="refresherpulling"
+            bindrefresherrefresh="refresherrefresh"
+            bindscrolltolower="bindscrolltolower"
+            style="width: 100%; height: calc(100vh - 90px - 64px);"
+          >
+            <e-card wx:for="{{ list }}" wx:key="index">
+              <view class="p-def rel" data-id="{{ item.orderId }}">
+                <!-- <image
+                  class="top-right"
+                  src="https://zyt-network.oss-cn-qingdao.aliyuncs.com/images/order-history/top-right.png"
+                />-->
+                <view>
+                  <text class="fs-24 black">
+                    <text class="mr-2">{{ item.masked==0 ? Express[item.cpCode] : '****'}}</text>
+                    <text>{{item.waybillCode}}</text>
+                  </text>
+                  <e-button
+                    class="grey ml-3 fs-20 c-777"
+                    customStyle="width: 60rpx;height: 34rpx;padding:0"
+                    catch:tap="copyC"
+                    data-text="{{ item.waybillCode }}"
+                  >复制</e-button>
+                </view>
+                <view class="flex-c mt-3">
+                  <view class="flex-vc w33">
+                    <text class="fs-36 black">{{item.sendName}}</text>
+                    <text class="fs-24 c-777 mt-2">{{item.sendCity}}</text>
+                  </view>
+                  <view class="w33 flex-jc">
+                    <image
+                      style="width: 84rpx;height:84rpx"
+                      src="https://zyt-network.oss-cn-qingdao.aliyuncs.com/images/order-history/arrow-right3.png"
+                    />
+                  </view>
+                  <view class="flex-vc w33">
+                    <text class="fs-36 black">{{item.recipientName}}</text>
+                    <text class="fs-24 c-777 mt-2">{{item.recipientCity}}</text>
+                  </view>
+                </view>
+                <view class="info fs-24">
+                  <view class="mt-9">
+                    <text class="info-label c-777">收件地址：</text>
+                    <text class="info-value c-333">{{item.recipientAddress}}</text>
+                  </view>
+                  <view class="mt-3">
+                    <text class="info-label c-777">下单时间：</text>
+                    <text class="info-value c-333">{{item.createAt}}</text>
+                  </view>
+                  <view class="mt-3">
+                    <text class="info-label c-777">订单号：</text>
+                    <text class="info-value c-333">{{item.id}}</text>
+                  </view>
+                  <view class="mt-3" wx:if="{{ item.courierName }}">
+                    <text class="info-label c-777">快递员信息：</text>
+                    <text class="info-value c-333">
+                      <text class="mr-4">{{item.courierName}}</text>
+                      <text style="color: #0062DE;">{{item.courierPhone}}</text>
+                    </text>
+                  </view>
+                  <view class="mt-3 flex">
+                    <text class="info-label c-777">付款方式：</text>
+                    <e-pay-score wx:if="{{ item.payType===1 }}" />
+                    <e-pay wx:else />
+                  </view>
+                  <view class="mt-3 flex-sb" wx:if="{{ m2.isShowPays(item) }}">
+                    <view class="flex-c">
+                      <text class="info-label c-777">支付状态：</text>
+                      <view
+                        wx:if="{{ item.settleStatus==1 }}"
+                        class="flex-c"
+                        bind:tap="showDialog"
+                        data-item="{{item}}"
+                      >
+                        <text class="info-value green">已支付</text>
+                        <image
+                          src="https://zyt-network.oss-cn-qingdao.aliyuncs.com/images/order-icon/query.png"
+                          style="width:32rpx;height:32rpx"
+                          wx:if="{{item.payType==1}}"
+                        />
+                      </view>
+                      <text class="info-value red" wx:else>待支付</text>
+                    </view>
+                    <view class="red">¥ {{item.totalFee || '---'}}</view>
+                  </view>
+                  <view class="mt-3 flex" wx:if="{{m2.isShowPaysTip(item)}}">
+                    <text class="info-label c-777">代扣提醒：</text>
+                    <text
+                      class="info-value c-333 flex-1"
+                      style="text-align:left"
+                    >请保持微信余额充足，稍后微信会自动代扣</text>
+                  </view>
+                </view>
+                <van-divider />
+                <block wx:if="{{m2.isShowPays2(item)}}">
+                  <van-collapse
+                    value="{{ item.activeNames }}"
+                    bind:close="onClose2"
+                    bind:open="onOpen2"
+                    class="my-collapse"
+                    wx:if="{{ item.prepayResponse &&  item.settleStatus!=1 }}"
+                  >
+                    <van-collapse-item
+                      name="{{ index }}"
+                      data-index="{{ index }}"
+                      class="my-collapse-item"
+                      right-icon="1"
+                    >
+                      <view slot="title">
+                        <view class="flex-c">
+                          <text class="fs-24 flex-c">更多</text>
+                          <image
+                            style="width:40rpx;height:40rpx"
+                            src="https://zyt-network.oss-cn-qingdao.aliyuncs.com/images/order-history/arrow-bottom.png"
+                            class="{{ item.activeNames.length ? 'reverse-v' : '' }}"
+                          />
+                        </view>
+                      </view>
+                      <view class="sub-content">
+                        <view class="flex-sb-c">
+                          <text class="info-label c-777" style="width:251rpx">下单重量：</text>
+                          <text class="info-value c-333">{{item.packageInfoDto.weight || '---'}}kg</text>
+                        </view>
+                        <view class="flex-sb-c">
+                          <text class="info-label c-777" style="width:251rpx">网点实际计费重量：</text>
+                          <text class="info-value c-333">{{item.orderWeight || '---'}}kg</text>
+                        </view>
+                        <view class="flex-sb-c">
+                          <text class="info-label c-777" style="width:251rpx">最终支付运费：</text>
+                          <text class="info-value c-333">¥ {{item.totalFee || '---'}}</text>
+                        </view>
+                      </view>
+                      <view slot="value">
+                        <view class="right flex-c">
+                          <e-button
+                            round
+                            plain
+                            class="grey fs-24 black"
+                            customStyle="width: 140rpx;height: 50rpx;"
+                            data-item="{{ item }}"
+                            catch:tap="toDetail"
+                          >订单详情</e-button>
+                          <e-button
+                            round
+                            plain
+                            class="grey ml-3 fs-24 orange"
+                            customStyle="width: 140rpx;height: 50rpx;"
+                            catch:tap="toPay"
+                            data-item="{{ item }}"
+                          >
+                            <view class="flex-c just-c">
+                              <view style="padding-top:3px;margin-left: 6px;">去支付</view>
+                              <image
+                                style="width:30rpx;height:30rpx;"
+                                src="https://zyt-network.oss-cn-qingdao.aliyuncs.com/images/order-history/arrow-right2.png"
+                              />
+                            </view>
+                          </e-button>
+                        </view>
+                      </view>
+                    </van-collapse-item>
+                  </van-collapse>
+                  <view class="flex-sb-c" wx:else>
+                    <view class="fs-24 {{ item.status=='已取消'? 'blue':'orange' }}">{{item.status}}</view>
+                    <view class="flex-c">
+                      <e-button
+                        round
+                        plain
+                        class="grey fs-24 black"
+                        customStyle="width: 140rpx;height: 50rpx;"
+                        catch:tap="cancelOrderInfo"
+                        data-item="{{ item }}"
+                        wx:if="{{ item.orderStatus==0 || item.orderStatus==1 }}"
+                      >取消订单</e-button>
+                      <e-button
+                        round
+                        plain
+                        class="grey ml-3 fs-24 black"
+                        customStyle="width: 140rpx;height: 50rpx;"
+                        data-item="{{ item }}"
+                        catch:tap="toDetail"
+                      >订单详情</e-button>
+                    </view>
+                  </view>
+                </block>
+
+                <block wx:else>
+                  <view class="flex-sb-c">
+                    <view class="fs-24 {{ item.status=='已取消'? 'blue':'orange' }}">{{item.status}}</view>
+                    <view class="flex-c">
+                      <e-button
+                        round
+                        plain
+                        class="grey ml-3 fs-24 black"
+                        customStyle="width: 140rpx;height: 50rpx;"
+                        data-item="{{ item }}"
+                        catch:tap="toDetail"
+                      >订单详情</e-button>
+                      <e-button
+                        round
+                        plain
+                        class="grey ml-3 fs-24 black"
+                        customStyle="width: 140rpx;height: 50rpx;"
+                        catch:tap="cancelOrderInfo"
+                        data-item="{{ item }}"
+                        wx:if="{{ item.orderStatus==0 || item.orderStatus==1 }}"
+                      >取消订单</e-button>
+                    </view>
+                  </view>
+                </block>
+              </view>
+            </e-card>
+          </scroll-view>
+        </block>
+        <view wx:else class="rel" style="height:80vh">
+          <e-empty />
+        </view>
+      </van-tab>
+    </van-tabs>
+  </view>
+
+  <van-dialog
+    use-slot
+    title="{{null}}"
+    show="{{ show1 }}"
+    showConfirmButton="{{false}}"
+    bind:close="onClose1"
+  >
+    <view
+      style="padding:54rpx 32rpx 36rpx 32rpx"
+      class="txt-c"
+    >该订单下单时实付0，{{curTimes}}，快递揽件后已按照订单金额自动付款</view>
+    <view class="plr-def mb-9 full-w">
+      <van-button
+        round
+        type="primary"
+        custom-style="width:100%;height:68rpx"
+        bind:tap="onClose1"
+      >知道了</van-button>
+    </view>
+  </van-dialog>
+</view>

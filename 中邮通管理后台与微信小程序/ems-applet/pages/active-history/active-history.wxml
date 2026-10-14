@@ -1,0 +1,57 @@
+<view class="order-history">
+  <view>
+    <van-search value="{{ searchValue }}" shape="round" placeholder="请输入设备编码" bind:change="onSearch" />
+    <view style="margin-top:-10px"></view>
+
+    <block wx:if="{{ list.length }}">
+      <scroll-view scroll-y="true" lower-threshold="{{ lowerThreshold }}" refresher-enabled="{{ true }}" refresher-triggered="{{ refresherTriggered }}" bindrefresherpulling="refresherpulling" bindrefresherrefresh="refresherrefresh" bindscrolltolower="bindscrolltolower" style="width: 100%; height: calc(100vh - 90px - 64px);">
+        <e-card wx:for="{{ list }}" wx:key="index">
+          <view class="p-def rel" data-id="{{ item.orderId }}">
+            <view class="flex-sb">
+              <text class="fs-24 black">
+                <text class="mr-2">设备编码</text>
+                <text>{{item.printerId}}</text>
+              </text>
+              <view>
+                {{item.createAt}}
+              </view>
+            </view>
+            <view class="info fs-24">
+              <view class="mt-4">
+                <text class="info-label c-777">站主：</text>
+                <text class="info-value c-333">{{item.siteUserName}} {{item.siteUserMobile}}</text>
+              </view>
+              <view class="mt-4">
+                <text class="info-label c-777">站点地址：</text>
+                <text class="info-value c-333">{{item.positionInfo}}{{item.positionDetail}}</text>
+              </view>
+            </view>
+            <van-divider />
+            <view class="flex-sb-c">
+              <view wx:if="{{item.status!=1 }}" class="fs-24 orange">激活失败<block wx:if="{{item.activeFail}}">，{{item.activeFail}}
+                </block>
+              </view>
+              <view wx:else class="fs-24 green">激活成功</view>
+              <view class="flex-c">
+                <e-button wx:if="{{item.status!=1}}" round plain class="grey ml-3 fs-24 black" customStyle="width: 140rpx;height: 50rpx;" data-item="{{ item }}" data-id="{{item.id}}" catch:tap="goStation">重新提交</e-button>
+                <e-button round plain class="grey ml-3 fs-24 black" customStyle="width: 90rpx;height: 50rpx;" data-item="{{ item }}" catch:tap="toDetail">查看</e-button>
+              </view>
+            </view>
+          </view>
+        </e-card>
+      </scroll-view>
+    </block>
+    <view wx:else class="rel" style="height:80vh">
+      <e-empty />
+    </view>
+
+
+  </view>
+
+  <van-dialog use-slot title="{{null}}" show="{{ show1 }}" showConfirmButton="{{false}}" bind:close="onClose1">
+    <view style="padding:54rpx 32rpx 36rpx 32rpx" class="txt-c">该订单下单时实付0，{{curTimes}}，快递揽件后已按照订单金额自动付款</view>
+    <view class="plr-def mb-9 full-w">
+      <van-button round type="primary" custom-style="width:100%;height:68rpx" bind:tap="onClose1">知道了</van-button>
+    </view>
+  </van-dialog>
+</view>

@@ -1,0 +1,130 @@
+@import "colorui/main.wxss";
+@import "colorui/icon.wxss";
+@import "styles/atom.less";
+@import "styles/variable.less";
+
+
+page {
+  --def-theme: #3670ff;  //全局默认主题色
+  --def-bgc: linear-gradient(309deg, #5694FF 0%, #326DFD 100%);
+  background: #F5F7FA;
+  --def-font:#4D4D66;
+  --def-font-second:#9092A6;
+  --def-font-third:#B8BACD;
+  --def-color-1:#FF4E33;
+  --def-color-2:#F78E16;
+  // --def-bgc: purple;
+  // --def-color: purple;
+}
+
+// .cu-form-group{
+//   background:#F2F3F5;
+// }
+
+.def-theme{
+  color: var(--def-theme);
+}
+
+.def-theme-bgc{
+  background: var(--def-theme);
+}
+
+.def-fc1{
+  color: var(--def-color-1);
+}
+.def-fc2{
+  color: var(--def-color-2);
+}
+
+.fc-1{
+  color:var(--def-font)
+}
+.fc-2{
+  color: var(--def-font-second)
+}
+.fc-3{
+  color: var(--def-font-third)
+}
+
+.dot{
+  .circle;
+  width: 8rpx;
+  height: 8rpx;
+}
+
+.square{
+  width: 16rpx;
+  height: 16rpx;
+}
+
+.bg-def {
+  background: var(--def-bgc);
+}
+
+.def-color {
+  color: var(--def-color);
+}
+
+.def-bg1 {
+  background: var(--def-color-1);
+}
+.def-bg2 {
+  background: var(--def-color-2);
+}
+
+.bold {
+  font-weight: 600;
+}
+
+.scrollPage {
+  height: 100%;
+}
+
+.cuIcon-back {
+  color: white;
+}
+
+.bgc-run {
+  background-color: @color-run;
+}
+
+.bgc-offline {
+  background-color: @color-offline;
+}
+
+.bgc-maintain {
+  background-color: @color-maintain;
+}
+
+.bgc-fault {
+  background-color: @color-fault;
+}
+
+.popConatiner {
+  background: #fff!important;
+}
+.bold{
+  font-weight: bold;
+}
+
+
+.card {
+  display: inline-block;
+  background: #FFFFFF;
+  box-shadow: 0px 3px 8px 1px #E7EDF7;
+  border-radius: 6px 6px 6px 6px;
+  border: 1px solid #E7EDF7;
+  padding: 8px 12px;
+  width: 29%;
+
+  >view:first-child {
+    font-size: 24rpx;
+    color: #9092A6;
+    margin-bottom: 8px;
+  }
+
+  >view:last-child {
+    font-size: 32rpx;
+    color: #4D4D66;
+  }
+}

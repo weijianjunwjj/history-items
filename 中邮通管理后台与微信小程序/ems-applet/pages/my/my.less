@@ -1,0 +1,92 @@
+page {
+  background: #f8f8f8;
+}
+.header {
+  background-image: url(https://zyt-network.oss-cn-qingdao.aliyuncs.com/images/my/bg.png);
+  background-repeat: no-repeat;
+  background-size: contain;
+  width: 750rpx;
+  height: 504rpx;
+}
+
+.person-info {
+  padding-left: 58rpx;
+  padding-top: 44rpx;
+}
+
+.pandel {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-column-gap: 1fr; /* 设置列之间的间距 */
+  /* 可选：添加一些基本样式使网格项更易于区分 */
+  .item {
+    text-align: center;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    image {
+      width: 96rpx;
+      height: 104rpx;
+    }
+    text {
+      font-size: 26rpx;
+      font-family: PingFangSC, PingFang SC;
+      font-weight: 400;
+      color: #333333;
+    }
+  }
+}
+
+.menus {
+  padding: 30rpx 34rpx;
+  .title {
+    font-size: 32rpx;
+    font-family: PingFangSC, PingFang SC;
+    font-weight: 500;
+    color: #333333;
+    margin-bottom: 16rpx;
+  }
+  .item{
+    padding: 32rpx 0;
+  }
+}
+
+.show6-dialog {
+  height: 656rpx;
+  .dialog6 {
+    &-bg {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      background-size: contain;
+      width: 100%;
+      height: 790rpx;
+      z-index: -1;
+    }
+    &-tx {
+      position: relative;
+      width: 178rpx;
+      height: 198rpx;
+      margin-top: -88rpx;
+      z-index: 1998;
+    }
+  }
+}
+
+.my-dialog6 {
+  .van-popup {
+    overflow: inherit !important;
+  }
+  .van-hairline--top:after {
+    border: 0 !important;
+  }
+}
+
+.share{
+  position: absolute;
+  width: 100%;
+  opacity: 0;
+  z-index: 1;
+}

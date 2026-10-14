@@ -1,0 +1,51 @@
+{
+  "packageRoundTrip": true,
+  "pathContainsChineseAndSpace": true,
+  "results": [
+    {
+      "check": "fresh extracted npm-start-equivalent build and HTTP + new database",
+      "status": "PASS",
+      "health": {
+        "ok": true,
+        "appVersion": "0.8.0",
+        "node": "v22.16.0",
+        "repository": "sqlite"
+      }
+    },
+    {
+      "check": "actual SQL on clean seeded release",
+      "status": "PASS",
+      "response": {
+        "result": {
+          "devices": 10,
+          "events": 25,
+          "countedRows": 10
+        },
+        "meta": {
+          "repository": "sqlite",
+          "operation": "summary",
+          "durationMs": 1.98
+        }
+      }
+    },
+    {
+      "check": "all static build resources HTTP bytes",
+      "status": "PASS",
+      "files": 61
+    },
+    {
+      "check": "six independent HTML entries",
+      "status": "PASS"
+    },
+    {
+      "check": "database file not served over HTTP",
+      "status": "PASS"
+    },
+    {
+      "check": "CLI consistent SQLite backup",
+      "status": "PASS",
+      "bytes": 16769024
+    }
+  ],
+  "boundary": "Node native HTTP/SQLite/resource tests; no browser navigation or OS-specific UI verification."
+}

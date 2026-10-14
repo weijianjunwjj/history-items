@@ -1,0 +1,115 @@
+/* pages/login/index.wxss */
+page {
+  // height: 100%; //这里用 100% 或者 100vh 都可
+  background: linear-gradient(225deg, #5694FF 0%, #346FFF 100%);
+}
+
+.sms-login-container {
+  height: 100%;
+
+  @footer-height: 472rpx;
+
+  .header {
+    margin-top: 16.5vh;
+    margin-bottom: 7.4vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .logo {
+      display: block;
+      width: 200rpx;
+      height: 200rpx;
+      margin: 0 auto;
+    }
+
+    .title {
+      display: block;
+      text-align: center;
+      font-size: 36rpx;
+      color: #fff;
+      font-family: PingFangSC-Medium, PingFang SC;
+      font-weight: bold;
+      margin-top: 34rpx;
+    }
+  }
+
+  .form-box {
+    width: 660rpx;
+    height: 568rpx;
+    background: #FFFFFF;
+    box-shadow: 0px 4px 10px 1px rgba(0, 0, 0, 0.10000000149011612);
+    border-radius: 6px 6px 6px 6px;
+    margin: auto;
+    padding: 32rpx 48rpx;
+
+    &-title {
+      height: 25px;
+      font-size: 18px;
+      font-weight: normal;
+      color: #4D4D66;
+      line-height: 25px;
+      text-align: center;
+      margin-bottom: 60rpx;
+    }
+
+    .cu-form-group {
+      border-top: 0;
+    }
+
+    input {
+      height: 80rpx;
+      line-height: 80rpx;
+      background: #F2F3F5;
+      border-radius: 2px 2px 2px 2px;
+      // padding: 18rpx 24rpx;
+      padding-left: 24rpx;
+      padding-right: 24rpx;
+    }
+    .read {
+      font-size: 20rpx;
+      font-weight: normal;
+      color: #3D3D3D;
+      line-height: 28rpx;
+      margin-top: 32rpx;
+      .terms{
+        color: #3670FF;
+        cursor: pointer;
+      }
+    }
+  }
+
+  .sms-btn {
+    .van-button {
+      height: 40px;
+      background: #FFFFFF;
+      border-radius: 2px 2px 2px 2px;
+      // opacity: 1;
+      border: 1px solid #1664FF;
+      font-size: 14px;
+      font-weight: normal;
+      color: #1664FF;
+    }
+  }
+
+  .login-btn {
+    .van-button {
+      width: 100%;
+      height: 80rpx;
+      line-height: 80rpx;
+      background: #165DFF;
+      border-radius: 2px 2px 2px 2px;
+      font-size: 28rpx;
+      font-weight: normal;
+      color: #FFFFFF;
+      margin-top: 24px;
+    }
+  }
+
+
+
+}
+
+.cu-form-group {
+  padding: 0;
+}

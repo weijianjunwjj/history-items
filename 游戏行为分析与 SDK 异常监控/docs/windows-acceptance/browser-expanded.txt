@@ -1,0 +1,22 @@
+
+> youyi-replay-local@0.8.0 test:browser
+> python tests/browser_local.py
+
+PASS L01 真实HTTP启动与SQLite初始化；无内存后备
+PASS L02 数据库页面真实SQL核对10台/25次
+PASS L03 浏览器刷新后正式配置与未提交草稿仍分开
+PASS L04 服务进程重启并刷新后SQL配置与笔记保留
+PASS L05 SQL事件分析→10台设备→同设备4条异常
+PASS L06 工作区JSON预览/确认/SQL事务恢复
+PASS L07 写请求故障不假报成功，恢复后幂等重试；焦点在SQL重试按钮时Escape仍关闭复盘
+PASS L07b SQL提交后响应丢失仍不报成功，同请求ID重试不重复写入
+PASS L08 EBI独立入口可启动并读取同一个SQL服务
+PASS X00 CRM奖品缓存/排序与跨应用草稿恢复，110%和空规则拦截，70%正式SQL保存刷新重开
+PASS X01 日志嵌套树与三配置区域SQL保存刷新恢复，非法查询和空文案拦截
+PASS X02 SDK图表选择排序和模拟告警SQL保存刷新恢复，其他事件不串改
+PASS X03 讲解卡保存刷新恢复，卡片文字与回忆状态隔离
+PASS X04 其余五个独立ESM入口启动并读取SQL，bootstrap/mount真实执行
+PASS X05 v0.7工作区先预览再确认，SQL逐条恢复且正式配置/草稿/笔记不串改
+PASS X06 双窗409不覆盖SQL新值，不假报成功，当前待写内容可导出后刷新
+PASS L10 未捕获脚本错误与CSP错误为0（主动断网和冲突另列）
+{"exitCode": 0, "entry": {"status": "PASS"}, "count": 17}

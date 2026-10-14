@@ -1,0 +1,80 @@
+/*
+ * @Description: 原子类
+ */
+
+// xxx-1:5rpx
+// xxx-2: 20rpx
+// xxx-10: 100rpx
+each(range(12), {
+
+  // margin
+  .mt-@{value} {
+    margin-top: @value * 5rpx;
+  }
+
+  .mb-@{value} {
+    margin-bottom: @value * 5rpx;
+  }
+
+  .ml-@{value} {
+    margin-left: @value * 5rpx;
+  }
+
+  .mr-@{value} {
+    margin-right: @value * 5rpx;
+  }
+
+  .mlr-@{value} {
+    margin-left: @value * 5rpx;
+    margin-right: @value * 5rpx;
+  }
+
+  .mtb-@{value} {
+    margin-top: @value * 5rpx;
+    margin-bottom: @value * 5rpx;
+  }
+
+  .m-@{value} {
+    margin: @value * 5rpx;
+  }
+
+  // ------------------------
+
+  // padding
+  .pt-@{value} {
+    padding-top: @value * 5rpx;
+  }
+
+  .pb-@{value} {
+    padding-bottom: @value * 5rpx;
+  }
+
+  .pl-@{value} {
+    padding-left: @value * 5rpx;
+  }
+
+  .pr-@{value} {
+    padding-right: @value * 5rpx;
+  }
+
+
+  .plr-@{value} {
+    padding-left: @value * 5rpx;
+    padding-right: @value * 5rpx;
+  }
+
+  .ptb-@{value} {
+    padding-top: @value * 5rpx;
+    padding-bottom: @value * 5rpx;
+  }
+
+  .p-@{value} {
+    padding: @value * 5rpx;
+  }
+}
+);
+
+
+.mt--10{
+  margin-top: -10px;
+}

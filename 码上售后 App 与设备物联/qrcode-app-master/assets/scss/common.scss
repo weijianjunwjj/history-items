@@ -1,0 +1,129 @@
+@import './variable.scss';
+// 这里的page变量只做看不做用
+page {
+	--theme: #{$theme};
+	--bg: #{$bg};
+	--txt-c-1: #{$txt-c-1};
+	--txt-c-2: #{$txt-c-2};
+	--txt-c-3: #{$txt-c-3};
+}
+
+.theme-c {
+	color: $theme;
+}
+.theme-bg {
+	background: $theme;
+}
+.def-bg {
+	background: $bg;
+}
+.txt-1 {
+	color: $txt-c-1;
+}
+
+.txt-2 {
+	color: $txt-c-2;
+}
+
+.txt-3 {
+	color: $txt-c-3;
+}
+
+.z0 {
+	z-index: 0;
+}
+
+.z1 {
+	z-index: 1;
+}
+
+.z2 {
+	z-index: 2;
+}
+
+.white {
+	background-color: #fff;
+}
+
+.flex-start {
+	align-items: flex-start;
+}
+
+.flex-end {
+	align-items: flex-end;
+}
+
+body {
+	background: #f5f5f5;
+}
+
+.form-box {
+	padding: 30rpx;
+	background: #ffffff;
+}
+
+.form-title {
+	font-size: 28rpx;
+	color: #2d3033;
+	line-height: 28rpx;
+	margin-bottom: 20rpx;
+}
+
+.form-input {
+	box-sizing: border-box;
+	padding-left: 20rpx;
+	font-size: 28rpx;
+	width: 690rpx;
+	height: 80rpx;
+	background: #ffffff;
+	border-radius: 4rpx;
+	border: 1rpx solid #ececec;
+	margin-bottom: 30rpx;
+}
+
+.btn {
+	width: 690rpx !important;
+	font-size: 16px;
+	font-weight: normal;
+	color: #ffffff !important;
+}
+
+// .u-button {
+//   background-color: #026FFF !important;
+// }
+
+.div-border {
+	width: 100%;
+	height: 1rpx;
+	background: #e5e6eb;
+}
+
+.tag {
+	&-wait-dispatched {
+		background: #fff7e8;
+		color: #ff7d00;
+	}
+
+	&-processing {
+		background: #e8f3ff;
+		color: #165dff;
+	}
+
+	&-completed {
+		background: #f2f3f5;
+		color: #4e5969;
+	}
+}
+
+.bg-white {
+	background-color: #fff;
+}
+
+.uicon-close {
+	font-size: 24rpx !important;
+}
+
+
+uni-video {
+    height: calc(100vh - 37px)!important;
+}

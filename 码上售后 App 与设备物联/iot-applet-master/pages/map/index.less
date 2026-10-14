@@ -1,0 +1,295 @@
+/* pages/map/index.wxss */
+/* pages/map/map.wxss */
+@import '/styles/main-item1.less';
+
+.bgBox {
+  position: fixed;
+  width: 100%;
+  z-index: 1000;
+  background: linear-gradient(180deg, #FFFFFF 0%, rgba(255, 255, 255, 0.2) 100%);
+  padding-bottom: 40rpx;
+}
+
+.bgBox .returnBtn {
+  position: absolute;
+  left: 0;
+  top: 0;
+  color: #333333;
+  z-index: 1002;
+}
+
+.bgBox .title {
+  text-align: center;
+  font-size: 36rpx;
+  color: #333333;
+  width: 100%;
+  z-index: 1001;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
+.searchBox {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  z-index: 1;
+}
+
+.searchBox .van-search__content {
+  background: rgba(255, 255, 255, 1);
+  padding-left: 50rpx;
+}
+
+.searchBox .van-field__control {
+  line-height: 70rpx;
+  height: 70rpx;
+  box-sizing: border-box;
+  color: #333;
+  font-size: 28rpx;
+}
+
+.searchBox .van-search__content--round {
+  border-radius: 50rpx;
+}
+
+.searchBox .van-cell__left-icon-wrap {
+  height: 70rpx;
+}
+
+.searchBox .van-icon-search {
+  font-size: 50rpx;
+  color: #000000;
+  line-height: 80rpx;
+  height: 70rpx;
+  margin-right: 24rpx;
+}
+
+.searchBox .van-field__placeholder {
+  color: #AEAEAE;
+  font-size: 24rpx;
+  line-height: 40rpx;
+}
+
+.pageBox {
+  width: 100vw;
+  height: 100vh;
+}
+
+.pageBox .map {
+  width: 100%;
+  height: 100%;
+}
+
+.van-popup--bottom.van-popup--safe {
+  padding-bottom: 0 !important;
+}
+
+.popConatiner {
+  padding: 16px 24px;
+}
+
+.popConatiner .warningBox {
+  padding: 30rpx 48rpx 20rpx 48rpx;
+}
+
+.popConatiner .warningBox .warningItem {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-bottom: 10rpx;
+}
+
+.popConatiner .warningBox .warningText {
+  font-size: 28rpx;
+  font-family: PingFangSC-Regular, PingFang SC;
+  font-weight: 400;
+  line-height: 40rpx;
+  margin-left: 10rpx;
+}
+
+.popConatiner .warningBox .warningItem.notice {
+  color: #FF9E3D;
+}
+
+.popConatiner .warningBox .warningItem.error {
+  color: #D51B38;
+}
+
+.popConatiner .titleBox {
+  padding: 24rpx 40rpx 40rpx 40rpx;
+}
+
+.popConatiner .titleBox .subTitle {
+  font-size: 24rpx;
+  font-family: PingFangSC-Regular, PingFang SC;
+  font-weight: 400;
+  color: #B0B0B0;
+  line-height: 24rpx;
+}
+
+.popConatiner .titleBox .mode {
+  font-size: 40rpx;
+  font-family: Arial-Black, Arial;
+  font-weight: 900;
+  color: #222222;
+  line-height: 40rpx;
+  margin: 10rpx 0 10rpx 0;
+}
+
+.popConatiner .titleBox .title {
+  font-size: 40rpx;
+  font-family: PingFangSC-Medium, PingFang SC;
+  font-weight: 500;
+  color: #222222;
+  line-height: 40rpx;
+}
+
+.popConatiner .rightImg {
+  width: auto;
+  height: auto;
+  display: block;
+}
+
+.popConatiner .rightImg .imgBox {
+  width: auto;
+  height: 144rpx;
+  display: block;
+}
+
+.popConatiner .deviceInfoBox {
+  border-radius: 40rpx 40rpx 0 0;
+  background: #ffffff;
+  padding: 50rpx 0 0 0;
+  position: relative;
+  /* box-shadow: 0px 4rpx 26rpx 0rpx rgba(255, 218, 192, 0.6); */
+}
+
+.popConatiner .deviceInfoBox::before {
+  content: '';
+  width: 60rpx;
+  height: 8rpx;
+  background: #D4D4D4;
+  position: absolute;
+  left: 50%;
+  margin-left: -30rpx;
+  top: 30rpx;
+  border-radius: 4rpx;
+}
+
+.popConatiner .infoBox {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.popConatiner .infoBox .titleBox {
+  flex: 1;
+}
+
+.paramsBox {
+  /* display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: space-between; */
+  padding: 0 29rpx 30rpx 29rpx;
+  height: 150rpx;
+  overflow: hidden;
+}
+
+.paramsBox .paramItem {
+  /* flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border: solid 1rpx #F6F6F6; */
+  text-align: center;
+  padding: 12rpx;
+  margin: 9rpx;
+}
+
+.paramsBox .paramsIcon {
+  width: 60rpx;
+  height: 60rpx;
+  display: block;
+  margin-bottom: 10rpx;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.paramsBox .paramValue {
+  font-size: 28rpx;
+  font-family: PingFangSC-Medium, PingFang SC;
+  font-weight: 600;
+  color: #000000;
+  line-height: 28rpx;
+  text-align: center;
+}
+
+.paramsBox .paramLabel {
+  font-size: 20rpx;
+  font-family: PingFangSC-Regular, PingFang SC;
+  font-weight: 400;
+  color: #B0B0B0;
+  line-height: 20rpx;
+  margin-top: 10rpx;
+  text-align: center;
+}
+
+.popConatiner .detailBox {
+  margin: 0 40rpx;
+  padding: 32rpx;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  background: #F6F7F8;
+  border-radius: 10rpx;
+}
+
+.popConatiner .detailBox .label {
+  font-size: 24rpx;
+  font-family: PingFangSC-Regular, PingFang SC;
+  font-weight: 400;
+  color: #B0B0B0;
+  line-height: 28rpx;
+  flex: 1;
+}
+
+.popConatiner .detailBox .value {
+  font-size: 28rpx;
+  font-family: PingFangSC-Medium, PingFang SC;
+  font-weight: 500;
+  color: #1194F1;
+  line-height: 28rpx;
+}
+
+.popConatiner .detailBox .van-icon {
+  color: #1194F1;
+}
+
+.popConatiner .address {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 20rpx 40rpx 20rpx 40rpx;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.popConatiner .address .text {
+  margin-left: 12rpx;
+  font-size: 28rpx;
+  font-family: PingFangSC-Regular, PingFang SC;
+  font-weight: 400;
+  color: #AEAEAE;
+  line-height: 28rpx;
+}
+
+
+.status-list>view{
+  &:not(:last-child){
+    margin-right: 16px;
+  }
+}

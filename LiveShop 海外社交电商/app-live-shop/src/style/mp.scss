@@ -1,0 +1,106 @@
+// 生成 margin 和 padding 类
+@for $i from 1 through 25 {
+
+  // margin
+  .mt-#{$i} {
+    margin-top: $i * 5rpx;
+  }
+
+  .mb-#{$i} {
+    margin-bottom: $i * 5rpx;
+  }
+
+  .ml-#{$i} {
+    margin-left: $i * 5rpx;
+  }
+
+  .mr-#{$i} {
+    margin-right: $i * 5rpx;
+  }
+
+  .mlr-#{$i} {
+    margin-left: $i * 5rpx;
+    margin-right: $i * 5rpx;
+  }
+  .mtb-#{$i} {
+    margin-top: $i * 5rpx;
+    margin-bottom: $i * 5rpx;
+  }
+
+  .m-#{$i} {
+    margin: $i * 5rpx;
+  }
+
+  // ------------------------
+  .mt-#{$i}-i {
+    margin-top: $i * 5rpx !important;
+  }
+
+  .mb-#{$i}-i {
+    margin-bottom: $i * 5rpx !important;
+  }
+
+  .ml-#{$i}-i {
+    margin-left: $i * 5rpx !important;
+  }
+
+  .mr-#{$i}-i {
+    margin-right: $i * 5rpx !important;
+  }
+
+  .m-#{$i}-i {
+    margin: $i * 5rpx !important;
+  }
+
+  // padding
+  .pt-#{$i} {
+    padding-top: $i * 5rpx;
+  }
+
+  .pb-#{$i} {
+    padding-bottom: $i * 5rpx;
+  }
+
+  .pl-#{$i} {
+    padding-left: $i * 5rpx;
+  }
+
+  .pr-#{$i} {
+    padding-right: $i * 5rpx;
+  }
+
+  .plr-#{$i} {
+    padding-left: $i * 5rpx;
+    padding-right: $i * 5rpx;
+  }
+  .ptb-#{$i} {
+    padding-top: $i * 5rpx;
+    padding-bottom: $i * 5rpx;
+  }
+
+  .p-#{$i} {
+    padding: $i * 5rpx;
+  }
+
+  // ------------------------
+  .pt-#{$i}-i {
+    padding-top: $i * 5rpx !important;
+  }
+
+  .pb-#{$i}-i {
+    padding-bottom: $i * 5rpx !important;
+  }
+
+  .pl-#{$i}-i {
+    padding-left: $i * 5rpx !important;
+  }
+
+  .pr-#{$i}-i {
+    padding-right: $i * 5rpx !important;
+  }
+
+  .p-#{$i}-i {
+    padding: $i * 5rpx !important;
+  }
+
+}

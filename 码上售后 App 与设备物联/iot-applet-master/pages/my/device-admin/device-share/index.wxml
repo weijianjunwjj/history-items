@@ -1,0 +1,52 @@
+<cu-custom isBack="{{true}}">
+  <view slot="content">设备共享</view>
+</cu-custom>
+
+
+<view class="conatiner">
+  <view class="search mb-3">
+    <view class="bold mb-2 fs-14 fc-1">自定义设备名称</view>
+    <view class="search-box flex-c-sb">
+      <view class="input-box mr-2" style="flex: 1;">
+        <input placeholder="输入设备自定义名称" bindinput="mobileInput" value="{{customName}}"  placeholder-class="placeholderStyle"></input>
+      </view>
+      <van-button class="login-btn flex-c" bindtap="onSave">保存</van-button>
+    </view>
+  </view>
+
+  <view class="users-box">
+    <view class="users-box-title bold fc-1 bb">
+      已共享的用户
+    </view>
+
+    <view class="users-box-list">
+      <view class="users-box-list-item flex-c-sb pl-5" wx:for="{{list}}">
+        <image style="width:90rpx" mode="widthFix" src="/images/tx.png"></image>
+
+        <view class="users-box-list-item-right  flex-1 flex-c-sb ml-3 full-h pr-4">
+          <view class="ml-3">{{item.userPhone}}</view>
+          <van-switch size="19px" class="my-switch" data-index="{{index}}" checked="{{ !item.status }}" bind:change="onChange" />
+        </view>
+
+      </view>
+    </view>
+
+    <view class="users-box-add flex-hvc" hidden="{{!showAdd}}" bindtap="onShowAdd">
+      <text class="cuIcon-add bold fs-13 mr-1" ></text>
+      点击添加新的共享
+    </view>
+
+    <view class="share-device flex-c-sb" hidden="{{showAdd}}">
+      <view class="input-box mr-2" style="flex: 1;">
+        <input placeholder="输入新共享用户的手机号" bindinput="mobileInput" value="{{shareNum}}" 
+        maxlength="11" type="number" 
+        placeholder-class="placeholderStyle"></input>
+      </view>
+      <van-button plain primary="info" class="login-btn2 flex-c" bindtap="addPhone">共享</van-button>
+
+    </view>
+
+  </view>
+
+
+</view>

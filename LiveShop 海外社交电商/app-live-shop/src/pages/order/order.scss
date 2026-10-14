@@ -1,0 +1,127 @@
+page {
+	background: #f6f6f6;
+}
+
+.integralIcon {
+	width: 16px;
+	height: 15px;
+	margin-right: 4rpx;
+	margin-bottom: 6rpx;
+}
+
+.coinIcon {
+	width: 17px;
+	height: 17px;
+	margin-right: 4rpx;
+	margin-bottom: 6rpx;
+}
+
+.goods-num {
+	font-size: 14px;
+	color: #959595;
+	font-weight: 400;
+}
+
+.my-tabs {
+	position: fixed;
+	z-index: 100;
+	/* #ifdef APP */
+	top: 0;
+	/* #endif */
+	/* #ifndef APP */
+	top: 44px;
+	/* #endif */
+
+	:deep(.wd-tabs__line) {
+		background-color: #000;
+	}
+
+	:deep(.wd-tabs__nav-container) {
+		padding-right: 20rpx;
+	}
+}
+
+:deep(.wd-tabs) {
+	background: none;
+}
+
+.tab-content {
+	margin: 28rpx;
+}
+
+.order-item {
+	background: #ffffff;
+	padding: 20rpx;
+	position: relative;
+	margin-bottom: 20rpx;
+	border-radius: 16rpx;
+	overflow: hidden;
+
+	.order-info {
+		display: flex;
+		justify-content: space-between;
+		margin-bottom: 20rpx;
+
+		.order-number {
+			font-size: 14px;
+			color: #959595;
+		}
+
+		.order-status {
+			font-weight: 600;
+			font-size: 14px;
+			color: #404040;
+		}
+	}
+
+	.product {
+		display: flex;
+
+		.product-img {
+			width: 158rpx;
+			height: 186rpx;
+		}
+
+		.product-info {
+			flex: 1;
+			margin-left: 20rpx;
+			display: flex;
+			flex-direction: column;
+			justify-content: flex-start;
+			position: relative;
+
+			.product-spec {
+				font-size: 14px;
+				color: #959595;
+			}
+
+			.price {
+				margin-top: auto;
+				font-weight: 600;
+				font-size: 16px;
+				color: #313131;
+			}
+		}
+
+		.order-footer {
+			.actions {
+				margin-top: 10rpx;
+				/* 设置按钮之间的间距 */
+
+				.action-btn {
+					margin: 0 20rpx;
+					/* 防止按钮收缩 */
+				}
+			}
+		}
+	}
+}
+
+.time-text {
+	font-size: 14px;
+	color: #959595;
+}
+
+:deep(.wd-button__text) {
+	color: #404040;
+}

@@ -1,0 +1,30 @@
+{
+  "name": "youyi-replay-local",
+  "version": "0.8.0",
+  "private": true,
+  "type": "module",
+  "description": "本地原生ESM微前端 + Node HTTP API + SQLite；保留四组业务与19站自动演示",
+  "engines": {
+    "node": ">=22.16.0"
+  },
+  "scripts": {
+    "start": "node scripts/start.mjs",
+    "dev": "node scripts/start.mjs --dev",
+    "build": "node scripts/build.mjs",
+    "build:ebi": "node scripts/build.mjs ebi",
+    "build:crm": "node scripts/build.mjs crm",
+    "build:report": "node scripts/build.mjs report",
+    "build:monitor": "node scripts/build.mjs monitor",
+    "build:journey": "node scripts/build.mjs journey",
+    "build:workbench": "node scripts/build.mjs workbench",
+    "test": "node --test tests/domain.test.mjs tests/crm.test.mjs tests/report.test.mjs tests/monitor.test.mjs tests/journey.test.mjs tests/tour.test.mjs tests/recap.test.mjs tests/workspace.test.mjs tests/sql.test.mjs tests/sql-client.test.mjs tests/server.test.mjs",
+    "test:legacy": "node --test tests/domain.test.mjs tests/crm.test.mjs tests/report.test.mjs tests/monitor.test.mjs tests/journey.test.mjs tests/tour.test.mjs tests/recap.test.mjs tests/workspace.test.mjs",
+    "test:sql": "node --test tests/sql.test.mjs tests/sql-client.test.mjs tests/server.test.mjs",
+    "test:browser": "python tests/browser_local.py",
+    "test:browser:legacy": "node scripts/build-standalone.mjs && python tests/run_v08_legacy.py",
+    "doctor": "node scripts/doctor.mjs",
+    "db:inspect": "node scripts/database.mjs inspect",
+    "db:backup": "node scripts/database.mjs backup",
+    "verify": "npm run build && npm test && npm run doctor"
+  }
+}

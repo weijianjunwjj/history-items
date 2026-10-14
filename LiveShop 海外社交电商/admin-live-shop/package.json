@@ -1,0 +1,80 @@
+{
+    "name": "apiadmin-hyperf-web-vue3",
+    "private": false,
+    "version": "4.0.4",
+    "type": "module",
+    "scripts": {
+        "dev": "vite",
+        "build": "vite build",
+        "test": "vite build --mode test",
+        "preview": "vite preview",
+        "lint": "eslint src",
+        "fix": "eslint src --fix",
+        "publish:patch": "npm version patch && npm publish",
+        "publish:minor": "npm version minor && npm publish"
+    },
+    "main": "./lib/apiadmin.umd.cjs",
+    "exports": {
+        ".": {
+            "import": "./lib/apiadmin.js",
+            "require": "./lib/apiadmin.umd.cjs"
+        }
+    },
+    "dependencies": {
+        "@vueuse/core": "^10.9.0",
+        "@wangeditor/editor": "^5.1.23",
+        "@wangeditor/editor-for-vue": "^5.1.12",
+        "animate.css": "^4.1.1",
+        "apiadmin-hyperf-web-vue3": "file:",
+        "await-to-js": "^3.0.0",
+        "axios": "^1.6.8",
+        "axios-retry": "^4.1.0",
+        "dayjs": "^1.11.10",
+        "echarts": "^5.5.1",
+        "lodash": "^4.17.21",
+        "mitt": "^3.0.1",
+        "nprogress": "^0.2.0",
+        "pinia": "^2.1.7",
+        "pinia-plugin-persistedstate": "^3.2.1",
+        "quill": "^2.0.2",
+        "store": "^2.0.12",
+        "vue": "^3.4.21",
+        "vue-echarts": "^7.0.3",
+        "vue-router": "^4.3.0",
+        "vue3-quill": "^0.3.1"
+    },
+    "devDependencies": {
+        "@types/node": "^20.11.30",
+        "@types/nprogress": "^0.2.3",
+        "@types/react": "^18.3.12",
+        "@typescript-eslint/eslint-plugin": "^7.4.0",
+        "@typescript-eslint/parser": "^7.4.0",
+        "@vicons/antd": "^0.12.0",
+        "@vicons/ionicons5": "^0.12.0",
+        "@vitejs/plugin-vue": "^5.0.4",
+        "@vitejs/plugin-vue-jsx": "^4.0.1",
+        "crypto-js": "^4.2.0",
+        "eslint": "^8.57.0",
+        "eslint-plugin-vue": "^9.24.0",
+        "less": "^4.2.0",
+        "naive-ui": "^2.40.1",
+        "typescript": "^5.4.3",
+        "unplugin-auto-import": "^0.17.5",
+        "unplugin-vue-components": "^0.26.0",
+        "vfonts": "^0.0.3",
+        "vite": "^5.2.6",
+        "vite-plugin-compression": "^0.5.1",
+        "vite-plugin-css-injected-by-js": "^3.5.0",
+        "vite-plugin-mock": "^3.0.2",
+        "vue-tsc": "^2.0.7"
+    },
+    "keywords": [
+        "Vue3",
+        "Vite",
+        "Pinia",
+        "Naive Ui",
+        "TypeScript",
+        "bag-admin",
+        "ApiAdmin"
+    ]
+}

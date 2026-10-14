@@ -1,0 +1,38 @@
+{
+  "env": {
+    "browser": true
+  },
+  "extends": ["plugin:vue/vue3-essential"],
+  "parserOptions": {
+    "ecmaVersion": 2021,
+    "sourceType": "module",
+    "ecmaFeatures": {
+      "jsx": true,
+      "tsx": true
+    }
+    // "parser": "babel-eslint" // 解析器，默认使用 Espree
+  },
+  "plugins": ["vue", "jsx", "html"],
+  // "off" 或者 0，关闭
+  // "warn" 或者 1，警告
+  // "error" 或者 2，报错
+  "rules": {
+    "vue/valid-define-props": 0,
+    "vue/component-definition-name-casing": 0,
+    "vue/multi-word-component-names": 0,
+    "no-use-before-define": 0, // 未定义前不能使用
+    "quotes": ["error", "single"], // 字符串必须使用单引号 使用双引号报错
+    "semi": ["error", "never"], // 每句话结束不需要加分号，加了报错
+    "no-console": "off",
+    "eqeqeq": 0, // 要求使用 === 和 !==
+    "camelcase": 0, // 强制驼峰法命名
+    "indent": ["error", 2], // 缩进风格
+    "no-dupe-keys": "error", // 在创建对象字面量时不允许键重复 {a:'warn',a:'warn'}
+    "no-unneeded-ternary": "error", // 禁止不必要的嵌套 var isYes = answer === 'warn' ? true : false;
+    "space-infix-ops": 2, // 中缀操作符周围要不要有空格
+    "vue/attribute-hyphenation": 0,
+    "vue/valid-v-slot": 0,
+    "vue/html-self-closing": 0,
+    "max-len": ["off", 80, 4] // 字符串最大长度
+  }
+}

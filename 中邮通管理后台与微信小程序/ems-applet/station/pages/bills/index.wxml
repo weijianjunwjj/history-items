@@ -1,0 +1,56 @@
+<view class="bills">
+  <view class="header">
+    <view class="flex-sb">
+      <view>
+        <view class="fs-24">当前累计收益</view>
+        <view class="fs-58">
+          {{totalReceivedIncome || '0.00'}}
+          <text class="fs-28">（元）</text>
+        </view>
+      </view>
+      <view>
+        <view class="fs-24">未收款收益</view>
+        <view class="fs-58">
+          {{unReceivedIncome|| '0.00'}}
+          <text class="fs-28">（元）</text>
+        </view>
+      </view>
+    </view>
+    <view class="flex-sb">
+      <view>
+        <view class="fs-24">今日收益（元）</view>
+        <view class="fs-36">{{dayReceivedIncome|| '0.00'}}</view>
+      </view>
+      <view>
+        <view class="fs-24">本周收益（元）</view>
+        <view class="fs-36">{{weekReceivedIncome|| '0.00'}}</view>
+      </view>
+      <view>
+        <view class="fs-24">本月收益（元）</view>
+        <view class="fs-36">{{monthReceivedIncome|| '0.00'}}</view>
+      </view>
+    </view>
+  </view>
+  <view class="main">
+    <view class="title flex-sb-c">
+      <text class="fs-32">收益明细</text>
+      <!-- <view class="fs-24 flex-c">
+        <text>全部</text>
+        <image class style="width: 34rpx;height:34rpx" src="../../../images/station/time_sel.png" />
+      </view> -->
+      <van-dropdown-menu class="my-dropdown-menu" active-color="#007f70" >
+        <van-dropdown-item value="{{ list_sel }}" bind:change="onMenuChange" options="{{ option1 }}" />
+      </van-dropdown-menu>
+    </view>
+    <block wx:if="{{list.length}}">
+      <view class="mlr-def">
+        <scroll-view scroll-y="true" scroll-top="{{scrollTop2}}" style="width: 100%; height: calc(100vh - 777rpx);" bindscrolltolower="bindscrolltolower" lower-threshold="{{ 500 }}">
+          <e-orderList-item wx:for="{{list}}" item="{{item}}" data-id="{{item.id}}" data-item="{{item}}"  bind:tap="toDetail" />
+        </scroll-view>
+      </view>
+    </block>
+    <block wx:else>
+      <e-empty isPos="{{false}}" text="暂无订单哦~" />
+    </block>
+  </view>
+</view>

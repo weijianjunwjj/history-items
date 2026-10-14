@@ -1,0 +1,4 @@
+<view class="e-footer">
+  <slot></slot>
+  <view class="my-submit-bar__safe"></view>
+</view>

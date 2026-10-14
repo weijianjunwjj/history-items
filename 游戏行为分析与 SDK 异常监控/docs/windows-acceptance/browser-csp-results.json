@@ -1,0 +1,18 @@
+{
+  "harness": "real localhost HTTP + SQLite + Chromium/Edge",
+  "results": [
+    {
+      "name": "L01 真实HTTP启动与SQLite初始化；无内存后备",
+      "status": "PASS"
+    },
+    {
+      "status": "FAIL",
+      "detail": "Page.wait_for_function: EvalError: Evaluating a string as JavaScript violates the following Content Security Policy directive because 'unsafe-eval' is not an allowed source of script: script-src 'self'\".\n\n    at eval (<anonymous>)\n    at predicate (eval at evaluate (:370:30), <anonymous>:4:60)\n    at next (eval at evaluate (:370:30), <anonymous>:29:33)"
+    }
+  ],
+  "errors": [],
+  "browser": "155.0.4283.45",
+  "entry": {
+    "status": "PASS"
+  }
+}

@@ -1,0 +1,62 @@
+{
+    "compilerOptions": {
+        "jsx": "react",
+        "target": "ES2020",
+        "useDefineForClassFields": true,
+        "esModuleInterop": true,
+        "allowSyntheticDefaultImports": true,
+        "module": "ESNext",
+        "allowJs": true,
+        "lib": [
+            "ES2020",
+            "DOM",
+            "DOM.Iterable"
+        ],
+        "skipLibCheck": true,
+        "types": [
+            "vue",
+            "node",
+            "vite/client"
+        ],
+        "noImplicitAny": false,
+        /* Bundler mode */
+        // "moduleResolution": "bundler",
+        "allowImportingTsExtensions": true,
+        "resolveJsonModule": true,
+        "isolatedModules": true,
+        "noEmit": true,
+        "moduleResolution": "node", // 使用 node 模块解析
+            /* Linting */
+        "strict": true,
+        "noUnusedLocals": false,
+        "noUnusedParameters": false,
+        "noFallthroughCasesInSwitch": true,
+        "baseUrl": "./",
+        "paths": {
+            "@/*": [
+                "src/*"
+            ],
+            "__ROOT__/*": [
+                "*"
+            ]
+        }
+    },
+    "include": [
+        "src/**/*.ts",
+        "src/**/*.d.ts",
+        "src/**/*.tsx",
+        "src/**/*.vue",
+        "config/index.ts",
+        "src/components.d.ts",
+    ],
+    "references": [
+        {
+            "path": "./tsconfig.node.json"
+        }
+    ],
+    "exclude": [
+        "node_modules",
+        "egg/*",
+        "./vite.config.ts"
+    ]
+}

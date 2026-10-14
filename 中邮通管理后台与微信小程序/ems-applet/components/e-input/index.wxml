@@ -1,0 +1,14 @@
+<view class="e-input flex-c" style="background:{{background}}">
+  <text wx:if="{{label}}">{{label}}</text>
+
+  <input
+    class="flex-1"
+    placeholder="{{placeholder}}"
+    value="{{childValue}}"
+    bindinput="updateChildValue"
+  ></input>
+
+  <view class="wh-40" wx:if="{{rightIcon}}" bind:tap="onTapIcon">
+    <image class="full-img" src="{{rightIcon}}" />
+  </view>
+</view>

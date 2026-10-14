@@ -1,0 +1,1338 @@
+<!DOCTYPE html>
+<!-- saved from url=(0050)https://www.yadea.com.cn/home/core/systems_v8.html -->
+<html lang="zh" style="font-size: 172.4px;">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <style class="vjs-styles-defaults">
+    .video-js {
+      width: 300px;
+      height: 150px;
+    }
+
+    .vjs-fluid {
+      padding-top: 56.25%
+    }
+  </style>
+
+  <title>TTFAR 2.0增程系统-雅迪电动车官方网站</title>
+  <meta name="viewport"
+    content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no,minimal-ui, viewport-fit=cover">
+  <meta name="keywords" content="TTFAR 2.0增程系统">
+  <meta name="description" content="冠能TTFAR 2.0增程系统,实现一次充电多跑一倍,如果你对TTFAR 2.0增程系统有兴趣,欢迎访问我们的网站. ">
+  <meta name="applicable-device" content="pc,mobile">
+  <link rel="preload" href='../assets/icon/HYQiHei-65J.ttf' as="font" type="font/ttf" crossorigin="anonymous">
+  <link rel="preload" href='../assets/icon/EncodeSansSemiExpanded-Regular.ttf' as="font" type="font/ttf"
+    crossorigin="anonymous">
+  <link rel="preload" href='../assets/icon/iconfont.ttf' as="font" type="font/ttf" crossorigin="anonymous">
+  <link rel="preload" href='../assets/icon/iconfont.woff' as="font" type="font/woff" crossorigin="anonymous">
+  <link rel="preload" href='../assets/icon/iconfont.woff2' as="font" type="font/woff2" crossorigin="anonymous">
+  <link rel="stylesheet" href='../assets/css/common/animate.min.css'>
+  <link rel="stylesheet" href='../assets/css/common/swiper.min.css'>
+  <link rel="stylesheet" href='../assets/css/base.css'>
+  <link rel="stylesheet" href='../assets/css/common/header.css'>
+  <link rel="stylesheet" href='../assets/css/common/aside.css'>
+  <link rel="stylesheet" href='../assets/css/common/style.css'>
+  <link rel="stylesheet" href='../assets/css/common/cps.css'>
+  <link rel="stylesheet" href='../assets/css/common/other.css'>
+  <link rel="stylesheet" href='../assets/css/common/join.css'>
+  <link rel="stylesheet" href='../assets/css/common/edit202012.css'>
+  <link rel="stylesheet" href='../assets/css/common/new_index.css'>
+  <link rel="stylesheet" href='../assets/css/common/new.css'>
+  <link rel="stylesheet" href='../assets/css/common/video-js.min.css'>
+  <link rel="stylesheet" href='../assets/plugin/layer/skin/layer.css' id="layui_layer_skinlayercss">
+  <link rel="stylesheet" href='../assets/css/header/index.css'>
+  <link rel="stylesheet" href='../assets/css/footer/index.css'>
+  <link rel="stylesheet" href='../assets/css/common.css'>
+  <script src='../assets/js/common/hm.js'></script>
+  <script type="text/javascript" src='../assets/js/common/media.js'></script>
+  <script type="text/javascript" src='../assets/js/common/jquery-1.12.3.min.js'></script>
+  <script type="text/javascript" src='../assets/js/common/jquery.min.js'></script>
+  <script src="../assets/plugin/lodash.min.js"></script>
+  <script src='../assets/js/common.js'></script>
+  <script type="text/javascript" src='../assets/plugin/layer/layer.js'></script>
+  <script type="text/javascript" src="../assets/js/common/swiper.min.js"></script>
+  <script type="text/javascript" src="../assets/js/common/script.js"></script>
+  <script type="text/javascript" src="../assets/js/common/zUI.js"></script>
+  <script type="text/javascript" src="../assets/js/common/wow.js"></script>
+  <script type="text/javascript" src="../assets/js/common/jquery.nicescroll.min.js"></script>
+  <script type="text/javascript" src="../assets/js/common/lottie.js"></script>
+  <script type="text/javascript" src="../assets/js/common/jquery-ui.js"></script>
+  <script type="text/javascript" src="../assets/js/common/jquery.ui.touch.js"></script>
+  <script type="text/javascript" src="../assets/js/common/video.min.js"></script>
+  <script type="text/javascript" src="../assets/js/common/jsencrypt.min.js"></script>
+  <script src="../assets/js/common/jweixin-1.4.0.js"></script>
+  <script src="../assets/js/common/vue.js"></script>
+  <script src="../assets/js/header-pc.js"></script>
+  <script src="../assets/js/footer-pc.js"></script>
+  <script src="../assets/js/header-phone.js"></script>
+  <script src="../assets/js/footer-phone.js"></script>
+  <script src="../assets/js/common/buryingPoint.js"></script>
+  <script>
+    wow = new WOW({
+      animateClass: 'animated',
+      offset: 0
+    });
+    wow.init();
+    initBuryingPoint();
+  </script>
+
+  <!-- End GrowingIO Analytics code version: 2.1 -->
+</head>
+
+<body class="safe-area-inset-bottom">
+  <!-- pc端头部start -->
+  <div id='headerPc' class="header-pc-show">
+    <header v-cloak class="page-header"
+      :class="[isHomePage ? isMove && 'page-header-move' : 'page-header-move', !isShowHeader && 'hide-header']">
+      <div class="page-header-menu flex-vc-aside">
+        <div class="flex-vc">
+          <div class="logo header-logo">
+            <a href="/" class="flex-hvc">
+              <img :src="replaceImgUrl(imgLogo)" class="full" alt="logo" />
+            </a>
+          </div>
+          <div class="menu flex fs-18-vw fs-max-16">
+            <div v-for="(item, index) of menus" :key="index" class="menu-item fw-500 fs-18-vw cur-point fade-in"
+              :class="[activeIndex === index && 'menu-item-hover', `header-menu-item-${index}`]"
+              @mouseenter="mouseOverMenu(item, index)" @mouseleave="mouseOutMenu(item, index)">
+              <span>{{ item.name }}</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="options flex-vc">
+          <div class="oversea mr-8">
+            <template v-if="isHomePage">
+              <a v-show="isMove" href="https://www.yadea.com" target="_blank" class="flex-hvc">
+                <img src='../assets/images/svg/vector.svg' class="svg-vector" />
+              </a>
+              <a v-show="!isMove" href="https://www.yadea.com" target="_blank" class="flex-hvc">
+                <img src='../assets/images/svg/vector-white.svg' class="svg-vector" />
+              </a>
+            </template>
+            <template v-else>
+              <a href="https://www.yadea.com" target="_blank" class="flex-hvc">
+                <img src='../assets/images/svg/vector.svg' class="svg-vector" />
+              </a>
+            </template>
+          </div>
+          <div class="shop-mall-container" @mouseenter="handleEnterShopMall" @mouseleave="handleOutShopMall">
+            <div class="shop-mall fs-16 border-box">
+              <div class="flex-hvc">
+                <img src='../assets/images/svg/shopmall.svg' class="svg-shopmall" />
+                <span class="shop-mall-txt">商城</span>
+              </div>
+            </div>
+            <div v-show="showMall" class="show-mall-box">
+              <div class="mall-link fs-12-vw">
+                <a href="/car-detail/shop/index.html">官方商城</a>
+              </div>
+              <div class="mall-link fs-12-vw">
+                <a
+                  href="https://mall.jd.com/index-1000160101.html?cu=true&utm_source=www.catv1.com&utm_medium=tuiguang&utm_campaign=t_84122001_&utm_term=67361533163240aaa105d6e24ce6de39">
+                  京东
+                </a>
+              </div>
+              <div class="mall-link fs-12-vw">
+                <a
+                  href="https://yadea.tmall.com/shop/view_shop.htm?user_number_id=2817130358&ali_trackid=2%3Amm_26534443_1954650123_110945750366%3A1678263078_018_567139338&union_lens=recoveryid%3A1678263078_018_567139338&bxsign=tbkNopySEA0Bm-GzQwyUK3vnl_o3y1lMpTxrJw9XAlTZGymXJdvXmoNnQyD-E8kNS1y_RTD_c1DM8bnwFIUMKzfIplOCistvAiebW-vPE0yDTNaJC5XSqmTojZrdivhVMct4_cSg9kctbKDTdoJJCy8Ow">
+                  天猫
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- 浮窗 -->
+      <div class="page-header-mask" :class="isShowMask ? 'page-header-mask-active' : ''">
+        <div class="page-header-mask-content" :class="isShowMask ? 'page-header-mask-content-active' : ''"
+          @mouseenter="mouseOverMask" @mouseleave="mouseOutMask">
+          <div ref="maskRefs" class="pos-rel">
+            <cycling-products v-show="activeIndex === 0" :index="0" :update-height="updateHeight" :hide-mask="hideMask">
+            </cycling-products>
+            <cycling-life v-show="activeIndex === 1" :index="1" :update-height="updateHeight" :hide-mask="hideMask">
+            </cycling-life>
+            <cycling-technology v-show="activeIndex === 2" :index="2" :update-height="updateHeight"
+              :hide-mask="hideMask"></cycling-technology>
+            <buy-support v-show="activeIndex === 3" :index="3" :update-height="updateHeight" :hide-mask="hideMask">
+            </buy-support>
+            <service-support v-show="activeIndex === 4" :index="4" :update-height="updateHeight" :hide-mask="hideMask">
+            </service-support>
+            <about-yadea v-show="activeIndex === 5" :index="5" :update-height="updateHeight" :hide-mask="hideMask">
+            </about-yadea>
+
+            <span v-if="activeIndex === 0 || activeIndex === 1" class="icon-hide-mask cur-point" @click="hideMask">
+              <img src="../assets/images/svg/cha.svg" alt="" class="svg-cha" />
+            </span>
+          </div>
+        </div>
+      </div>
+    </header>
+  </div>
+  <!-- pc端头部end -->
+
+  <!-- 移动端头部start -->
+  <div id="app" class="header-phone-show">
+    <div class="header-container" :class="{ 'white-header': isScrollYMove || show }">
+      <div class="logo-box" @click="handleShowDropDown">
+        <img v-if="show" src='../assets/images/svg/close.svg' />
+        <img v-else
+          :src="isScrollYMove ? '../assets/images/svg/classifyblack.svg' : '../assets/images/svg/classifyblack.svg'" />
+      </div>
+      <div class="yadea-box flex-hvc">
+        <a href="/mob" class="">
+          <img :src="replaceImgUrl(imgLogo)" class="full" alt="logo" />
+        </a>
+      </div>
+      <div class="yadea-shop">
+        <div class="yadea-shop-box" @mouseenter="handleEnterShopMall" @mouseleave="handleOutShopMall">
+          <button class='shop-mall'>
+            <img class='shop-icon' src='../assets/images/svg/shopmall.svg' />
+            <span class="ml-1 fs-12-mvw">商城</span>
+          </button>
+          <Transition name="showMall">
+            <div v-if="showMall" class="show-mall-box">
+              <div class="mall-link fs-12-mvw">
+                <a href="/car-detail/shop/index.html">官方商城</a>
+              </div>
+              <div class="mall-link fs-12-mvw">
+                <a
+                  href="https://mall.jd.com/index-1000160101.html?cu=true&utm_source=www.catv1.com&utm_medium=tuiguang&utm_campaign=t_84122001_&utm_term=67361533163240aaa105d6e24ce6de39">
+                  京东
+                </a>
+              </div>
+              <div class="mall-link fs-12-mvw">
+                <a
+                  href="https://yadea.tmall.com/shop/view_shop.htm?user_number_id=2817130358&ali_trackid=2%3Amm_26534443_1954650123_110945750366%3A1678263078_018_567139338&union_lens=recoveryid%3A1678263078_018_567139338&bxsign=tbkNopySEA0Bm-GzQwyUK3vnl_o3y1lMpTxrJw9XAlTZGymXJdvXmoNnQyD-E8kNS1y_RTD_c1DM8bnwFIUMKzfIplOCistvAiebW-vPE0yDTNaJC5XSqmTojZrdivhVMct4_cSg9kctbKDTdoJJCy8Ow">
+                  天猫
+                </a>
+              </div>
+            </div>
+          </Transition>
+        </div>
+      </div>
+    </div>
+    <Transition>
+      <div v-if="show" class="header-dropdown-box">
+        <div class="menu-box">
+          <template v-for="(item, index) in mobileHeaderMenus" :key="item.id">
+            <div class="menu-items">
+              <div class="menu-items-title" @click="handleOpenMenuItems(item.id)">
+                <span class="fs-14-mvw">{{ item.name }}</span>
+                <img src="../assets/images/svg/down.svg" :class="menusShow === item.id && 'rotate-180'" />
+              </div>
+              <Transition name="menus">
+                <div v-if="menusShow === item.id">
+                  <template v-for="(subItem, subIndex) in item.category" :key="subItem.id">
+                    <div v-if="urlOfParamsMap[item.apis]" class="menu-items-drop">
+                      <div v-if="index === 0 && subIndex === 0" class="menu-items-title" @click="handleGoAllModels">
+                        <span class="fs-14-mvw">全部车型</span>
+                        <img src="../assets/images/svg/down.svg" />
+                      </div>
+                      <div class="menu-items-title" @click="handleOpenDropItems(item.apis, item.id, subItem.id)">
+                        <span class="fs-14-mvw">{{ subItem.name }}</span>
+                        <img src="../assets/images/svg/down.svg" :class="dropsShow === subItem.id && 'rotate-180'" />
+                      </div>
+                      <Transition name="menus">
+                        <div v-if="dropsShow === subItem.id" class="drop-detail">
+                          <div v-if="subItem.children.length !== 0">
+                            <template v-for="threeItem in subItem.children" :key="threeItem.id">
+                              <div v-if="threeItem.attributes.picUrl" class="car-detail-box"
+                                @click="handleGoCarDetail(threeItem.attributes.model_static)">
+                                <div v-if="fasle" class="need-driving-license">
+                                  <img src="../assets/images/svg/drive.svg" />
+                                  <span class="fs-12-mvw">需驾照</span>
+                                </div>
+                                <div class="car-image">
+                                  <img :src="replaceImgUrl(threeItem.attributes.picUrl?.data[0]?.attributes.url)"
+                                    alt="图片" />
+                                </div>
+                                <div class="car-info">
+                                  <p class="fs-14-mvw fw-bold">{{ threeItem.attributes.name }}</p>
+                                  <span class="fs-12-mvw">{{ threeItem.attributes.desc1 }}</span>
+                                </div>
+                              </div>
+                              <div v-else class="text-detail-box"
+                                @click="handleGoCarDetail(threeItem.attributes.model_static)">
+                                <span>{{ threeItem.attributes.name }}</span>
+                              </div>
+                            </template>
+                          </div>
+                          <div v-else>暂时为空</div>
+                        </div>
+                      </Transition>
+                    </div>
+                    <div v-else class="menu-items-drop">
+                      <div class="menu-items-title" @click="jump(subItem)">
+                        <span class="fs-14-mvw">{{ subItem.name }}</span>
+                      </div>
+                    </div>
+                  </template>
+                </div>
+              </Transition>
+            </div>
+          </template>
+        </div>
+        <div class="international">
+          <img src="../assets/images/svg/vector.svg" alt="" />
+          <span class="fs-14-mvw"><a href="https://www.yadea.com/" target="_blank">雅迪国际站</a></span>
+        </div>
+      </div>
+    </Transition>
+  </div>
+  <!-- 移动端头部end -->
+  <link rel="stylesheet" href='https://osswebsite.yadea.com.cn/ttfar2/static/ttfar.css'>
+
+  <!-- 主体 -->
+  <div class="ttf8">
+    <div class="row1">
+      <div class="row page1">
+
+        <div class="center wow fadeInUpSmall animated animated" data-wow-delay="0.3s" data-wow-duration="1s"
+          style="visibility: visible; animation-duration: 1s; animation-delay: 0.3s; animation-name: fadeInUpSmall;">
+          <img class="image1 pc-show" src='https://osswebsite.yadea.com.cn/ttfar2/static/1-s-s.png'>
+          <img class="image1 wap-show"
+            src='https://osswebsite.yadea.com.cn/ttfar2/static/1-s-s(1).png'>
+        </div>
+        <div class="videobg">
+          <!-- <video id="videoBg" autoplay autobuffer="" preload="auto" muted volume="0" loop>
+		         <source src="/static/home/images/ttfar8/ttfar8.mp4" type="video/mp4" id="shipins">
+		    </video> -->
+          <div class="mainbox wow fadeInUpSmall animated animated" data-wow-delay="0.5s" data-wow-duration="1s"
+            style="visibility: visible; animation-duration: 1s; animation-delay: 0.5s; animation-name: fadeInUpSmall;">
+            <div class="con">
+              <div class="text">
+                <a href="javascript:void(0);" class="pc-show"><img
+                    src='https://osswebsite.yadea.com.cn/ttfar2/static/videobtn.png'></a>
+                <a href="javascript:void(0);" class="wap-show" style="margin: 0 95px;"><img
+                    src='https://osswebsite.yadea.com.cn/ttfar2/static/videobtn.png'></a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="center font1 white font-weight-700 wow fadeInUpSmall animated animated" data-wow-delay="0.5s"
+          data-wow-duration="1s"
+          style="visibility: visible; animation-duration: 1s; animation-delay: 0.5s; animation-name: fadeInUpSmall;">
+          一次充电</div>
+        <div class="center font1 white font-weight-700 wow fadeInUpSmall animated animated" data-wow-delay="0.7s"
+          data-wow-duration="1s"
+          style="visibility: visible; animation-duration: 1s; animation-delay: 0.7s; animation-name: fadeInUpSmall;">
+          多跑一倍</div>
+
+      </div>
+    </div>
+    <div class="row1">
+      <div class="row page2">
+        <div class="font2 white font-weight-700 wow fadeInUpSmall animated" data-wow-delay="0.5s" data-wow-duration="1s"
+          style="visibility: hidden; animation-duration: 1s; animation-delay: 0.5s; animation-name: none;">
+          TTFAR&nbsp;&nbsp;2.0增程系统<br>这次的升级&nbsp;&nbsp;&nbsp;不止里程</div>
+        <div class="box">
+          <div class="flex box1">
+            <div class="left-box wow fadeInLeftSmall animated" data-wow-delay="0.5s" data-wow-duration="1s"
+              style="visibility: hidden; animation-duration: 1s; animation-delay: 0.5s; animation-name: none;">
+              <div class="center top font31 white font-weight-700 center-ab width-80">约25%容量提升的新材料电池</div>
+              <img class="image2 pc-show" src='https://osswebsite.yadea.com.cn/ttfar2/static/2.png'>
+              <img class="image2 wap-show"
+                src='https://osswebsite.yadea.com.cn/ttfar2/static/2(1).png'>
+            </div>
+            <div class="right-box wow fadeInRightSmall animated" data-wow-delay="0.5s" data-wow-duration="1s"
+              style="visibility: hidden; animation-duration: 1s; animation-delay: 0.5s; animation-name: none;">
+              <div class="center top font31 white font-weight-700 center-ab width-80">雅迪自主研发的高效能电机</div>
+              <img class="image2 pc-show" src='https://osswebsite.yadea.com.cn/ttfar2/static/3.png'>
+              <img class="image2 wap-show"
+                src='https://osswebsite.yadea.com.cn/ttfar2/static/3(1).png'>
+            </div>
+          </div>
+          <div class="flex box1">
+            <div class="left-box wow fadeInLeftSmall animated" data-wow-delay="0.5s" data-wow-duration="1s"
+              style="visibility: hidden; animation-duration: 1s; animation-delay: 0.5s; animation-name: none;">
+              <div class="center top font31 white font-weight-700 center-ab width-80">更加平顺的强动力输出</div>
+              <img class="image2 pc-show" src='https://osswebsite.yadea.com.cn/ttfar2/static/4.png'>
+              <img class="image2 wap-show"
+                src='https://osswebsite.yadea.com.cn/ttfar2/static/4(1).png'>
+            </div>
+            <div class="right-box wow fadeInRightSmall animated" data-wow-delay="0.5s" data-wow-duration="1s"
+              style="visibility: hidden; animation-duration: 1s; animation-delay: 0.5s; animation-name: none;">
+              <div class="center top font31 white font-weight-700 center-ab width-80">仪表的高精度电量显示</div>
+              <img class="image2 pc-show" src='https://osswebsite.yadea.com.cn/ttfar2/static/5-s.png'>
+              <img class="image2 wap-show" src='https://osswebsite.yadea.com.cn/ttfar2/static/5.png'>
+            </div>
+          </div>
+          <div class="flex box1">
+            <div class="center-box wow fadeInUpSmall animated" data-wow-delay="0.5s" data-wow-duration="1s"
+              style="visibility: hidden; animation-duration: 1s; animation-delay: 0.5s; animation-name: none;">
+              <div class="center top font31 white font-weight-700 center-ab">大幅降低的充电时间</div>
+              <img class="pc-show" src='https://osswebsite.yadea.com.cn/ttfar2/static/6.png'>
+              <img class="wap-show" src='https://osswebsite.yadea.com.cn/ttfar2/static/6(1).png'>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row2">
+      <div class="row">
+        <div class="page3">
+          <div class="font2 white font-weight-700 wow fadeInUpSmall animated" data-wow-delay="0.3s"
+            data-wow-duration="1s"
+            style="visibility: hidden; animation-duration: 1s; animation-delay: 0.3s; animation-name: none;">
+            优秀的里程数据<br>让我们为它打CALL</div>
+          <div class="bar wow fadeInUpSmall animated" data-wow-delay="0.5s" data-wow-duration="1s"
+            style="visibility: hidden; animation-duration: 1s; animation-delay: 0.5s; animation-name: none;">
+            <div class="font4 white font-weight-700 title">TTFAR&nbsp;&nbsp;2.0增程系统里程</div>
+            <div class="flex align-center">
+              <div class="line-bar1"></div>
+              <div class="font4 white mile"><span class="sm-font">约</span>200KM</div>
+            </div>
+          </div>
+          <div class="bar wow fadeInUpSmall animated" data-wow-delay="0.5s" data-wow-duration="1s"
+            style="visibility: hidden; animation-duration: 1s; animation-delay: 0.5s; animation-name: none;">
+            <div class="font4 white font-weight-700 title">TTFAR&nbsp;&nbsp;增程系统里程</div>
+            <div class="flex align-center">
+              <div class="line-bar2"></div>
+              <div class="font4 white mile"><span class="sm-font">约</span>122KM</div>
+            </div>
+          </div>
+          <div class="bar wow fadeInUpSmall animated" data-wow-delay="0.5s" data-wow-duration="1s"
+            style="visibility: hidden; animation-duration: 1s; animation-delay: 0.5s; animation-name: none;">
+            <div class="font4 white font-weight-700 title">普通电动车里程</div>
+            <div class="flex align-center">
+              <div class="line-bar3"></div>
+              <div class="font4 white mile"><span class="sm-font">约</span>65KM</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row1">
+      <img class="pc-show" src='https://osswebsite.yadea.com.cn/ttfar2/static/7.jpg'>
+      <img class="wap-show" src='https://osswebsite.yadea.com.cn/ttfar2/static/7(1).jpg'>
+      <div class="row page4">
+        <div class="font2 white font-weight-700 wow fadeInUpSmall animated" data-wow-delay="0.5s" data-wow-duration="1s"
+          style="visibility: hidden; animation-duration: 1s; animation-delay: 0.5s; animation-name: none;">
+          动力、里程再突破<br>TTFAR电机的性能永远是满分答卷</div>
+        <div class="flex space-between">
+          <div class="block wow fadeInUpSmall animated" data-wow-delay="0.7s" data-wow-duration="1s"
+            style="visibility: hidden; animation-duration: 1s; animation-delay: 0.7s; animation-name: none;">
+            <div class="flex space-between">
+              <div class="ver-flex ver-bar">
+                <div class="ver-bar1"></div>
+                <div class="font6 white mile"><span class="sm-font">约</span>86N.m</div>
+              </div>
+              <div class="ver-flex ver-bar">
+                <div class="ver-bar2"></div>
+                <div class="font6 white mile"><span class="sm-font">约</span>85N.m</div>
+              </div>
+              <div class="ver-flex ver-bar">
+                <div class="ver-bar3"></div>
+                <div class="font6 white mile"><span class="sm-font">约</span>81N.m</div>
+              </div>
+            </div>
+            <div class="font7 white font-weight-700 center bottom-des">扭矩升级</div>
+          </div>
+          <div class="block wow fadeInUpSmall animated" data-wow-delay="0.9s" data-wow-duration="1s"
+            style="visibility: hidden; animation-duration: 1s; animation-delay: 0.9s; animation-name: none;">
+            <div class="flex space-between">
+              <div class="ver-flex ver-bar">
+                <div class="ver-bar1"></div>
+                <div class="font6 white mile"><span class="sm-font">约</span>11°</div>
+              </div>
+              <div class="ver-flex ver-bar">
+                <div class="ver-bar2"></div>
+                <div class="font6 white mile"><span class="sm-font">约</span>10°</div>
+              </div>
+              <div class="ver-flex ver-bar">
+                <div class="ver-bar3"></div>
+                <div class="font6 white mile"><span class="sm-font">约</span>9°</div>
+              </div>
+            </div>
+            <div class="font7 white font-weight-700 center bottom-des">爬坡升级</div>
+          </div>
+          <div class="block wow fadeInUpSmall animated" data-wow-delay="1.1s" data-wow-duration="1s"
+            style="visibility: hidden; animation-duration: 1s; animation-delay: 1.1s; animation-name: none;">
+            <div class="flex space-between">
+              <div class="ver-flex ver-bar">
+                <div class="ver-bar1"></div>
+                <div class="font6 white mile"><span class="sm-font">约</span>90%</div>
+              </div>
+              <div class="ver-flex ver-bar">
+                <div class="ver-bar2"></div>
+                <div class="font6 white mile"><span class="sm-font">约</span>88%</div>
+              </div>
+              <div class="ver-flex ver-bar">
+                <div class="ver-bar3"></div>
+                <div class="font6 white mile"><span class="sm-font">约</span>86%</div>
+              </div>
+            </div>
+            <div class="font7 white font-weight-700 center bottom-des">效率升级</div>
+          </div>
+        </div>
+        <div class="flex align-center wow fadeInUpSmall animated" data-wow-delay="1.3s" data-wow-duration="1s"
+          style="visibility: hidden; animation-duration: 1s; animation-delay: 1.3s; animation-name: none;">
+          <div class="flex align-center">
+            <div class="page4-bar1"></div>
+            <div class="font8 drak-grey title">冠能二代系列电机</div>
+          </div>
+          <div class="flex align-center">
+            <div class="page4-bar2"></div>
+            <div class="font8 drak-grey title">冠能系列电机</div>
+          </div>
+          <div class="flex align-center">
+            <div class="page4-bar3"></div>
+            <div class="font8 drak-grey title">普通电机</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row1">
+      <img class="pc-show" src='https://osswebsite.yadea.com.cn/ttfar2/static/8.jpg'>
+      <img class="wap-show" src='https://osswebsite.yadea.com.cn/ttfar2/static/8(1).jpg'>
+      <div class="row page5">
+        <div class="font3 font-weight-900 wow fadeInUpSmall animated" data-wow-delay="0.5s" data-wow-duration="1s"
+          style="visibility: hidden; animation-duration: 1s; animation-delay: 0.5s; animation-name: none;">
+          操控也升级<br>
+          TTFAR能量回收控制器<br>
+          让你秒懂丝滑
+        </div>
+        <div class="des font6 font-weight-900  wow fadeInUpSmall animated" data-wow-delay="0.7s" data-wow-duration="1s"
+          style="visibility: hidden; animation-duration: 1s; animation-delay: 0.7s; animation-name: none;">
+          TTFAR能量回收控制器内部的算法再度升级<br>
+          加速无力、减速顿挫、起步还发冲<br>
+          这些问题在它的优化下都变得乖乖听话<br>
+          一路的动力输出都能顺畅到让你顺心<br>
+        </div>
+      </div>
+    </div>
+    <div class="row1" style="background:#fff;">
+      <div id="lottie-9" class="pc-show"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 3840 2161" width="3840"
+          height="2161" preserveAspectRatio="xMidYMid meet"
+          style="width: 100%; height: 100%; transform: translate3d(0px, 0px, 0px);">
+          <defs>
+            <clippath id="__lottie_element_2">
+              <rect width="3840" height="2161" x="0" y="0"></rect>
+            </clippath>
+            <image href="../assets/images/ttfar2/img_0.png"></image>
+            <image href="/../assets/images/ttfar2/img_1.png"></image>
+            <image href="../assets/images/ttfar2/img_2.png"></image>
+            <image href="../assets/images/ttfar2/img_3.png"></image>
+            <image href="../assets/images/ttfar2/img_4.png"></image>
+            <image href="../assets/images/ttfar2/img_5.png"></image>
+            <image href="../assets/images/ttfar2/img_6.png"></image>
+            <clippath id="__lottie_element_4">
+              <path d="M0,0 L3840,0 L3840,2161 L0,2161z"></path>
+            </clippath>
+            <clippath id="__lottie_element_8">
+              <path fill="#ffffff" clip-rule="nonzero"
+                d=" M760,152 C760,152 0,389 0,389 C0,389 837,389 837,389 C837,389 837,0 837,0 C837,0 760,152 760,152"
+                fill-opacity="1"></path>
+            </clippath>
+            <clippath id="__lottie_element_11">
+              <path fill="#ffffff" clip-rule="nonzero"
+                d=" M0,0 C0,0 0,817 0,817 C0,817 1377.5858154296875,803.4641723632812 1377.5858154296875,803.4641723632812 C1377.5858154296875,803.4641723632812 1400,0 1400,0 C1400,0 0,0 0,0"
+                fill-opacity="1"></path>
+            </clippath>
+            <clippath id="__lottie_element_17">
+              <path fill="#ffffff" clip-rule="nonzero"
+                d=" M207.29432678222656,127.48155975341797 C163.4745330810547,127.48155975341797 127.9520034790039,163.00408935546875 127.9520034790039,206.82388305664062 C127.9520034790039,250.6436767578125 163.4745330810547,286.16619873046875 207.29432678222656,286.16619873046875 C251.1141357421875,286.16619873046875 286.63665771484375,250.6436767578125 286.63665771484375,206.82388305664062 C286.63665771484375,163.00408935546875 251.1141357421875,127.48155975341797 207.29432678222656,127.48155975341797"
+                fill-opacity="1"></path>
+            </clippath>
+          </defs>
+          <g clip-path="url(#__lottie_element_2)">
+            <g class="png" transform="matrix(1,0,0,1,0,0)" opacity="1" style="display: block;">
+              <image width="3840px" height="2161px" preserveAspectRatio="xMidYMid slice"
+                href="../assets/images/ttfar2/img_6.png"></image>
+            </g>
+            <g clip-path="url(#__lottie_element_4)" transform="matrix(1,0,0,1,0,0)" opacity="1" style="display: block;">
+              <g class="png" transform="matrix(1,0,0,1,992,743.5)" opacity="1" style="display: block;">
+                <image width="1896px" height="1318px" preserveAspectRatio="xMidYMid slice"
+                  href="../assets/images/ttfar2/img_5.png"></image>
+              </g>
+              <g class="png" transform="matrix(1,0,0,1,1610.5,973)" opacity="1" style="display: block;">
+                <image width="995px" height="919px" preserveAspectRatio="xMidYMid slice"
+                  href="../assets/images/ttfar2/img_4.png"></image>
+              </g>
+              <g class="png" clip-path="url(#__lottie_element_17)" transform="matrix(1,0,0,1,2272,1553.5)" opacity="1"
+                style="display: block;">
+                <image width="422px" height="422px" preserveAspectRatio="xMidYMid slice"
+                  href="../assets/images/ttfar2/img_3.png"></image>
+              </g>
+              <g class="png" transform="matrix(1,0,0,1,1754,1598)" opacity="1" style="display: block;">
+                <image width="296px" height="225px" preserveAspectRatio="xMidYMid slice"
+                  href="../assets/images/ttfar2/img_2.png"></image>
+              </g>
+              <g class="png" clip-path="url(#__lottie_element_11)" transform="matrix(1,0,0,1,1250,902)" opacity="1"
+                style="display: block;">
+                <image width="1400px" height="817px" preserveAspectRatio="xMidYMid slice"
+                  href="../assets/images/ttfar2/img_1.png"></image>
+              </g>
+              <g class="png" clip-path="url(#__lottie_element_8)" transform="matrix(1,0,0,1,1717.5,1720)" opacity="1"
+                style="display: block;">
+                <image width="837px" height="389px" preserveAspectRatio="xMidYMid slice"
+                  href="../assets/images/ttfar2/img_0.png"></image>
+              </g>
+            </g>
+          </g>
+        </svg></div>
+      <div id="mlottie-9" class="wap-show"></div>
+      <div class="row page6">
+        <div class="center font3 font-weight-900 wow fadeInUpSmall animated" data-wow-delay="0.5s"
+          data-wow-duration="1s"
+          style="visibility: hidden; animation-duration: 1s; animation-delay: 0.5s; animation-name: none;">
+          能量可回收&nbsp;&nbsp;边骑边充电
+        </div>
+        <div class="des center font-weight-900  font6 wow fadeInUpSmall animated" data-wow-delay="0.7s"
+          data-wow-duration="1s"
+          style="visibility: hidden; animation-duration: 1s; animation-delay: 0.7s; animation-name: none;">
+          下坡、滑行、制动时的动能不能浪费<br>
+          通过TTFAR能量回收控制器<br>
+          就可变成电能储存在电池之中<br>
+          能收能放，电能使用更自如
+        </div>
+      </div>
+    </div>
+    <div class="row1">
+      <div class="row page7">
+        <div class="font3 font-weight-900 wow fadeInUpSmall animated" data-wow-delay="0.5s" data-wow-duration="1s"
+          style="visibility: hidden; animation-duration: 1s; animation-delay: 0.5s; animation-name: none;">
+          约25%容量增加<br>
+          又又又扩容的TTFAR石墨烯3代电池<br>
+          让这次的续航又稳了
+        </div>
+        <div class="des font6 font-weight-900 wow fadeInUpSmall animated" data-wow-delay="0.7s" data-wow-duration="1s"
+          style="visibility: hidden; animation-duration: 1s; animation-delay: 0.7s; animation-name: none;">
+          电池容量的增加不是只有靠加大体积才能实现<br>
+          TTFAR石墨烯3代电池，全新石墨烯配方，在现有电池体积内<br>
+          容量得到了最大程度的提升，电能的增加，它向来最有一手
+        </div>
+        <img class="pc-show percent25" src='https://osswebsite.yadea.com.cn/ttfar2/static/10.png'>
+        <img class="wap-show percent25" src='https://osswebsite.yadea.com.cn/ttfar2/static/10(1).png'>
+        <img class="pc-show battery" src='https://osswebsite.yadea.com.cn/ttfar2/static/11.png'>
+        <img class="wap-show battery" src='https://osswebsite.yadea.com.cn/ttfar2/static/11(1).png'>
+      </div>
+    </div>
+    <!--	<div class="row1" id="dc" style="background:#fff;">-->
+    <!--		<div id="dc_out">-->
+    <!--			<div class="box1">-->
+    <!--				<img class="pc-show" src="/static/home/images/ttfar8/12.jpg">-->
+    <!--				<img class="wap-show" src="/static/home/images/ttfar8/wap/12.jpg">-->
+    <!--				<div class="row page8 wow fadeInUpSmall animated" data-wow-delay="0.5s" data-wow-duration="0.5s">-->
+    <!--					<div class="font3 font-weight-900">-->
+    <!--						你关心的持久和耐用<br>-->
+    <!--						当然也很OK-->
+    <!--					</div>-->
+    <!--					<div class="des font6 font-weight-900">-->
+    <!--						TTFAR石墨烯的新型配方，以及优越的电池特性<br>-->
+    <!--						让衰减率大幅降低，寿命是普通电池的三倍-->
+    <!--					</div>-->
+    <!--					<div class="bar">-->
+    <!--						<div class="font6">使用寿命</div>-->
+    <!--						<div class="bar1"></div>-->
+    <!--						<div class="bar2"></div>-->
+    <!--					</div>-->
+    <!--				</div>-->
+    <!--			</div>-->
+    <!--			<div class="box2">-->
+    <!--				<img class="pc-show" src="/static/home/images/ttfar8/13.jpg">-->
+    <!--				<img class="wap-show" src="/static/home/images/ttfar8/wap/13.jpg">-->
+    <!--				<div class="row page9 wow fadeInUpSmall animated" data-wow-delay="0.5s" data-wow-duration="0.5s">-->
+    <!--					<div class="font3 font-weight-900">-->
+    <!--						BMS&nbsp;&nbsp;TTFAR石墨烯电池管家<br>-->
+    <!--						也安排上了<br>-->
+    <!--						电量变得明明白白全有数-->
+    <!--					</div>-->
+    <!--					<div class="des font6 font-weight-900">-->
+    <!--						普通铅酸电池的电量总是琢磨不透<br>-->
+    <!--						看着还是满电，一拧转把却瞬间见底<br>-->
+    <!--						但BMS的加入<br>-->
+    <!--						却能把电量的显示误差控制在8%以内<br>-->
+    <!--						再也不会因为电量不准而错过充电时间-->
+    <!--					</div>-->
+    <!--				</div>-->
+    <!--			</div>-->
+    <!--			<div class="box3">-->
+    <!--				<img class="pc-show" src="/static/home/images/ttfar8/14.jpg">-->
+    <!--				<img class="wap-show" src="/static/home/images/ttfar8/wap/14.jpg">-->
+    <!--				<div class="row page10 wow fadeInUpSmall animated" data-wow-delay="0.5s" data-wow-duration="0.5s">-->
+    <!--					<div class="font3 font-weight-900">-->
+    <!--						5A没问题，10A也可以<br>-->
+    <!--						20A照样承受得住-->
+    <!--					</div>-->
+    <!--					<div class="des font6 font-weight-900">-->
+    <!--						导热强、低电阻的电池特性<br>-->
+    <!--						让TTFAR石墨烯3代电池最大可以承受<br>-->
+    <!--						20A的电流输入<br>-->
+    <!--						无论是配合反充，还是实现快充<br>-->
+    <!--						它全都能拿手就来-->
+    <!--					</div>-->
+    <!--				</div>-->
+    <!--			</div>-->
+    <!--		</div>-->
+    <!--	</div>-->
+    <div class="row1" id="cd" style="background:#fff;">
+      <div id="cd_out">
+        <div class="box1">
+          <img class="pc-show" src='https://osswebsite.yadea.com.cn/ttfar2/static/15.jpg'>
+          <img class="wap-show" src='https://osswebsite.yadea.com.cn/ttfar2/static/15(1).jpg'>
+          <div class="row page11 wow fadeInUpSmall animated" data-wow-delay="0.5s" data-wow-duration="0.5s"
+            style="visibility: hidden; animation-duration: 0.5s; animation-delay: 0.5s; animation-name: none;">
+            <div class="center font3 font-weight-900">
+              它的新伙伴&nbsp;&nbsp;TTFAR快充充电器<br>
+              也一起同步上线了
+            </div>
+            <div class="center des font6 font-weight-900">
+              导热强、低电阻、支持大电流充电，超强的电池特性<br>
+              为TTFAR快充充电器留足了用武之地，来电来的足够快，充电终于不用再花整晚
+            </div>
+            <div class="flex flex-center">
+              <div class="box flex">
+                <div class="font3 font-weight-700 fontNew">3</div>
+                <div class="right-box">
+                  <div class="font4 font-weight-700">小时</div>
+                  <div class="light-grey font5">10A&nbsp;&nbsp;TTFAR快充</div>
+                </div>
+              </div>
+              <div class="box flex">
+                <div class="font3 font-weight-700 fontNew">6</div>
+                <div class="right-box">
+                  <div class="font4 font-weight-700">小时</div>
+                  <div class="light-grey font5">5A&nbsp;&nbsp;TTFAR快充</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="box2">
+          <img class="pc-show" src='https://osswebsite.yadea.com.cn/ttfar2/static/16.jpg'>
+          <img class="wap-show" src='https://osswebsite.yadea.com.cn/ttfar2/static/16(1).jpg'>
+          <div class="row page12 wow fadeInUpSmall animated animated" data-wow-delay="0.5s" data-wow-duration="0.5s"
+            style="visibility: visible; animation-duration: 0.5s; animation-delay: 0.5s; animation-name: fadeInUpSmall;">
+            <div class="center font3 font-weight-900">
+              快充安全吗？<br>
+              那是当然！
+            </div>
+            <div class="center des font6 font-weight-900">
+              独立MCU控制单元，电压、电流更精准<br>
+              智能温度调整降低充电发烫情况<br>
+              低温亦可充满电，有效延长电池使用时间<br>
+              你看，它不但安全，就连电池寿命都能同时被照顾
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row1" id="yb" style="background:#fff;">
+      <div id="yb_out">
+        <div id="page13">
+          <img class="pc-show" src='https://osswebsite.yadea.com.cn/ttfar2/static/17-s.jpg'>
+          <img class="wap-show" src='https://osswebsite.yadea.com.cn/ttfar2/static/17-s(1).jpg'>
+          <div class="row page13 wow fadeInUpSmall animated" data-wow-delay="0.5s" data-wow-duration="0.5s"
+            style="visibility: hidden; animation-duration: 0.5s; animation-delay: 0.5s; animation-name: none;">
+            <div class="center font3 font-weight-900">
+              快看一眼TTFAR电能监测仪表<br>
+              它也有了新本领
+            </div>
+            <div class="center des font6 font-weight-900">
+              TTFAR电能监测仪表上的电量显示已经变成了百分比形式<br>
+              甚至连整车的剩余里程，都能通过仪表“里里”在目
+            </div>
+          </div>
+        </div>
+
+        <div id="page14">
+          <div class="span wow fadeInUpSmall animated animated" data-wow-delay="0.5s" data-wow-duration="0.5s"
+            style="visibility: visible; animation-duration: 0.5s; animation-delay: 0.5s; animation-name: fadeInUpSmall;">
+            <p class="font3 white font-weight-700">
+              看不见的电量回收<br>
+              看的见的省电
+            </p>
+            <p class="des font6 white" style="margin-top:20px;">
+              TTFAR电能监测仪表化虚为实<br>
+              多色能量光环实时显示电能使用情况<br>
+              就连每次骑行回收的电量数也能一同被统计
+            </p>
+          </div>
+          <div class="box wow fadeInUpSmall animated animated" data-wow-delay="0.5s" data-wow-duration="0.5s"
+            style="visibility: visible; animation-duration: 0.5s; animation-delay: 0.5s; animation-name: fadeInUpSmall;">
+            <div class="pre chosen p1 chosen">
+              <p class="font-6">绿色<span class="pre1"></span></p>
+              <div class="font7">能量回收</div>
+            </div>
+            <div class="pre p2" style="padding-left:1vw;">
+              <p class="font-6">红色<span class="pre2"></span></p>
+              <div class="font7">强动力状态</div>
+            </div>
+            <div class="pre p3" style="padding-left:6vw;">
+              <p class="font-6">白色<span class="pre3"></span></p>
+              <div class="font7">省电状态</div>
+            </div>
+          </div>
+          <div class="pc-show">
+            <img class="img1" src='https://osswebsite.yadea.com.cn/ttfar2/static/18-s.jpg'>
+            <img class="img2" src='https://osswebsite.yadea.com.cn/ttfar2/static/19-s.jpg'>
+            <img class="img3" src='https://osswebsite.yadea.com.cn/ttfar2/static/20-s.jpg'>
+          </div>
+          <div class="wap-show">
+            <img class="img1" src='https://osswebsite.yadea.com.cn/ttfar2/static/18-s(1).jpg'>
+            <img class="img2" src='https://osswebsite.yadea.com.cn/ttfar2/static/19-s(1).jpg'>
+            <img class="img3" src='https://osswebsite.yadea.com.cn/ttfar2/static/20-s(1).jpg'>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row3" id="box15">
+      <div class="row page15">
+        <div class="font3 font-weight-700 title wow fadeInUpSmall animated" data-wow-delay="0.5s" data-wow-duration="1s"
+          style="visibility: hidden; animation-duration: 1s; animation-delay: 0.5s; animation-name: none;">
+          毫厘必争<br>
+          TTFAR的省电还有更多妙招
+        </div>
+        <div class="flex">
+          <div class="box15 wow fadeInUpSmall animated" data-wow-delay="0.7s" data-wow-duration="1s"
+            style="visibility: hidden; animation-duration: 1s; animation-delay: 0.7s; animation-name: none;">
+            <div class="content">
+              <div class="font3 white font-weight-700">TTFAR低滚阻轮胎</div>
+              <div class="font6 white des">
+                轮毂、花纹、结构全新升级<br>
+                延续低滚阻特性的同时<br>
+                防湿滑能力也一起同步加强
+              </div>
+            </div>
+            <img class="pc-show" src='https://osswebsite.yadea.com.cn/ttfar2/static/21.jpg'>
+            <img class="wap-show" src='https://osswebsite.yadea.com.cn/ttfar2/static/21(1).jpg'>
+          </div>
+          <div class="box15 wow fadeInUpSmall animated" data-wow-delay="0.9s" data-wow-duration="1s"
+            style="visibility: hidden; animation-duration: 1s; animation-delay: 0.9s; animation-name: none;">
+            <div class="content">
+              <div class="font3 white font-weight-700">TTFAR低电阻电缆</div>
+              <div class="font6 white des">
+                低阻值AVSS导线，低阻抗，低损耗<br>
+                节能更高效，防水性能加强改善<br>
+                雨天的长途骑行也丝毫无碍
+              </div>
+            </div>
+            <img class="pc-show" src='https://osswebsite.yadea.com.cn/ttfar2/static/22.jpg'>
+            <img class="wap-show" src='https://osswebsite.yadea.com.cn/ttfar2/static/22(1).jpg'>
+          </div>
+        </div>
+        <div class="box15 wow fadeInUpSmall animated" data-wow-delay="1.1s" data-wow-duration="1s"
+          style="visibility: hidden; animation-duration: 1s; animation-delay: 1.1s; animation-name: none;">
+          <div class="right-content">
+            <div class="font3 white font-weight-700">TTFAR低风阻车身</div>
+            <div class="font6 white des">
+              精心打造的流线型车身<br>
+              更低的风阻，更低的车身阻力<br>
+              迎风而上，里程依然给力
+            </div>
+          </div>
+          <img class="pc-show" src='https://osswebsite.yadea.com.cn/ttfar2/static/23.jpg'>
+          <img class="wap-show" src='https://osswebsite.yadea.com.cn/ttfar2/static/23(1).jpg'>
+        </div>
+      </div>
+    </div>
+    <div class="row3">
+      <div class="row page16">
+        <div class="tips font5 light-grey wow fadeInUpSmall animated" data-wow-delay="1.3s" data-wow-duration="1s"
+          style="visibility: hidden; animation-duration: 1s; animation-delay: 1.3s; animation-name: none;">
+          <!--				*&nbsp;相同铅酸电池体积下，搭载TTFAR 8级增程系统、使用最大容量TTFAR石墨烯3代电池的雅迪冠能2.0系列旗舰级车型，比同类普通系列车型里程增加约一倍。<br>-->
+          <!--				*&nbsp;骑行里程会因天气、温度、路面情况、骑行者体重等因素而受到影响，请以实际骑行情况为准;<br>-->
+          <!--				*&nbsp;上述里程均由雅迪M8车型搭载不同的系统测试所得。<br>-->
+          <!--				*&nbsp;容量提升约25%是与同体积普通铅酸电池对比。<br>-->
+          <!--				*&nbsp;TTFAR石墨烯电池循环寿命1000次左右，普通铅酸电池循环寿命300次左右。<br>-->
+          <!--				*&nbsp;冠能2.0系列电动车标配5A&nbsp;&nbsp;TTFAR快充充电器，用户可根据需求选配10A&nbsp;&nbsp;TTFAR快充充电器。-->
+          *“一次充电 多跑一倍”为雅迪冠能系列旗舰级产品的实验室检测数据，已获得国家轻型电动车及电池产品质量监督检验中心检测报告，如需详细证明资料，请联系雅迪品牌官方提供；<br>
+          *里程超200公里是国家机动车产品质量监督检验中心对搭载72V38AH TTFAR石墨烯3代电池的YD1200DT-14D车型，在30℃环境温，骑行载重≤75kg，相对平坦路段，采用25KM/H等速法的测试结果；<br>
+          *实际骑行里程因车型、天气、温度、路况、骑行者体重、电池健康状态、电池容量等多种因素影响或有偏差，请以实际为准；<br>
+          *根据国家轻型电动车及电池产品质量监督检验中心检测，TTFAR石墨烯电池充放电循环次数1000次左右，雅迪普通铅酸电池充放电循环次数300次左右；<br>
+          *24个月内TTFAR石墨烯电池如有质量问题，通过雅迪官方检测后达到换新标准即可免费更换新电池；<br>
+          *根据国家轻型电动车及电池产品质量监督检验中心检测，雅迪TTFAR石墨烯3代电池与雅迪同体积普通铅酸电池对比，容量提升约20%-25%；<br>
+          *TTFAR石墨烯电池专利技术申请中，申请号201910663164.5、201910663179.1，如需详细专利证书资料，请联系雅迪品牌官方提供；<br>
+          *冠能系列电动车标配5A TTFAR快充充电器，用户可根据需求选配10A TTFAR快充充电器。
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="videopop">
+    <div class="wrap">
+      <div class="shadow"></div>
+      <div class="con">
+        <div class="close"></div>
+        <video id="ttfar8video" autobuffer="" preload="auto" volume="0" controls="">
+          <source
+            src="https://osswebsite.yadea.com.cn/ttfar8_1_a4c965633f_dcec7095e1.mp4?updated_at=2023-03-16T02:46:36.077Z"
+            type="video/mp4" id="shipins">
+        </video>
+      </div>
+    </div>
+  </div>
+  <script type="text/javascript">
+    $(function () {
+      setTimeout(function () {
+        var width = document.body.clientWidth
+        // 视频
+        $('.videobg .con .text a,.wap_banner a').on('click', function () {
+          $('.videopop').fadeIn();
+          FullScreen('ttfar8video');
+          $('.videopop video').get(0).play();
+        })
+        $('.videopop .shadow,.videopop .wrap .close').on('click', function () {
+          $('.videopop').fadeOut()
+          $('.videopop video').get(0).pause();
+        })
+        // 能量回收
+        $('#page14 .p1').mouseover(function () {
+          $('#page14 .pre').removeClass('chosen')
+          $(this).addClass('chosen')
+          $('#page14 .img2').hide()
+          $('#page14 .img3').hide()
+          $('#page14 .img1').show()
+        })
+        $('#page14 .p2').mouseover(function () {
+          $('#page14 .pre').removeClass('chosen')
+          $(this).addClass('chosen')
+          $('#page14 .img1').hide()
+          $('#page14 .img3').hide()
+          $('#page14 .img2').show()
+        })
+        $('#page14 .p3').mouseover(function () {
+          $('#page14 .pre').removeClass('chosen')
+          $(this).addClass('chosen')
+          $('#page14 .img1').hide()
+          $('#page14 .img2').hide()
+          $('#page14 .img3').show()
+        })
+
+        if (width > 768) {
+          var anim9 = lottie.loadAnimation({
+            container: document.getElementById("lottie-9"),
+            renderer: "svg",
+            loop: true,
+            autoplay: true,
+            path: "../assets/json/ttfar2/data.json"
+          });
+
+          var hdc
+          var hcd
+          var hyb
+          var h15
+
+          setTimeout(function () {
+            // hdc = $('#dc').offset().top
+            hcd = $('#cd').offset().top
+            hyb = $('#yb').offset().top
+            h15 = $('#box15').offset().top
+          }, 2000)
+
+          var markdc = 0
+          var markcd = 0
+          var markyb = 0
+          var mark13 = 0
+          $(window).scroll(function () {
+            let scroH = $(window).scrollTop()
+            // 仪表
+            let nhyb = $('#yb').offset().top - $(window).scrollTop()
+            if ((scroH >= (hyb - 80)) && scroH <= (hyb + 1000 - 80)) {
+              $('#yb_out').removeClass('out')
+              $('#yb_out').addClass('sticky')
+            } else if (scroH >= (hyb + 1000 - 80) && scroH <= h15) {
+              $('#yb_out').removeClass('sticky')
+              $('#yb_out').addClass('out')
+            } else {
+              $('#yb_out').removeClass('sticky')
+              $('#yb_out').removeClass('out')
+            }
+
+            if ((scroH - hyb) >= 420) {
+              $('#yb #page13').hide()
+              $('#yb #page14').show()
+            } else {
+              $('#yb #page14').hide()
+              $('#yb #page13').show()
+            }
+
+            // 电池
+            //           let nhdc = $('#dc').offset().top - $(window).scrollTop()
+            //           if((scroH >= (hdc - 80)) && scroH <= (hdc + 1500 -80)){
+            //               $('#dc_out').removeClass('out')
+            //               $('#dc_out').addClass('sticky')
+            //           }else if (scroH >= (hdc + 1500 -50) && scroH <= hcd) {
+            //               $('#dc_out').removeClass('sticky')
+            //               $('#dc_out').addClass('out')
+            //           }else {
+            //               $('#dc_out').removeClass('sticky')
+            //               $('#dc_out').removeClass('out')
+            //           }
+            //
+            //           if((scroH - hdc) >= 450 && (scroH - hdc) <= 950) {
+            //               $('#dc_out .box1').hide()
+            // 	$('#dc_out .box3').hide()
+            // 	$('#dc_out .box2').show()
+            //           }else if((scroH - hdc) > 950) {
+            //               $('#dc_out .box1').hide()
+            // 	$('#dc_out .box2').hide()
+            // 	$('#dc_out .box3').show()
+            //           }else {
+            // 	$('#dc_out .box2').hide()
+            // 	$('#dc_out .box3').hide()
+            // 	$('#dc_out .box1').show()
+            // }
+            // 充电
+            let nhcd = $('#cd').offset().top - $(window).scrollTop()
+            if ((scroH >= (hcd - 80)) && scroH <= (hcd + 1000 - 80)) {
+              $('#cd_out').removeClass('out')
+              $('#cd_out').addClass('sticky')
+            } else if (scroH >= (hcd + 500 - 90) && scroH <= hyb) {
+              $('#cd_out').removeClass('sticky')
+              $('#cd_out').addClass('out')
+            } else {
+              $('#cd_out').removeClass('sticky')
+              $('#cd_out').removeClass('out')
+            }
+
+            if ((scroH - hcd) >= 420) {
+              $('#cd_out .box1').hide()
+              $('#cd_out .box2').fadeIn()
+            } else {
+              $('#cd_out .box2').hide()
+              $('#cd_out .box1').fadeIn()
+            }
+          })
+        } else {
+          var manim9 = lottie.loadAnimation({
+            container: document.getElementById("mlottie-9"),
+            renderer: "svg",
+            loop: true,
+            autoplay: true,
+            path: "/static/home/images/ttfar8/wap/lottie/9/data.json"
+          });
+
+          var hdc
+          var hcd
+          var hyb
+          var h15
+
+          setTimeout(function () {
+            // hdc = $('#dc').offset().top
+            hcd = $('#cd').offset().top
+            hyb = $('#yb').offset().top
+            h15 = $('#box15').offset().top
+          }, 2000)
+
+          var mmark13 = 0
+          var mmarkdc = 0
+          var mmarkcd = 0
+          var mmarkyb = 0
+          $(window).scroll(function () {
+            let scroH = $(window).scrollTop()
+            // 仪表
+            let nhyb = $('#yb').offset().top - $(window).scrollTop()
+            if ((scroH >= (hyb - 50)) && scroH <= (hyb + 1000 - 50)) {
+              $('#yb_out').removeClass('out')
+              $('#yb_out').addClass('sticky')
+            } else if (scroH >= (hyb + 1000 - 50) && scroH <= h15) {
+              $('#yb_out').removeClass('sticky')
+              $('#yb_out').addClass('out')
+            } else {
+              $('#yb_out').removeClass('sticky')
+              $('#yb_out').removeClass('out')
+            }
+
+            if ((scroH - hyb) >= 450) {
+              $('#yb #page13').hide()
+              $('#yb #page14').fadeIn()
+            } else {
+              $('#yb #page14').hide()
+              $('#yb #page13').fadeIn()
+            }
+
+            // 电池
+            //           let nhdc = $('#dc').offset().top - $(window).scrollTop()
+            //           if((scroH >= (hdc - 50)) && scroH <= (hdc + 1500 -50)){
+            //               $('#dc_out').removeClass('out')
+            //               $('#dc_out').addClass('sticky')
+            //           }else if (scroH >= (hdc + 1500 -50) && scroH <= hcd) {
+            //               $('#dc_out').removeClass('sticky')
+            //               $('#dc_out').addClass('out')
+            //           }else {
+            //               $('#dc_out').removeClass('sticky')
+            //               $('#dc_out').removeClass('out')
+            //           }
+            //
+            //           if((scroH - hdc) >= 450 && (scroH - hdc) <= 950) {
+            //               $('#dc_out .box1').hide()
+            // 	$('#dc_out .box3').hide()
+            // 	$('#dc_out .box2').show()
+            //           }else if((scroH - hdc) > 950) {
+            //               $('#dc_out .box1').hide()
+            // 	$('#dc_out .box2').hide()
+            // 	$('#dc_out .box3').show()
+            //           }else {
+            // 	$('#dc_out .box2').hide()
+            // 	$('#dc_out .box3').hide()
+            // 	$('#dc_out .box1').show()
+            // }
+            // 充电
+            let nhcd = $('#cd').offset().top - $(window).scrollTop()
+            if ((scroH >= (hcd - 50)) && scroH <= (hcd + 1000 - 50)) {
+              $('#cd_out').removeClass('out')
+              $('#cd_out').addClass('sticky')
+            } else if (scroH >= (hcd + 1000 - 50) && scroH <= hyb) {
+              $('#cd_out').removeClass('sticky')
+              $('#cd_out').addClass('out')
+            } else {
+              $('#cd_out').removeClass('sticky')
+              $('#cd_out').removeClass('out')
+            }
+
+            if ((scroH - hcd) >= 450) {
+              $('#cd_out .box1').hide()
+              $('#cd_out .box2').fadeIn()
+            } else {
+              $('#cd_out .box2').hide()
+              $('#cd_out .box1').fadeIn()
+            }
+          })
+        }
+      }, 500)
+    })
+  </script>
+
+
+  <!-- 底部pc端start -->
+  <div id="footerPc" class="page-footer">
+    <div class="page-footer">
+      <div class="page-footer-top">
+        <div class="footer-top-wrap">
+          <div class="footer-top-left">
+            <div class="test-drive" @click="goBookingRide">
+              <img src="../../car-detail/assets/images/footer/test-drive.png" alt="图片" />
+              <span>预约试驾</span>
+            </div>
+            <div class="car-contrast" @click="goModelContrast">
+              <img src="../../car-detail/assets/images/footer/car-contrast.png" alt="图片" />
+              <span>车型对比</span>
+            </div>
+            <div class="online-service online-kf-id">
+              <img src="../../car-detail/assets/images/footer/online-service.png" alt="图片" />
+              <span>在线客服</span>
+            </div>
+          </div>
+          <div class="footer-top-right">
+            <div class="contact-phone">400-900-1212</div>
+            <div class="contact-time">8:00-20:00,周一至周日</div>
+          </div>
+        </div>
+      </div>
+      <div class="page-footer-middle">
+        <div class="link-box">
+          <div class="link-box-left">
+            <template v-for="item of footerMenuList" :key="item.id">
+              <dl class="footer-middle-item">
+                <template v-if="!item.categoryTitle">
+                  <dt>{{ item.name }}</dt>
+                  <template v-for="item2 in item.category" :key="item2.name">
+                    <dd>
+                      <span v-if="urlOfParamsMap[item.apis]" @click="handleOpenSubMenu(item2, item.apis)">
+                        {{ item2.name }}
+                        <img src="../../car-detail/assets/images/svg/arrow-right-white.svg" class="arrow-svg"
+                          :class="item2.show && 'rotate-90'" />
+                      </span>
+                      <span v-else @click="jump(item2)">
+                        {{ item2.name }}
+                      </span>
+                      <Transition>
+                        <div v-if="item2.show" class="link-item-detail">
+                          <template v-for="threeItem in threeMenus" :key="threeItem.id">
+                            <span class="txt-white fs-14-mvw opt65 mt-3-vw"
+                              @click="handleGoCarDetail(threeItem.attributes.model_static)">
+                              {{ threeItem.attributes.name }}
+                            </span>
+                          </template>
+                        </div>
+                      </Transition>
+                    </dd>
+                  </template>
+                </template>
+
+                <template v-else>
+                  <dt>{{ item.name }}</dt>
+                  <template v-for="item3 in item.category" :key="item3.name">
+                    <dd>
+                      <span v-if="urlOfParamsMap[item.apis]" @click="handleOpenSubMenu(item3, item.apis)">
+                        {{ item3.name }}
+                        <img src="../../car-detail/assets/images/svg/arrow-right-white.svg" class="arrow-svg"
+                          :class="item3.show && 'rotate-90'" />
+                      </span>
+                      <span v-else @click="jump(item3)">
+                        {{ item3.name }}
+                      </span>
+                      <Transition>
+                        <div v-if="item3.show" class="link-item-detail">
+                          <template v-for="threeItem in threeMenus" :key="threeItem.id">
+                            <span class="txt-white fs-14-mvw opt65 mt-3-vw"
+                              @click="handleGoCarDetail(threeItem.attributes.model_static)">
+                              {{ threeItem.attributes.name }}
+                            </span>
+                          </template>
+                        </div>
+                      </Transition>
+                    </dd>
+                  </template>
+                  <dt>{{ item.categoryTitle.name }}</dt>
+                  <template v-for="item3 in item.categoryTitle.category" :key="item3.name">
+                    <dd>
+                      <span @click="handleOpenSubMenu(item3, item.categoryTitle.apis)">
+                        {{ item3.name }}
+                        <img src="../../car-detail/assets/images/svg/arrow-right-white.svg" class="arrow-svg"
+                          :class="item3.show && 'rotate-90'" />
+                      </span>
+                      <Transition>
+                        <div v-if="item3.show" class="link-item-detail">
+                          <template v-for="threeItem in threeMenus" :key="threeItem.id">
+                            <span class="txt-white fs-14-mvw opt65 mt-3-vw"
+                              @click="handleGoCarDetail(threeItem.attributes.model_static)">
+                              {{ threeItem.attributes.name }}
+                            </span>
+                          </template>
+                        </div>
+                      </Transition>
+                    </dd>
+                  </template>
+                </template>
+              </dl>
+            </template>
+          </div>
+
+          <dl class="footer-middle-item">
+            <dt class="vector-box">
+              <a target="_blank" href="https://www.yadea.com/">
+                <img src='../../car-detail/assets/images/svg/vector-white.svg' class="vector-w" />
+                <span>雅迪国际站</span>
+              </a>
+            </dt>
+          </dl>
+        </div>
+        <div class="back-top" @click="handleBackTop">
+          <span>返回顶部</span>
+          <img src='../../car-detail/assets/images/footer/arrow-top.svg' class="ml-2" />
+          <!--          <SvgIcon name="arrow-top" size="18" class="ml-2" />-->
+        </div>
+      </div>
+      <div class="page-footer-bottom">
+       <div class="footer-bottom-left">© 2022 雅迪科技集团有限公司 All Rights Reserved <a class="c-888" target="_blank" href="https://beian.miit.gov.cn/">苏ICP备12080415号</a> <a class="c-888" target="_blank" href="https://www.beian.gov.cn/portal/registerSystemInfo?recordcode=32020502000068"><img class="police-badge" src="https://osswebsite.yadea.com.cn/foot_icp_55db42dcdc.png" alt="" />苏公网安备 32020502000068号</a></div>
+        <div class="footer-bottom-right">
+          <div class="footer-bottom-right-box">
+            <img src='../../car-detail/assets/images/footer/dy.svg' class="svg-social-media"
+              @mouseenter="footerModalEnter(0)" @mouseleave="footerModalOut" />
+            <div class="footer-bottom-right-modal" v-show="footerModalIndex === 0">
+              <img src="../../car-detail/assets/images/footer/dy.png" alt="" />
+            </div>
+          </div>
+          <div class="footer-bottom-right-box">
+            <img src='../../car-detail/assets/images/footer/kf.svg' class="svg-social-media"
+              @mouseenter="footerModalEnter(1)" @mouseleave="footerModalOut" />
+            <div class="footer-bottom-right-modal" v-show="footerModalIndex === 1">
+              <img src="../../car-detail/assets/images/footer/kf.png" alt="" />
+            </div>
+          </div>
+          <div class="footer-bottom-right-box">
+            <img src='../../car-detail/assets/images/footer/wechat.svg' class="svg-social-media"
+              @mouseenter="footerModalEnter(2)" @mouseleave="footerModalOut" />
+            <div class="footer-bottom-right-modal" v-show="footerModalIndex === 2">
+              <img src="../../car-detail/assets/images/footer/wx.jpg" alt="" />
+            </div>
+          </div>
+          <div class="footer-bottom-right-box">
+            <img src='../../car-detail/assets/images/footer/weibo.svg' class="svg-social-media"
+              @mouseenter="footerModalEnter(3)" @mouseleave="footerModalOut" />
+            <div class="footer-bottom-right-modal" v-show="footerModalIndex === 3">
+              <img src="../../car-detail/assets/images/footer/wb.png" alt="" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- 底部pc端end -->
+  <!-- 底部phone端start -->
+  <div id="appFooter" class="footer-phone-show">
+    <footer class="footer-box">
+      <div class="back-top txt-white fs-14-mvw">
+        <span @click="handleBackTop">
+          返回顶部
+          <!-- <SvgIcon name="backtop" class="vector-w" /> -->
+        </span>
+        <img src='../../car-detail/assets/images/footer/backtop.svg' class="ml-2" />
+      </div>
+      <div class="extension-box">
+        <div class="extension-top">
+          <div class="extension-top-left txt-white">联系我们</div>
+          <div class="extension-top-right">
+            <div class="fs-20-mvw fw-bold txt-red">
+              <a href="#" class="fs-20-mvw fw-bold">400-900-1212</a>
+            </div>
+            <span class="txt-white fs-12-mvw">8:00-20:00,周一至周日</span>
+          </div>
+        </div>
+      </div>
+      <div class="link-box">
+        <template v-for="item in footerMenuList" :key="item.id">
+          <div class="link-item">
+            <div class="link-item-title" @click="handleOpenLinkBox(item.id)">
+              <span class="txt-white fs-14-mvw">{{ item.name }}</span>
+              <img
+                :src="footerShow === item.id ? '../../car-detail/assets/images/svg/shut.svg' : '../../car-detail/assets/images/svg/open.svg'"
+                class="svg-social-media" />
+            </div>
+            <Transition>
+              <div v-if="footerShow === item.id" class="link-item-detail">
+                <template v-for="subItem in item.category" :key="subItem.id">
+                  <div v-if="urlOfParamsMap[item.apis]" class="txt-white subItem-title fs-14-mvw"
+                    @click="handleOpenDropItems(item.apis, subItem)">
+                    {{ subItem.name }}
+                    <img src="../../car-detail/assets/images/svg/arrow-right-white.svg" alt="" class="svg-social-media"
+                      :class="subItem.show && 'rotate-90'" />
+                  </div>
+                  <div v-else class="txt-white subItem-title fs-14-mvw" @click="handleGoDetail(subItem)">
+                    {{ subItem.name }}
+                  </div>
+                  <Transition>
+                    <div v-if="subItem.show" class="three-item-detail">
+                      <template v-for="threeItem in threeMenus" :key="threeItem.id">
+                        <div class="txt-white fs-14-mvw" @click="handleGoCarDetail(threeItem.attributes.model_static)">
+                          {{ threeItem.attributes.name }}
+                        </div>
+                      </template>
+                    </div>
+                  </Transition>
+                </template>
+              </div>
+            </Transition>
+          </div>
+        </template>
+      </div>
+      <div class="extension-bottom-box">
+        <div class="international" onclick="toInt()">
+          <img src='../../car-detail/assets/images/svg/vector-white.svg' class="svg-vector" />
+          <span class="fs-13-mvw txt-white">雅迪国际站</span>
+        </div>
+        <div class="extension-bottom">
+          <img src='../../car-detail/assets/images/svg/dyf.svg' class="svg-social-media" onclick="toDY()" />
+          <img src='../../car-detail/assets/images/svg/kff.svg' class="svg-social-media online-kf-id" />
+          <div class="pos-rel" @mouseenter="handleEnterWC" @mouseleave="handleLeaveWC">
+            <img src='../../car-detail/assets/images/svg/wechatf.svg' class="svg-social-media" @click="handleEnterWC" />
+            <img v-show="showWC" class="wechat-img" src="../assets/images/wx.jpg"  alt="" />
+          </div>
+          <img src='../../car-detail/assets/images/svg/weibof.svg' class="svg-social-media" onclick="toWB()" />
+        </div>
+      </div>
+      <div class="record-box fs-12-mvw">
+        © 2022 雅迪科技集团有限公司 All Rights Reserved <a class="c-aaa" target="_blank" href="https://beian.miit.gov.cn/">苏ICP备12080415号</a>
+        <a class="c-aaa" target="_blank" href="https://www.beian.gov.cn/portal/registerSystemInfo?recordcode=32020502000068"><img class="police-badge" src="https://osswebsite.yadea.com.cn/foot_icp_55db42dcdc.png" alt="" />苏公网安备 32020502000068号</a>
+      </div>
+    </footer>
+  </div>
+  <!-- 底部phone端end -->
+
+</body>
+
+</html>

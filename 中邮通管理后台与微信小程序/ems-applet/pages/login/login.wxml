@@ -1,0 +1,37 @@
+<view class="login">
+  <view class="header flex-vc">
+    <view class="header-tx">
+      <image src="https://zyt-network.oss-cn-qingdao.aliyuncs.com/images/logo.png"   class="full-img circle" mode=""/>
+    </view>
+    <view class="mt-4 fs-32 black">逍遥邮</view>
+  </view>
+
+  <!-- <image src="https://zyt-network.oss-cn-qingdao.aliyuncs.com/images/qrcode.png" show-menu-by-longpress="true" /> -->
+
+  <view class="main plr-def full-vw">
+    <!-- <van-button round type="primary" custom-style="width:100%" bind:tap="onLogin">手机号快捷登录</van-button> -->
+    <van-button
+      round
+      type="primary"
+      custom-style="width:100%"
+      class="green"
+      open-type="getPhoneNumber"
+      bindgetphonenumber="getPhoneNumber"
+      disabled="{{!checked}}"
+    >手机号快捷登录</van-button>
+  </view>
+
+  <view class="footer plr-def">
+    <van-checkbox
+      class="checkbox-container"
+      icon-size="14px"
+      value="{{ checked }}"
+      bind:change="onChange"
+    >
+      <view class="fs-26 c-999">
+        我已阅读并同意
+        <text class="theme-c" catch:tap="toPaper">《逍遥邮隐私政策》</text>。若您的手机号未注册，将为您直接注册
+      </view>
+    </van-checkbox>
+  </view>
+</view>

@@ -1,0 +1,116 @@
+.flexAlign {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  uni-page-body {
+    height: 100%;
+  }
+  :deep(.wot-theme-light) {
+    height: 100%;
+  }
+  .paymentResultInfoBox {
+    width: 100%;
+    height: 100%;
+    background: #f2f5f4;
+    text-align: center;
+    .orderDetailBtn {
+      margin-top: 56px;
+      width: 388rpx;
+      height: 88rpx;
+      color: #fff;
+      font-weight: 400;
+      font-size: 16px;
+      background: #000000;
+    }
+    .paymentResultInfoBox_head {
+      box-sizing: border-box;
+      height: 480rpx;
+      padding: 0 28rpx;
+      background: #000000;
+      .customPageNavbar {
+        display: flex;
+        align-items: center;
+        width: 100%;
+        height: 80rpx;
+        &-cicle {
+          .cicleLeftImg {
+            width: 20rpx;
+            height: 37rpx;
+          }
+        }
+        &-title {
+          flex: 1;
+          font-size: 32rpx;
+          font-weight: 800;
+          color: #ffffff;
+          text-align: center;
+        }
+      }
+      .payResultContent {
+        // margin-top: 40rpx;
+        margin-top: 66rpx;
+        .resultSuccessImg {
+          width: 112rpx;
+          height: 112rpx;
+          margin-right: 32rpx;
+        }
+        .resultRig_text {
+          text-align: left;
+          p:first-child {
+            font-size: 40rpx;
+            font-weight: bold;
+            color: #ffffff;
+            letter-spacing: 2rpx;
+          }
+          p:last-child {
+            margin-top: 8rpx;
+            font-size: 28rpx;
+            font-weight: 400;
+            color: #ffffff;
+          }
+        }
+      }
+    }
+    .resultDetailInfomation {
+      border-radius: 0 0 16rpx 16rpx;
+      background-color: #fff;
+      margin: -4px 20px 0 20px;
+      padding: 29px 11px 30px 11px;
+      box-sizing: border-box;
+      .resultItem {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        .p1 {
+          font-size: 14px;
+          font-weight: 400;
+          color: #404040;
+        }
+        .p2 {
+          font-size: 14px;
+          font-weight: 400;
+          color: #afafaf;
+        }
+        .integralAndCoin {
+          display: flex;
+          align-items: center;
+          padding-right: 8px;
+          font-size: 14px;
+          font-weight: 600;
+          color: #313131 !important;
+          .resultIcon {
+            width: 16px;
+            height: 15px;
+            margin-right: 4rpx;
+          }
+          .resultCoinIcon {
+            width: 17px;
+            height: 17px;
+            margin-right: 4rpx;
+            margin-bottom: 5px;
+          }
+        }
+      }
+    }
+  }

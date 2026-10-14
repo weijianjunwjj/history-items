@@ -1,0 +1,353 @@
+.flexAlign {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8rpx;
+}
+
+uni-page-body {
+  height: 100%;
+}
+
+.shopDetailContainerBox {
+  width: 100%;
+  height: 100%;
+  background: #f6f6f6;
+  position: relative;
+  .shopDetail_headtop {
+    position: relative;
+    height: 620rpx;
+
+    :deep(.wd-swiper__track) {
+      border-radius: 0;
+    }
+
+    .goBackDetailBtn {
+      position: fixed;
+      top: 100rpx;
+      left: 28rpx;
+      width: 44rpx;
+      height: 44rpx;
+      background: #656565;
+      opacity: 0.54;
+      border-radius: 50%;
+
+      .leftBackIcon {
+        width: 16rpx;
+        height: 29rpx;
+      }
+    }
+  }
+
+  .shopDetail_middleTitle {
+    padding: 20rpx 28rpx;
+    box-sizing: border-box;
+
+    .middleTitle_content {
+      background: #fff;
+      width: 100%;
+      padding: 24rpx;
+      box-sizing: border-box;
+      border-radius: 8rpx;
+
+      .shopgoods_moneys {
+        display: flex;
+        align-items: center;
+
+        .moneytext {
+          font-weight: bold;
+          font-size: 36rpx;
+          color: #404040;
+        }
+
+        .numtext {
+          font-weight: bold;
+          font-size: 36rpx;
+          // color: #ff3030;
+          color: #FBA345;
+          // margin-left: 6rpx;
+        }
+
+        .numtext-add {
+          height: 28rpx;
+          line-height: 26rpx;
+          color: #000;
+          font-weight: bold;
+          margin-left: 8rpx;
+          margin-right: 6rpx;
+          // padding-bottom: 4rpx;
+        }
+
+        .dollarIconImg {
+          width: 22rpx;
+          height: 48rpx;
+        }
+
+        .moneyIconimg {
+          width: 16px;
+          height: 15px;
+          margin-right: 4rpx;
+        }
+        .coinIconimg {
+          width: 16px;
+          height: 16px;
+          margin-right: 4rpx;
+        }
+      }
+
+      .shopgoods_title {
+        font-weight: 300;
+        font-size: 36rpx;
+        color: #313131;
+        margin-top: 16rpx;
+      }
+    }
+  }
+
+  .shopDetail_specification {
+    padding: 20rpx 28rpx;
+    padding-top: 0;
+    box-sizing: border-box;
+
+    .specification_content {
+      border-radius: 8rpx;
+      background: #fff;
+      width: 100%;
+      padding: 24rpx;
+      box-sizing: border-box;
+
+      .specificationItem {
+        display: flex;
+        align-items: center;
+        margin-bottom: 28rpx;
+
+        &:last-child {
+          margin-bottom: 0;
+        }
+
+        .specificationItem_label {
+          width: 104rpx;
+          font-weight: 300;
+          font-size: 28rpx;
+          color: #313131;
+          margin-right: 20rpx;
+        }
+
+        .specificationItem_content {
+          flex: 1;
+          display: flex;
+          align-items: center;
+          overflow: hidden;
+          font-weight: 300;
+          font-size: 28rpx;
+          color: #313131;
+
+          p {
+            min-width: 60rpx;
+            height: 60rpx;
+            // background: #f3f3f4;
+            // border: 2rpx solid #bfc4d0;
+            font-weight: 300;
+            font-size: 28rpx;
+            color: #313131;
+            display: flex;
+            align-items: center;
+            justify-content: left;
+            border-radius: 2%;
+            margin-right: 30rpx;
+          }
+
+          .active {
+            border: 2rpx solid #bfc4d0;
+            background: #ffffff;
+          }
+        }
+
+        .specificationItem_more {
+          margin-left: 20rpx;
+        }
+      }
+    }
+  }
+
+  .shopDetailEditInfo {
+    padding: 0 28rpx;
+    box-sizing: border-box;
+
+    &-head {
+      font-weight: bold;
+      font-size: 36rpx;
+      color: #313131;
+      text-align: center;
+      background: #ffffff;
+      margin-bottom: 20rpx;
+      padding: 18rpx 0;
+      box-sizing: border-box;
+    }
+
+    &-editbox {
+      box-sizing: border-box;
+      padding-bottom: 160rpx;
+      width: 100%;
+      background: #f6f6f6;
+    }
+  }
+
+  .shopDetailbottomBtnBox {
+    position: fixed;
+    bottom: 0;
+    box-sizing: border-box;
+    width: 100%;
+    padding-bottom: 50rpx;
+    background: #ffffff;
+    padding-top: 24rpx;
+
+    .addressConfimBtn {
+      width: 90%;
+      height: 80rpx;
+      background: #000000;
+    }
+  }
+
+  .specipopupContentInfn {
+    box-sizing: border-box;
+    width: 100%;
+    padding: 0 28rpx;
+    padding-bottom: 180rpx;
+    .specipopupTopgoodsBox {
+      display: flex;
+      justify-content: space-between;
+      margin-top: -50rpx;
+      .speciGoodsImgBox {
+        width: 200rpx;
+        // height: 224rpx;
+        background: #e7e7e7;
+        border-radius: 16rpx;
+
+        .specipopGoodsImg {
+          width: 100%;
+          border-radius: inherit;
+          // height: 100%;
+        }
+      }
+
+      .speciGoodsTextContetn {
+        flex: 1;
+        margin-left: 24rpx;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+
+        .speciGoodsTextContetn_title {
+          font-weight: bold;
+          font-size: 48rpx;
+          color: #313131;
+          margin-bottom: 24rpx;
+        }
+
+        .speciGoodsTextContetn_speci {
+          font-weight: 400;
+          font-size: 24rpx;
+          color: #afafaf;
+
+          span {
+            margin-left: 28rpx;
+          }
+        }
+      }
+    }
+
+    .speciGoodsSelectContent {
+      margin-top: 44rpx;
+      position: relative;
+      .speciGoodsSelectContent_title {
+        font-weight: bold;
+        font-size: 32rpx;
+        color: #313131;
+        margin-bottom: 18rpx;
+      }
+
+      .speciGoodsSelectContent_selectItem {
+        display: flex;
+        align-items: center;
+
+        p {
+          width: 116rpx;
+          height: 56rpx;
+          background: #f3f3f4;
+          font-weight: 400;
+          font-size: 28rpx;
+          color: #313131;
+          margin-right: 28rpx;
+          margin-bottom: 10rpx;
+          border: 2rpx solid transparent;
+        }
+
+        .activeL {
+          background: #ffffff;
+          border: 2rpx solid #808080;
+        }
+      }
+    }
+
+    .spectGoodsSelectNumber {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-top: 44rpx;
+
+      p {
+        font-weight: bold;
+        font-size: 32rpx;
+        color: #313131;
+      }
+    }
+
+    .specipopupContentInfn_bottombtnbox {
+      position: absolute;
+      bottom: 0;
+      box-sizing: border-box;
+      padding-bottom: 50rpx;
+      background: #ffffff;
+      width: calc(100% - 56rpx);
+      display: flex;
+      justify-content: space-between;
+
+      .speciBotLeftmoney {
+        display: flex;
+        align-items: center;
+        font-weight: bold;
+        font-size: 36rpx;
+        color: #313131;
+
+        .specimoneyIconimg {
+          width: 16px;
+          height: 15px;
+          margin-right: 4rpx;
+        }
+        .speCoinIconimg {
+          width: 16px;
+          height: 16px;
+          margin-right: 4rpx;
+        }
+      }
+
+      .specipopSureBtn {
+        width: 400rpx;
+        height: 80rpx;
+        background: #000000;
+      }
+    }
+  }
+}
+
+.shopDetailEditInfo-head {
+  font-size: 36rpx !important;
+  font-weight: 500 !important;
+  border-radius: 8rpx;
+
+  .shopDetailEditInfo-content {
+    font-size: 32rpx;
+    font-weight: 300;
+  }
+}

@@ -1,0 +1,150 @@
+{
+  "mode": "real timers, 2x, no manual step advancing",
+  "status": "PASS",
+  "errors": [],
+  "elapsedSeconds": 80.67,
+  "snapshot": {
+    "index": 18,
+    "status": "complete",
+    "autoplay": false,
+    "speed": 2,
+    "error": "",
+    "preparing": false,
+    "preparedIndex": -1,
+    "receipts": [
+      {
+        "index": 0,
+        "id": "overview",
+        "proof": "六步业务主线与 CRM 独立支线可见",
+        "at": "2026-10-14T03:43:23.908Z",
+        "path": "#/journey"
+      },
+      {
+        "index": 1,
+        "id": "definition",
+        "proof": "URL 指向同一个登录异常事件定义",
+        "at": "2026-10-14T03:43:28.046Z",
+        "path": "#/report/events?dataset=sdk&flow=sdk&start=2026-04-08&end=2026-04-08&region=%E5%A4%A7%E9%99%86&sdkEventId=login&sdkFrom=0&sdkTo=720&eventType=abnormalData&definitionId=DEMO-SDK-login"
+      },
+      {
+        "index": 2,
+        "id": "fields",
+        "proof": "字段树已加载 9 个节点",
+        "at": "2026-10-14T03:43:32.178Z",
+        "path": "#/report/events?dataset=sdk&flow=sdk&start=2026-04-08&end=2026-04-08&region=%E5%A4%A7%E9%99%86&sdkEventId=login&sdkFrom=0&sdkTo=720&eventType=abnormalData&definitionId=DEMO-SDK-login"
+      },
+      {
+        "index": 3,
+        "id": "panels",
+        "proof": "列名已实际修改并保存到独立演示内存",
+        "at": "2026-10-14T03:43:36.407Z",
+        "path": "#/report/events?dataset=sdk&flow=sdk&start=2026-04-08&end=2026-04-08&region=%E5%A4%A7%E9%99%86&sdkEventId=login&sdkFrom=0&sdkTo=720&eventType=abnormalData&definitionId=DEMO-SDK-login"
+      },
+      {
+        "index": 4,
+        "id": "preview",
+        "proof": "新列名出现在表头；同源 524 条上报记录",
+        "at": "2026-10-14T03:43:40.543Z",
+        "path": "#/report/events?dataset=sdk&flow=sdk&start=2026-04-08&end=2026-04-08&region=%E5%A4%A7%E9%99%86&sdkEventId=login&sdkFrom=0&sdkTo=720&eventType=abnormalData&definitionId=DEMO-SDK-login"
+      },
+      {
+        "index": 5,
+        "id": "source",
+        "proof": "212 行计数样本 → 524 次上报 / 25 台设备",
+        "at": "2026-10-14T03:43:44.745Z",
+        "path": "#/journey/source?dataset=sdk&flow=sdk&start=2026-04-08&end=2026-04-08&region=%E5%A4%A7%E9%99%86&sdkEventId=login&sdkFrom=0&sdkTo=720&eventType=abnormalData&definitionId=DEMO-SDK-login"
+      },
+      {
+        "index": 6,
+        "id": "monitor",
+        "proof": "登录异常卡片读取同源 524 次上报",
+        "at": "2026-10-14T03:43:48.947Z",
+        "path": "#/monitor/overview?dataset=sdk&flow=sdk&start=2026-04-08&end=2026-04-08&region=%E5%A4%A7%E9%99%86&sdkEventId=login&sdkFrom=0&sdkTo=720&eventType=abnormalData&definitionId=DEMO-SDK-login"
+      },
+      {
+        "index": 7,
+        "id": "window",
+        "proof": "04:00—04:30：10 台设备 / 25 次上报",
+        "at": "2026-10-14T03:43:53.080Z",
+        "path": "#/monitor/overview?dataset=sdk&flow=sdk&start=2026-04-08&end=2026-04-08&region=%E5%A4%A7%E9%99%86&sdkEventId=login&sdkFrom=0&sdkTo=720&eventType=abnormalData&definitionId=DEMO-SDK-login"
+      },
+      {
+        "index": 8,
+        "id": "analysis",
+        "proof": "通过跨页核对：10 台 / 25 次，窗口参数完整",
+        "at": "2026-10-14T03:43:57.368Z",
+        "path": "#/ebi/event?dataset=sdk&flow=sdk&start=2026-04-08&end=2026-04-08&region=%E5%A4%A7%E9%99%86&sdkEventId=login&sdkFrom=240&sdkTo=270&eventType=abnormalData&source=sdk"
+      },
+      {
+        "index": 9,
+        "id": "devices",
+        "proof": "设备清单保留原时间窗口；目标范围 10 台设备",
+        "at": "2026-10-14T03:44:01.656Z",
+        "path": "#/ebi/device?dataset=sdk&flow=sdk&start=2026-04-08&end=2026-04-08&region=%E5%A4%A7%E9%99%86&sdkEventId=login&sdkFrom=240&sdkTo=270&eventType=abnormalData&source=event"
+      },
+      {
+        "index": 10,
+        "id": "group",
+        "proof": "按操作系统聚合，第一组 6 台设备",
+        "at": "2026-10-14T03:44:06.153Z",
+        "path": "#/ebi/device?dataset=sdk&flow=sdk&start=2026-04-08&end=2026-04-08&region=%E5%A4%A7%E9%99%86&sdkEventId=login&sdkFrom=240&sdkTo=270&eventType=abnormalData&source=event"
+      },
+      {
+        "index": 11,
+        "id": "group-detail",
+        "proof": "只查看本组 6 台；选中 SDK-DEMO-1-1002，4 次异常",
+        "at": "2026-10-14T03:44:10.397Z",
+        "path": "#/ebi/device?dataset=sdk&flow=sdk&start=2026-04-08&end=2026-04-08&region=%E5%A4%A7%E9%99%86&sdkEventId=login&sdkFrom=240&sdkTo=270&eventType=abnormalData&source=event"
+      },
+      {
+        "index": 12,
+        "id": "user",
+        "proof": "SDK-DEMO-1-1002：上游 4 次 = 单用户 4 条",
+        "at": "2026-10-14T03:44:14.686Z",
+        "path": "#/ebi/user?dataset=sdk&flow=sdk&start=2026-04-08&end=2026-04-08&region=%E5%A4%A7%E9%99%86&sdkEventId=login&sdkFrom=240&sdkTo=270&source=event&deviceId=SDK-DEMO-1-1002"
+      },
+      {
+        "index": 13,
+        "id": "architecture",
+        "proof": "实际 getModule 请求、设备 ID、查询参数与结果已显示",
+        "at": "2026-10-14T03:44:18.883Z",
+        "path": "#/journey/architecture?dataset=sdk&flow=sdk&start=2026-04-08&end=2026-04-08&region=%E5%A4%A7%E9%99%86&sdkEventId=login&sdkFrom=240&sdkTo=270&eventType=abnormalData&source=event&deviceId=SDK-DEMO-1-1002"
+      },
+      {
+        "index": 14,
+        "id": "crm",
+        "proof": "切换到独立 CRM 应用；没有伪造 SDK → 抽奖业务因果",
+        "at": "2026-10-14T03:44:23.210Z",
+        "path": "#/crm/activities?flow=crm"
+      },
+      {
+        "index": 15,
+        "id": "prizes",
+        "proof": "奖品 A → B → A，修改后的名称保留",
+        "at": "2026-10-14T03:44:27.561Z",
+        "path": "#/crm/activities?flow=crm"
+      },
+      {
+        "index": 16,
+        "id": "validation",
+        "proof": "预期校验通过：110% 被阻断，仍停留在奖品设置",
+        "at": "2026-10-14T03:44:31.725Z",
+        "path": "#/crm/activities?flow=crm"
+      },
+      {
+        "index": 17,
+        "id": "save",
+        "proof": "70% 允许保存；返回列表重开，奖品名称与 20% 概率均保留",
+        "at": "2026-10-14T03:44:36.168Z",
+        "path": "#/crm/activities?flow=crm"
+      },
+      {
+        "index": 18,
+        "id": "recap",
+        "proof": "业务主线 + 技术调用 + CRM 配置闭环均已实际操作完成",
+        "at": "2026-10-14T03:44:40.305Z",
+        "path": "#/journey/architecture?dataset=sdk&flow=sdk&start=2026-04-08&end=2026-04-08&region=%E5%A4%A7%E9%99%86&sdkEventId=login&sdkFrom=240&sdkTo=270&source=event&deviceId=SDK-DEMO-1-1002"
+      }
+    ]
+  }
+}

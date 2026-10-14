@@ -1,0 +1,17 @@
+
+stages:
+  - stop
+  - deploy
+
+stop:
+  stage: stop
+  script:
+    - ps -aux | grep 'cross-env PORT=8080' | grep -v grep | awk {'print $2'} | xargs kill -9
+  allow_failure: true
+
+deploy:
+  stage: deploy
+  script:
+    - yarn
+    - yarn build-local
+    - nohup yarn start > yadea-website.log 2>&1 &

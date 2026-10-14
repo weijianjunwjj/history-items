@@ -1,0 +1,25 @@
+const Layout = () => import('@/layout/index.vue')
+
+export default {
+  name: 'OrderManagement',
+  path: '/order-management',
+  redirect: '/order-management/index',
+  meta: {
+    title: '订单管理',
+    icon: 'ic:baseline-menu',
+    // role: ['admin'],
+    // requireAuth: true,
+    order: 3,
+  },
+  children: [
+    {
+      name: 'OrderManagementIndex',
+      path: 'index',
+      component: () => import('./index.vue'),
+      meta: {
+        title: '订单管理',
+        icon: 'ic:baseline-menu',
+      },
+    },
+  ],
+}

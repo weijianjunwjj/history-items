@@ -1,0 +1,34 @@
+// @import './iconfont.css';
+@import './flex.scss';
+@import './mp.scss';
+@import './my.scss';
+@import './atom.scss';
+@import './custom.scss';
+
+.test {
+  // 可以通过 @apply 多个样式封装整体样式
+  @apply mt-4 ml-4;
+
+  padding-top: 4px;
+  color: red;
+}
+
+:root,
+page {
+  // 修改按主题色
+  // --wot-color-theme: #37c2bc;
+
+  // 修改按钮背景色
+  // --wot-button-primary-bg-color: green;
+}
+
+.black {
+  color: #333333;
+}
+
+.hide {
+  visibility: hidden;
+}
+.rel {
+  position: relative;
+}

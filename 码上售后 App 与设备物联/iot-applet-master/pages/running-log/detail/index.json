@@ -1,0 +1,5 @@
+{
+  "usingComponents": {
+    "echarts-bar":"/components/echarts-bar/index"
+  }
+}

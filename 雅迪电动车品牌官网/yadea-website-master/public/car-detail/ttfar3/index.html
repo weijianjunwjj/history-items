@@ -1,0 +1,1388 @@
+<!DOCTYPE html>
+<!-- saved from url=(0046)https://www.yadea.com.cn/home/core/sidian.html -->
+<html lang="zh" style="font-size: 172.4px">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <style class="vjs-styles-defaults">
+    .video-js {
+      width: 300px;
+      height: 150px;
+    }
+
+    .vjs-fluid {
+      padding-top: 56.25%;
+    }
+  </style>
+
+  <title>雅迪 全系核心四电</title>
+  <meta name="viewport"
+    content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no,minimal-ui, viewport-fit=cover" />
+  <meta name="keywords" content="雅迪 全系核心四电" />
+  <meta name="description" content="雅迪 全系核心四电 " />
+  <meta name="applicable-device" content="pc,mobile" />
+  <link rel="preload" href='../assets/icon/HYQiHei-65J.ttf' as="font" type="font/ttf" crossorigin="anonymous">
+  <link rel="preload" href='../assets/icon/EncodeSansSemiExpanded-Regular.ttf' as="font" type="font/ttf"
+    crossorigin="anonymous">
+  <link rel="preload" href='../assets/icon/iconfont.ttf' as="font" type="font/ttf" crossorigin="anonymous">
+  <link rel="preload" href='../assets/icon/iconfont.woff' as="font" type="font/woff" crossorigin="anonymous">
+  <link rel="preload" href='../assets/icon/iconfont.woff2' as="font" type="font/woff2" crossorigin="anonymous">
+  <link rel="stylesheet" href='../assets/css/common/animate.min.css'>
+  <link rel="stylesheet" href='../assets/css/common/swiper.min.css'>
+  <link rel="stylesheet" href='../assets/css/base.css'>
+  <link rel="stylesheet" href='../assets/css/common/header.css'>
+  <link rel="stylesheet" href='../assets/css/common/aside.css'>
+  <link rel="stylesheet" href='../assets/css/common/style.css'>
+  <link rel="stylesheet" href='../assets/css/common/cps.css'>
+  <link rel="stylesheet" href='../assets/css/common/other.css'>
+  <link rel="stylesheet" href='../assets/css/common/join.css'>
+  <link rel="stylesheet" href='../assets/css/common/edit202012.css'>
+  <link rel="stylesheet" href='../assets/css/common/new_index.css'>
+  <link rel="stylesheet" href='../assets/css/common/new.css'>
+  <link rel="stylesheet" href='../assets/css/common/video-js.min.css'>
+  <link rel="stylesheet" href='../assets/plugin/layer/skin/layer.css' id="layui_layer_skinlayercss">
+  <link rel="stylesheet" href='../assets/css/header/index.css'>
+  <link rel="stylesheet" href='../assets/css/footer/index.css'>
+  <link rel="stylesheet" href='../assets/css/common.css'>
+  <script src='../assets/js/common/hm.js'></script>
+  <script type="text/javascript" src='../assets/js/common/media.js'></script>
+  <script type="text/javascript" src='../assets/js/common/jquery-1.12.3.min.js'></script>
+  <script type="text/javascript" src='../assets/js/common/jquery.min.js'></script>
+  <script src="../assets/plugin/lodash.min.js"></script>
+  <script src='../assets/js/common.js'></script>
+  <script type="text/javascript" src='../assets/plugin/layer/layer.js'></script>
+  <script type="text/javascript" src="../assets/js/common/swiper.min.js"></script>
+  <script type="text/javascript" src="../assets/js/common/script.js"></script>
+  <script type="text/javascript" src="../assets/js/common/zUI.js"></script>
+  <script type="text/javascript" src="../assets/js/common/wow.js"></script>
+  <script type="text/javascript" src="../assets/js/common/jquery.nicescroll.min.js"></script>
+  <script type="text/javascript" src="../assets/js/common/lottie.js"></script>
+  <script type="text/javascript" src="../assets/js/common/jquery-ui.js"></script>
+  <script type="text/javascript" src="../assets/js/common/jquery.ui.touch.js"></script>
+  <script type="text/javascript" src="../assets/js/common/video.min.js"></script>
+  <script type="text/javascript" src="../assets/js/common/jsencrypt.min.js"></script>
+  <script src="../assets/js/common/jweixin-1.4.0.js"></script>
+  <script src="../assets/js/common/vue.js"></script>
+  <script src="../assets/js/header-pc.js"></script>
+  <script src="../assets/js/footer-pc.js"></script>
+  <script src="../assets/js/header-phone.js"></script>
+  <script src="../assets/js/footer-phone.js"></script>
+  <script src="../assets/js/common/buryingPoint.js"></script>
+  <script>
+    wow = new WOW({
+      animateClass: "animated",
+      offset: 0,
+    });
+    wow.init();
+    initBuryingPoint();
+  </script>
+
+  <!-- End GrowingIO Analytics code version: 2.1 -->
+</head>
+
+<body class="safe-area-inset-bottom">
+  <!-- pc端头部start -->
+  <div id='headerPc' class="header-pc-show">
+    <header v-cloak class="page-header"
+      :class="[isHomePage ? isMove && 'page-header-move' : 'page-header-move', !isShowHeader && 'hide-header']">
+      <div class="page-header-menu flex-vc-aside">
+        <div class="flex-vc">
+          <div class="logo header-logo">
+            <a href="/" class="flex-hvc">
+              <img :src="replaceImgUrl(imgLogo)" class="full" alt="logo" />
+            </a>
+          </div>
+          <div class="menu flex fs-18-vw fs-max-16">
+            <div v-for="(item, index) of menus" :key="index" class="menu-item fw-500 fs-18-vw cur-point fade-in"
+              :class="[activeIndex === index && 'menu-item-hover', `header-menu-item-${index}`]"
+              @mouseenter="mouseOverMenu(item, index)" @mouseleave="mouseOutMenu(item, index)">
+              <span>{{ item.name }}</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="options flex-vc">
+          <div class="oversea mr-8">
+            <template v-if="isHomePage">
+              <a v-show="isMove" href="https://www.yadea.com" target="_blank" class="flex-hvc">
+                <img src='../assets/images/svg/vector.svg' class="svg-vector" />
+              </a>
+              <a v-show="!isMove" href="https://www.yadea.com" target="_blank" class="flex-hvc">
+                <img src='../assets/images/svg/vector-white.svg' class="svg-vector" />
+              </a>
+            </template>
+            <template v-else>
+              <a href="https://www.yadea.com" target="_blank" class="flex-hvc">
+                <img src='../assets/images/svg/vector.svg' class="svg-vector" />
+              </a>
+            </template>
+          </div>
+          <div class="shop-mall-container" @mouseenter="handleEnterShopMall" @mouseleave="handleOutShopMall">
+            <div class="shop-mall fs-16 border-box">
+              <div class="flex-hvc">
+                <img src='../assets/images/svg/shopmall.svg' class="svg-shopmall" />
+                <span class="shop-mall-txt">商城</span>
+              </div>
+            </div>
+            <div v-show="showMall" class="show-mall-box">
+              <div class="mall-link fs-12-vw">
+                <a href="/car-detail/shop/index.html">官方商城</a>
+              </div>
+              <div class="mall-link fs-12-vw">
+                <a
+                  href="https://mall.jd.com/index-1000160101.html?cu=true&utm_source=www.catv1.com&utm_medium=tuiguang&utm_campaign=t_84122001_&utm_term=67361533163240aaa105d6e24ce6de39">
+                  京东
+                </a>
+              </div>
+              <div class="mall-link fs-12-vw">
+                <a
+                  href="https://yadea.tmall.com/shop/view_shop.htm?user_number_id=2817130358&ali_trackid=2%3Amm_26534443_1954650123_110945750366%3A1678263078_018_567139338&union_lens=recoveryid%3A1678263078_018_567139338&bxsign=tbkNopySEA0Bm-GzQwyUK3vnl_o3y1lMpTxrJw9XAlTZGymXJdvXmoNnQyD-E8kNS1y_RTD_c1DM8bnwFIUMKzfIplOCistvAiebW-vPE0yDTNaJC5XSqmTojZrdivhVMct4_cSg9kctbKDTdoJJCy8Ow">
+                  天猫
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- 浮窗 -->
+      <div class="page-header-mask" :class="isShowMask ? 'page-header-mask-active' : ''">
+        <div class="page-header-mask-content" :class="isShowMask ? 'page-header-mask-content-active' : ''"
+          @mouseenter="mouseOverMask" @mouseleave="mouseOutMask">
+          <div ref="maskRefs" class="pos-rel">
+            <cycling-products v-show="activeIndex === 0" :index="0" :update-height="updateHeight" :hide-mask="hideMask">
+            </cycling-products>
+            <cycling-life v-show="activeIndex === 1" :index="1" :update-height="updateHeight" :hide-mask="hideMask">
+            </cycling-life>
+            <cycling-technology v-show="activeIndex === 2" :index="2" :update-height="updateHeight"
+              :hide-mask="hideMask"></cycling-technology>
+            <buy-support v-show="activeIndex === 3" :index="3" :update-height="updateHeight" :hide-mask="hideMask">
+            </buy-support>
+            <service-support v-show="activeIndex === 4" :index="4" :update-height="updateHeight" :hide-mask="hideMask">
+            </service-support>
+            <about-yadea v-show="activeIndex === 5" :index="5" :update-height="updateHeight" :hide-mask="hideMask">
+            </about-yadea>
+
+            <span v-if="activeIndex === 0 || activeIndex === 1" class="icon-hide-mask cur-point" @click="hideMask">
+              <img src="../assets/images/svg/cha.svg" alt="" class="svg-cha" />
+            </span>
+          </div>
+        </div>
+      </div>
+    </header>
+  </div>
+  <!-- pc端头部end -->
+
+  <!-- 移动端头部start -->
+  <div id="app" class="header-phone-show">
+    <div class="header-container" :class="{ 'white-header': isScrollYMove || show }">
+      <div class="logo-box" @click="handleShowDropDown">
+        <img v-if="show" src='../assets/images/svg/close.svg' />
+        <img v-else
+          :src="isScrollYMove ? '../assets/images/svg/classifyblack.svg' : '../assets/images/svg/classifyblack.svg'" />
+      </div>
+      <div class="yadea-box flex-hvc">
+        <a href="/mob" class="">
+          <img :src="replaceImgUrl(imgLogo)" class="full" alt="logo" />
+        </a>
+      </div>
+      <div class="yadea-shop">
+        <div class="yadea-shop-box" @mouseenter="handleEnterShopMall" @mouseleave="handleOutShopMall">
+          <button class='shop-mall'>
+            <img class='shop-icon' src='../assets/images/svg/shopmall.svg' />
+            <span class="ml-1 fs-12-mvw">商城</span>
+          </button>
+          <Transition name="showMall">
+            <div v-if="showMall" class="show-mall-box">
+              <div class="mall-link fs-12-mvw">
+                <a href="/car-detail/shop/index.html">官方商城</a>
+              </div>
+              <div class="mall-link fs-12-mvw">
+                <a
+                  href="https://mall.jd.com/index-1000160101.html?cu=true&utm_source=www.catv1.com&utm_medium=tuiguang&utm_campaign=t_84122001_&utm_term=67361533163240aaa105d6e24ce6de39">
+                  京东
+                </a>
+              </div>
+              <div class="mall-link fs-12-mvw">
+                <a
+                  href="https://yadea.tmall.com/shop/view_shop.htm?user_number_id=2817130358&ali_trackid=2%3Amm_26534443_1954650123_110945750366%3A1678263078_018_567139338&union_lens=recoveryid%3A1678263078_018_567139338&bxsign=tbkNopySEA0Bm-GzQwyUK3vnl_o3y1lMpTxrJw9XAlTZGymXJdvXmoNnQyD-E8kNS1y_RTD_c1DM8bnwFIUMKzfIplOCistvAiebW-vPE0yDTNaJC5XSqmTojZrdivhVMct4_cSg9kctbKDTdoJJCy8Ow">
+                  天猫
+                </a>
+              </div>
+            </div>
+          </Transition>
+        </div>
+      </div>
+    </div>
+    <Transition>
+      <div v-if="show" class="header-dropdown-box">
+        <div class="menu-box">
+          <template v-for="(item, index) in mobileHeaderMenus" :key="item.id">
+            <div class="menu-items">
+              <div class="menu-items-title" @click="handleOpenMenuItems(item.id)">
+                <span class="fs-14-mvw">{{ item.name }}</span>
+                <img src="../assets/images/svg/down.svg" :class="menusShow === item.id && 'rotate-180'" />
+              </div>
+              <Transition name="menus">
+                <div v-if="menusShow === item.id">
+                  <template v-for="(subItem, subIndex) in item.category" :key="subItem.id">
+                    <div v-if="urlOfParamsMap[item.apis]" class="menu-items-drop">
+                      <div v-if="index === 0 && subIndex === 0" class="menu-items-title" @click="handleGoAllModels">
+                        <span class="fs-14-mvw">全部车型</span>
+                        <img src="../assets/images/svg/down.svg" />
+                      </div>
+                      <div class="menu-items-title" @click="handleOpenDropItems(item.apis, item.id, subItem.id)">
+                        <span class="fs-14-mvw">{{ subItem.name }}</span>
+                        <img src="../assets/images/svg/down.svg" :class="dropsShow === subItem.id && 'rotate-180'" />
+                      </div>
+                      <Transition name="menus">
+                        <div v-if="dropsShow === subItem.id" class="drop-detail">
+                          <div v-if="subItem.children.length !== 0">
+                            <template v-for="threeItem in subItem.children" :key="threeItem.id">
+                              <div v-if="threeItem.attributes.picUrl" class="car-detail-box"
+                                @click="handleGoCarDetail(threeItem.attributes.model_static)">
+                                <div v-if="fasle" class="need-driving-license">
+                                  <img src="../assets/images/svg/drive.svg" />
+                                  <span class="fs-12-mvw">需驾照</span>
+                                </div>
+                                <div class="car-image">
+                                  <img :src="replaceImgUrl(threeItem.attributes.picUrl?.data[0]?.attributes.url)"
+                                    alt="图片" />
+                                </div>
+                                <div class="car-info">
+                                  <p class="fs-14-mvw fw-bold">{{ threeItem.attributes.name }}</p>
+                                  <span class="fs-12-mvw">{{ threeItem.attributes.desc1 }}</span>
+                                </div>
+                              </div>
+                              <div v-else class="text-detail-box"
+                                @click="handleGoCarDetail(threeItem.attributes.model_static)">
+                                <span>{{ threeItem.attributes.name }}</span>
+                              </div>
+                            </template>
+                          </div>
+                          <div v-else>暂时为空</div>
+                        </div>
+                      </Transition>
+                    </div>
+                    <div v-else class="menu-items-drop">
+                      <div class="menu-items-title" @click="jump(subItem)">
+                        <span class="fs-14-mvw">{{ subItem.name }}</span>
+                      </div>
+                    </div>
+                  </template>
+                </div>
+              </Transition>
+            </div>
+          </template>
+        </div>
+        <div class="international">
+          <img src="../assets/images/svg/vector.svg" alt="" />
+          <span class="fs-14-mvw"><a href="https://www.yadea.com/" target="_blank">雅迪国际站</a></span>
+        </div>
+      </div>
+    </Transition>
+  </div>
+  <!-- 移动端头部end -->
+  <link rel="stylesheet" href="../assets/css/four.css" />
+
+  <!-- 主体 -->
+  <div class="m5_page pc_show">
+    <div class="normal_box">
+      <img class="bg" src="https://osswebsite.yadea.com.cn/ttfar3/static/3-tuya.jpg" alt="" />
+      <img class="text wow fadeInUpSmall animated" data-wow-delay="0.5s" data-wow-duration="1s"
+        src="https://osswebsite.yadea.com.cn/ttfar3/static/2.png" alt="" style="
+            visibility: visible;
+            animation-duration: 1s;
+            animation-delay: 0.5s;
+            animation-name: fadeInUpSmall;
+          " />
+    </div>
+    <div class="normal_box">
+      <img class="bg" src="https://osswebsite.yadea.com.cn/ttfar3/static/4-tuya.jpg" alt="" />
+      <div class="auto">
+        <div class="yd-box2 wow fadeInUpSmall" data-wow-delay="0.5s" data-wow-duration="1s" style="
+              visibility: hidden;
+              animation-duration: 1s;
+              animation-delay: 0.5s;
+              animation-name: none;
+            ">
+          <img class="img1" src="https://osswebsite.yadea.com.cn/ttfar3/static/5.png" alt="" />
+          <img class="img2" src="https://osswebsite.yadea.com.cn/ttfar3/static/6.png" alt="" />
+          <img class="img3" src="https://osswebsite.yadea.com.cn/ttfar3/static/7-a.png" alt="" />
+        </div>
+      </div>
+    </div>
+    <div class="normal_box b3" id="b3">
+      <img src="https://osswebsite.yadea.com.cn/ttfar3/static/8-tuya.jpg" alt="" />
+      <img class="title-img wow fadeInUpSmall" data-wow-delay="0.5s" data-wow-duration="1s"
+        src="https://osswebsite.yadea.com.cn/ttfar3/static/9.png" alt="" style="
+            visibility: hidden;
+            animation-duration: 1s;
+            animation-delay: 0.5s;
+            animation-name: none;
+          " />
+      <div class="b3-img normal_box">
+        <div class="b3-title normal_box">
+          <p class="text-title">创新石墨烯制备新篇章</p>
+          <div>
+            <div class="word active" id="word1">性能</div>
+            <div class="word" id="word2">设计</div>
+            <div class="word" id="word3" style="margin-right: 0">结构</div>
+            <div class="line"></div>
+          </div>
+        </div>
+        <div class="introduce tip1">
+          重构石墨烯反应活性中心<br />提升活性物质利用率
+        </div>
+        <div class="introduce tip2" style="display: none">
+          超大极板设计<br />提升活性物质反应有效面积
+        </div>
+        <div class="introduce tip3" style="display: none">
+          有机无机复合高分子高回弹纤维隔板<br />实现电池集群膨胀收缩自适应<br />有效提升循环寿命
+        </div>
+      </div>
+
+      <div class="b3-bottom-img">
+        <img class="b3-bottom-img1" src="https://osswebsite.yadea.com.cn/ttfar3/static/10.png"
+          alt="" />
+        <img class="b3-bottom-img2" src="https://osswebsite.yadea.com.cn/ttfar3/static/11.png"
+          alt="" />
+      </div>
+    </div>
+    <div class="normal_box b4">
+      <img src="https://osswebsite.yadea.com.cn/ttfar3/static/b4.jpg" alt="" />
+      <img class="title-img" src="https://osswebsite.yadea.com.cn/ttfar3/static/15.png" alt="" />
+      <div class="b4-img normal_box">
+        <!--                <img src="/static/home/images/four/pc-13.jpg" alt="" class="img1">-->
+        <video
+          src="https://osswebsite.yadea.com.cn/play_28fae707c0_fb76687dfb.mp4?updated_at=2023-03-16T02:56:01.914Z"
+          preload="auto" autoplay="" loop="" muted="" class="img1" playsinline="" webkit-playsinline=""
+          id="myVideo"></video>
+        <div class="img2">
+          <div class="normal_box left">
+            <img src="https://osswebsite.yadea.com.cn/ttfar3/static/pc-57.png" alt="" class="img11" />
+            <img src="https://osswebsite.yadea.com.cn/ttfar3/static/pc-58.png" alt="" class="img12" />
+            <img src="https://osswebsite.yadea.com.cn/ttfar3/static/pc-59.png" alt="" class="img13" />
+            <img src="https://osswebsite.yadea.com.cn/ttfar3/static/pc-60.png" alt="" class="img14" />
+            <img src="https://osswebsite.yadea.com.cn/ttfar3/static/pc-61.png" alt="" class="img15" />
+            <img src="https://osswebsite.yadea.com.cn/ttfar3/static/pc-62.png" alt="" class="img16" />
+          </div>
+          <img src="https://osswebsite.yadea.com.cn/ttfar3/static/pc-56-a.png" alt=""
+            class="b4Img1" />
+          <img src="https://osswebsite.yadea.com.cn/ttfar3/static/pc-54-a.png" alt="" class="b4Img2"
+            style="display: none" />
+          <img src="https://osswebsite.yadea.com.cn/ttfar3/static/pc-55-a.png" alt="" class="b4Img3"
+            style="display: none" />
+        </div>
+        <img src="https://osswebsite.yadea.com.cn/ttfar3/static/pc-14.png" alt=""
+          class="img4 wow fadeInUp" data-wow-delay="0.5s" data-wow-duration="1s" style="
+              visibility: hidden;
+              animation-duration: 1s;
+              animation-delay: 0.5s;
+              animation-name: none;
+            " />
+      </div>
+    </div>
+    <div class="normal_box fourb4">
+      <img src="https://osswebsite.yadea.com.cn/ttfar3/static/30-tuya.jpg" alt="" />
+      <div class="fourb4-box wow fadeInUp" data-wow-delay="0.5s" data-wow-duration="1s" style="
+            visibility: hidden;
+            animation-duration: 1s;
+            animation-delay: 0.5s;
+            animation-name: none;
+          ">
+        <img src="https://osswebsite.yadea.com.cn/ttfar3/static/28.png" alt="" class="img1" />
+        <img src="https://osswebsite.yadea.com.cn/ttfar3/static/29.png" alt="" class="img2" />
+      </div>
+    </div>
+    <div class="normal_box fourb5">
+      <img src="https://osswebsite.yadea.com.cn/ttfar3/static/32-tuya.jpg" alt="" />
+      <div class="fourb5-box">
+        <img src="https://osswebsite.yadea.com.cn/ttfar3/static/31.png" alt=""
+          class="img1 wow fadeInUp" data-wow-delay="0.5s" data-wow-duration="1s" style="
+              visibility: hidden;
+              animation-duration: 1s;
+              animation-delay: 0.5s;
+              animation-name: none;
+            " />
+      </div>
+    </div>
+    <div class="normal_box b5">
+      <div class="b5-img">
+        <div class="img-box">
+          <img src="https://osswebsite.yadea.com.cn/ttfar3/static/33-a.png" alt=""
+            class="img1 wow fadeInUpSmall" data-wow-delay="0.5s" data-wow-duration="1s" style="
+                visibility: hidden;
+                animation-duration: 1s;
+                animation-delay: 0.5s;
+                animation-name: none;
+              " />
+        </div>
+        <div class="swiper-box normal_box">
+          <div class="swiper-container swiper-container-fade swiper-container-initialized swiper-container-horizontal"
+            id="pcSwiper">
+            <div class="swiper-wrapper">
+              <div class="swiper-slide swiper-slide-active" style="
+                    width: 1294px;
+                    opacity: 1;
+                    transform: translate3d(0px, 0px, 0px);
+                  ">
+                <div class="s-img-box normal_box">
+                  <img src="https://osswebsite.yadea.com.cn/ttfar3/static/36-tuya.jpg" alt=""
+                    class="s-img" />
+                  <div class="s-word">双模式 随心切</div>
+                </div>
+              </div>
+              <div class="swiper-slide swiper-slide-next" style="
+                    width: 1294px;
+                    opacity: 0;
+                    transform: translate3d(-1294px, 0px, 0px);
+                  ">
+                <div class="s-img-box">
+                  <img src="https://osswebsite.yadea.com.cn/ttfar3/static/37-tuya.jpg" alt=""
+                    class="s-img" />
+                  <div class="s-word">双模式 随心切</div>
+                </div>
+              </div>
+            </div>
+            <span class="swiper-notification" aria-live="assertive" aria-atomic="true"></span>
+          </div>
+          <div class="blocks">
+            <div class="swiper-button-prev swiper-button-prev-1 swiper-button-disabled" tabindex="0" role="button"
+              aria-label="Previous slide" aria-disabled="true"></div>
+            <div class="swiper-button-next swiper-button-next-1" tabindex="0" role="button" aria-label="Next slide"
+              aria-disabled="false"></div>
+          </div>
+        </div>
+        <div class="swiper-boxs">
+          <div class="swiper-container swiper-container-initialized swiper-container-horizontal" id="pcSwiper1">
+            <div class="swiper-wrapper" style="
+                  transform: translate3d(-1038px, 0px, 0px);
+                  transition-duration: 0ms;
+                ">
+              <div class="swiper-slide swiper-slide-duplicate swiper-slide-prev swiper-slide-duplicate-next"
+                data-swiper-slide-index="1" style="width: 1038px">
+                <div class="s-img-box">
+                  <img src="https://osswebsite.yadea.com.cn/ttfar3/static/43-tuya.png" alt=""
+                    class="s-img" />
+                  <!-- <div class="s-word">双模式 随心切</div> -->
+                </div>
+              </div>
+              <div class="swiper-slide swiper-slide-active" data-swiper-slide-index="0" style="width: 1038px">
+                <div class="s-img-box normal_box">
+                  <img src="https://osswebsite.yadea.com.cn/ttfar3/static/41-tuya.png" alt=""
+                    class="s-img" />
+                  <!-- <div class="s-word">双模式 随心切</div> -->
+                </div>
+              </div>
+              <div class="swiper-slide swiper-slide-next swiper-slide-duplicate-prev" data-swiper-slide-index="1"
+                style="width: 1038px">
+                <div class="s-img-box">
+                  <img src="https://osswebsite.yadea.com.cn/ttfar3/static/43-tuya.png" alt=""
+                    class="s-img" />
+                  <!-- <div class="s-word">双模式 随心切</div> -->
+                </div>
+              </div>
+              <div class="swiper-slide swiper-slide-duplicate swiper-slide-duplicate-active" data-swiper-slide-index="0"
+                style="width: 1038px">
+                <div class="s-img-box normal_box">
+                  <img src="https://osswebsite.yadea.com.cn/ttfar3/static/41-tuya.png" alt=""
+                    class="s-img" />
+                  <!-- <div class="s-word">双模式 随心切</div> -->
+                </div>
+              </div>
+            </div>
+            <div class="swiper-pagination swiper-pagination-2 swiper-pagination-clickable swiper-pagination-bullets">
+              <span class="swiper-pagination-bullet swiper-pagination-bullet-active" tabindex="0" role="button"
+                aria-label="Go to slide 1"></span><span class="swiper-pagination-bullet" tabindex="0" role="button"
+                aria-label="Go to slide 2"></span>
+            </div>
+            <div class="swiper-button-prev swiper-button-prev-2" tabindex="0" role="button" aria-label="Previous slide">
+            </div>
+            <div class="swiper-button-next swiper-button-next-2" tabindex="0" role="button" aria-label="Next slide">
+            </div>
+            <span class="swiper-notification" aria-live="assertive" aria-atomic="true"></span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="normal_box fourb6">
+      <img src="https://osswebsite.yadea.com.cn/ttfar3/static/54.jpg" alt="" />
+      <div class="makedown normal_box">
+        <img src="https://osswebsite.yadea.com.cn/ttfar3/static/pc-30.png" alt="" class="left-img" />
+        <div class="right-box">
+          <div class="frame">
+            <img src="https://osswebsite.yadea.com.cn/ttfar3/static/pc-31.png" alt=""
+              class="img3 special1" />
+            <img src="https://osswebsite.yadea.com.cn/ttfar3/static/pc-35.png" alt=""
+              class="img2 special2" />
+          </div>
+          <div class="frame">
+            <img src="https://osswebsite.yadea.com.cn/ttfar3/static/pc-32.png" alt=""
+              class="img3 special1" />
+            <img src="https://osswebsite.yadea.com.cn/ttfar3/static/pc-36.png" alt=""
+              class="img2 special2" />
+          </div>
+          <div class="frame">
+            <img src="https://osswebsite.yadea.com.cn/ttfar3/static/pc-33.png" alt=""
+              class="img3 special1" />
+            <img src="https://osswebsite.yadea.com.cn/ttfar3/static/pc-37.png" alt=""
+              class="img2 special2" />
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="normal_box b14" style="background: url('https://osswebsite.yadea.com.cn/ttfar3/static/b008be046d49ab92358ba2a3f90b906.jpg'); height: 550px;">
+      <!-- <img src="https://osswebsite.yadea.com.cn/ttfar3/static/b008be046d49ab92358ba2a3f90b906.jpg"
+        alt="" class="" /> -->
+      <div class="b14-box">
+        <!-- <img class="title-img wow fadeInUpSmall" data-wow-delay="0.5s" data-wow-duration="1s"
+          src="https://osswebsite.yadea.com.cn/ttfar3/static/57.png" alt="" style="
+              visibility: hidden;
+              animation-duration: 1s;
+              animation-delay: 0.5s;
+              animation-name: none;
+            " />
+        <div class="msg">
+          <div class="item">
+            <img
+              src="https://osswebsite.yadea.com.cn/ttfar3/static/f4d539c25328bc339295210ca1664f4.jpg"
+              alt="" />
+            <div>
+              <p>冠能3 E9 PRO</p>
+              <a href="https://www.yadea.com.cn/home/models/product_index/id/68.html">
+                <p class="link">了解更多&gt;</p>
+              </a>
+            </div>
+          </div>
+          <div class="item">
+            <img
+              src="https://osswebsite.yadea.com.cn/ttfar3/static/3b169a24ac2f96aa12606222633cefb.jpg"
+              alt="" />
+            <div>
+              <p>冠能3 S9 MAX</p>
+              <a href="https://www.yadea.com.cn/home/models/product_index/id/69.html">
+                <p class="link">了解更多&gt;</p>
+              </a>
+            </div>
+          </div>
+        </div> -->
+        <img src="https://osswebsite.yadea.com.cn/ttfar3/static/pc-53-a.png" alt="" class="" />
+      </div>
+    </div>
+  </div>
+
+  <div class="m5_page wap_show">
+    <div class="normal_box">
+      <img class="bg" src="https://osswebsite.yadea.com.cn/ttfar3/static/fourapp-3.jpg" alt="" />
+      <img class="textmode wow fadeInUpSmall animated" data-wow-delay="0.5s" data-wow-duration="1s"
+        src="https://osswebsite.yadea.com.cn/ttfar3/static/fourapp-2.png" alt="" style="
+            visibility: visible;
+            animation-duration: 1s;
+            animation-delay: 0.5s;
+            animation-name: fadeInUpSmall;
+          " />
+    </div>
+    <div class="normal_box">
+      <img class="bg" src="https://osswebsite.yadea.com.cn/ttfar3/static/fourapp-7.jpg" alt="" />
+      <div class="yd-box2-mob">
+        <img class="img1 wow fadeInUp animated" data-wow-delay="0.5s" data-wow-duration="1s"
+          src="https://osswebsite.yadea.com.cn/ttfar3/static/fourapp-4.png" alt="" style="
+              visibility: visible;
+              animation-duration: 1s;
+              animation-delay: 0.5s;
+              animation-name: fadeInUp;
+            " />
+        <img class="img2 wow fadeInUp animated" data-wow-delay="0.5s" data-wow-duration="1s"
+          src="https://osswebsite.yadea.com.cn/ttfar3/static/fourapp-5.png" alt="" style="
+              visibility: visible;
+              animation-duration: 1s;
+              animation-delay: 0.5s;
+              animation-name: fadeInUp;
+            " />
+        <img class="img3 wow fadeInUp animated" data-wow-delay="0.5s" data-wow-duration="1s"
+          src="https://osswebsite.yadea.com.cn/ttfar3/static/fourapp-6-a.png" alt="" style="
+              visibility: visible;
+              animation-duration: 1s;
+              animation-delay: 0.5s;
+              animation-name: fadeInUp;
+            " />
+      </div>
+    </div>
+    <div class="normal_box mb2">
+      <img src="https://osswebsite.yadea.com.cn/ttfar3/static/fourapp-11.jpg" alt="" />
+      <div class="mb2-tips">
+        <img class="title-img wow fadeInUp animated" data-wow-delay="0.5s" data-wow-duration="1s"
+          src="https://osswebsite.yadea.com.cn/ttfar3/static/fourapp-8.png" alt="" style="
+              visibility: visible;
+              animation-duration: 1s;
+              animation-delay: 0.5s;
+              animation-name: fadeInUp;
+            " />
+        <p>创新石墨烯制备新篇章</p>
+        <div class="b3-title normal_box">
+          <div class="words active" id="word4">性能</div>
+          <div class="words" id="word5">设计</div>
+          <div class="words" id="word6" style="margin-right: 0">结构</div>
+          <div class="line"></div>
+        </div>
+        <div class="introduces tip4">
+          重构石墨烯反应活性中心<br />提升活性物质利用率
+        </div>
+        <div class="introduces tip5" style="display: none">
+          超大极板设计<br />提升活性物质反应有效面积
+        </div>
+        <div class="introduces tip6" style="display: none">
+          有机无机复合高分子高回弹纤维隔板<br />实现电池集群膨胀收缩自适应<br />有效提升循环寿命
+        </div>
+        <div class="mb2-title">
+          <img src="https://osswebsite.yadea.com.cn/ttfar3/static/fourapp-10.png" alt=""
+            class="img1" />
+          <img src="https://osswebsite.yadea.com.cn/ttfar3/static/fourapp-9.png" alt=""
+            class="img2" />
+        </div>
+      </div>
+    </div>
+    <div class="normal_box mb3">
+      <img src="https://osswebsite.yadea.com.cn/ttfar3/static/37415f58f19133590c9983623488edd.jpg"
+        alt="" />
+      <img class="title-img" src="https://osswebsite.yadea.com.cn/ttfar3/static/fourapp-15.png"
+        alt="" />
+      <div class="mb3-title">
+        <!--                <img src="/static/home/images/four/yd-16.jpg" alt="" class="img1">-->
+        <video
+          src="https://osswebsite.yadea.com.cn/play_28fae707c0_01844f7468.mp4?updated_at=2023-03-16T02:58:24.523Z"
+          preload="auto" autoplay="" loop="" muted="" class="img1" playsinline="" webkit-playsinline=""
+          id="myVideo1"></video>
+        <img src="https://osswebsite.yadea.com.cn/ttfar3/static/yd-14.png" alt=""
+          class="img2 wow fadeInUp animated" data-wow-delay="0.5s" data-wow-duration="1s" style="
+              visibility: visible;
+              animation-duration: 1s;
+              animation-delay: 0.5s;
+              animation-name: fadeInUp;
+            " />
+        <img src="https://osswebsite.yadea.com.cn/ttfar3/static/yd-65-a.png" alt="" class="choose1" />
+        <img src="https://osswebsite.yadea.com.cn/ttfar3/static/yd-63-a.png" alt="" class="choose2"
+          style="display: none" />
+        <img src="https://osswebsite.yadea.com.cn/ttfar3/static/yd-64-a.png" alt="" class="choose3"
+          style="display: none" />
+        <div class="mb3-tips">
+          <img src="https://osswebsite.yadea.com.cn/ttfar3/static/yd-57-1.png" alt=""
+            class="particular1" />
+          <img src="https://osswebsite.yadea.com.cn/ttfar3/static/yd-58-1.png" alt=""
+            class="particular2" />
+          <img src="https://osswebsite.yadea.com.cn/ttfar3/static/yd-59-1.png" alt=""
+            class="particular3" />
+          <img src="https://osswebsite.yadea.com.cn/ttfar3/static/yd-60-1.png" alt=""
+            class="particular4" />
+          <img src="https://osswebsite.yadea.com.cn/ttfar3/static/yd-61-1.png" alt=""
+            class="particular5" />
+          <img src="https://osswebsite.yadea.com.cn/ttfar3/static/yd-62-1.png" alt=""
+            class="particular6" />
+        </div>
+      </div>
+    </div>
+
+    <div class="normal_box fourmb-b4">
+      <img src="https://osswebsite.yadea.com.cn/ttfar3/static/fourapp-29.jpg" alt="" />
+      <div class="fourmbb4-box wow fadeInUp animated" data-wow-delay="0.5s" data-wow-duration="1s" style="
+            visibility: visible;
+            animation-duration: 1s;
+            animation-delay: 0.5s;
+            animation-name: fadeInUp;
+          ">
+        <img src="https://osswebsite.yadea.com.cn/ttfar3/static/fourapp-27.png" alt="" class="img1" />
+        <img src="https://osswebsite.yadea.com.cn/ttfar3/static/fourapp-28.png" alt="" class="img2" />
+      </div>
+    </div>
+    <div class="normal_box fourmb-b5">
+      <img src="https://osswebsite.yadea.com.cn/ttfar3/static/fourapp-31.jpg" alt="" />
+      <div class="fourmbb5-box wow fadeInUp animated" data-wow-delay="0.5s" data-wow-duration="1s" style="
+            visibility: visible;
+            animation-duration: 1s;
+            animation-delay: 0.5s;
+            animation-name: fadeInUp;
+          ">
+        <img src="https://osswebsite.yadea.com.cn/ttfar3/static/fourapp-30.png" alt="" class="img1" />
+      </div>
+    </div>
+    <div class="normal_box mb5">
+      <img src="https://osswebsite.yadea.com.cn/ttfar3/static/fourapp-32-a.png" alt=""
+        class="title-img wow fadeInUp animated" data-wow-delay="0.5s" data-wow-duration="1s" style="
+            visibility: visible;
+            animation-duration: 1s;
+            animation-delay: 0.5s;
+            animation-name: fadeInUp;
+          " />
+      <div class="title wow fadeInUp animated" data-wow-delay="0.5s" data-wow-duration="1s" style="
+            visibility: visible;
+            animation-duration: 1s;
+            animation-delay: 0.5s;
+            animation-name: fadeInUp;
+          ">
+        双模式 随心切
+      </div>
+      <div class="swiper-box normal_box">
+        <div class="swiper-container swiper-container-fade swiper-container-initialized swiper-container-horizontal"
+          id="phoneSwiper">
+          <div class="swiper-wrapper" style="transition-duration: 0ms">
+            <div class="swiper-slide">
+              <div class="s-img-box normal_box">
+                <img src="https://osswebsite.yadea.com.cn/ttfar3/static/fourapp-35-tuya.jpg" alt=""
+                  class="s-img" />
+              </div>
+            </div>
+            <div class="swiper-slide">
+              <div class="s-img-box">
+                <img src="https://osswebsite.yadea.com.cn/ttfar3/static/fourapp-36-tuya.jpg" alt=""
+                  class="s-img" />
+              </div>
+            </div>
+          </div>
+          <span class="swiper-notification" aria-live="assertive" aria-atomic="true"></span>
+        </div>
+        <div class="frameStyle">
+          <div class="swiper-button-prev swiper-button-prev-4" tabindex="0" role="button" aria-label="Previous slide"
+            aria-disabled="false"></div>
+          <div class="swiper-button-next swiper-button-next-4" tabindex="0" role="button" aria-label="Next slide"
+            aria-disabled="false"></div>
+        </div>
+      </div>
+      <div class="swiper-boxs">
+        <div class="swiper-container swiper-container-initialized swiper-container-horizontal" id="phoneSwiper1">
+          <div class="swiper-wrapper" style="transition-duration: 0ms">
+            <div class="swiper-slide swiper-slide-duplicate swiper-slide-duplicate-active" data-swiper-slide-index="1">
+              <div class="s-img-box">
+                <img src="https://osswebsite.yadea.com.cn/ttfar3/static/fourapp-39-tuya.png" alt=""
+                  class="s-img" />
+              </div>
+            </div>
+            <div class="swiper-slide" data-swiper-slide-index="0">
+              <div class="s-img-box normal_box">
+                <img src="https://osswebsite.yadea.com.cn/ttfar3/static/fourapp-41-tuya.png" alt=""
+                  class="s-img" />
+              </div>
+            </div>
+            <div class="swiper-slide" data-swiper-slide-index="1">
+              <div class="s-img-box">
+                <img src="https://osswebsite.yadea.com.cn/ttfar3/static/fourapp-39-tuya.png" alt=""
+                  class="s-img" />
+              </div>
+            </div>
+            <div class="swiper-slide swiper-slide-duplicate swiper-slide-duplicate-active" data-swiper-slide-index="0">
+              <div class="s-img-box normal_box">
+                <img src="https://osswebsite.yadea.com.cn/ttfar3/static/fourapp-41-tuya.png" alt=""
+                  class="s-img" />
+              </div>
+            </div>
+          </div>
+          <div class="swiper-pagination swiper-pagination-5 swiper-pagination-clickable swiper-pagination-bullets">
+          </div>
+          <div class="swiper-button-prev swiper-button-prev-5" tabindex="0" role="button" aria-label="Previous slide">
+          </div>
+          <div class="swiper-button-next swiper-button-next-5" tabindex="0" role="button" aria-label="Next slide"></div>
+          <span class="swiper-notification" aria-live="assertive" aria-atomic="true"></span>
+        </div>
+      </div>
+      <img src="https://osswebsite.yadea.com.cn/ttfar3/static/yd-35.png" alt="" class="mb5-img" />
+    </div>
+    <div class="normal_box mb5-box">
+      <img src="https://osswebsite.yadea.com.cn/ttfar3/static/fourapp-53.jpg" alt="" class="" />
+      <div class="spread-box">
+        <img src="https://osswebsite.yadea.com.cn/ttfar3/static/yd-35.png" alt="" class="mb5-img" />
+        <div class="spread">
+          <div class="blocks">
+            <img src="https://osswebsite.yadea.com.cn/ttfar3/static/yd-32.png" alt=""
+              class="special3" />
+            <img src="https://osswebsite.yadea.com.cn/ttfar3/static/yd-37.png" alt=""
+              class="special4" />
+          </div>
+          <div class="blocks">
+            <img src="https://osswebsite.yadea.com.cn/ttfar3/static/yd-33.png" alt=""
+              class="special3" />
+            <img src="https://osswebsite.yadea.com.cn/ttfar3/static/yd-38.png" alt=""
+              class="special4" />
+          </div>
+          <div class="blocks">
+            <img src="https://osswebsite.yadea.com.cn/ttfar3/static/yd-34.png" alt=""
+              class="special3" />
+            <img src="https://osswebsite.yadea.com.cn/ttfar3/static/yd-39.png" alt=""
+              class="special4" />
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="normal_box mb9" style="background: url('https://osswebsite.yadea.com.cn/ttfar3/static/fourapp-53.jpg'); height: 600px;">
+      <!-- <img src="https://osswebsite.yadea.com.cn/ttfar3/static/fourapp-53.jpg" alt="" /> -->
+      <!-- <div class="img-box">
+        <img src="https://osswebsite.yadea.com.cn/ttfar3/static/fourapp-56.png"
+          class="title-img wow fadeInUp animated" data-wow-delay="0.5s" data-wow-duration="1s" style="
+              visibility: visible;
+              animation-duration: 1s;
+              animation-delay: 0.5s;
+              animation-name: fadeInUp;
+            " />
+      </div> -->
+      <!-- <div class="list-box">
+        <div class="item">
+          <img src="https://osswebsite.yadea.com.cn/ttfar3/static/6e73e4e1dbd2d295129152c658fa805.jpg"
+            alt="" />
+          <div>
+            <p>冠能3 E9 PRO</p>
+            <a href="https://www.yadea.com.cn/home/models/product_index/id/68.html">
+              <p class="link">了解更多&gt;</p>
+            </a>
+          </div>
+        </div>
+        <div class="item">
+          <img src="https://osswebsite.yadea.com.cn/ttfar3/static/20a087532ac6327388970a6ed99f8f7.jpg"
+            alt="" />
+          <div>
+            <p>冠能3 S9 MAX</p>
+            <a href="https://www.yadea.com.cn/home/models/product_index/id/69.html">
+              <p class="link">了解更多&gt;</p>
+            </a>
+          </div>
+        </div>
+      </div> -->
+      <img src="https://osswebsite.yadea.com.cn/ttfar3/static/yd-mz-a.png" alt="" class="mb9-img" style="top: 100px" />
+    </div>
+  </div>
+  <script type="text/javascript">
+    $(function () {
+      var myVideo = document.getElementById("myVideo");
+      myVideo.play();
+      document.addEventListener(
+        "WeixinJSBridgeReady",
+        function () {
+          myVideo.play();
+        },
+        false
+      );
+      document.addEventListener(
+        "YixinJSBridgeReady",
+        function () {
+          myVideo.play();
+        },
+        false
+      );
+      var myVideo1 = document.getElementById("myVideo1");
+      myVideo1.play();
+      document.addEventListener(
+        "WeixinJSBridgeReady",
+        function () {
+          myVideo1.play();
+        },
+        false
+      );
+      document.addEventListener(
+        "YixinJSBridgeReady",
+        function () {
+          myVideo1.play();
+        },
+        false
+      );
+      setTimeout(function () {
+        var width = document.body.clientWidth;
+        var height = $(window).height();
+        $("html, body").stop().animate(
+          {
+            scrollTop: "0px",
+          },
+          0
+        );
+
+        // var wow = new WOW({
+        //   animateClass: 'animated',
+        //   offset: 0
+        // });
+        //
+        // wow.init();
+      }, 500);
+
+      var pcSwiper = new Swiper("#pcSwiper", {
+        effect: "fade",
+        fadeEffect: {
+          crossFade: true,
+        },
+        navigation: {
+          nextEl: ".swiper-button-next-1",
+          prevEl: ".swiper-button-prev-1",
+        },
+      });
+      var pcSwiper = new Swiper("#pcSwiper1", {
+        loop: true,
+        navigation: {
+          nextEl: ".swiper-button-next-2",
+          prevEl: ".swiper-button-prev-2",
+        },
+        pagination: {
+          el: ".swiper-pagination-2",
+          clickable: true,
+        },
+      });
+      var pcSwiper = new Swiper("#pcSwiper2", {
+        loop: true,
+        navigation: {
+          nextEl: ".swiper-button-next-3",
+          prevEl: ".swiper-button-prev-3",
+        },
+        pagination: {
+          el: ".swiper-pagination-3",
+          clickable: true,
+        },
+      });
+      var phoneSwiper = new Swiper("#phoneSwiper", {
+        effect: "fade",
+        fadeEffect: {
+          crossFade: true,
+        },
+        navigation: {
+          nextEl: ".swiper-button-next-4",
+          prevEl: ".swiper-button-prev-4",
+        },
+      });
+      var phoneSwiper = new Swiper("#phoneSwiper1", {
+        loop: true,
+        navigation: {
+          nextEl: ".swiper-button-next-5",
+          prevEl: ".swiper-button-prev-5",
+        },
+        pagination: {
+          el: ".swiper-pagination-5",
+          clickable: true,
+        },
+      });
+      var phoneSwiper = new Swiper("#phoneSwiper2", {
+        loop: true,
+        navigation: {
+          nextEl: ".swiper-button-next-6",
+          prevEl: ".swiper-button-prev-6",
+        },
+        pagination: {
+          el: ".swiper-pagination-6",
+          clickable: true,
+        },
+      });
+      function createArr(m, n) {
+        return new Array(m).fill(n);
+      }
+      // const createArr = (m, n) =>
+      console.log(createArr(5, 3));
+      $(".special1").click(function () {
+        $(this).hide();
+        $(this).siblings("img").show();
+      });
+      $(".special2").click(function () {
+        $(this).hide();
+        $(this).siblings("img").show();
+      });
+      $(".special3").click(function () {
+        $(this).hide();
+        $(this).siblings("img").show();
+      });
+      $(".special4").click(function () {
+        $(this).hide();
+        $(this).siblings("img").show();
+      });
+      $(".word").click(function () {
+        $(".word").removeClass("active");
+        $(this).addClass("active");
+        var value = $(this).attr("id");
+        if (value == "word1") {
+          $(".introduce").hide();
+          $(".tip1").show();
+        } else if (value == "word2") {
+          $(".introduce").hide();
+          $(".tip2").show();
+        } else if (value == "word3") {
+          $(".introduce").hide();
+          $(".tip3").show();
+        }
+      });
+      $(".words").click(function () {
+        $(".words").removeClass("active");
+        $(this).addClass("active");
+        var value = $(this).attr("id");
+        if (value == "word4") {
+          $(".introduces").hide();
+          $(".tip4").show();
+        } else if (value == "word5") {
+          $(".introduces").hide();
+          $(".tip5").show();
+        } else if (value == "word6") {
+          $(".introduces").hide();
+          $(".tip6").show();
+        }
+      });
+      $(".img11").click(function () {
+        $(".img11").show();
+        $(".img12").hide();
+        $(".img13").hide();
+        $(".img14").show();
+        $(".img15").hide();
+        $(".img16").show();
+        $(".b4Img1").show();
+        $(".b4Img2").hide();
+        $(".b4Img3").hide();
+      });
+      $(".img12").click(function () {
+        $(".img11").show();
+        $(".img12").hide();
+        $(".img13").hide();
+        $(".img14").show();
+        $(".img15").hide();
+        $(".img16").show();
+        $(".b4Img1").show();
+        $(".b4Img2").hide();
+        $(".b4Img3").hide();
+      });
+      $(".img13").click(function () {
+        $(".img11").hide();
+        $(".img12").show();
+        $(".img13").show();
+        $(".img14").hide();
+        $(".img15").hide();
+        $(".img16").show();
+        $(".b4Img1").hide();
+        $(".b4Img2").show();
+        $(".b4Img3").hide();
+      });
+      $(".img14").click(function () {
+        $(".img11").hide();
+        $(".img12").show();
+        $(".img13").show();
+        $(".img14").hide();
+        $(".img15").hide();
+        $(".img16").show();
+        $(".b4Img1").hide();
+        $(".b4Img2").show();
+        $(".b4Img3").hide();
+      });
+      $(".img15").click(function () {
+        $(".img11").hide();
+        $(".img12").show();
+        $(".img13").hide();
+        $(".img14").show();
+        $(".img15").show();
+        $(".img16").hide();
+        $(".b4Img1").hide();
+        $(".b4Img2").hide();
+        $(".b4Img3").show();
+      });
+      $(".img16").click(function () {
+        $(".img11").hide();
+        $(".img12").show();
+        $(".img13").hide();
+        $(".img14").show();
+        $(".img15").show();
+        $(".img16").hide();
+        $(".b4Img1").hide();
+        $(".b4Img2").hide();
+        $(".b4Img3").show();
+      });
+      $(".particular1").click(function () {
+        $(".particular1").show();
+        $(".particular2").hide();
+        $(".particular3").hide();
+        $(".particular4").show();
+        $(".particular5").hide();
+        $(".particular6").show();
+        $(".choose1").show();
+        $(".choose2").hide();
+        $(".choose3").hide();
+      });
+      $(".particular2").click(function () {
+        $(".particular1").show();
+        $(".particular2").hide();
+        $(".particular3").hide();
+        $(".particular4").show();
+        $(".particular5").hide();
+        $(".particular6").show();
+        $(".choose1").show();
+        $(".choose2").hide();
+        $(".choose3").hide();
+      });
+      $(".particular3").click(function () {
+        $(".particular1").hide();
+        $(".particular2").show();
+        $(".particular3").show();
+        $(".particular4").hide();
+        $(".particular5").hide();
+        $(".particular6").show();
+        $(".choose1").hide();
+        $(".choose2").show();
+        $(".choose3").hide();
+      });
+      $(".particular4").click(function () {
+        $(".particular1").hide();
+        $(".particular2").show();
+        $(".particular3").show();
+        $(".particular4").hide();
+        $(".particular5").hide();
+        $(".particular6").show();
+        $(".choose1").hide();
+        $(".choose2").show();
+        $(".choose3").hide();
+      });
+      $(".particular5").click(function () {
+        $(".particular1").hide();
+        $(".particular2").show();
+        $(".particular3").hide();
+        $(".particular4").show();
+        $(".particular5").show();
+        $(".particular6").hide();
+        $(".choose1").hide();
+        $(".choose2").hide();
+        $(".choose3").show();
+      });
+      $(".particular6").click(function () {
+        $(".particular1").hide();
+        $(".particular2").show();
+        $(".particular3").hide();
+        $(".particular4").show();
+        $(".particular5").show();
+        $(".particular6").hide();
+        $(".choose1").hide();
+        $(".choose2").hide();
+        $(".choose3").show();
+      });
+    });
+  </script>
+  <!-- 底部pc端start -->
+  <div id="footerPc" class="page-footer">
+    <div class="page-footer">
+      <div class="page-footer-top">
+        <div class="footer-top-wrap">
+          <div class="footer-top-left">
+            <div class="test-drive" @click="goBookingRide">
+              <img src="../../car-detail/assets/images/footer/test-drive.png" alt="图片" />
+              <span>预约试驾</span>
+            </div>
+            <div class="car-contrast" @click="goModelContrast">
+              <img src="../../car-detail/assets/images/footer/car-contrast.png" alt="图片" />
+              <span>车型对比</span>
+            </div>
+            <div class="online-service online-kf-id">
+              <img src="../../car-detail/assets/images/footer/online-service.png" alt="图片" />
+              <span>在线客服</span>
+            </div>
+          </div>
+          <div class="footer-top-right">
+            <div class="contact-phone">400-900-1212</div>
+            <div class="contact-time">8:00-20:00,周一至周日</div>
+          </div>
+        </div>
+      </div>
+      <div class="page-footer-middle">
+        <div class="link-box">
+          <div class="link-box-left">
+            <template v-for="item of footerMenuList" :key="item.id">
+              <dl class="footer-middle-item">
+                <template v-if="!item.categoryTitle">
+                  <dt>{{ item.name }}</dt>
+                  <template v-for="item2 in item.category" :key="item2.name">
+                    <dd>
+                      <span v-if="urlOfParamsMap[item.apis]" @click="handleOpenSubMenu(item2, item.apis)">
+                        {{ item2.name }}
+                        <img src="../../car-detail/assets/images/svg/arrow-right-white.svg" class="arrow-svg"
+                          :class="item2.show && 'rotate-90'" />
+                      </span>
+                      <span v-else @click="jump(item2)">
+                        {{ item2.name }}
+                      </span>
+                      <Transition>
+                        <div v-if="item2.show" class="link-item-detail">
+                          <template v-for="threeItem in threeMenus" :key="threeItem.id">
+                            <span class="txt-white fs-14-mvw opt65 mt-3-vw"
+                              @click="handleGoCarDetail(threeItem.attributes.model_static)">
+                              {{ threeItem.attributes.name }}
+                            </span>
+                          </template>
+                        </div>
+                      </Transition>
+                    </dd>
+                  </template>
+                </template>
+
+                <template v-else>
+                  <dt>{{ item.name }}</dt>
+                  <template v-for="item3 in item.category" :key="item3.name">
+                    <dd>
+                      <span v-if="urlOfParamsMap[item.apis]" @click="handleOpenSubMenu(item3, item.apis)">
+                        {{ item3.name }}
+                        <img src="../../car-detail/assets/images/svg/arrow-right-white.svg" class="arrow-svg"
+                          :class="item3.show && 'rotate-90'" />
+                      </span>
+                      <span v-else @click="jump(item3)">
+                        {{ item3.name }}
+                      </span>
+                      <Transition>
+                        <div v-if="item3.show" class="link-item-detail">
+                          <template v-for="threeItem in threeMenus" :key="threeItem.id">
+                            <span class="txt-white fs-14-mvw opt65 mt-3-vw"
+                              @click="handleGoCarDetail(threeItem.attributes.model_static)">
+                              {{ threeItem.attributes.name }}
+                            </span>
+                          </template>
+                        </div>
+                      </Transition>
+                    </dd>
+                  </template>
+                  <dt>{{ item.categoryTitle.name }}</dt>
+                  <template v-for="item3 in item.categoryTitle.category" :key="item3.name">
+                    <dd>
+                      <span @click="handleOpenSubMenu(item3, item.categoryTitle.apis)">
+                        {{ item3.name }}
+                        <img src="../../car-detail/assets/images/svg/arrow-right-white.svg" class="arrow-svg"
+                          :class="item3.show && 'rotate-90'" />
+                      </span>
+                      <Transition>
+                        <div v-if="item3.show" class="link-item-detail">
+                          <template v-for="threeItem in threeMenus" :key="threeItem.id">
+                            <span class="txt-white fs-14-mvw opt65 mt-3-vw"
+                              @click="handleGoCarDetail(threeItem.attributes.model_static)">
+                              {{ threeItem.attributes.name }}
+                            </span>
+                          </template>
+                        </div>
+                      </Transition>
+                    </dd>
+                  </template>
+                </template>
+              </dl>
+            </template>
+          </div>
+
+          <dl class="footer-middle-item">
+            <dt class="vector-box">
+              <a target="_blank" href="https://www.yadea.com/">
+                <img src='../../car-detail/assets/images/svg/vector-white.svg' class="vector-w" />
+                <span>雅迪国际站</span>
+              </a>
+            </dt>
+          </dl>
+        </div>
+        <div class="back-top" @click="handleBackTop">
+          <span>返回顶部</span>
+          <img src='../../car-detail/assets/images/footer/arrow-top.svg' class="ml-2" />
+          <!--          <SvgIcon name="arrow-top" size="18" class="ml-2" />-->
+        </div>
+      </div>
+      <div class="page-footer-bottom">
+       <div class="footer-bottom-left">© 2022 雅迪科技集团有限公司 All Rights Reserved <a class="c-888" target="_blank" href="https://beian.miit.gov.cn/">苏ICP备12080415号</a> <a class="c-888" target="_blank" href="https://www.beian.gov.cn/portal/registerSystemInfo?recordcode=32020502000068"><img class="police-badge" src="https://osswebsite.yadea.com.cn/foot_icp_55db42dcdc.png" alt="" />苏公网安备 32020502000068号</a></div>
+        <div class="footer-bottom-right">
+          <div class="footer-bottom-right-box">
+            <img src='../../car-detail/assets/images/footer/dy.svg' class="svg-social-media"
+              @mouseenter="footerModalEnter(0)" @mouseleave="footerModalOut" />
+            <div class="footer-bottom-right-modal" v-show="footerModalIndex === 0">
+              <img src="../../car-detail/assets/images/footer/dy.png" alt="" />
+            </div>
+          </div>
+          <div class="footer-bottom-right-box">
+            <img src='../../car-detail/assets/images/footer/kf.svg' class="svg-social-media"
+              @mouseenter="footerModalEnter(1)" @mouseleave="footerModalOut" />
+            <div class="footer-bottom-right-modal" v-show="footerModalIndex === 1">
+              <img src="../../car-detail/assets/images/footer/kf.png" alt="" />
+            </div>
+          </div>
+          <div class="footer-bottom-right-box">
+            <img src='../../car-detail/assets/images/footer/wechat.svg' class="svg-social-media"
+              @mouseenter="footerModalEnter(2)" @mouseleave="footerModalOut" />
+            <div class="footer-bottom-right-modal" v-show="footerModalIndex === 2">
+              <img src="../../car-detail/assets/images/footer/wx.jpg" alt="" />
+            </div>
+          </div>
+          <div class="footer-bottom-right-box">
+            <img src='../../car-detail/assets/images/footer/weibo.svg' class="svg-social-media"
+              @mouseenter="footerModalEnter(3)" @mouseleave="footerModalOut" />
+            <div class="footer-bottom-right-modal" v-show="footerModalIndex === 3">
+              <img src="../../car-detail/assets/images/footer/wb.png" alt="" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- 底部pc端end -->
+  <!-- 底部phone端start -->
+  <div id="appFooter" class="footer-phone-show">
+    <footer class="footer-box">
+      <div class="back-top txt-white fs-14-mvw">
+        <span @click="handleBackTop">
+          返回顶部
+          <!-- <SvgIcon name="backtop" class="vector-w" /> -->
+        </span>
+        <img src='../../car-detail/assets/images/footer/backtop.svg' class="ml-2" />
+      </div>
+      <div class="extension-box">
+        <div class="extension-top">
+          <div class="extension-top-left txt-white">联系我们</div>
+          <div class="extension-top-right">
+            <div class="fs-20-mvw fw-bold txt-red">
+              <a href="#" class="fs-20-mvw fw-bold">400-900-1212</a>
+            </div>
+            <span class="txt-white fs-12-mvw">8:00-20:00,周一至周日</span>
+          </div>
+        </div>
+      </div>
+      <div class="link-box">
+        <template v-for="item in footerMenuList" :key="item.id">
+          <div class="link-item">
+            <div class="link-item-title" @click="handleOpenLinkBox(item.id)">
+              <span class="txt-white fs-14-mvw">{{ item.name }}</span>
+              <img
+                :src="footerShow === item.id ? '../../car-detail/assets/images/svg/shut.svg' : '../../car-detail/assets/images/svg/open.svg'"
+                class="svg-social-media" />
+            </div>
+            <Transition>
+              <div v-if="footerShow === item.id" class="link-item-detail">
+                <template v-for="subItem in item.category" :key="subItem.id">
+                  <div v-if="urlOfParamsMap[item.apis]" class="txt-white subItem-title fs-14-mvw"
+                    @click="handleOpenDropItems(item.apis, subItem)">
+                    {{ subItem.name }}
+                    <img src="../../car-detail/assets/images/svg/arrow-right-white.svg" alt="" class="svg-social-media"
+                      :class="subItem.show && 'rotate-90'" />
+                  </div>
+                  <div v-else class="txt-white subItem-title fs-14-mvw" @click="handleGoDetail(subItem)">
+                    {{ subItem.name }}
+                  </div>
+                  <Transition>
+                    <div v-if="subItem.show" class="three-item-detail">
+                      <template v-for="threeItem in threeMenus" :key="threeItem.id">
+                        <div class="txt-white fs-14-mvw" @click="handleGoCarDetail(threeItem.attributes.model_static)">
+                          {{ threeItem.attributes.name }}
+                        </div>
+                      </template>
+                    </div>
+                  </Transition>
+                </template>
+              </div>
+            </Transition>
+          </div>
+        </template>
+      </div>
+      <div class="extension-bottom-box">
+        <div class="international" onclick="toInt()">
+          <img src='../../car-detail/assets/images/svg/vector-white.svg' class="svg-vector" />
+          <span class="fs-13-mvw txt-white">雅迪国际站</span>
+        </div>
+        <div class="extension-bottom">
+          <img src='../../car-detail/assets/images/svg/dyf.svg' class="svg-social-media" onclick="toDY()" />
+          <img src='../../car-detail/assets/images/svg/kff.svg' class="svg-social-media online-kf-id" />
+          <div class="pos-rel" @mouseenter="handleEnterWC" @mouseleave="handleLeaveWC">
+            <img src='../../car-detail/assets/images/svg/wechatf.svg' class="svg-social-media" @click="handleEnterWC" />
+            <img v-show="showWC" class="wechat-img" src="../assets/images/wx.jpg"  alt="" />
+          </div>
+          <img src='../../car-detail/assets/images/svg/weibof.svg' class="svg-social-media" onclick="toWB()" />
+        </div>
+      </div>
+      <div class="record-box fs-12-mvw">
+        © 2022 雅迪科技集团有限公司 All Rights Reserved <a class="c-aaa" target="_blank" href="https://beian.miit.gov.cn/">苏ICP备12080415号</a>
+        <a class="c-aaa" target="_blank" href="https://www.beian.gov.cn/portal/registerSystemInfo?recordcode=32020502000068"><img class="police-badge" src="https://osswebsite.yadea.com.cn/foot_icp_55db42dcdc.png" alt="" />苏公网安备 32020502000068号</a>
+      </div>
+    </footer>
+  </div>
+  <!-- 底部phone端end -->
+</body>
+
+</html>

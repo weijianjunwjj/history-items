@@ -1,0 +1,409 @@
+<view class="custom_head" style="height:{{navHeight}}px;">
+  <view class="flex j_b" style="height:{{navObj}}px;padding-top:{{navTop}}px;padding-right:{{navObjWid+5}}px;">
+    <view class="head_store text_ellipsis flex-hvc" style="width:{{navObj}}px;height:{{navObj}}px;" bind:tap="scanCode2">
+      <image style="width:48rpx;height:48rpx;line-height:{{navObj}}px" src="https://zyt-network.oss-cn-qingdao.aliyuncs.com/images/index-icon/scan-code.png" />
+    </view>
+    <view class="pos-center-h fs-36 c-333 fw-500" style="line-height:{{navObj}}px">扫码寄件</view>
+  </view>
+</view>
+<view class="page" style="margin-top:{{navHeight}}px">
+  <view class="header bgw">
+    <view class="header-box flex-sb-c plr-def">
+      <view class="header-left flex-c" style="flex:1">
+        <image src="https://zyt-network.oss-cn-qingdao.aliyuncs.com/images/printer.png"></image>
+        <text class="ml-2 c-aaa fs-28">{{order.name}}</text>
+      </view>
+      <view class="header-right flex-c" bindtap="toOrderList" style="width: 86rpx;">
+        <text class="mr-3 black fs-28">订单</text>
+        <image src="https://zyt-network.oss-cn-qingdao.aliyuncs.com/images/arrow-right.png"></image>
+      </view>
+    </view>
+  </view>
+  <view class="persons-info mlr-def bgw br-24">
+    <!-- 寄件人信息 -->
+    <view class="send p-def flex-c">
+      <!-- icon -->
+      <view class="mr-3" style="width:40rpx;height:40rpx">
+        <image class="full-img" src="https://zyt-network.oss-cn-qingdao.aliyuncs.com/images/send.png" />
+      </view>
+      <view class="flex-sb flex-1">
+        <view class="flex-v flex-1" bind:tap="onClickSender">
+          <view>
+            <text class="pr-def fs-32 black">{{sender.name || '寄件人信息'}}</text>
+            <text class="fs-28 black">{{sender.phone}}</text>
+          </view>
+          <view class="mt-3 fs-26 c-aaa">{{sender.address || '支持智能填写、文本导入'}}</view>
+        </view>
+        <view style="width:80rpx" class="fs-26 ml-2 flex-c theme-c" data-type="{{1}}" bindtap="goAddressBook">
+          地址簿
+        </view>
+      </view>
+    </view>
+    <view class="devide-line"></view>
+    <!-- 收件人信息 -->
+    <view class="receive p-def flex-c">
+      <!-- icon -->
+      <view class="mr-3" style="width:40rpx;height:40rpx">
+        <image class="full-img" src="https://zyt-network.oss-cn-qingdao.aliyuncs.com/images/receive.png" />
+      </view>
+      <view class="flex-sb flex-1">
+        <view class="flex-v flex-1" bind:tap="onClickRecipient">
+          <view>
+            <text class="pr-def fs-32 black">{{recipient.name || '收件人信息'}}</text>
+            <text class="fs-28 black">{{recipient.phone}}</text>
+          </view>
+          <view class="mt-3 fs-26 c-aaa">{{recipient.address || '支持智能填写、文本导入'}}</view>
+        </view>
+        <view style="width:80rpx" class="fs-26 ml-2 flex-c theme-c" data-type="{{2}}" bindtap="goAddressBook">
+          地址簿
+        </view>
+      </view>
+    </view>
+  </view>
+  <view bind:tap="queryCapacity">
+    <e-card>
+      <form>
+        <!-- 快递公司 -->
+        <view class="e-form-group">
+          <view class="title">快递公司</view>
+          <view class="flex-c flex-1 flex-r" bindtap="onClickShow0">
+            <view class="flex-c">
+              <image wx:if="{{ecard.express}}" style="width:40rpx;height:40rpx" class="mr-2" src="{{ecard.selectedExpressIcon}}" />
+              <view class="picker fs-28">{{ecard.express}}</view>
+              <image style="width:40rpx;height:40rpx" class="ml-2" src="https://zyt-network.oss-cn-qingdao.aliyuncs.com/images/arrow-right-grey.png" />
+            </view>
+          </view>
+        </view>
+        <!-- 微信支付 -->
+        <view class="e-form-group" wx:if="{{payType.length}}" catch:tap="onShowPayTypes">
+          <view class="title">付款方式</view>
+          <view class="flex-c flex-1 flex-r">
+            <view class="flex-c" wx:if="{{!isPayScore}}">
+              <image style="width:40rpx;height:40rpx" class="mr-2" src="https://zyt-network.oss-cn-qingdao.aliyuncs.com/images/page1/wechatpay.png" />
+              <view class="picker fs-28 c-777">微信支付</view>
+            </view>
+            <e-pay-score wx:if="{{isPayScore}}"></e-pay-score>
+            <image wx:if="{{isStationMaster}}" style="width:40rpx;height:40rpx" class="ml-2" src="https://zyt-network.oss-cn-qingdao.aliyuncs.com/images/arrow-right-grey.png" />
+          </view>
+        </view>
+        <block wx:else>
+          <view class="e-form-group" wx:if="{{isPayScore!=null}}" catch:tap="onShowPayTypes">
+            <view class="title">付款方式</view>
+            <view class="flex-c flex-1 flex-r">
+              <view class="flex-c" wx:if="{{!isPayScore}}">
+                <image style="width:40rpx;height:40rpx" class="mr-2" src="https://zyt-network.oss-cn-qingdao.aliyuncs.com/images/page1/wechatpay.png" />
+                <view class="picker fs-28 c-777">微信支付</view>
+              </view>
+              <e-pay-score wx:if="{{isPayScore}}"></e-pay-score>
+            </view>
+          </view>
+        </block>
+
+        <!-- 物品信息 -->
+        <view class="e-form-group">
+          <view class="title flex-c">
+            <text>物品信息</text>
+            <text class="title-require ml-2">必填</text>
+          </view>
+          <view class="flex-c flex-1 flex-r" bindtap="onClickShow2">
+            <view class="flex-c">
+              <view class="picker fs-28 black">
+                {{ecard.goodsType}}
+                <block wx:if="{{ecard.goodsType && ecard.weight}}">/ {{ecard.weight}}kg</block>
+              </view>
+              <image style="width:40rpx;height:40rpx" class="ml-2" src="https://zyt-network.oss-cn-qingdao.aliyuncs.com/images/arrow-right-grey.png" />
+            </view>
+          </view>
+        </view>
+      </form>
+    </e-card>
+    <!-- 提示 -->
+    <e-card wx:if="{{isPayScore === true}}">
+      <view class="flex-c fs-24 ptb-4">
+        <image style="width:52rpx;height:52rpx;margin-left: 18rpx;" class="mr-2" src="https://zyt-network.oss-cn-qingdao.aliyuncs.com/images/index-icon/note.png" />
+        <view>
+          <text>邮费使用微信</text>
+          <text style="color:#F67732">自动扣款</text>
+          ，请勿将邮费转账给驿站或他人
+        </view>
+      </view>
+    </e-card>
+  </view>
+  <view class="my-footer-tips flex-c ptb-5 c-aaa fs-24">
+    <view class="w50 flex-c just-c" data-key="禁寄物品" bind:tap="toProhibitedItem">
+      <image style="width:40rpx;height:40rpx" src="https://zyt-network.oss-cn-qingdao.aliyuncs.com/images/page1/close.png" />
+      <view>禁寄物品</view>
+    </view>
+    <view class="div-center"></view>
+    <view class="w50 flex-c just-c" data-key="计泡说明" bind:tap="onAgree">
+      <image style="width:40rpx;height:40rpx" src="https://zyt-network.oss-cn-qingdao.aliyuncs.com/images/page1/tip.png" />
+      <view>计泡说明</view>
+    </view>
+    <view class="div-center"></view>
+    <view class="w50 flex-c just-c" data-key="计泡说明" bind:tap="toMy">
+      <image style="width:40rpx;height:40rpx" src="https://zyt-network.oss-cn-qingdao.aliyuncs.com/images/index-icon/personal-center.png" />
+      <view class="black">个人中心</view>
+    </view>
+  </view>
+  <view class="my-submit-bar plr-def">
+    <view class="tip flex-c ptb-3">
+      <van-checkbox icon-size="{{14}}" value="{{ radioProtocol }}" bind:tap="onClickProtocol">
+        <view class="pt-1">
+          <text class="c-aaa fs-22">我已阅读并同意</text>
+          <text class="theme-c fs-22" catch:tap="toServiceAgreement">《下单服务协议》</text>
+        </view>
+      </van-checkbox>
+    </view>
+    <wxs module="m3">
+      var getUpInt = function (weight) {
+        return Math.ceil(weight)
+      }
+      module.exports.getUpInt = getUpInt;
+    </wxs>
+    <view class="content flex-sb-c">
+      <view class="price-info">
+        <view class="flex-c">
+          <view class="fs-28 black">预估运费</view>
+          <view class="red flex-end ml-2">
+            <text class="fs-22">¥</text>
+            <text class="ml-1" style="font-size:40rpx">{{chargeDetails.totalPrice || '---'}}</text>
+          </view>
+          <view class="ml-4 flex-c" bind:tap="onClickShow4">
+            <text class="fs-24 theme-c">明细</text>
+            <image class="{{ !show4 &&'reverse-v'}}" style="width:28rpx;height:28rpx" src="https://zyt-network.oss-cn-qingdao.aliyuncs.com/images/arrow-up-theme.png" />
+          </view>
+        </view>
+        <view class="mt-3 fs-22 c-aaa">按{{m3.getUpInt(ecard.weight)}}公斤内物品预估</view>
+      </view>
+      <view class="submit-btn">
+        <van-button type="primary" round custom-style="width:240rpx;font-size:32rpx" disabled="{{orderDisabled}}" wx:if="{{orderDisabled}}">
+          立即下单
+        </van-button>
+        <van-button wx:else type="primary" round custom-style="width:240rpx;font-size:32rpx" bind:tap="confirmOrder">
+          立即下单
+        </van-button>
+      </view>
+    </view>
+    <view class="my-submit-bar__safe"></view>
+  </view>
+  <!-- 客服悬浮 -->
+  <image class="kefu-circle" bind:tap="handleContact" src="https://zyt-network.oss-cn-qingdao.aliyuncs.com/images/index-icon/kefu-circle.png"></image>
+  <!-- --------------------------------------------------------------------------------------------------------------------------- -->
+  <!-- 请选择快递公司 -->
+  <van-action-sheet show="{{ show0 }}" title="请选择快递公司" z-index="{{200}}" class="my-action-sheet" bind:close="onClosePop0">
+    <van-radio-group value="{{ radio }}" bind:change="onChange0">
+      <van-cell-group>
+        <van-cell wx:for="{{expressComs}}" wx:key="index" data-name="{{index}}" bind:click="onClick0" clickable title-style="position:relative">
+          <view slot="title" class="flex-sb-c">
+            <view class="left flex-c">
+              <image class="mr-4" style="width:80rpx;height:80rpx" src="{{item.icon}}" />
+              <view>
+                <view class="fs-28 black">{{item.name}}</view>
+              </view>
+            </view>
+            <view class="right flex-vr pr-4">
+              <view class="red fs-32">
+                <text>¥</text>
+                <text>{{item.firstPrice || '---'}}</text>
+              </view>
+              <view>
+                <text class="fs-24 c-777">
+                  续重 ¥{{item.continuePrice}}/{{item.continueWeight!==1 ? item.continueWeight : ''}}kg
+                </text>
+              </view>
+            </view>
+          </view>
+          <image wx:if="{{expressIndex===index}}" src="https://zyt-network.oss-cn-qingdao.aliyuncs.com/images/selected.png" slot="right-icon" style="width:72rpx;height:74rpx;position: absolute;top:0;right:0" />
+        </van-cell>
+      </van-cell-group>
+    </van-radio-group>
+    <view class="plr-def mt-2">
+      <van-button round type="primary" custom-style="width:100%" bind:tap="onClosePop0">
+        确定
+      </van-button>
+    </view>
+  </van-action-sheet>
+  <!-- 物品信息pop -->
+  <van-action-sheet show="{{ show2 }}" title="物品信息" z-index="{{200}}" class="my-action-sheet" bind:close="onClosePop2">
+    <!-- 物品类型 -->
+    <view>
+      <view class="flex-sb-c plr-def mb-6">
+        <e-title text="物品类型" />
+        <view class="red fs-24" catch:tap="toProhibitedItem">禁寄物品</view>
+      </view>
+      <view class="plr-def flex-wrap">
+        <e-button wx:for="{{goodsType}}" wx:key="index" type="default" plain="{{btnGroup1 !== index}}" round class="btn-goodsinfo {{btnGroup1 === index ? 'easy-theme2' : ''}}" data-index="{{index}}" bind:tap="onBtnGroup1Click">
+          {{item}}
+        </e-button>
+      </view>
+    </view>
+    <!-- 设置重量 -->
+    <view class="plr-def mtb-8 flex-sb-c">
+      <view class="flex-sb-c">
+        <e-title text="设置重量" />
+        <text class="black">(kg)</text>
+        <text class="title-require ml-2">必填</text>
+      </view>
+      <view>
+        <van-stepper value="{{ weight }}" integer bind:change="onChangeStepper" />
+      </view>
+    </view>
+    <!-- 给快递员留言 -->
+    <view>
+      <view class="flex-sb-c plr-def mb-6">
+        <e-title text="给快递员留言" />
+        <view class="red fs-24"></view>
+      </view>
+      <view class="plr-def flex-wrap">
+        <van-button wx:for="{{message}}" wx:key="index" type="default" plain="{{btnGroup2 !== index}}" round class="btn-goodsinfo {{btnGroup2 === index ? 'easy-theme2' : ''}}" data-index="{{index}}" bind:tap="onBtnGroup2Click">
+          {{item}}
+        </van-button>
+      </view>
+    </view>
+    <!-- 备注 -->
+    <view class="textarea-box m-def">
+      <!-- <textarea
+        class="textarea"
+        maxlength="-1"
+        disabled="{{modalName!=null}}"
+        bindinput="textareaAInput"
+        placeholder="请填写备注信息（最多30字）"
+      ></textarea> -->
+      <van-field type="textarea" class="textarea" bind:change="onTextareaAValueChange" maxlength="{{ 1000 }}" model:value="{{ textareaAValue }}" placeholder="请填写备注信息,不超过1000" autosize="{{autosize}}" border="{{ false }}" />
+    </view>
+    <view class="plr-def">
+      <van-button type="primary" custom-style="width:100%" round bind:click="onClickPop2Btn">
+        确定
+      </van-button>
+    </view>
+  </van-action-sheet>
+  <!-- 费用明细pop -->
+  <van-action-sheet show="{{ show4 }}" title="费用明细" z-index="{{98}}" class="my-action-sheet4" bind:close="onClosePop4">
+    <view class="plr-def">
+      <view class="mt-5 mb-6 fs-26 c-777">实际运费按快递员揽收时称重计费为准</view>
+      <view class="mod">
+        <view class="mod-title fs-28 black flex-sb-c">
+          <text>基础运费</text>
+          <text>¥ {{chargeDetails.totalPrice}}</text>
+        </view>
+        <view class="mod-sub mt-2 fs-24 c-aaa">
+          首重({{chargeDetails.firstWeight}}kg){{chargeDetails.firstPrice}}元，续重{{chargeDetails.continuePrice}}元/{{chargeDetails.continueWeight==1? '' : chargeDetails.continueWeight }}kg
+        </view>
+      </view>
+      <view class="mod mt-6">
+        <view class="mod-title fs-28 black flex-sb-c">
+          <text>计费类型</text>
+          <text>按重量计费</text>
+        </view>
+        <view class="mod-sub mt-6 fs-24 flex-sb-c">
+          <text class="c-aaa">首重费用</text>
+          <text class="black">¥ {{chargeDetails.firstPrice}}</text>
+        </view>
+        <view class="mod-sub mt-6 fs-24 flex-sb-c">
+          <text class="c-aaa">续重费用</text>
+          <text class="black">¥ {{chargeDetails.subtractionResult || 0}}</text>
+        </view>
+      </view>
+    </view>
+  </van-action-sheet>
+  <!-- 确认订单信息dialog -->
+  <van-dialog use-slot title="确认订单信息" show="{{ false }}" showConfirmButton="{{false}}" bind:close="onClose5">
+    <view class="comfirm-dialog-content p-def">
+      <view class="sender mb-4">
+        <view class="sender-title mb-1 flex-start">
+          <image style="width:42rpx;height:42rpx" src="https://zyt-network.oss-cn-qingdao.aliyuncs.com/images/confirmOrder/send.png" />
+          <text class="fs-32">寄件信息</text>
+        </view>
+        <view class="sender-content">
+          <view>
+            <text class="fs-28 mb-1">{{sender.name}}</text>
+            <text class="fs-28 mb-1 ml-2">{{sender.phone}}</text>
+          </view>
+          <view>
+            <text class="fs-28 c-777">
+              {{sender.province}}{{sender.city}}{{sender.area}}{{sender.address}}
+            </text>
+          </view>
+        </view>
+      </view>
+      <view class="reseiver mb-4">
+        <view class="reseiver-title mb-1 flex-start">
+          <image style="width:42rpx;height:42rpx" src="https://zyt-network.oss-cn-qingdao.aliyuncs.com/images/confirmOrder/receiver.png" />
+          <text class="fs-32">收件信息</text>
+        </view>
+        <view class="reseiver-content">
+          <view>
+            <text class="fs-28 mb-1">{{recipient.name}}</text>
+            <text class="fs-28 mb-1 ml-2">{{recipient.phone}}</text>
+          </view>
+          <view>
+            <text class="fs-28 c-777">
+              {{recipient.province}}{{recipient.city}}{{recipient.area}}{{recipient.address}}
+            </text>
+          </view>
+        </view>
+      </view>
+      <view class="order-message mb-4">
+        <view class="mb-1 flex-start">
+          <image src="https://zyt-network.oss-cn-qingdao.aliyuncs.com/images/confirmOrder/order-message.png" style="width:42rpx;height:42rpx" />
+          <text>订单留言</text>
+        </view>
+        <view class="fs-28 c-777">{{textareaAValue}}</view>
+      </view>
+    </view>
+    <e-card>
+      <view class="p-def page-bgc fs-28 c-aaa" style="border-radius: 12rpx;">
+        下单后，
+        <text class="theme-c mlr-1">{{ecard.express}}</text>
+        会分配快递员取件，请提前准备好包裹哦
+      </view>
+    </e-card>
+    <view class="plr-def mt-11 mb-4 flex-sb-c">
+      <e-button type="primary" round plain class="fs-28" customStyle="width: 232rpx;height: 64rpx;" bind:tap="onClose5">
+        取消
+      </e-button>
+      <e-button type="primary" class="theme btn-br-48 fs-28" customStyle="width: 232rpx;height: 64rpx;" bind:tap="submitOrder">
+        先寄后付
+      </e-button>
+    </view>
+    <view class="flex-sb-c mb-9 plr-def">
+      <view style="width:232rpx;opacity: 0;">1</view>
+      <e-pay-score type="2" style="width:232rpx;" />
+    </view>
+  </van-dialog>
+  <van-dialog use-slot title="{{null}}" show="{{ false }}" showConfirmButton="{{false}}" bind:close="onClose6" class="my-dialog6" round custom-class="my-dialog6-class">
+    <view class="show6-dialog rel flex-vc">
+      <image class="dialog6-bg" src="https://zyt-network.oss-cn-qingdao.aliyuncs.com/images/dialog/bg.png" />
+      <image class="dialog6-tx" src="https://zyt-network.oss-cn-qingdao.aliyuncs.com/images/dialog/tx.png" />
+      <view class="fs-32 white">请扫码寄件吧~</view>
+      <view class="fs-32 white mt-2">长按二维码添加客服寄件吧！</view>
+      <image style="width:404rpx;height:404rpx" show-menu-by-longpress="true" class="mtb-8" src="https://zyt-network.oss-cn-qingdao.aliyuncs.com/images/dialog/qrcode.png" />
+      <view class="fs-28" style="color:#2A2E2E">长按识别二维码</view>
+      <e-button type="primary" class="theme btn-br-48 fs-28 mtb-6" customStyle="width: 242rpx;height: 76rpx;" bindtap="scanCode2">
+        扫码寄件
+      </e-button>
+    </view>
+    <view class="mtb-6 flex-hvc">
+      <view class="flex-c">
+        <image style="width:32rpx;height:32rpx" src="https://zyt-network.oss-cn-qingdao.aliyuncs.com/images/dialog/download.png" />
+        <text class="fs-28 c-aaa ml-2" data-img="https://zyt-network.oss-cn-qingdao.aliyuncs.com/images/dialog/qrcode.png" bind:tap="saveImageToPhotosAlbum">
+          保存图片至相册
+        </text>
+      </view>
+    </view>
+  </van-dialog>
+  <!-- <web-socket outOrderNo="{{outOrderNo}}" bind:websocketMessage="websocketMessage" /> -->
+  <view class="follow-account flex-c just-sb" wx:if="{{showFollowAccount}}">
+    <view class="flex-c">
+      <image style="width:24rpx;height:24rpx" src="https://zyt-network.oss-cn-qingdao.aliyuncs.com/images/index-icon/tip-cha.png" bind:tap="closeFollowAccount" />
+      <view class="ml-3 white fs-28">关注公众号，实时接收运单状态</view>
+    </view>
+    <view class="go-follow flex-hvc white" bind:tap="goFollow">去关注</view>
+  </view>
+  <official-account wx:if="{{showFollowAccount}}"></official-account>
+
+  <van-popup show="{{ showPayTypes }}" position="bottom" custom-style="height: 30%" bind:close="onCancelPayTypes">
+    <van-picker show-toolbar columns="{{ payTypes }}" bind:confirm="onConfirmPayTypes" bind:cancel="onCancelPayTypes"></van-picker>
+  </van-popup>
+
+</view>

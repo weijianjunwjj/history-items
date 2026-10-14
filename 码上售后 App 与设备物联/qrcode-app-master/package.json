@@ -1,0 +1,20 @@
+{
+	"name": "kefu-app",
+	"version": "2.0.0",
+	"description": "",
+	"main": "main.js",
+	"dependencies": {
+		"moment": "^2.29.4",
+		"moment-duration-format": "^2.3.2",
+		"tim-wx-sdk": "^2.23.1"
+	},
+	"devDependencies": {},
+	"scripts": {
+		"build:github": "node ./utils/cp-files-for-github.js",
+		"lint": "./node_modules/.bin/eslint ./",
+		"fix": "./node_modules/.bin/eslint --fix ./"
+	},
+	"keywords": [],
+	"author": "",
+	"license": "ISC"
+}

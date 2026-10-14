@@ -1,0 +1,54 @@
+<view class="my-container">
+  <view class="header">
+
+    <view class="header-box flex">
+      <image src="{{userInfo.avatar || '/images/portrait.png'}}" class="circle" mode="widthFix" style="width:130rpx"></image>
+
+      <view class="flex-v just-sb ml-3">
+        <text class="user-name">{{userInfo.username}}</text>
+        <text class="user-tip">您有 {{deviceLength}} 台设备</text>
+      </view>
+    </view>
+
+
+  </view>
+
+  <view class="content">
+
+    <view class="title">
+      管理功能
+    </view>
+    <view class="list">
+      <view class="list-item" bindtap="to_tab1">
+        <view class="list-item-left  align-center">
+          <image mode="widthFix" src="/images/my-page/copy.png"></image>
+        </view>
+        <view class="list-item-right">
+          <view>设备管理</view>
+          <text class="cuIcon-right"></text>
+        </view>
+      </view>
+      <view class="list-item" bindtap="to_tab2">
+        <view class="list-item-left flex align-center">
+          <image mode="widthFix" src="/images/my-page/bell-states.png"></image>
+        </view>
+        <view class="list-item-right">
+          <view>通知消息</view>
+          <text class="cuIcon-right"></text>
+        </view>
+      </view>
+
+      <view class="list-item" bindtap="to_tab3">
+        <view class="list-item-left flex align-center">
+          <image mode="widthFix" src="/images/my-page/settings.png"></image>
+        </view>
+        <view class="list-item-right">
+          <view>设置</view>
+          <text class="cuIcon-right"></text>
+        </view>
+      </view>
+    </view>
+
+  </view>
+
+</view>

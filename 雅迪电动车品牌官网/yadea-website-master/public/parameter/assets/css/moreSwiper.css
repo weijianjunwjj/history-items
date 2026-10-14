@@ -1,0 +1,154 @@
+.canshubox .swiperbox {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.canshubox .swiperbox .swiperbox-inner:first-child{
+
+}
+.canshubox .swiperbox .gallery {
+    width: calc(100vw * 895/3840);
+    max-width: 300px;
+}
+
+.canshubox .swiperbox .gallery .item {
+    opacity: 0;
+    transition: opacity 0.3s
+}
+
+.canshubox .swiperbox .gallery .swiper-slide-active .item {
+    opacity: 1
+}
+
+.canshubox .swiperbox .gallery p {
+    text-align: center;
+    font-size: 15px;
+    /*line-height: 46px;*/
+    box-sizing: border-box;
+    padding: 7px 0 21px 0;
+    color: #333
+}
+
+.canshubox .swiperbox .gallery p span {
+    font-size: 14px;
+    color: #727171;
+    display: block;
+    text-align: center;
+}
+
+.canshubox .swiperbox .thumbs {
+    /*width: 100%;*/
+    /*margin-top: 32px;*/
+    width: calc(100vw * 895/3840);
+    max-width: 300px;
+    display: flex;
+    justify-content: center;
+}
+
+.canshubox .swiperbox .thumbs .swiper-wrapper {
+    justify-content: center;
+    /*height: auto;*/
+    /*flex-wrap: nowrap;*/
+    /*box-sizing: border-box;*/
+    /*padding-right: 65px;*/
+}
+
+.canshubox .swiperbox .thumbs .swiper-slide {
+    cursor: pointer;
+    width: auto;
+    margin-right: 5px;
+    padding: 4px;
+    border-radius: 50%;
+    background-color: #fff;
+    position: relative;
+}
+
+.canshubox .swiperbox .thumbs .border {
+    position: absolute;
+    z-index: 1;
+    display: block;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    border-radius: 50%;
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.canshubox .swiperbox .thumbs .swiper-slide-thumb-active .border {
+    opacity: 1
+}
+
+.canshubox .swiperbox .thumbs .bg {
+    position: absolute;
+    z-index: 2;
+    display: block;
+    top: 2px;
+    bottom: 2px;
+    left: 2px;
+    right: 2px;
+    border-radius: 50%;
+    background-color: #fff
+}
+
+.canshubox .swiperbox .thumbs .border.two {
+    display: flex;
+}
+
+.canshubox .swiperbox .thumbs .border.two i {
+    flex: 0 0 50%;
+}
+
+.canshubox .swiperbox .thumbs .border.two i:nth-child(1) {
+    border-radius: 25px 0 0 25px
+}
+
+.canshubox .swiperbox .thumbs .border.two i:nth-child(2) {
+    border-radius: 0 25px 25px 0
+}
+
+.canshubox .swiperbox .thumbs .color {
+    position: relative;
+    z-index: 3;
+    border: 1px solid #E5E6E7;
+    width: 21px;
+    height: 21px;
+    border-radius: 50%;
+}
+
+.canshubox .swiperbox .thumbs .color.two {
+    display: flex;
+}
+
+.canshubox .swiperbox .thumbs .color.two span {
+    flex: 0 0 50%;
+}
+
+.canshubox .swiperbox .thumbs .color.two span:nth-child(1) {
+    border-radius: 17px 0 0 17px
+}
+
+.canshubox .swiperbox .thumbs .color.two span:nth-child(2) {
+    border-radius: 0 17px 17px 0
+}
+@media screen and (max-width: 768px) {
+
+    .canshubox .swiperbox .gallery {
+        float: none!important;
+    }
+
+    .canshubox .swiperbox .gallery p {
+        padding: 7px 0 21px 0!important;
+    }
+
+    .canshubox .swiperbox .thumbs {
+        width: 100%!important;
+        max-width: 100%!important;
+        float: none;
+    }
+
+    .canshubox .swiperbox .thumbs .swiper-wrapper {
+        padding-right: 0!important;
+    }
+}

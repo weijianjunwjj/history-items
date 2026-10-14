@@ -1,0 +1,3 @@
+<view class="item p-def">
+  <rich-text nodes="{{text}}"></rich-text>
+</view>

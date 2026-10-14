@@ -1,0 +1,19 @@
+@import './custom-animate.less';
+@rotate: 90, 180, 270, 360;
+
+@animate-duration: 1.2s;
+
+.my-animate__animated {
+  -webkit-animation-duration: @animate-duration;
+  animation-duration: @animate-duration;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+}
+
+each(@rotate, {
+  .rotate-@{value} {
+    transform: rotate(@value * 1deg);
+  }
+})
+
+

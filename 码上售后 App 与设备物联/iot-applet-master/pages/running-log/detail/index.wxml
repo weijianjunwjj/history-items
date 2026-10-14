@@ -1,0 +1,49 @@
+<cu-custom isBack="{{true}}">
+  <view slot="content">日志详情</view>
+</cu-custom>
+
+<view class="container">
+
+  <view class="header pl-5 pr-5">
+    <view class="haeder-top mt-3 mb-3">
+      <view class="fc-1 fs-14 mb-1">运行数据</view>
+      <view class="fc-2 fs-12">{{detail.startTime}} ~ {{detail.endTime}}</view>
+    </view>
+    <view class="header-bottom">
+      <view class="grid-item9-content">
+      <block  wx:for="{{device_info}}">
+        <view class="grid-item9-content-card" wx:if="{{detail[item.key] !==undefined}}">
+          <view class="flex-c" >
+            <!-- <van-image  class="mr-1" width="12.83" height="12.83" src="/images/home-page/time.png">
+            </van-image> -->
+            <view>
+              {{item.name}}
+            </view>
+          </view>
+          <view>{{detail[item.key]}}{{item.unit}}</view>
+        </view>
+      </block>
+      </view>
+    </view>
+  </view>
+
+  <view class="main">
+    <view class="fs-14 fc-1">运行趋势</view>
+    <view class="echarts-box" >
+    <echarts-bar />
+    </view>
+    <view class="">
+      <view class="map mt-4">
+          <map id="myMap" class="full" scale="{{ mapData.scale }}" latitude="{{ mapData.latitude }}" longitude="{{ mapData.longitude }}" markers="{{ mapData.markers }}" show-location bindmarkertap="onMarkerChange"></map>
+        </view>
+      <view class="flex-c mt-2">
+        <text class="cuIcon-locationfill fc-3"></text>
+        <text class="fs-12 fc-2 ml-1">{{detail.address}}</text>
+      </view>
+    </view>
+
+
+  </view>
+
+
+</view>

@@ -1,0 +1,50 @@
+{
+  "harness": "real localhost HTTP + SQLite + Chromium/Edge",
+  "results": [
+    {
+      "name": "L01 真实HTTP启动与SQLite初始化；无内存后备",
+      "status": "PASS"
+    },
+    {
+      "name": "L02 数据库页面真实SQL核对10台/25次",
+      "status": "PASS"
+    },
+    {
+      "name": "L03 浏览器刷新后正式配置与未提交草稿仍分开",
+      "status": "PASS"
+    },
+    {
+      "name": "L04 服务进程重启并刷新后SQL配置与笔记保留",
+      "status": "PASS"
+    },
+    {
+      "name": "L05 SQL事件分析→10台设备→同设备4条异常",
+      "status": "PASS"
+    },
+    {
+      "name": "L06 工作区JSON预览/确认/SQL事务恢复",
+      "status": "PASS"
+    },
+    {
+      "name": "L07 写请求故障不假报成功，恢复后幂等重试",
+      "status": "PASS"
+    },
+    {
+      "name": "L08 EBI独立入口可启动并读取同一个SQL服务",
+      "status": "PASS"
+    },
+    {
+      "name": "L09 自动演示19站完成，SQL主工作区完全未变",
+      "status": "PASS"
+    },
+    {
+      "name": "L10 未捕获脚本错误为0",
+      "status": "PASS"
+    }
+  ],
+  "errors": [],
+  "browser": "155.0.4283.45",
+  "entry": {
+    "status": "PASS"
+  }
+}

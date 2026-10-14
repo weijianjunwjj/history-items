@@ -1,0 +1,221 @@
+<view class="station-master">
+  <!-- <view class="banner"></view> -->
+  <button open-type="share" class="share">分享</button>
+  <button class="share2" bind:tap="toActList">激活记录</button>
+  <view class="content">
+    <view class="hide2" style="height:5px">1</view>
+    <view class="info">
+      <view class="title">
+        <text class="fw-fold">填写申请信息</text>
+      </view>
+      <view class="tip">
+        <text class="fw-fold">网点申请人信息</text>
+        <text class="red">（影响揽收，请认真填写）</text>
+      </view>
+      <view class="form">
+        <van-field class="my-field my-field2" title-width="{{titleWidth}}" label="组织内小件员姓名" value="{{ form.name }}" placeholder="支付宝实名姓名" border="{{ true }}" error-message="{{ nameErrMsg }}" bind:blur="checkName" data-name="name" bind:change="onChange" />
+        <van-field class="my-field my-field2" title-width="{{titleWidth}}" label="组织内小件员手机号" value="{{ form.phone }}" placeholder="务必维护到组织管理中" error-message="{{phoneErrMsg}}" border="{{ true }}" bind:blur="checkPhone" data-name="phone" bind:change="onChange" />
+        <van-field class="my-field my-field2" title-width="{{titleWidth}}" label="邮政机构编号" value="{{ form.postNumber }}" data-name="postNumber" placeholder="请输入内部机构号" error-message="{{postNumberErrMsg}}" border="{{ true }}" bind:blur="checkPostNumber" bind:change="onChange" />
+        <van-field class="my-field my-field2" title-width="{{titleWidth}}" label="打印机编号" value="{{ form.printerNumber }}" placeholder="打印机底部编码" error-message="{{printerNumberErrMsg}}" border="{{ true }}" bind:blur="checkPrinterNumber" data-name="printerNumber" bind:change="onChange" />
+      </view>
+      <view class="tip" style="margin-top:60rpx">
+        <text class="fw-fold">提交站点信息</text>
+      </view>
+      <view class="form">
+        <!-- <view class="flex-c">
+          <view style="margin-right: 27px;" class="my-labels">邮政直属站点:</view>
+          <van-radio-group value="{{ form.directPost }}" bind:change="onChangeDirectPost" direction="horizontal">
+            <van-radio name="{{1}}">是</van-radio>
+            <van-radio name="{{0}}">否</van-radio>
+          </van-radio-group>
+        </view>
+        <view class="my-cell"></view> -->
+        <!-- <van-field class="my-field my-field2" title-width="{{titleWidth}}" label="邮政直属站点" value="{{ form.ownerName }}" placeholder="支付宝实名姓名" border="{{ true }}" error-message="{{ ownerNameErrMsg }}" bind:blur="checkOwnerName" data-name="ownerName" bind:change="onChange" /> -->
+        <van-field class="my-field my-field2" title-width="{{titleWidth}}" label="店主姓名" value="{{ form.ownerName }}" placeholder="支付宝实名姓名" border="{{ true }}" error-message="{{ ownerNameErrMsg }}" bind:blur="checkOwnerName" data-name="ownerName" bind:change="onChange" />
+        <van-field class="my-field my-field2" title-width="{{titleWidth}}" label="店主手机号" value="{{ form.ownerPhone }}" placeholder="支付宝实名手机号" error-message="{{ownerPhoneErrMsg}}" border="{{ true }}" bind:blur="checkOwnerPhone" data-name="ownerPhone" bind:change="onChange" />
+        <van-field title-width="{{titleWidth}}" disabled="{{disabledAddr}}" class="my-field my-field2" label="省市区/县" model:value="{{ PCD }}" placeholder="请选择省市区/县" error-message="{{addressErrMsg}}" readonly right-icon="{{!disabledAddr && 'https://zyt-network.oss-cn-qingdao.aliyuncs.com/images/new-address/map.png'}}" border="{{ true }}" bind:click-icon="openLocation" bind:click-input="onClickSiteType"></van-field>
+        <van-field type="textarea" autosize title-width="{{titleWidth}}" disabled="{{disabledAddr}}" class="my-field my-field2" label="资费套餐" model:value="{{ pricePlanTemplate }}" placeholder="请选择资费套餐" error-message="{{pricePlanTemplateErrMsg}}" readonly border="{{ true }}" bind:click-input="showPopupTariff"></van-field>
+        <view class="red mtb-2 fs-24 txt-c" wx:if="{{showNoConfig}}">暂未配置资费套餐，请联系服务商配置资费套餐</view>
+        <view class="red mtb-2 fs-24">温馨提示：如果是多资费方案激活，请勾选多个套餐</view>
+        <!-- 资费模版 -->
+        <van-field class="my-field my-field2" title-width="{{titleWidth}}" label="揽投部" value="{{ form.ltb }}" placeholder="揽投部（不用填省市区）" border="{{ true }}" error-message="{{ ltbErrMsg }}" bind:blur="checkltb" data-name="ltb" bind:change="onChange" />
+        <!-- placeholder-style="color: rgba(139, 0, 0, 0.5);font-size:10px" -->
+        <van-field class="my-field my-field2 " title-width="{{titleWidth}}" label="站点名称" value="{{ form.siteName }}" data-name="siteName" placeholder="站点名称（不用填省市区）"  error-message="{{siteNameErrMsg}}" border="{{ true }}" bind:blur="checkSiteName" bind:change="onChange" />
+        <van-field type="textarea" autosize title-width="{{titleWidth}}" disabled="{{disabledAddr}}" class="my-field my-field2" label="站点类型" value="{{ form.siteType}}" placeholder="请选择站点类型" error-message="{{siteTypeErrMsg}}" readonly border="{{ true }}" bind:click-input="showPopupSiteType"></van-field>
+        <van-field class="my-field my-field2" title-width="{{titleWidth}}" label="详细地址" value="{{ form.addr }}" placeholder="请输入街道、门牌号" error-message="{{addrErrMsg}}" border="{{ true }}" bind:blur="checkAddr" data-name="addr" bind:change="onChange" />
+        <van-cell title-width="220rpx" class="my-cell-title">
+          <text slot="title" style>门头照</text>
+          <view slot="right-icon">
+            <view>
+              <view class="mb-2" style="color: #C8C9CF;">请上传门头照（选填）</view>
+              <van-uploader use-before-read bind:before-read="beforeRead" accept="image" max-count="1" max-size="{{maxSize}}" file-list="{{ fileList }}" bind:after-read="afterRead" bind:delete="onDel" />
+            </view>
+          </view>
+        </van-cell>
+        <van-cell title-width="220rpx" class="my-cell-title">
+          <text slot="title" style>营业执照</text>
+          <view slot="right-icon">
+            <view>
+              <view class="mb-2" style="color: #C8C9CF;">请上传营业执照（选填）</view>
+              <van-uploader use-before-read bind:before-read="beforeRead" accept="image" max-count="1" max-size="{{maxSize}}" file-list="{{ fileList2 }}" bind:after-read="afterRead2" bind:delete="onDel2" />
+            </view>
+          </view>
+        </van-cell>
+        <view class="mt-8">
+          <van-checkbox value="{{ checked }}" icon-size="16" bind:change="onCheckedChange">
+            <text class>我已阅读并同意</text>
+            <text style="color: #03ABA3;" catch:tap="showProtocol">《物品托管协议》</text>
+          </van-checkbox>
+        </view>
+        <view style="position: relative;" class="txt-c">
+          <view style="width: 330rpx;height:90rpx;margin-top:60rpx;" class="hide2">1</view>
+          <view style="width: 330rpx;height:90rpx" class="pos-center" bind:tap="submitForm">
+            <image style="width: 330rpx;height:90rpx" src="https://zyt-network.oss-cn-qingdao.aliyuncs.com/images/station-master/btn-22.png" />
+            <text class="white pos-center" style="font-size:30rpx">立即提交</text>
+          </view>
+        </view>
+      </view>
+    </view>
+    <view style="color:#fff">
+      <view class="txt-c mb-5 mt-8" style="font-size:34rpx">活动说明</view>
+      <view style="line-height:2;font-size:24rpx">
+        <view>1、本页面用于申请中国邮政速递物流股份有限公司代办点</view>
+        <view>2、快递对外展示价格及每单返佣比例按当地标准执行</view>
+        <view>3、站点信息及返佣可通过您注册的手机号，登录微信公众号“悦邮”或支付宝小程序“菜鸟云打印”查看</view>
+        <view>4、详情咨询中国邮政当地揽收网点及快递员</view>
+      </view>
+    </view>
+  </view>
+  <van-popup show="{{ show1 }}" position="bottom" custom-style="height: 50%" bind:close="onClose1">
+    <van-area value="{{areaCode}}" area-list="{{ areaList }}" bind:confirm="onConfirm1" bind:cancel="onClose1" bind:change="onChange1" />
+  </van-popup>
+  <van-action-sheet show="{{ protocol }}" title="物品托管协议" z-index="{{200}}" class="my-action-sheet" bind:close="onClosePop2">
+    <view class="protocol" style="line-height:2">
+      <text>
+        您申请并通过中国邮政速递物流公司（以下简称”邮政快递”）审核后，将为您开设邮政快递代收站点（保管方），并承诺提供相关物品托管服务。根据相关法律法规，本着平等互利的原则，您本次申请站点后，即视为同意该协议。
+      </text>
+      <text class="fw-fold">物品托管服务</text>
+      <text>快递代收站点，需保证包裹物品（需快递的物品）在托管期间内，提供固定存放地点，不遗失不破损，不得私自拆解、查验包裹，需完整交至邮政快递的快递员。</text>
+      <text class="fw-fold">托管货物方式</text>
+      <text>货物的获取：用户通过微信小程序“逍遥邮”或支付宝小程序“来张面单“在线提交寄递订单后，用户将包裹放置于站点内，站点需提供固定位置，进行包裹存放，直至快递员取走。</text>
+      <text class="fw-fold">托管时间</text>
+      <text>开始时间：自用户线下，将包裹放置于站点后；</text>
+      <text>结束时间：邮政快递的快递员，线下到站实际取走包裹；</text>
+      <text class="fw-fold">托管物品的交付</text>
+      <text>快递员实际线下到站后，将查验包裹物品的数量及包装完整性，经快递员取走后，即视为交付完成，并终止承担托管责任。</text>
+      <text class="fw-fold">物品托管责任</text>
+      <text>站点负责在保管场地配备固定地方，安全、保质保管托管物品，在保管期间内发生丢失、变质、由保管方负赔偿责任；</text>
+      <text>委托保管方（寄件人）隐瞒保管物自身缺陷，导致保管期间内发送损坏，由委托保管方承担责任；</text>
+      <text class="fw-fold">争议的解决方式</text>
+      <text>本物品托管协议，在履行过程中发生的争议，由双方当事人协商解决，协商不成交由当地人民法院管辖。</text>
+    </view>
+    <view class="plr-def mt-2">
+      <van-button round type="primary" custom-style="width:100%" bind:tap="onClosePop2">
+        确定
+      </van-button>
+    </view>
+  </van-action-sheet>
+  <view class="dropdown-select">
+    <van-popup show="{{ showPopupTariff }}" position="bottom" custom-style="height: 80%;" bind:close="onCloseTariff">
+      <view class="mt-6"></view>
+      <view class="mb-8">
+        <block wx:if="{{optionsTariff.EMS.length || optionsTariff.EYB.length || optionsTariff.POSTB.length}}">
+          <view class="flex" style="flex-wrap: wrap;">
+            <view wx:if="{{optionsTariff.EMS.length }}" style="{{optionsTariffL==1?'flex: 0 0 100%;':'flex: 0 0 50%;'}} ">
+              <van-radio-group value="{{ selectedItemsTariff }}" bind:change="onChangeTariff">
+                <view class="txt-c mtb-3" style="font-weight: 600;">EMS</view>
+                <view wx:for="{{optionsTariff.EMS}}" wx:key="index" class="door-time-content-item {{optionsTariffL==1 && 'flex-jc'}}">
+                  <view>
+                    <van-radio name="{{ item.name }}" value="{{item.id}}">
+                      <view data-item="{{item}}">
+                        <view>{{ item.name }}</view>
+                        <view class="theme-c">{{ item.customerCode }}</view>
+                      </view>
+                    </van-radio>
+                  </view>
+                </view>
+              </van-radio-group>
+            </view>
+            <view wx:if="{{optionsTariff.EYB.length }}" style="{{optionsTariffL==1?'flex: 0 0 100%;':'flex: 0 0 50%;'}} ">
+              <van-radio-group value="{{ selectedItemsTariff2 }}" bind:change="onChangeTariff2">
+                <view class="txt-c mtb-3" style="font-weight: 600;">EYB</view>
+                <view wx:for="{{optionsTariff.EYB}}" wx:key="index" class="door-time-content-item {{optionsTariffL==1 && 'flex-jc'}}">
+                  <view>
+                    <van-radio name="{{ item.name }}">
+                      <view>
+                        <view>{{ item.name }}</view>
+                        <view class="theme-c">{{ item.customerCode }}</view>
+                      </view>
+                    </van-radio>
+                  </view>
+                </view>
+              </van-radio-group>
+            </view>
+            <view wx:if="{{optionsTariff.POSTB.length }}" style="{{optionsTariffL==1?'flex: 0 0 100%;':'flex: 0 0 50%;'}} ">
+              <van-radio-group value="{{ selectedItemsTariff3}}" bind:change="onChangeTariff3">
+                <view class="txt-c mtb-3" style="font-weight: 600;">POSTB</view>
+                <view wx:for="{{optionsTariff.POSTB}}" wx:key="index" class="door-time-content-item {{optionsTariffL==1 && 'flex-jc'}}">
+                  <view>
+                    <van-radio name="{{ item.name }}">
+                      <view>
+                        <view>{{ item.name }}</view>
+                        <view class="theme-c">{{ item.customerCode }}</view>
+                      </view>
+                    </van-radio>
+                  </view>
+                </view>
+              </van-radio-group>
+            </view>
+          </view>
+        </block>
+        <block wx:else>
+          <view class="red txt-c mt-10" style="font-size: 34rpx;">暂未配置资费套餐，请联系服务商配置资费套餐</view>
+        </block>
+      </view>
+      <van-button type="primary" round custom-style="width:80%;position:fixed;bottom:20px;left:0;right:0;margin:auto" bind:click="confirmSelectionTariff">
+        确认
+      </van-button>
+    </van-popup>
+  </view>
+  <!-- 信息核对 -->
+  <e-dialog useTitleSlot  width="640rpx" show="{{showInfoCheck}}" bind:close="onCloseInfoCheck">
+    <view slot="title" class="txt-c fs-40 bold">
+        信息核对
+    </view>
+      
+    <view class="dialog-content">
+      <view class="form-info">
+        <view class="form-info-item flex-sb-c mb-2">
+          <text>打印机编码:</text>
+          <text>{{form.printerNumber}}</text>
+        </view>
+        <view class="form-info-item flex-sb-c mb-2">
+          <text>站点名称:</text>
+          <text>{{form.siteName}}</text>
+        </view>
+        <view class="form-info-item flex-sb">
+          <text style="width: 80px;white-space: nowrap;margin-right: 25px;">资费套餐:</text>
+          <view class="flex-v txt-r">
+            <view class="flex-v p-3" wx:for="{{allArr}}" style="background: #f8f8f8;">
+              <text class="mb-1">{{item.name}}</text>
+              <text class="mb-1 theme-c">{{item.customerCode}}</text>
+              <text>{{item.cpCode}}</text>
+            </view>
+          </view>
+        </view>
+      </view>
+      <view class="footer flex-sa-c ptb-5">
+        <van-button round customStyle="width: 218rpx;height: 72rpx;" bind:tap="onCloseInfoCheck">
+          取消
+        </van-button>
+        <van-button type="primary" round customStyle="width: 218rpx;height: 72rpx;" bind:tap="onSureInfo">
+          确定
+        </van-button>
+      </view>
+    </view>
+  </e-dialog>
+
+  <van-popup show="{{ showSiteType }}" position="bottom" custom-style="height: 50%" bind:close="onCloseSiteType">
+    <van-picker show-toolbar title="选择付款方式" columns="{{siteTypes}}" bind:cancel="onCancelSiteType" bind:confirm="onConfirmSiteType"></van-picker>
+  </van-popup>
+</view>

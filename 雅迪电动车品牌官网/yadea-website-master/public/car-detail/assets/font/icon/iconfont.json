@@ -1,0 +1,37 @@
+{
+  "id": "",
+  "name": "",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon-",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "1308258",
+      "name": "113方向_向右",
+      "font_class": "113fangxiang_xiangyou",
+      "unicode": "e631",
+      "unicode_decimal": 58929
+    },
+    {
+      "icon_id": "1308259",
+      "name": "112方向_向上",
+      "font_class": "112fangxiang_xiangshang",
+      "unicode": "e632",
+      "unicode_decimal": 58930
+    },
+    {
+      "icon_id": "1308261",
+      "name": "115方向_向左",
+      "font_class": "115fangxiang_xiangzuo",
+      "unicode": "e633",
+      "unicode_decimal": 58931
+    },
+    {
+      "icon_id": "1308263",
+      "name": "114方向_向下",
+      "font_class": "114fangxiang_xiangxia",
+      "unicode": "e634",
+      "unicode_decimal": 58932
+    }
+  ]
+}

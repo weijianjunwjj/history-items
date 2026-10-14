@@ -1,0 +1,28 @@
+{
+  "files": [
+    {
+      "file": "src/apps/crm/index.js",
+      "sha256": "319b74fe1a6f7860a542d1b63340b58019355ab1557cf77bb11ac879fdb4a801"
+    },
+    {
+      "file": "src/apps/report/index.js",
+      "sha256": "3826c54ab94c710afc5364f47fbe04b58c0e6e51fc61f75d9531a7bc4ea84f81"
+    },
+    {
+      "file": "start-windows.cmd",
+      "sha256": "d53f4f9a337616ae925dc81ea79898982d357bfaa57cf59b06e0491ca37bf1d3"
+    },
+    {
+      "file": "tests/browser_local.py",
+      "sha256": "8aab0a5e52e4caae760b0a7d23c0b788d58cba0e5e057c4447a509fb0efd6c57"
+    },
+    {
+      "file": "tests/browser_acceptance_checks.py",
+      "sha256": "8c1fcd2f068b6caeced39633c9aeb79eff466577c17098de880355d97d0cdaa2"
+    },
+    {
+      "file": "scripts/accept-backup-launcher.mjs",
+      "sha256": "b18a14e325455c96e62b968ad63eb9f529b82dfb462d2ec4d7ae2276c77e18b4"
+    }
+  ]
+}

@@ -1,0 +1,330 @@
+{
+  "date": "2026-10-14T04:18:54.687Z",
+  "platform": "win32",
+  "node": "v24.14.1",
+  "status": "PASS",
+  "scope": "仅在新的独立数据库副本测试；保留主库及已有备份。",
+  "mainUrl": "http://127.0.0.1:4173",
+  "checks": [
+    {
+      "name": "已有备份为真实且一致的 SQLite",
+      "status": "PASS",
+      "detail": {
+        "source": "D:\\VSCode\\history-items\\游戏行为分析与 SDK 异常监控\\data\\backups\\replay-2026-10-14T04-06-33-861Z.sqlite",
+        "header": "SQLite format 3",
+        "quickCheck": "ok",
+        "tables": [
+          {
+            "name": "behavior_records",
+            "rows": 12923
+          },
+          {
+            "name": "sdk_samples",
+            "rows": 36720
+          },
+          {
+            "name": "crm_activities",
+            "rows": 2
+          },
+          {
+            "name": "crm_prizes",
+            "rows": 4
+          },
+          {
+            "name": "report_fields",
+            "rows": 8
+          },
+          {
+            "name": "report_events",
+            "rows": 1
+          },
+          {
+            "name": "workspace_state",
+            "rows": 3
+          }
+        ]
+      }
+    },
+    {
+      "name": "首次启动：从非项目 cwd 一键启动",
+      "status": "PASS",
+      "detail": {
+        "url": "http://127.0.0.1:50149",
+        "launcherPid": 75980,
+        "nodePid": 15056,
+        "databaseFile": "D:\\VSCode\\history-items\\游戏行为分析与 SDK 异常监控\\data\\windows-acceptance\\启动 备份验收-2026-10-14T04-18-54-687Z\\恢复副本.sqlite",
+        "health": {
+          "ok": true,
+          "appVersion": "0.8.0",
+          "node": "v24.14.1",
+          "repository": "sqlite"
+        }
+      }
+    },
+    {
+      "name": "恢复副本 HTTP 页面与数据库路径",
+      "status": "PASS",
+      "detail": {
+        "url": "http://127.0.0.1:50149",
+        "databaseFile": "D:\\VSCode\\history-items\\游戏行为分析与 SDK 异常监控\\data\\windows-acceptance\\启动 备份验收-2026-10-14T04-18-54-687Z\\恢复副本.sqlite",
+        "httpStatus": 200
+      }
+    },
+    {
+      "name": "独立副本 HTTP 保存及重新读取",
+      "status": "PASS",
+      "detail": {
+        "key": "note:crm",
+        "revision": 1
+      }
+    },
+    {
+      "name": "服务运行中 VACUUM INTO 一致性备份",
+      "status": "PASS",
+      "detail": {
+        "backupPath": "D:\\VSCode\\history-items\\游戏行为分析与 SDK 异常监控\\data\\windows-acceptance\\启动 备份验收-2026-10-14T04-18-54-687Z\\一致性 备份.sqlite",
+        "header": "SQLite format 3",
+        "quickCheck": "ok",
+        "tables": [
+          {
+            "name": "behavior_records",
+            "rows": 12923
+          },
+          {
+            "name": "sdk_samples",
+            "rows": 36720
+          },
+          {
+            "name": "crm_activities",
+            "rows": 2
+          },
+          {
+            "name": "crm_prizes",
+            "rows": 4
+          },
+          {
+            "name": "report_fields",
+            "rows": 8
+          },
+          {
+            "name": "report_events",
+            "rows": 1
+          },
+          {
+            "name": "workspace_state",
+            "rows": 4
+          }
+        ]
+      }
+    },
+    {
+      "name": "同副本服务重开：从非项目 cwd 一键启动",
+      "status": "PASS",
+      "detail": {
+        "url": "http://127.0.0.1:50158",
+        "launcherPid": 22212,
+        "nodePid": 79132,
+        "databaseFile": "D:\\VSCode\\history-items\\游戏行为分析与 SDK 异常监控\\data\\windows-acceptance\\启动 备份验收-2026-10-14T04-18-54-687Z\\恢复副本.sqlite",
+        "health": {
+          "ok": true,
+          "appVersion": "0.8.0",
+          "node": "v24.14.1",
+          "repository": "sqlite"
+        }
+      }
+    },
+    {
+      "name": "服务重开后笔记保留与请求令牌轮换",
+      "status": "PASS",
+      "detail": {
+        "persistedNote": true,
+        "tokenChanged": true
+      }
+    },
+    {
+      "name": "一致性备份恢复：从非项目 cwd 一键启动",
+      "status": "PASS",
+      "detail": {
+        "url": "http://127.0.0.1:50167",
+        "launcherPid": 29160,
+        "nodePid": 38568,
+        "databaseFile": "D:\\VSCode\\history-items\\游戏行为分析与 SDK 异常监控\\data\\windows-acceptance\\启动 备份验收-2026-10-14T04-18-54-687Z\\再次恢复副本.sqlite",
+        "health": {
+          "ok": true,
+          "appVersion": "0.8.0",
+          "node": "v24.14.1",
+          "repository": "sqlite"
+        }
+      }
+    },
+    {
+      "name": "一致性备份复制为新 REPLAY_DB 后启动",
+      "status": "PASS",
+      "detail": {
+        "databaseFile": "D:\\VSCode\\history-items\\游戏行为分析与 SDK 异常监控\\data\\windows-acceptance\\启动 备份验收-2026-10-14T04-18-54-687Z\\再次恢复副本.sqlite",
+        "persistedNote": true,
+        "tableCountsMatch": true
+      }
+    },
+    {
+      "name": "测试副本重开后 SQLite quick_check",
+      "status": "PASS",
+      "detail": {
+        "originalCopy": "ok",
+        "restoredCopy": "ok"
+      }
+    },
+    {
+      "name": "主库 workspace、修订及表行数前后不变",
+      "status": "PASS",
+      "detail": {
+        "workspaceHash": "a6c9fb433380a664949a0716b24138c7f6eaf928cc7a0067ee26aa63d3571d0a",
+        "tables": [
+          {
+            "name": "behavior_records",
+            "rows": 12923
+          },
+          {
+            "name": "sdk_samples",
+            "rows": 36720
+          },
+          {
+            "name": "crm_activities",
+            "rows": 2
+          },
+          {
+            "name": "crm_prizes",
+            "rows": 4
+          },
+          {
+            "name": "report_fields",
+            "rows": 8
+          },
+          {
+            "name": "report_events",
+            "rows": 1
+          },
+          {
+            "name": "workspace_state",
+            "rows": 5
+          }
+        ],
+        "revision": 9
+      }
+    },
+    {
+      "name": "已有一致性备份未被改写",
+      "status": "PASS",
+      "detail": {
+        "sha256": "2f9d705fd2d6b1dc699d78341cfe73eadefa9e69a76b3d1c5911058fa60eb7a5"
+      }
+    }
+  ],
+  "defaultBrowser": {
+    "status": "OPEN_REQUESTED",
+    "description": "start-windows.cmd → node scripts/start.mjs --open；系统默认浏览器由现有启动逻辑调用。需要单独 UI 证据确认真实页面。",
+    "urls": [
+      "http://127.0.0.1:50149",
+      "http://127.0.0.1:50158",
+      "http://127.0.0.1:50167"
+    ]
+  },
+  "paths": {
+    "dbPath": "D:\\VSCode\\history-items\\游戏行为分析与 SDK 异常监控\\data\\windows-acceptance\\启动 备份验收-2026-10-14T04-18-54-687Z\\恢复副本.sqlite",
+    "backupPath": "D:\\VSCode\\history-items\\游戏行为分析与 SDK 异常监控\\data\\windows-acceptance\\启动 备份验收-2026-10-14T04-18-54-687Z\\一致性 备份.sqlite",
+    "restoredPath": "D:\\VSCode\\history-items\\游戏行为分析与 SDK 异常监控\\data\\windows-acceptance\\启动 备份验收-2026-10-14T04-18-54-687Z\\再次恢复副本.sqlite",
+    "outside": "D:\\VSCode\\history-items\\游戏行为分析与 SDK 异常监控\\data\\windows-acceptance\\启动 备份验收-2026-10-14T04-18-54-687Z\\非项目启动目录",
+    "source": "D:\\VSCode\\history-items\\游戏行为分析与 SDK 异常监控\\data\\backups\\replay-2026-10-14T04-06-33-861Z.sqlite"
+  },
+  "cleanup": [
+    {
+      "pid": 15056,
+      "kind": "owned-node",
+      "status": "STOPPED",
+      "ownership": "自己创建的启动器 stderr SQLite 警告 PID，并以 HTTP databaseFile 核对测试副本"
+    },
+    {
+      "pid": 75980,
+      "kind": "owned-cmd",
+      "status": "STOPPED",
+      "exitCode": 1
+    },
+    {
+      "pid": 79132,
+      "kind": "owned-node",
+      "status": "STOPPED",
+      "ownership": "自己创建的启动器 stderr SQLite 警告 PID，并以 HTTP databaseFile 核对测试副本"
+    },
+    {
+      "pid": 22212,
+      "kind": "owned-cmd",
+      "status": "STOPPED",
+      "exitCode": 1
+    },
+    {
+      "pid": 38568,
+      "kind": "owned-node",
+      "status": "STOPPED",
+      "ownership": "自己创建的启动器 stderr SQLite 警告 PID，并以 HTTP databaseFile 核对测试副本"
+    },
+    {
+      "pid": 29160,
+      "kind": "owned-cmd",
+      "status": "STOPPED",
+      "exitCode": 1
+    },
+    {
+      "kind": "earlier-owned-node",
+      "pid": 41040,
+      "url": "http://127.0.0.1:60649",
+      "ownership": "本验收启动器 58756 的 stderr 明确记录 Node 41040；清理前已 HTTP 核对 data/windows-acceptance/启动 备份验收-2026-10-14T04-17-26-555Z/恢复副本.sqlite。",
+      "status": "ALREADY_STOPPED",
+      "detail": "已停止早期验收的 Node 41040；现 60649 HTTP 连接被拒绝。",
+      "errorCode": "ECONNREFUSED"
+    },
+    {
+      "kind": "earliest-quoting-attempt",
+      "status": "NOT_STARTED",
+      "detail": "首个驱动调用的 cmd 参数引号转义错误，命令未被识别且退出 1；既有 start-windows.cmd 未执行，未创建 Node 服务。"
+    }
+  ],
+  "mainWorkspaceBefore": "a6c9fb433380a664949a0716b24138c7f6eaf928cc7a0067ee26aa63d3571d0a",
+  "mainDatabase": "D:\\VSCode\\history-items\\游戏行为分析与 SDK 异常监控\\data\\replay.sqlite",
+  "sourceHashBefore": "2f9d705fd2d6b1dc699d78341cfe73eadefa9e69a76b3d1c5911058fa60eb7a5",
+  "mainWorkspaceAfter": "a6c9fb433380a664949a0716b24138c7f6eaf928cc7a0067ee26aa63d3571d0a",
+  "sourceHashAfter": "2f9d705fd2d6b1dc699d78341cfe73eadefa9e69a76b3d1c5911058fa60eb7a5",
+  "logs": [
+    {
+      "label": "首次启动",
+      "url": "http://127.0.0.1:50149",
+      "launcherPid": 75980,
+      "nodePid": 15056,
+      "exitCode": 1,
+      "output": "Built all → dist. Database untouched.\n(node:15056) ExperimentalWarning: SQLite is an experimental feature and might change at any time\n    at emitExperimentalWarning (node:internal/util:331:11)\n    at node:sqlite:4:1\n    at BuiltinModule.compileForInternalLoader (node:internal/bootstrap/realm:398:7)\n    at BuiltinModule.compileForPublicLoader (node:internal/bootstrap/realm:337:10)\n    at loadBuiltinModule (node:internal/modules/helpers:125:7)\n    at ModuleLoader.builtinStrategy (node:internal/modules/esm/translators:437:18)\n    at #translate (node:internal/modules/esm/loader:473:20)\n    at afterLoad (node:internal/modules/esm/loader:529:29)\n    at ModuleLoader.loadAndTranslate (node:internal/modules/esm/loader:534:12)\n    at #getOrCreateModuleJobAfterResolve (node:internal/modules/esm/loader:577:36)\n\n友谊时光工作复盘 v0.8 · 本地微前端 + SQLite\nhttp://127.0.0.1:50149\n数据库：D:\\VSCode\\history-items\\游戏行为分析与 SDK 异常监控\\data\\windows-acceptance\\启动 备份验收-2026-10-14T04-18-54-687Z\\恢复副本.sqlite\n数据只在本机；按 Ctrl+C 停止。终端出现 SQLite experimental 提示不等于运行失败。\n\nPress any key to continue . . . \r\n"
+    },
+    {
+      "label": "同副本服务重开",
+      "url": "http://127.0.0.1:50158",
+      "launcherPid": 22212,
+      "nodePid": 79132,
+      "exitCode": 1,
+      "output": "Built all → dist. Database untouched.\n(node:79132) ExperimentalWarning: SQLite is an experimental feature and might change at any time\n    at emitExperimentalWarning (node:internal/util:331:11)\n    at node:sqlite:4:1\n    at BuiltinModule.compileForInternalLoader (node:internal/bootstrap/realm:398:7)\n    at BuiltinModule.compileForPublicLoader (node:internal/bootstrap/realm:337:10)\n    at loadBuiltinModule (node:internal/modules/helpers:125:7)\n    at ModuleLoader.builtinStrategy (node:internal/modules/esm/translators:437:18)\n    at #translate (node:internal/modules/esm/loader:473:20)\n    at afterLoad (node:internal/modules/esm/loader:529:29)\n    at ModuleLoader.loadAndTranslate (node:internal/modules/esm/loader:534:12)\n    at #getOrCreateModuleJobAfterResolve (node:internal/modules/esm/loader:577:36)\n\n友谊时光工作复盘 v0.8 · 本地微前端 + SQLite\nhttp://127.0.0.1:50158\n数据库：D:\\VSCode\\history-items\\游戏行为分析与 SDK 异常监控\\data\\windows-acceptance\\启动 备份验收-2026-10-14T04-18-54-687Z\\恢复副本.sqlite\n数据只在本机；按 Ctrl+C 停止。终端出现 SQLite experimental 提示不等于运行失败。\n\nPress any key to continue . . . \r\n"
+    },
+    {
+      "label": "一致性备份恢复",
+      "url": "http://127.0.0.1:50167",
+      "launcherPid": 29160,
+      "nodePid": 38568,
+      "exitCode": 1,
+      "output": "Built all → dist. Database untouched.\n(node:38568) ExperimentalWarning: SQLite is an experimental feature and might change at any time\n    at emitExperimentalWarning (node:internal/util:331:11)\n    at node:sqlite:4:1\n    at BuiltinModule.compileForInternalLoader (node:internal/bootstrap/realm:398:7)\n    at BuiltinModule.compileForPublicLoader (node:internal/bootstrap/realm:337:10)\n    at loadBuiltinModule (node:internal/modules/helpers:125:7)\n    at ModuleLoader.builtinStrategy (node:internal/modules/esm/translators:437:18)\n    at #translate (node:internal/modules/esm/loader:473:20)\n    at afterLoad (node:internal/modules/esm/loader:529:29)\n    at ModuleLoader.loadAndTranslate (node:internal/modules/esm/loader:534:12)\n    at #getOrCreateModuleJobAfterResolve (node:internal/modules/esm/loader:577:36)\n\n友谊时光工作复盘 v0.8 · 本地微前端 + SQLite\nhttp://127.0.0.1:50167\n数据库：D:\\VSCode\\history-items\\游戏行为分析与 SDK 异常监控\\data\\windows-acceptance\\启动 备份验收-2026-10-14T04-18-54-687Z\\再次恢复副本.sqlite\n数据只在本机；按 Ctrl+C 停止。终端出现 SQLite experimental 提示不等于运行失败。\n\nPress any key to continue . . . \r\n"
+    }
+  ],
+  "completedAt": "2026-10-14T04:18:58.142Z",
+  "driverSafetyReview": {
+    "date": "2026-10-14T04:22:00.561Z",
+    "status": "PASS",
+    "validation": "node --check 通过及脚本回顾；未重新启动验收或打开额外浏览器。",
+    "change": "移除固定主 PID，清理仅限 owned/logs 中自己的启动器记录；PID 从该启动器 stderr 解析，且必须通过 HTTP databaseFile 验证本次独立副本并与主库路径区别。",
+    "scope": "现有产品启动器的 12 项 PASS 保留；本次调整仅收紧验收驱动的停止进程条件。"
+  }
+}

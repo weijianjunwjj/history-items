@@ -1,0 +1,60 @@
+
+> youyi-replay-local@0.8.0 doctor
+> node scripts/doctor.mjs
+
+(node:5897) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+(Use `node --trace-warnings ...` to show where the warning was created)
+{
+  "ok": true,
+  "checks": [
+    {
+      "check": "Node",
+      "status": "PASS",
+      "value": "v22.16.0"
+    },
+    {
+      "check": "数据库目录写入权限",
+      "status": "PASS"
+    },
+    {
+      "check": "SQLite schema / seed / quick_check",
+      "status": "PASS",
+      "tables": [
+        {
+          "name": "behavior_records",
+          "rows": 12923
+        },
+        {
+          "name": "sdk_samples",
+          "rows": 36720
+        },
+        {
+          "name": "crm_activities",
+          "rows": 2
+        },
+        {
+          "name": "crm_prizes",
+          "rows": 4
+        },
+        {
+          "name": "report_fields",
+          "rows": 8
+        },
+        {
+          "name": "report_events",
+          "rows": 1
+        },
+        {
+          "name": "workspace_state",
+          "rows": 3
+        }
+      ]
+    },
+    {
+      "check": "构建入口",
+      "status": "PASS",
+      "note": "npm start 会自动构建"
+    }
+  ],
+  "boundary": "命令行自检不等于浏览器端或Windows/macOS验收。"
+}

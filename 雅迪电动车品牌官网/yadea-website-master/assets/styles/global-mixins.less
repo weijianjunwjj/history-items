@@ -1,0 +1,248 @@
+// 全局混入less，注意大小，不要随意添加!!!
+@import './m-global-mixins.less';
+
+
+.txt-c{
+  text-align:center
+}
+
+.txt-j{
+  text-align: justify;
+}
+
+.flex-c,._flex-c{
+  display: flex;
+  align-items: center;
+}
+
+.pos-center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate3d(-50%, -50%, 0);
+}
+
+.pos-middle-v,.pos-center-v {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.pos-middle-h,.pos-center-h  {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.pos-mid{
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+}
+.flex {
+  display: flex
+}
+.align-center {
+  align-items: center;
+}
+
+.just-center {
+  justify-content: center;
+}
+
+
+.flex-hvc {
+  .flex;
+  .just-center;
+  .align-center;
+}
+
+
+
+
+.max-fs(@size) {
+  @media screen and (min-width: @max-media-width) {
+    // font-size: @size  !important;
+  }
+}
+
+
+.pt(@size) {
+  padding-top: @size * 1pxvw;
+
+  @media screen and (min-width: @max-media-width) {
+    padding-top: @size * 1px !important;
+  }
+}
+
+.pb(@size) {
+  padding-bottom: @size * 1pxvw;
+
+  @media screen and (min-width: @max-media-width) {
+    padding-bottom: @size * 1px !important;
+  }
+}
+
+.pl(@size) {
+  padding-left: @size * 1pxvw;
+
+  @media screen and (min-width: @max-media-width) {
+    padding-left: @size * 1px !important;
+  }
+}
+
+.pr(@size) {
+  padding-right: @size * 1pxvw;
+
+  @media screen and (min-width: @max-media-width) {
+    padding-right: @size * 1px !important;
+  }
+}
+
+.ptb(@size) {
+  padding-top: @size * 1pxvw;
+  padding-bottom: @size * 1pxvw;
+
+  @media screen and (min-width: @max-media-width) {
+    padding-top: @size * 1px !important;
+    padding-bottom: @size * 1px !important;
+  }
+}
+
+.plr(@size) {
+  padding-left: @size * 1pxvw;
+  padding-right: @size * 1pxvw;
+
+  @media screen and (min-width: @max-media-width) {
+    padding-left: @size * 1px !important;
+    padding-right: @size * 1px !important;
+  }
+}
+
+.p(@size) {
+  padding: @size * 1pxvw;
+
+  @media screen and (min-width: @max-media-width) {
+    padding: @size * 1px !important;
+  }
+}
+
+
+.mt(@size) {
+  margin-top: @size * 1pxvw;
+
+  @media screen and (min-width: @max-media-width) {
+    margin-top: @size * 1px !important;
+  }
+}
+
+.mb(@size) {
+  margin-bottom: @size * 1pxvw;
+
+  @media screen and (min-width: @max-media-width) {
+    margin-bottom: @size * 1px !important;
+  }
+}
+
+.ml(@size) {
+  margin-left: @size * 1pxvw;
+
+  @media screen and (min-width: @max-media-width) {
+    margin-left: @size * 1px !important;
+  }
+}
+
+.mr(@size) {
+  margin-right: @size * 1pxvw;
+
+  @media screen and (min-width: @max-media-width) {
+    margin-right: @size * 1px !important;
+  }
+}
+
+.mtb(@size) {
+  margin-top: @size * 1pxvw;
+  margin-bottom: @size * 1pxvw;
+
+  @media screen and (min-width: @max-media-width) {
+    margin-top: @size * 1px !important;
+    margin-bottom: @size * 1px !important;
+  }
+}
+
+.mlr(@size) {
+  margin-left: @size * 1pxvw;
+  margin-right: @size * 1pxvw;
+
+  @media screen and (min-width: @max-media-width) {
+    margin-left: @size * 1px !important;
+    margin-right: @size * 1px !important;
+  }
+}
+
+.m(@size) {
+  padding: @size * 1pxvw;
+
+  @media screen and (min-width: @max-media-width) {
+    padding: @size * 1px !important;
+  }
+}
+
+.w(@width) {
+  width: @width * 1pxvw;
+  max-width: @width * 1px;
+}
+.w-i(@width) {
+  width: @width * 1pxvw!important;
+  max-width: @width * 1px!important;
+}
+
+
+.h(@height) {
+  height: @height * 1pxvw;
+  max-height: @height * 1px;
+}
+
+.fs(@fontSize) {
+  font-size: @fontSize * 1pxvw;
+
+  @media screen and (min-width: @max-media-width) {
+    font-size: @fontSize * 1px !important;
+  }
+}
+
+.lh(@size) {
+  line-height: @size * 1pxvw;
+
+  @media screen and (min-width: @max-media-width) {
+    line-height: @size * 1px !important;
+  }
+}
+
+.top(@size){
+  top: @size * 1pxvw;
+  @media screen and (min-width: @max-media-width) {
+    top: @size * 1px !important;
+  }
+}
+.right(@size){
+  right: @size * 1pxvw;
+  @media screen and (min-width: @max-media-width) {
+    right: @size * 1px !important;
+  }
+}
+.left(@size){
+  left: @size * 1pxvw;
+  @media screen and (min-width: @max-media-width) {
+    left: @size * 1px !important;
+  }
+}
+.bottom(@size){
+  bottom: @size * 1pxvw;
+  @media screen and (min-width: @max-media-width) {
+    bottom: @size * 1px !important;
+  }
+}

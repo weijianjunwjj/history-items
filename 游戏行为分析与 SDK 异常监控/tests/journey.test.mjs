@@ -1,0 +1,33 @@
+import test from 'node:test';import assert from 'node:assert/strict';
+import {UNIFIED_DEFAULT as Q,unifiedContext,unifiedEvents,sourceRows,linkedQuery,projectUnified} from '../src/domain/unified.js';
+import {selectMonitorRows,stats,PRODUCTS,REGIONS,CATALOG} from '../src/domain/monitor.js';
+import {analysis,deviceRows,moduleRows,aggregate,groupDetails,context,validateContext} from '../src/domain/queries.js';
+import {buildDefinition,flowDestination} from '../src/domain/journey.js';
+import {sampleRows,filterRows,validateEvent,serializeEvent} from '../src/domain/report.js';
+import {createReportApi} from '../src/api/report-api.js';
+import {parseRoute,toHash} from '../src/domain/route.js';
+import {trace,traceSnapshot} from '../src/shared/trace.js';
+const totals=q=>analysis(context(q),'event').summary[0];
+test('联动源确定：212计数样本→524上报→25设备',()=>{assert.equal(sourceRows().length,212);assert.equal(unifiedEvents().length,524);assert.deepEqual([totals(Q).devices,totals(Q).events],[25,524]);});
+test('不同事件/大区/平台/产品/时段 SDK PV UV等于EBI，不只验证首页',()=>{for(const sdkEventId of ['login','payment','network'])for(const region of ['大陆','日本'])for(const os of ['','iOS','Android'])for(const product of ['',PRODUCTS[0]])for(const start of [0,240]){const end=start?270:720,q={...Q,sdkEventId,region,os,product,sdkFrom:start,sdkTo:end};let raw=selectMonitorRows(sdkEventId,{region,os},Q.start,start,end);if(product)raw=raw.filter(r=>r.product===product);const s=stats(raw),a=totals(q);assert.equal(a.events,s.reports);assert.equal(a.devices,s.devices);}});
+test('所有展开行ID唯一，可回指真实模拟计数样本，数量严格为reports',()=>{const raw=sourceRows(),rows=unifiedEvents();assert.equal(new Set(rows.map(x=>x.id)).size,rows.length);for(const r of raw)assert.equal(rows.filter(x=>x.sourceRecordId===r.id).length,r.reports);assert(rows.every(x=>x.sessionId.includes('未提供')));});
+test('前一日下钻保持日期，不替换为今日',()=>{const q={...Q,start:'2026-04-07',end:'2026-04-07'},s=stats(selectMonitorRows('login',{region:'大陆'},q.start));assert.equal(totals(q).events,s.reports);assert(unifiedEvents(q).every(x=>x.date==='2026-04-07'));});
+test('窗口左闭右开，拆分后PV可加、UV不可直接相加',()=>{const q1={...Q,sdkFrom:0,sdkTo:360},q2={...Q,sdkFrom:360,sdkTo:720};assert.equal(totals(q1).events+totals(q2).events,totals(Q).events);assert(totals(q1).devices+totals(q2).devices>totals(Q).devices);});
+test('链接包含所有筛选约束，URL往返不丢中文与时间窗',()=>{const q=linkedQuery('payment',{region:'日本',os:'iOS'},{day:'2026-04-07',start:240,end:270,product:PRODUCTS[1]});const round=context(parseRoute(toHash('/ebi/device',q)).query);for(const k of ['start','end','sdkEventId','sdkFrom','sdkTo','region','os','product','dataset','flow'])assert.equal(String(round[k]),String(q[k]));});
+test('未知事件/大区/产品/日期/时间窗明确拒绝',()=>{for(const patch of [{sdkEventId:'__proto__'},{region:'bad'},{product:'bad'},{sdkFrom:-1},{sdkTo:721},{sdkFrom:30,sdkTo:30},{sdkFrom:1.2},{start:'2025-01-01'},{os:'bad'}])assert.throws(()=>unifiedContext({...Q,...patch}));});
+test('设备汇总与SDK统计一致，设备列表总PV守恒',()=>{const d=deviceRows(Q);assert.equal(d.length,25);assert.equal(d.reduce((n,x)=>n+x.events,0),524);});
+test('组合分组→分组设备仍是原记录子集',()=>{const q={...Q,sdkFrom:240,sdkTo:270};for(const g of aggregate(q,['channel','os']).rows){const d=groupDetails(q,g.values);assert.equal(d.length,g.devices);assert.equal(d.reduce((n,r)=>n+r.events,0),g.events);}});
+test('设备下钻异常模块PV等于设备行，不生成额外正常行为',()=>{for(const d of deviceRows(Q)){const q={...Q,deviceId:d.deviceId};assert.equal(moduleRows(q,'abnormalData').length,d.events);for(const k of ['loginGame','deviceStart','deviceRole','gameProcess','patchDownload','deviceActivate'])assert.equal(moduleRows(q,k).length,0);}});
+test('异常快照拒绝构造漏斗，旧样本仍支持原漏斗',()=>{assert.throws(()=>analysis(Q,'funnel'),/不能伪造漏斗/);assert(analysis(context({}),'funnel').summary[0].devices>0);});
+test('未知SDK设备为零记录，不伪造用户行为',()=>assert.equal(unifiedEvents({...Q,deviceId:'SDK-DEMO-1-9999'}).length,0));
+test('联动事件可通过既有配置校验，投影数据来自同一批记录',()=>{const d=buildDefinition();assert.deepEqual(validateEvent(d),[]);const rows=sampleRows(d);assert.equal(rows.length,524);assert.equal(new Set(rows.map(r=>r.values['N-bridge-0'])).size,25);assert.equal(rows[0].id,unifiedEvents()[0].id);});
+test('自定义列名顺序不改变事实；未采集字段不乱填',()=>{const d=buildDefinition();d.panels.list.reverse();d.panels.list[0].label='自定义';d.fields[0].alias='unknown_field';const rows=sampleRows(d);assert.equal(rows.length,524);assert.equal(rows[0].values['N-bridge-0'],'未采集（不补造）');});
+test('配置预览查询设备得到同ID真实子集',()=>{const d=buildDefinition(),id=unifiedEvents()[0].deviceId,rows=filterRows(d,{'N-bridge-0':id});assert.equal(rows.length,unifiedEvents({...Q,deviceId:id}).length);assert(rows.every(r=>r.values['N-bridge-0']===id));});
+test('配置保存重开保留dataSource、sdkScope与列配置',()=>{const map=new Map(),storage={getItem:k=>map.get(k)??null,setItem:(k,v)=>map.set(k,v)},api=createReportApi(storage),d=buildDefinition();d.panels.list[0].label='设备（联动）';api.saveEvent(d);const saved=api.listEvents().find(x=>x.id===d.id);assert.equal(saved.dataSource,'sdk');assert.equal(sampleRows(saved).length,524);assert.equal(serializeEvent(saved).sdkScope.sdkEventId,'login');assert(api.saveEvent(saved).unchanged);});
+test('SDK来源与旧EBI练习隔离，不污染正常查询',()=>{const q=context({});assert(deviceRows(q).every(r=>r.deviceId.startsWith('DEMO-D')));assert(deviceRows(Q).every(r=>r.deviceId.startsWith('SDK-DEMO-')));});
+test('过程请求记录保存真实参数并返回拷贝',()=>{trace('query','testing',Q,{devices:25});const data=traceSnapshot();assert.equal(data.at(-1).request.sdkEventId,'login');data.at(-1).request.sdkEventId='oops';assert.equal(traceSnapshot().at(-1).request.sdkEventId,'login');});
+test('流程导航保留标识，单用户使用明确设备ID',()=>{const dest=flowDestination('user',Q,'SDK-DEMO-1-1001');assert.equal(dest.path,'/ebi/user');assert.equal(dest.query.deviceId,'SDK-DEMO-1-1001');assert.equal(flowDestination('define',Q).query.definitionId,'DEMO-SDK-login');});
+
+test('SDK演示渠道筛选与来源页口径一致',()=>{assert.equal(sourceRows({...Q,channel:'官方渠道'}).length,0);assert.equal(unifiedEvents({...Q,channel:'官方渠道'}).length,0);assert.equal(totals({...Q,channel:'测试渠道'}).events,524);});
+
+test('空时段不带错误默认设备跳转',async()=>{const {stepDestination}=await import('../src/api/journey-api.js');assert.throws(()=>stepDestination('user',{...Q,sdkFrom:719,sdkTo:720}),/没有设备/);});

@@ -1,0 +1,92 @@
+<view class="device-container">
+  <view class="header">
+    <view style="height:{{Custom.top}}px;"></view>
+    <view class="welcome" style="height:{{Custom.height}}px;line-height:{{Custom.height}}px;margin-top: 3px;">欢迎，{{userInfo.username}}</view>
+    <view class="info flex align-center">
+      <text class="bold">您有 {{deviceLength}} 台设备</text>
+
+      <view class="ml-3 rel" bindtap="toNotice">
+        <image style="height:18.5px" src="../../images/home-page/Vector.png" bindload="showVector"></image>
+        <view class="red-point" hidden="{{isAllReaded}}"></view>
+      </view>
+    </view>
+  </view>
+
+  <view class="content">
+    <view class="status-box">
+      <view class="status-box-item">
+        <view class="num">{{status.running}}</view>
+        <view class="status">
+          <text class="status-color bgc-run"></text>
+          <text class="status-text">运行中</text>
+        </view>
+      </view>
+      <view class="status-box-item">
+        <view class="num">{{status.offline}}</view>
+        <view class="status">
+          <text class="status-color bgc-offline"></text>
+          <text class="status-text">离线</text>
+        </view>
+      </view>
+      <view class="status-box-item">
+        <view class="num">{{status.maintain}}</view>
+        <view class="status">
+          <text class="status-color bgc-maintain"></text>
+          <text class="status-text">需维保</text>
+        </view>
+      </view>
+      <view class="status-box-item">
+        <view class="num">{{status.fault}}</view>
+        <view class="status">
+          <text class="status-color bgc-fault"></text>
+          <text class="status-text">故障</text>
+        </view>
+      </view>
+    </view>
+
+
+    <view class="content-top flex just-sb align-center">
+
+      <picker bindchange="onPickDeviceType" value="{{index}}" range="{{deviceType}}" range-key="label">
+        <view class="content-top-left">
+          {{deviceType[index].label}}<text catchtap="onfold" class="cuIcon-unfold ml-1 point"></text>
+        </view>
+      </picker>
+
+      <!-- 块状模式 -->
+      <view hidden="{{listMode!==1}}">
+        <view class="content-top-right flex align-center">
+          <view class="list-mode-block2 flex-hvc circle" bindtap="toLineMode">
+            <image class="menu-icon" src="../../images/home-page/list-mode-block2.png" ></image>
+          </view>
+          <view class="list-mode-line2  flex-hvc" bindtap="toBlockMode">
+            <image class="menu-icon" src="../../images/home-page/list-mode-line2.png" ></image>
+          </view>
+        </view>
+      </view>
+      <!-- 线条模式 -->
+      <view hidden="{{listMode!==2}}">
+        <view class="content-top-right flex align-center">
+          <view class="list-mode-block1 flex-hvc" bindtap="toLineMode">
+            <image class="menu-icon" src="../../images/home-page/list-mode-block1.png" ></image>
+          </view>
+          <view class="list-mode-line1 circle flex-hvc" bindtap="toBlockMode">
+            <image class="menu-icon" src="../../images/home-page/list-mode-line1.png" ></image>
+          </view>
+        </view>
+      </view>
+    </view>
+
+    <loading show="{{showList}}" />
+    <scroll-view scroll-y style="height:calc(100vh - 370rpx)">
+      <view class="content-main flex-l just-sb" hidden="{{listMode!==1  || !showList}}">
+        <device-card wx:for="{{list}}" wx:key="{{id}}" item="{{item}}" path="/pages/device/detail/index" />
+      </view>
+      <view class="content-main" hidden="{{listMode!==2 || !showList}}">
+        <device-line wx:for="{{list}}" wx:key="{{id}}" item="{{item}}" path="/pages/device/detail/index" bindloaded="imgListLoaded" />
+      </view>
+    </scroll-view>
+
+  </view>
+
+</view>

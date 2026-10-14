@@ -1,0 +1,46 @@
+<!--pages/my/notice/index.wxml-->
+<cu-custom isBack="{{true}}">
+  <view slot="content">通知消息</view>
+</cu-custom>
+
+<view class="container">
+  <view class="header flex-c-sb pt-3 plr-5">
+
+    <picker bindchange="onPickDeviceType" value="{{index}}" range="{{deviceType}}" range-key="label" style="width:160rpx">
+      <view class="content-top-left bold">
+        {{deviceType[index].label}}<text catchtap="onfold" class="cuIcon-unfold ml-1 point"></text>
+      </view>
+    </picker>
+
+    <image style="width: 40rpx;height: 40rpx;" bindtap="onReadedAll" src="/images/my-page/clear.png"></image>
+
+
+  </view>
+  <view class="note-list">
+    <view class="note-list-item mt-3" wx:for="{{list}}">
+      <view class="date-title fc-2 pl-5" style="margin-bottom: 8px;">
+        {{item.title}}
+      </view>
+      <view class="content-list">
+        <view wx:for="{{item.content}}" wx:for-item="item2" class="content-list-item flex-v just-sb bb" data-item="{{item2}}" bindtap="onReaded">
+          <view class="content-list-item-top flex-c-sb fs-12 fc-2" style="margin-bottom: 8px;">
+            <view>{{item2.sn}}</view>
+            <view>
+              {{item2.time}}
+            </view>
+          </view>
+          <view class="content-list-item-bottom flex-c">
+            <view class="square  {{mapp[item2.messageType]}}  mr-1"></view>
+
+            <view class="fc-1 bold fs-12" style="color:{{item2.readFlag ? '#9092A6' :''}}">
+              {{item2.messageContent}}
+            </view>
+
+          </view>
+        </view>
+      </view>
+
+    </view>
+
+  </view>
+</view>

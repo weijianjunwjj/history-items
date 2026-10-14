@@ -1,0 +1,40 @@
+{
+  "path-intellisense.mappings": {
+    "@/": "${workspaceFolder}/src",
+    "~/": "${workspaceFolder}"
+  },
+  "editor.formatOnSave": true,
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "prettier.printWidth": 120,
+  "prettier.singleQuote": true,
+  "prettier.semi": false,
+  "prettier.endOfLine": "lf",
+  "files.eol": "\n",
+
+  "[javascript]": {
+    "editor.formatOnSave": false
+  },
+  "[typescript]": {
+    "editor.formatOnSave": false
+  },
+  "[typescriptreact]": {
+    "editor.formatOnSave": false
+  },
+  "[vue]": {
+    "editor.formatOnSave": false,
+    "editor.defaultFormatter": "Vue.volar"
+  },
+  "eslint.validate": ["javascript", "javascriptreact", "typescript", "vue"],
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": "explicit"
+  },
+  "files.associations": {
+    "*.env.*": "dotenv",
+    "*.css": "postcss"
+  },
+  "[scss]": {
+    "editor.defaultFormatter": "sibiraj-s.vscode-scss-formatter"
+  },
+  "cSpell.words": ["Satoken"],
+  "npm.packageManager": "npm"
+}

@@ -1,0 +1,96 @@
+/* components/device-line/index.wxss */
+.device-line {
+  width: 88vw;
+  height: 28.333vw;
+  background: #FFFFFF;
+  box-shadow: 0px 3px 8px 1px #E7EDF7;
+  border-radius: 8px 8px 8px 8px;
+  border: 1px solid #E7EDF7;
+  margin-bottom: 22rpx;
+
+  .left-border {
+    width: 8px;
+    height: 100%;
+    background: #3670FF;
+    border-radius: 8px 0 0 8px;
+  }
+
+
+  .content {
+    width: 100%;
+    overflow: hidden;
+    padding: 24rpx 40rpx;
+
+    &-top {
+      font-size: 20rpx;
+      &-left {
+        .txt1 {
+          font-size: 24rpx;
+          font-weight: 600;
+          color: #4D4D66;
+        }
+
+        .txt2 {
+          font-size: 10px;
+          color: #4D4D66;
+          margin-top: 12rpx;
+        }
+      }
+
+      &-right {
+        .status-list>view:not(:last-child) {
+          margin-bottom: 14rpx;
+        }
+      }
+    }
+
+    &-bottom {
+      display: flex;
+      width: 100%;
+      align-items: center;
+      justify-content: space-between;
+
+      &-item {
+        display: flex;
+        align-items: center;
+
+        image {
+          width: 20rpx;
+          margin-right: 8rpx;
+        }
+
+        view {
+          font-size: 20rpx;
+          font-weight: 600;
+          color: #9092A6;
+        }
+
+
+      }
+
+    }
+  }
+}
+
+
+
+.img {
+
+  &-time,
+  &-area,
+  &-water {
+    width: 20rpx;
+    height: 20rpx;
+  }
+
+  &-signal {
+    width: 20rpx;
+    height: 15rpx;
+  }
+
+  &-electric {
+    width: 20rpx;
+    height: 12rpx;
+  }
+
+}

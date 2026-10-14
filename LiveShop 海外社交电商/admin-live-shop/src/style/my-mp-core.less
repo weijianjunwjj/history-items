@@ -1,0 +1,114 @@
+/*
+ * @Author: gaojingran
+ * @Date: 2021-03-20 10:22:22
+ * @LastEditors: Please set LastEditors
+ * @LastEditTime: 2021-08-16 15:57:23
+ * @Description: 原子类
+ */
+
+// xxx-1: 5px
+// xxx-2: 10px
+// xxx-3: 15px
+// xxx-4: 20px
+each(range(10), {
+
+  // margin
+  .mt-@{value} {
+    margin-top: @value * 5px;
+  }
+
+  .mb-@{value} {
+    margin-bottom: @value * 5px;
+  }
+
+  .ml-@{value} {
+    margin-left: @value * 5px;
+  }
+
+  .mr-@{value} {
+    margin-right: @value * 5px;
+  }
+
+  .mlr-@{value} {
+    margin-left: @value * 5px;
+    margin-right: @value * 5px;
+  }
+
+  .m-@{value} {
+    margin: @value * 5px;
+  }
+
+  // ------------------------
+  .mt-@{value}-i {
+    margin-top: @value * 5px !important;
+  }
+
+  .mb-@{value}-i {
+    margin-bottom: @value * 5px !important;
+  }
+
+  .ml-@{value}-i {
+    margin-left: @value * 5px !important;
+  }
+
+  .mr-@{value}-i {
+    margin-right: @value * 5px !important;
+  }
+
+  .m-@{value}-i {
+    margin: @value * 5px !important;
+  }
+
+  // ------------------------
+
+  // padding
+  .pt-@{value} {
+    padding-top: @value * 5px;
+  }
+
+  .pb-@{value} {
+    padding-bottom: @value * 5px;
+  }
+
+  .pl-@{value} {
+    padding-left: @value * 5px;
+  }
+
+  .pr-@{value} {
+    padding-right: @value * 5px;
+  }
+
+  .plr-@{value} {
+    padding-left: @value * 5px;
+    padding-right: @value * 5px;
+  }
+
+  .p-@{value} {
+    padding: @value * 5px;
+  }
+
+  // -----------------------------------
+  .pt-@{value}-i {
+    padding-top: @value * 5px !important;
+  }
+
+  .pb-@{value}-i {
+    padding-bottom: @value * 5px !important;
+  }
+
+  .pl-@{value}-i {
+    padding-left: @value * 5px !important;
+  }
+
+  .pr-@{value}-i {
+    padding-right: @value * 5px !important;
+  }
+
+  .p-@{value}-i {
+    padding: @value * 5px !important;
+  }
+
+  // -----------------------------------
+}
+
+);

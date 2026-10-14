@@ -1,0 +1,27 @@
+<view class="e-orderList-item">
+  <view class="flex-sb-c" style="margin-bottom:28rpx">
+    <view class="flex-c">
+      <image style="width:40rpx;height:40rpx" src="{{item.img}}" />
+      <text class="ml-4 fs-28 c-333">{{item.name}}</text>
+      <text class="ml-2 fs-28 c-333">{{item.waybillCode}}</text>
+    </view>
+    <e-status wx:if="{{item.showStatus}}" orderSelect="{{item.orderSelect}}" />
+  </view>
+  <view class="mb-2 fs-24 c-777">{{item.sendAddress}}</view>
+  <view class="fs-24 c-777 flex-sb-c">
+    <view class="flex-c">
+      <text class="mr-2">{{item.sendName}}</text>
+      <text>{{item.sendMobile}}</text>
+    </view>
+    <view wx:if="{{ item.fee && item.orderSelect==7 || item.fee && item.orderSelect==8  }}" style="color:{{item.orderSelect==8 ? '#E50000' : '#333'}}">
+      <block wx:if="{{item.orderSelect==7}}">+</block>
+      <text class="fs-36">{{item.fee}}</text>
+      <text class="fs-24 ml-1">元</text>
+    </view>
+  </view>
+  <van-divider />
+  <view class="flex-sb">
+    <text class="fs-24 c-777">下单时间</text>
+    <text class="fs-24 c-333 {{item.timeout && 'red'}}">{{item.createAt}}</text>
+  </view>
+</view>

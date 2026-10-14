@@ -1,0 +1,11 @@
+export const esc=v=>String(v??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+export const num=v=>Number(v||0).toLocaleString('zh-CN');
+export const pct=v=>v===null||v===undefined?'—':(v*100).toFixed(1)+'%';
+export const selected=(a,b)=>a===b?' selected':'';
+export const checked=b=>b?' checked':'';
+export function icon(name,size=18){const paths={chart:'M4 16V11m5 5V6m5 10V3M2 20h18',table:'M3 4h18v16H3zM3 9h18M8 9v11',user:'M16 21v-2a6 6 0 0 0-12 0v2M10 3a4 4 0 1 0 0 8 4 4 0 0 0 0-8',book:'M4 3h14v18H4zM7 7h8M7 11h8M7 15h5',arrow:'M5 12h14m-5-5 5 5-5 5',down:'m6 9 6 6 6-6',copy:'M8 8h12v13H8zM4 16H2V2h12v2',download:'M12 3v12m-4-4 4 4 4-4M4 16v5h16v-5',close:'m6 6 12 12M18 6 6 18',check:'m5 12 4 4L19 6',settings:'M4 7h16M4 17h16M8 4v6m8 4v6',reset:'M3 4v6h6M3 10a9 9 0 1 1 1 8',layers:'m12 3 10 6-10 6L2 9zM2 14l10 6 10-6'};return `<svg width="${size}" height="${size}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="${paths[name]||paths.table}"/></svg>`;}
+export const button=(label,act,extra='',kind='btn')=>`<button type="button" class="${kind}" data-act="${act}" ${extra}>${label}</button>`;
+export function download(name,content,type='text/plain;charset=utf-8'){const u=URL.createObjectURL(new Blob([content],{type}));const a=document.createElement('a');a.href=u;a.download=name;a.click();setTimeout(()=>URL.revokeObjectURL(u),1000);}
+export function formObject(form){return Object.fromEntries(new FormData(form));}
+export function pagination(meta,scope='detail'){return `<div class="pagination"><span>共 <b>${num(meta.total)}</b> 条</span><div class="page-actions"><label>每页 <select data-change="page-size" data-scope="${esc(scope)}" aria-label="${esc(scope)}每页条数">${[5,10,20,50].map(n=>`<option${selected(n,meta.pageSize)}>${n}</option>`).join('')}</select> 条</label>${button('上一页','page',`data-scope="${esc(scope)}" data-page="${meta.page-1}" ${meta.page<=1?'disabled':''}`)}<span class="page-number">${meta.page} / ${meta.pages}</span>${button('下一页','page',`data-scope="${esc(scope)}" data-page="${meta.page+1}" ${meta.page>=meta.pages?'disabled':''}`)}</div></div>`;}
+export function empty(text='当前条件下没有数据。'){return `<div class="empty">${icon('table',28)}<p>${esc(text)}</p></div>`;}

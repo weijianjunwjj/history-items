@@ -1,0 +1,9 @@
+node_modules/
+dist/
+data/*
+!data/.gitkeep
+!data/README.md
+直接打开演示.html
+__pycache__/
+*.log
+.DS_Store

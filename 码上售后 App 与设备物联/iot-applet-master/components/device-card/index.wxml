@@ -1,0 +1,28 @@
+<!--components/device-card/index.wxml-->
+<view class="device-card {{className}} flex" bindtap="onTap">
+  <view class="left-border" style="background: {{state.status[item.status].color}};"></view>
+  <view class="content flex-v just-sb">
+    <view class="content-top flex just-sb">
+      <image style="width:120rpx" src="{{item.deviceImage}}" mode="widthFix"></image>
+
+      <view class="flex-c-sb" style="height: 24rpx;">
+        <image style="width:24rpx;margin-right: 4rpx;" src="{{state.status[item.status].icon_path}}" mode="widthFix"></image>
+        <text style="color:{{state.status[item.status].color}}">{{state.status[item.status].text}}</text>
+      </view>
+
+      <view class="flex just-sb" wx:if="{{state.warn[item.status]}}">
+        <image style="width:24rpx;height:24rpx;margin-right: 4rpx;" src="{{state.warn[item.status].icon_path}}" mode="widthFix"></image>
+        <text style="color:{{state.warn[item.status].color}}">{{state.warn[item.status].text}}</text>
+      </view>
+      <view class="flex just-sb" wx:if="{{state.repair[item.status]}}">
+        <image style="width:24rpx;height:24rpx;margin-right: 4rpx;" src="{{state.repair[item.status].icon_path}}" mode="widthFix"></image>
+        <text style="color:{{state.repair[item.status].color}}">{{state.repair[item.status].text}}</text>
+      </view>
+
+    </view>
+    <view class="content-bottom">
+      <view class="txt1">{{item.productName}}</view>
+      <view class="txt2">{{item.sn}}</view>
+    </view>
+  </view>
+</view>

@@ -1,0 +1,97 @@
+{
+  "harness": "Chromium offline set_content / Blob ESM / opaque-origin memory storage fallback",
+  "results": [
+    {
+      "name": "C01 CRM独立应用入口与活动列表加载",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "C02 配置搜索与重置真实生效",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "C03 列表进入基础配置，再进入奖品工作区",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "C04 奖品A→B→A，独立表单缓存不丢失",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "C05 超100%阻断下一步，定位具体产品组",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "C06 组内70%允许保存，不强行凑满100%",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "C07 类型/单人限制切换显隐，隐藏值留在编辑缓存",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "C08 按钮排序与真实拖拽排序均不改变选中对象",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "C09 新增无效奖品有树节点错误标记，删除后回到有效选择",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "C10 新增与删除产品组，状态和选择保持一致",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "C11 CRM→EBI→CRM真实卸载重挂，未提交草稿恢复",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "C12 草稿与保存列表分离，返回列表可继续草稿",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "C13 空领奖规则拒绝保存，补齐后保存成功（本环境临时存储）",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "C14 保存结果返回列表、跨微应用后重开仍正确",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "C15 配置导出产生真实JSON，值与保存结果一致",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "C16 CRM证据抽屉、笔记与覆盖清单接入",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "C17 1100/768宽度没有页面横向溢出",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "C18 全程无脚本异常、控制台错误或外部网络请求",
+      "status": "PASS",
+      "detail": ""
+    }
+  ],
+  "consoleErrors": [],
+  "externalRequests": []
+}

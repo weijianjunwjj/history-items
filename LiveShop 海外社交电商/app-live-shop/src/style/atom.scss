@@ -1,0 +1,98 @@
+@for $i from 20 through 64 {
+  @if $i % 2==0 {
+    .fs-#{$i} {
+      font-size: #{$i}rpx;
+    }
+  }
+}
+@for $i from 12 through 24 {
+    .fs_#{$i} {
+      font-size: #{$i}px;
+    }
+}
+
+.txt-c {
+  text-align: center;
+}
+
+
+.c-00 {
+  color: #000;
+}
+
+.c-31 {
+  color: #313131;
+}
+
+.c-41 {
+  color: #414141;
+}
+
+.c-4d {
+  color: #4d4d4d;
+}
+
+.c-df {
+  color: #dfdfdf;
+}
+
+.c-f7 {
+  color: #f7f7f7;
+}
+
+.c-95 {
+  color: #959595;
+}
+
+.c-red {
+  color: #FF2929;
+}
+
+.c-orange {
+  color: #FBA345;
+}
+
+.c-4b {
+  color: #4b4b4b;
+}
+
+.rel {
+  position: relative;
+}
+
+.green-btn{
+  background: #00DBA1!important;
+}
+
+.circle{
+  border-radius: 50%;
+}
+
+.txt-l{
+  text-align: left;
+}
+
+.two-line-text {
+  display: -webkit-box;       /* 必须配合 -webkit-line-clamp 使用 */
+  -webkit-line-clamp: 2;     /* 显示的行数 */
+  -webkit-box-orient: vertical; /* 设置伸缩盒子排列方式为垂直 */
+  overflow: hidden;          /* 超出隐藏 */
+  text-overflow: ellipsis;   /* 超出部分显示省略号 */
+  word-break: break-word; /* 推荐，现代浏览器支持 */
+  overflow-wrap: break-word; /* 替代 word-wrap，标准化语法 */
+}
+
+.text-wrap {
+  word-break: break-word; /* 强制换行，适用于英文 */
+  word-wrap: break-word;  /* 旧的语法，兼容性好 */
+  overflow-wrap: break-word; /* 标准语法，现代浏览器推荐 */
+  white-space: normal;    /* 允许文本换行 */
+}
+
+.omit{
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+

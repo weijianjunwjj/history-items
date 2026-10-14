@@ -1,0 +1,126 @@
+<view class="orders-detail">
+  <e-card>
+    <view class="card1 flex-sb-c rel">
+      <text class="fs-32">{{order.statusName}}</text>
+      <view class="line1 pos-center" wx:if="{{order.orderSelect==2 || order.orderSelect==3 || order.orderSelect==6}}"></view>
+      <view class="fs-28" style="color: #FE5E00;" wx:if="{{order.orderSelect==2}}">
+        剩余{{remainder}}
+      </view>
+      <view class="fs-28" style="color: #FE5E00;" wx:if="{{order.orderSelect==3}}">已超时，请尽快处理</view>
+      <view class="fs-28 flex-vr" wx:if="{{order.orderSelect==6}}">
+        <text>揽收时间</text>
+        <text style="color: #FE5E00;" class="mt-2">{{order.collectionTime}}</text>
+      </view>
+    </view>
+  </e-card>
+  <e-card>
+    <view class="p-6">
+      <view class="flex-c">
+        <image style="width:40rpx;height:40rpx" src="{{order.img}}" />
+        <text class="ml-4 fs-28 c-333">{{order.name}}</text>
+        <text class="ml-2 fs-28 c-333">{{order.waybillCode}}</text>
+        <e-button class="grey ml-3 fs-20 c-777" customStyle="width: 60rpx;height: 34rpx;padding:0" catch:tap="copyC" data-text="{{ order.waybillCode }}">
+          复制
+        </e-button>
+      </view>
+      <view class="flex-sb-c mt-6">
+        <view class="flex-c fs-24 c-777">
+          <text>打印机名称</text>
+          <text class="ml-4">{{order.printerName}}</text>
+        </view>
+        <!-- <image
+          style="width: 36rpx;height:36rpx;"
+          bind:tap="onOpen1"
+          src="../../../images/station/printer.png"
+        /> -->
+      </view>
+      <view class="flex-sb-c mt-2">
+        <view class="flex-c fs-24 c-777">
+          <text>打印机编码</text>
+          <text class="ml-4">{{order.printerId}}</text>
+        </view>
+      </view>
+    </view>
+  </e-card>
+  <e-card>
+    <view class="persons-info mlr-def bgw br-24">
+      <!-- 寄件人信息 -->
+      <view class="send p-def flex-c">
+        <!-- icon -->
+        <view class="mr-3" style="width:40rpx;height:40rpx">
+          <image class="full-img" src="https://zyt-network.oss-cn-qingdao.aliyuncs.com/images/send.png" />
+        </view>
+        <view class="flex-sb flex-1">
+          <view class="flex-v flex-1">
+            <view>
+              <text class="pr-def fs-32 black">{{order.sendName}}</text>
+              <text class="fs-28 black">{{order.sendMobile || order.sendPhone}}</text>
+            </view>
+            <view class="fs-26 c-aaa">{{order.sendAddress}}</view>
+          </view>
+        </view>
+      </view>
+      <view class="devide-line"></view>
+      <!-- 收件人信息 -->
+      <view class="receive p-def flex-c">
+        <!-- icon -->
+        <view class="mr-3" style="width:40rpx;height:40rpx">
+          <image class="full-img" src="https://zyt-network.oss-cn-qingdao.aliyuncs.com/images/receive.png" />
+        </view>
+        <view class="flex-sb flex-1">
+          <view class="flex-v flex-1">
+            <view>
+              <text class="pr-def fs-32 black">{{order.recipientName}}</text>
+              <text class="fs-28 black">{{order.recipientMobile || order.recipientPhone}}</text>
+            </view>
+            <view class="fs-26 c-aaa">{{order.recipientAddress }}</view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </e-card>
+  <e-card>
+    <view class="info fs-24 ptb-3">
+      <view class="flex-sb">
+        <text class="info-label c-777">下单时间：</text>
+        <text class="info-value c-333">{{order.createAt}}</text>
+      </view>
+      <view class="flex-sb" wx:if="{{order.cancelAt}}">
+        <text class="info-label c-777">取消时间：</text>
+        <text class="info-value c-333">{{order.cancelAt}}</text>
+      </view>
+      <view class="flex-sb">
+        <text class="info-label c-777">物品类型：</text>
+        <text class="info-value c-333">{{order.itemName}}</text>
+      </view>
+      <view class="flex-sb">
+        <text class="info-label c-777">快递费用：</text>
+        <text class="info-value c-333">¥{{order.totalFee || '---'}}</text>
+      </view>
+      <view class="flex-sb">
+        <text class="info-label c-777">结算费用：</text>
+        <text class="info-value c-333">¥{{order.settleFee || '---'}}</text>
+      </view>
+      <view class="flex-sb">
+        <text class="info-label c-777">结算状态：</text>
+        <text class="info-value c-333">{{ order.settleStatus == 1 ? '已收款':'未收款'}}</text>
+      </view>
+      <view class="flex-sb">
+        <text class="info-label c-777">订单备注：</text>
+        <text class="info-value c-333">{{order.remark || '无'}}</text>
+      </view>
+    </view>
+  </e-card>
+  <van-dialog use-slot title="{{null}}" show="{{ show1 }}" showConfirmButton="{{false}}" bind:close="onClose1">
+    <image bindtap="onClose1" class="close" style="width:40rpx;height:40rpx;margin-top:24rpx" src="/images/my/close.png" />
+    <view style="padding:54rpx 32rpx 36rpx 32rpx" class="txt-c fs-32">是否重新打印快递面单</view>
+    <view class="plr-def mb-9 full-w flex just-sa">
+      <van-button round type="default" custom-style="width:196rpx;height:68rpx" bind:tap="onClose1">
+        否
+      </van-button>
+      <van-button round type="primary" custom-style="width:196rpx;height:68rpx" bind:tap="onClose1">
+        是
+      </van-button>
+    </view>
+  </van-dialog>
+</view>

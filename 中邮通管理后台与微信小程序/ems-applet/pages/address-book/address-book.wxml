@@ -1,0 +1,101 @@
+<view class="address-book pos-rel">
+  <!-- 空状态 -->
+  <block wx:if="{{isEmpty}}">
+    <view class="address-book-empty pos-center-eyes">
+      <view class="box flex-vc">
+        <image
+          class
+          style="width:234px;height:185px"
+          src="https://zyt-network.oss-cn-qingdao.aliyuncs.com/images/empty-box.png"
+        />
+        <text class="fs-24 black">还没有添加地址哦～</text>
+
+        <van-button
+          type="primary"
+          class="mt-7"
+          round
+          custom-style="width: 352rpx;height: 90rpx;"
+          bind:tap="goNewAddress"
+        >新建地址</van-button>
+      </view>
+    </view>
+  </block>
+
+  <!-- 非空状态 -->
+  <block wx:else>
+    <van-search
+      value="{{ searchValue }}"
+      bind:change="onSearch"
+      shape="round"
+      placeholder="搜索姓名、电话、地址"
+    />
+
+    <e-card>
+      <scroll-view
+        scroll-y="true"
+        bindscrolltolower="loadMore"
+        style="width: 100%; height: calc(100vh - 90px - 64px);"
+      >
+        <van-checkbox-group value="{{ result }}" bind:change="onChange">
+          <van-cell-group>
+            <van-cell
+              wx:for="{{addressList}}"
+              wx:key="index"
+              data-index="{{index}}"
+              clickable
+              bind:click="onclickAddressItem"
+            >
+              <view slot="title" class="flex-sb-c">
+                <view class="left flex-c flex-1">
+                  <van-checkbox
+                    catch:tap="noop"
+                    class="checkboxes-{{ index }}"
+                    name="{{ item.id }}"
+                  />
+                  <view>
+                    <view class="left-top fs-28 black">
+                      <text>{{item.name}}</text>
+                      <text class="ml-6">{{item.phone}}</text>
+                    </view>
+
+                    <view class="left-bottom fs-26 c-aaa mt-3" style="line-height:36rpx">
+                      <block wx:if="{{item.town}}">{{item.town}}</block>
+                      {{item.address}}
+                    </view>
+                  </view>
+                </view>
+
+                <view class="right flex-vr pl-8">
+                  <image
+                    class="mr-4"
+                    style="width:40rpx;height:40rpx"
+                    src="{{editIcon}}"
+                    data-id="{{item.id}}"
+                    catch:tap="onEditBook"
+                  />
+                </view>
+              </view>
+            </van-cell>
+          </van-cell-group>
+        </van-checkbox-group>
+      </scroll-view>
+    </e-card>
+
+    <e-footer>
+      <view class="flex-sb-c">
+        <e-button
+          type="primary"
+          class="easy-theme btn-br-48 fs-28"
+          customStyle="width: 242rpx;height: 96rpx;"
+          bind:tap="onRemovex"
+        >批量删除</e-button>
+        <e-button
+          type="primary"
+          class="theme btn-br-48 fs-32"
+          customStyle="width: 416rpx;height: 96rpx;"
+          bind:tap="goNewAddress"
+        >新建地址</e-button>
+      </view>
+    </e-footer>
+  </block>
+</view>

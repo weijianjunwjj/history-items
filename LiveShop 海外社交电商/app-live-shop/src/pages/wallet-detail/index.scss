@@ -1,0 +1,48 @@
+page {
+    background: #f6f6f6;
+}
+
+header {
+    background: #000000;
+    border-radius: 40rpx;
+    margin: 18rpx 0 0 0;
+    color: #fff;
+}
+
+.wallet-detail {
+    padding: 0 32rpx;
+    .amount-bold {
+        font-size: 32px;
+        font-weight: 600;
+    }
+    .added-consumed {
+        font-size: 12px;
+        font-weight: 400;
+    }
+    .txt-font {
+        font-size: 40rpx;
+        font-weight: 500;
+    }
+    .head-card {
+        padding-top: 43px;
+        padding-bottom: 40rpx;
+    }
+}
+
+.my-datetime-box {
+    :deep() {
+        .wd-picker__body {
+            font-size: 20rpx;
+            padding-top: 8rpx;
+        }
+        .wd-picker__cell {
+            background-color: #f6f6f6;
+        }
+        .my-datatime-value {
+            font-weight: 500;
+            padding-top: 2rpx;
+            margin-right: 0;
+            color: #959595;
+        }
+    }
+}

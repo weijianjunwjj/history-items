@@ -1,0 +1,9 @@
+{
+  "navigationBarTitleText": "订单",
+  "navigationStyle": "custom" ,
+  "usingComponents": {
+    "orders":"../orders/index",
+    "bills":"../bills/index",
+    "my":"../my/index"
+  }
+}

@@ -1,0 +1,42 @@
+{
+  "engine": "SQLite",
+  "sqlite": "3.49.1",
+  "schemaVersion": 1,
+  "revision": 0,
+  "tables": [
+    {
+      "name": "behavior_records",
+      "rows": 12923
+    },
+    {
+      "name": "sdk_samples",
+      "rows": 36720
+    },
+    {
+      "name": "crm_activities",
+      "rows": 2
+    },
+    {
+      "name": "crm_prizes",
+      "rows": 4
+    },
+    {
+      "name": "report_fields",
+      "rows": 8
+    },
+    {
+      "name": "report_events",
+      "rows": 1
+    },
+    {
+      "name": "workspace_state",
+      "rows": 3
+    }
+  ],
+  "databaseFile": "/mnt/data/local_sql_work/youyi-replay/data/replay.sqlite",
+  "mode": "loopback-only",
+  "sampleNotice": "样本仍为固定模拟数据；不是生产日志。",
+  "integrity": {
+    "quick_check": "ok"
+  }
+}

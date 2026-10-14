@@ -1,0 +1,5 @@
+{
+  "check": "SQL状态条重试按钮hidden/visible CSS",
+  "status": "PASS",
+  "boundary": "局部DOM/CSS检查，不是SQL浏览器联调"
+}

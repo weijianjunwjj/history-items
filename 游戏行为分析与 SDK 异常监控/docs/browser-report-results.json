@@ -1,0 +1,127 @@
+{
+  "harness": "Chromium offline set_content / native Blob ESM / opaque-origin memory storage fallback",
+  "results": [
+    {
+      "name": "R01 日志配置独立入口与8个模拟通用字段加载",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "R02 新字段空值阻断，创建保存后可重开",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "R03 字段别名唯一性、搜索与重置生效",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "R04 新事件基础校验，正确填写后进入字段树",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "R05 复制通用字段、同级去重与嵌套对象字段正确",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "R06 上级变更生效，父级选择排除自身与后代",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "R07 切换字段前校验，失败不丢编辑上下文",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "R08 字段树真实同级拖拽，选中ID和属性不丢失",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "R09 拖入或点击加入列表，源字段保留且配置独立",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "R10 重复加入、空文案和非法列宽阻断；修正后缓存保留",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "R11 配置按钮排序和真实拖拽均保留字段缓存",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "R12 supportQuery限制点击和拖拽；查询文案/数值操作符/必填可配置",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "R13 三个配置区域的数量、文案和选择状态互不覆盖",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "R14 全量校验保存，新事件无重复写入",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "R15 预览由真实配置生成，必填查询为空阻断提交",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "R16 同一批样本24→渠道8→等级3，详情与列表数据一致",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "R17 预览重置、分页和返回配置保留编辑状态",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "R18 返回列表并重开，三套数量、顺序与属性正确",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "R19 跨应用卸载重挂草稿恢复，列表不混入未提交数据，放弃可还原",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "R20 配置导出真实JSON，提交order、类型和保存内容一致",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "R21 删除对象子树同步清理三套引用，放弃修改可完整恢复",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "R22 工作复盘证据、个人笔记、覆盖清单和运行结构接入",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "R23 1100/768宽度无页面横向溢出，窄屏属性面板下移",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "R24 全程无脚本异常、控制台错误与外部HTTP请求",
+      "status": "PASS",
+      "detail": ""
+    }
+  ],
+  "consoleErrors": [],
+  "externalRequests": []
+}

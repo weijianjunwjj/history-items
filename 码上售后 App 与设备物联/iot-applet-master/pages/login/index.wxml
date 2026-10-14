@@ -1,0 +1,18 @@
+<!--pages/login/index.wxml-->
+<!-- <cu-custom bgColor="bg-def" isBack="{{false}}">
+  <view slot="content">关于</view>
+</cu-custom> -->
+
+<view class="login-container">
+  <view class="header">
+    <view>
+      <image class="logo" mode="widthFix"  src="../../images/logo.png"></image>
+      <text class="title">设备物联云</text>
+    </view>
+  </view>
+
+  <view class="footer">
+    <van-button class="btn btn1" type="primary" open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber">微信授权登录</van-button>
+    <van-button class="btn btn2" type="primary" bind:click="toSMSLoginPage">短信验证码登录</van-button>
+  </view>
+</view>

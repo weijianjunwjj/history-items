@@ -1,0 +1,30 @@
+
+> youyi-replay-local@0.8.0 build:ebi
+> node scripts/build.mjs ebi
+
+Built ebi → dist. Database untouched.
+
+> youyi-replay-local@0.8.0 build:crm
+> node scripts/build.mjs crm
+
+Built crm → dist. Database untouched.
+
+> youyi-replay-local@0.8.0 build:report
+> node scripts/build.mjs report
+
+Built report → dist. Database untouched.
+
+> youyi-replay-local@0.8.0 build:monitor
+> node scripts/build.mjs monitor
+
+Built monitor → dist. Database untouched.
+
+> youyi-replay-local@0.8.0 build:journey
+> node scripts/build.mjs journey
+
+Built journey → dist. Database untouched.
+
+> youyi-replay-local@0.8.0 build:workbench
+> node scripts/build.mjs workbench
+
+Built workbench → dist. Database untouched.

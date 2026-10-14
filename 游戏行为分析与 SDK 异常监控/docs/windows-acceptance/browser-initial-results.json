@@ -1,0 +1,11 @@
+{
+  "harness": "real localhost HTTP + SQLite + Chromium/Edge",
+  "results": [
+    {
+      "status": "FAIL",
+      "detail": "Locator expected to have text '业务流程总览'\nActual value: 业务流程与技术架构 \nCall log:\n  - Expect \"to_have_text\" locator(\"h1\") with timeout 5000ms\n  - waiting for locator(\"h1\")\n    8 × locator resolved to <h1>业务流程与技术架构</h1>\n      - unexpected value \"业务流程与技术架构\"\n\nAria snapshot:\n- heading \"业务流程与技术架构\" [level=1]"
+    }
+  ],
+  "errors": [],
+  "browser": "155.0.4283.45"
+}

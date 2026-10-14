@@ -1,0 +1,15 @@
+
+> youyi-replay-local@0.8.0 test:browser
+> python tests/browser_local.py
+
+PASS L01 真实HTTP启动与SQLite初始化；无内存后备
+PASS L02 数据库页面真实SQL核对10台/25次
+PASS L03 浏览器刷新后正式配置与未提交草稿仍分开
+PASS L04 服务进程重启并刷新后SQL配置与笔记保留
+PASS L05 SQL事件分析→10台设备→同设备4条异常
+PASS L06 工作区JSON预览/确认/SQL事务恢复
+PASS L07 写请求故障不假报成功，恢复后幂等重试
+PASS L08 EBI独立入口可启动并读取同一个SQL服务
+PASS L09 自动演示19站完成，SQL主工作区完全未变
+PASS L10 未捕获脚本错误为0
+{"exitCode": 0, "entry": {"status": "PASS"}, "count": 10}

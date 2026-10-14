@@ -1,0 +1,58 @@
+<view class="login">
+  <view class="header flex-vc">
+    <view class="header-tx">
+      <image
+        src="https://zyt-network.oss-cn-qingdao.aliyuncs.com/images/logo.png"
+        class="full-img circle"
+        mode
+      />
+    </view>
+    <view class="mt-4 fs-32 black">逍遥邮</view>
+  </view>
+
+  <!-- <image src="https://zyt-network.oss-cn-qingdao.aliyuncs.com/images/qrcode.png" show-menu-by-longpress="true" /> -->
+
+  <view class="main plr-def full-vw txt-c">
+    首次登录，站长需同意以下两个协议
+    <text class="theme-c" bind:tap="onOpenPop1">《物品托管协议》</text>和
+    <text class="theme-c" bind:tap="toServiceAgreement">《下单服务协议》</text>
+  </view>
+
+  <view style="margin-top:88rpx" class="flex-jc">
+    <van-button
+      type="primary"
+      custom-style="width: 368rpx;height: 96rpx;border-radius: 14rpx;"
+      bind:tap="onAgree"
+    >我同意</van-button>
+  </view>
+
+  <van-action-sheet
+    show="{{ protocol1 }}"
+    title="物品托管协议"
+    z-index="{{200}}"
+    class="my-action-sheet"
+    bind:close="onClosePop1"
+  >
+    <view class="protocol" style="line-height:2">
+      <text>您申请并通过中国邮政速递物流公司（以下简称”邮政快递”）审核后，将为您开设邮政快递代收站点（保管方），并承诺提供相关物品托管服务。根据相关法律法规，本着平等互利的原则，您本次申请站点后，即视为同意该协议。</text>
+      <text class="fw-fold">物品托管服务</text>
+      <text>快递代收站点，需保证包裹物品（需快递的物品）在托管期间内，提供固定存放地点，不遗失不破损，不得私自拆解、查验包裹，需完整交至邮政快递的快递员。</text>
+      <text class="fw-fold">托管货物方式</text>
+      <text>货物的获取：用户通过微信小程序“逍遥邮”或支付宝小程序“来张面单“在线提交寄递订单后，用户将包裹放置于站点内，站点需提供固定位置，进行包裹存放，直至快递员取走。</text>
+      <text class="fw-fold">托管时间</text>
+      <text>开始时间：自用户线下，将包裹放置于站点后；</text>
+      <text>结束时间：邮政快递的快递员，线下到站实际取走包裹；</text>
+      <text class="fw-fold">托管物品的交付</text>
+      <text>快递员实际线下到站后，将查验包裹物品的数量及包装完整性，经快递员取走后，即视为交付完成，并终止承担托管责任。</text>
+      <text class="fw-fold">物品托管责任</text>
+      <text>站点负责在保管场地配备固定地方，安全、保质保管托管物品，在保管期间内发生丢失、变质、由保管方负赔偿责任；</text>
+      <text>委托保管方（寄件人）隐瞒保管物自身缺陷，导致保管期间内发送损坏，由委托保管方承担责任；</text>
+      <text class="fw-fold">争议的解决方式</text>
+      <text>本物品托管协议，在履行过程中发生的争议，由双方当事人协商解决，协商不成交由当地人民法院管辖。</text>
+    </view>
+
+    <view class="plr-def mt-2">
+      <van-button round type="primary" custom-style="width:100%" bind:tap="onClosePop1">确定</van-button>
+    </view>
+  </van-action-sheet>
+</view>

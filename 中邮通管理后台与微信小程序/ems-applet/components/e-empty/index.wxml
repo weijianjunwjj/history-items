@@ -1,0 +1,10 @@
+<view class="{{isPos ? 'pos-center-eyes' : ''}}" style="{{style}}">
+  <view class="box flex-vc">
+    <image
+      class
+      style="width:234px;height:185px"
+      src="https://zyt-network.oss-cn-qingdao.aliyuncs.com/images/empty-box.png"
+    />
+    <text class="fs-24 black">{{text || '暂无数据'}}</text>
+  </view>
+</view>

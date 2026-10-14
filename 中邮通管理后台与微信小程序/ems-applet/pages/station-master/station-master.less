@@ -1,0 +1,191 @@
+@import '../../styles/variable.less';
+.content {
+  background: #007f79;
+  padding: 0 30rpx;
+  padding-bottom: 100px;
+}
+
+.banner {
+  width: 750rpx;
+  height: 422rpx;
+  background: url('https://zyt-network.oss-cn-qingdao.aliyuncs.com/images/station-master/top-bg.png')
+    no-repeat;
+  background-size: contain;
+}
+.share {
+  width: 89rpx;
+  height: 55rpx;
+  background: #007f79;
+  border-radius: 200rpx 0rpx 0rpx 200rpx;
+  border: 1rpx solid rgba(255, 255, 255, 0.55);
+  font-size: 24rpx;
+  font-family: PingFangSC, PingFang SC;
+  font-weight: 400;
+  color: #ffffff;
+  position: fixed;
+  top: 40rpx;
+  right: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-left: 10rpx;
+  padding-right: 0;
+  z-index: 1998;
+}
+.share2 {
+  width: 150rpx;
+  height: 55rpx;
+  background: #007f79;
+  border-radius: 200rpx 0rpx 0rpx 200rpx;
+  border: 1rpx solid rgba(255, 255, 255, 0.55);
+  font-size: 24rpx;
+  font-family: PingFangSC, PingFang SC;
+  font-weight: 400;
+  color: #ffffff;
+  position: fixed;
+  top: 150rpx;
+  right: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-left: 10rpx;
+  padding-right: 0;
+  z-index: 1998;
+}
+// .share {
+//   width: 76rpx;
+//   height: 46rpx;
+//   background: rgba(255, 255, 255, 0.2);
+//   border-radius: 200rpx 0rpx 0rpx 200rpx;
+//   border: 1rpx solid rgba(255, 255, 255, 0.55);
+//   font-size: 24rpx;
+//   font-family: PingFangSC, PingFang SC;
+//   font-weight: 400;
+//   color: #ffffff;
+//   position: absolute;
+//   top: 40rpx;
+//   right: 0;
+//   display: flex;
+//   justify-content: center;
+//   align-items: center;
+//   padding-left: 10rpx;
+//   padding-right: 0;
+// }
+
+.menus {
+  padding-bottom: 10rpx;
+  width: 690rpx;
+  // height: 378rpx;
+  background: #ffffff;
+  border-radius: 24rpx;
+  image {
+    width: 74rpx;
+    height: 74rpx;
+  }
+  .text {
+    font-size: 24rpx;
+    font-family: PingFangSC, PingFang SC;
+    font-weight: 400;
+    color: #333333;
+    margin-top: 5rpx;
+    margin-bottom: 22rpx;
+  }
+}
+
+.info {
+  background: #ffffff;
+  border-radius: 24rpx;
+  margin-top: 28rpx;
+  padding-left: 38rpx;
+  padding-right: 24rpx;
+  padding-bottom: 50px;
+
+  .title {
+    font-size: 32rpx;
+    font-family: PingFangSC, PingFang SC;
+    font-weight: 500;
+    color: #333333;
+    padding-top: 52rpx;
+    padding-bottom: 60rpx;
+    text-align: center;
+  }
+  .tip {
+    font-size: 28rpx;
+    font-family: PingFangSC, PingFang SC;
+    font-weight: 500;
+    margin-bottom: 34rpx;
+    color: #333333;
+    .red {
+      color: #d43030;
+    }
+  }
+}
+
+.my-cell-title {
+  .van-cell {
+    padding-left: 0;
+  }
+}
+
+.protocol {
+  font-size: 28rpx;
+  font-family: PingFangSC, PingFang SC;
+  font-weight: 400;
+  color: #333333;
+  line-height: 46rpx;
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  height: 1000rpx;
+  overflow: auto;
+}
+
+.my-field33 {
+  input::placeholder {
+    color: darkred; /* 暗红色 */
+  }
+}
+
+.my-cell {
+  border-bottom: 1rpx solid #ebedf0;
+  margin: var(--cell-vertical-padding,10px) var(--cell-horizontal-padding,16px);
+}
+
+.my-labels{
+  font-size: var(--cell-font-size,14px);
+  color: var(--field-label-color,#646566);
+}
+.dropdown-select .select-trigger {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  width: fit-content;
+  cursor: pointer;
+}
+
+.door-time-content-item {
+  line-height: 90rpx;
+  padding: 28rpx;
+  margin: 0 2vw;
+  position: relative;
+  display: flex !important;
+  align-items: center;
+  border: 1px solid #eee;
+  flex: 1;
+}
+.door-time-content-item:not(:last-child) {
+  border-bottom: none;
+}
+
+.door-time-content-item-sel{
+  border: 1rpx solid @theme-color !important;
+}
+
+.form-info{
+  padding: 0 40rpx;
+  padding-top: 40rpx;
+}
+
+
+
+

@@ -1,0 +1,114 @@
+<view class="device-detail-container">
+  <cu-custom isBack="{{true}}">
+    <view slot="content">设备详情</view>
+  </cu-custom>
+
+  <view class="header">
+    <van-image width="120" height="120" src="{{detail.deviceImage}}"></van-image>
+
+    <view class="header-box flex-vc">
+      <view class="header-box-item1">
+        {{detail.sn}}
+      </view>
+
+      <view class="header-box-item2">
+        {{detail.productName}}
+      </view>
+      <view class="header-box-item3">{{detail.customName}}</view>
+
+    </view>
+  </view>
+
+  <view class="main">
+    <!-- 实时数据 -->
+    <view class="main-item1">
+      <view class="main-item1-title flex-sb">
+        <view class="flex-c">
+          <view class="title-text">实时数据</view>
+          <view class="title-time ml-2">最后更新：-</view>
+        </view>
+        <view class="def-color">
+          <text class="bold def-theme" bindtap="toRunLog"> 运行日志</text>
+          <text class="cuIcon-right def-theme"></text>
+        </view>
+      </view>
+      <view class="main-item1-content">
+        <view class="main-item1-content-card" wx:for="{{device_info}}">
+          <view class="flex-c">
+            <!-- <van-image width="12.83" height="12.83" src="/images/home-page/time.png" class="mr-1">
+            </van-image> -->
+            <view>
+              {{item.name}}
+            </view>
+          </view>
+          <view>{{detail.deviceData[item.key]}}{{item.unit}}</view>
+        </view>
+
+      </view>
+    </view>
+    <!-- 提示信息 -->
+    <view class="main-item2 ">
+      <view class="main-item2-title flex-c">
+        <view class="title-text mr-2">提示信息</view>
+        <view class="fault flex-c">
+          <text class="def-fc1">故障</text>
+          <view class="dot bgc-fault ml-1"></view>
+          <text class="fault-num ml-1">{{infos.faultRecords.length}}</text>
+        </view>
+        <view class="ml-2 flex-c def">
+          <text class=".def-fc2">维保</text>
+          <view class="dot bgc-maintain ml-1"></view>
+          <text class="fault-num ml-1">{{infos.maintenanceRecords.length}}</text>
+        </view>
+        <van-image class="ml-2" width="20" height="20" src="/images/home-page/weibao.png"></van-image>
+      </view>
+      <view class="main-item2-content mt-2">
+
+        <view class="main-item2-content-item flex-c just-sb  mb-2" wx:for="{{infos.faultRecords}}">
+          <view class="flex-c">
+            <view class="square bgc-fault"></view>
+            <view class="ml-1 fc-1 fs-12">
+              {{item.faultMsg}}
+            </view>
+          </view>
+
+          <!-- <view class="flex-c">
+            <text class="cuIcon-question fc-2"></text>
+            <view class="fs-12 fc-2 ml-1">帮助</view>
+          </view> -->
+        </view>
+        <view class="main-item2-content-item flex-c just-sb  mb-2" wx:for="{{infos.maintenanceRecords}}">
+          <view class="flex-c">
+            <view class="square bgc-maintain"></view>
+            <view class="ml-1 fc-1 fs-12">
+              定期维保：设备使用1000小时，建议更换机油
+            </view>
+          </view>
+
+          <view class="flex-c">
+            <text class="cuIcon-question fc-2"></text>
+            <view class="fs-12 fc-2 ml-1">帮助</view>
+          </view>
+        </view>
+      </view>
+    </view>
+    <!-- 当前位置 -->
+    <view class="main-item3">
+      <view class="main-item3-title mb-1">
+        <view class="title-text mb-1">
+          当前位置
+        </view>
+      </view>
+      <view class="main-item3-content">
+        <!-- <image class="full-w" mode="widthFix" src="/images/home-page/map-img.png"></image> -->
+        <view class="map">
+          <map id="myMap" class="full" scale="{{ mapData.scale }}" latitude="{{ mapData.latitude }}" longitude="{{ mapData.longitude }}" markers="{{ mapData.markers }}" show-location bindmarkertap="onMarkerChange"></map>
+        </view>
+        <view class="flex-c mt-1">
+          <text class="cuIcon-locationfill fc-3"></text>
+          <text class="fs-12 fc-2 ml-1">{{address}}</text>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

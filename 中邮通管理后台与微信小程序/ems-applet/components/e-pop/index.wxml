@@ -1,0 +1,8 @@
+
+<van-action-sheet show="{{ show }}" title="{{title}}">
+  <view>
+  你好
+</view>
+  <slot></slot>
+</van-action-sheet>
+

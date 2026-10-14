@@ -1,0 +1,7 @@
+{
+  "usingComponents": {
+  },
+  "navigationStyle": "custom",
+  "navigationBarTitleText": "在线寄件",
+  "navigationBarBackgroundColor": "#fff"
+}

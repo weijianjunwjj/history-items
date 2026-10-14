@@ -1,0 +1,28 @@
+<cu-custom>
+  <view slot="content">设备地图</view>
+</cu-custom>
+
+<view class="container">
+
+  <view class="search-box flex-c">
+    <picker bindchange="onPickDeviceType" value="{{index}}" range="{{deviceType}}"  range-key="label">
+      <view class="content-top-left bold">
+        {{deviceType[index].label}}<text catchtap="onfold" class="cuIcon-unfold ml-1 point"></text>
+      </view>
+    </picker>
+
+
+    <view class="cu-form-group ml-4" style="flex: 1;">
+      <input placeholder="输入设备名称或序列号" 
+      bindinput="searchInput"  placeholder-class="placeholderStyle"></input>
+    </view>
+
+  </view>
+
+  <view class="list flex-l just-sb">
+    <device-card wx:for="{{list}}" wx:key="{{id}}" item="{{item}}" path="/pages/device/detail/index" />
+  </view>
+
+
+
+</view>

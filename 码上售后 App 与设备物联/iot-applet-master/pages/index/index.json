@@ -1,0 +1,8 @@
+{
+  "usingComponents": {
+    "device":"../device/index",
+    "map":"../map/index",
+    "data":"../data/index",
+    "my":"../my/index"
+  }
+}

@@ -1,0 +1,13 @@
+
+> youyi-replay-local@0.8.0 start
+> node scripts/start.mjs
+
+Built all → dist. Database untouched.
+(node:73588) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+友谊时光工作复盘 v0.8 · 本地微前端 + SQLite
+http://127.0.0.1:4173
+数据库：D:\VSCode\history-items\游戏行为分析与 SDK 异常监控\data\replay.sqlite
+数据只在本机；按 Ctrl+C 停止。终端出现 SQLite experimental 提示不等于运行失败。
+

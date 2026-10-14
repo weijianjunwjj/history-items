@@ -1,0 +1,493 @@
+{
+  "globalStyle": {
+    "navigationStyle": "default",
+    "navigationBarTitleText": "LiveShop",
+    "navigationBarBackgroundColor": "#f8f8f8",
+    "navigationBarTextStyle": "black",
+    "backgroundColor": "#FFFFFF"
+  },
+  "easycom": {
+    "autoscan": true,
+    "custom": {
+      "^wd-(.*)": "wot-design-uni/components/wd-$1/wd-$1.vue"
+    }
+  },
+  "tabBar": {
+    "color": "#999999",
+    "selectedColor": "#018d71",
+    "backgroundColor": "#F8F8F8",
+    "borderStyle": "black",
+    "height": "50px",
+    "fontSize": "10px",
+    "iconWidth": "24px",
+    "spacing": "3px",
+    "list": [
+      {
+        "iconPath": "static/tabbar/home.png",
+        "selectedIconPath": "static/tabbar/home-sel.png",
+        "pagePath": "pages/index/index",
+        "text": "HOME"
+      },
+      {
+        "iconPath": "static/tabbar/community.png",
+        "selectedIconPath": "static/tabbar/community-sel.png",
+        "pagePath": "pages/community/community",
+        "text": "COMMUNITY"
+      },
+      {
+        "iconPath": "static/tabbar/shop.png",
+        "selectedIconPath": "static/tabbar/shop-sel.png",
+        "pagePath": "pages/shop/shop",
+        "text": "STORE"
+      },
+      {
+        "iconPath": "static/tabbar/my.png",
+        "selectedIconPath": "static/tabbar/my-sel.png",
+        "pagePath": "pages/my/my",
+        "text": "CENTER"
+      }
+    ]
+  },
+  "subPackages": [
+    {
+      "root": "devTools/page",
+      "pages": [
+        {
+          "path": "index",
+          "style": {
+            "navigationStyle": "custom",
+            "softinputMode": "adjustResize",
+            "backgroundColor": "transparent",
+            "animationDuration": 1,
+            "animationType": "none",
+            "popGesture": "none",
+            "bounce": "none",
+            "titleNView": false
+          }
+        }
+      ]
+    }
+  ],
+  "pages": [
+    {
+      "path": "pages/index/index",
+      "type": "home",
+      "style": {
+        "navigationStyle": "custom"
+      }
+    },
+    {
+      "path": "pages/ChatPushWindow/ChatPushWindow",
+      "type": "page",
+      "style": {
+        "navigationStyle": "custom",
+        "backgroundColor": "transparent",
+        "app-plus": {
+          "animationType": "fade-in",
+          "background": "transparent",
+          "popGesture": "none"
+        }
+      }
+    },
+    {
+      "path": "pages/about/about",
+      "type": "page",
+      "style": {
+        "navigationBarTitleText": "关于2"
+      }
+    },
+    {
+      "path": "pages/address/address",
+      "type": "page",
+      "layout": "default",
+      "style": {
+        "navigationBarTitleText": "Address Management",
+        "app-plus": {
+          "titleNView": false,
+          "popGesture": "none"
+        }
+      }
+    },
+    {
+      "path": "pages/basicInformation/basicInformation",
+      "type": "page",
+      "layout": "default",
+      "style": {
+        "navigationBarTitleText": "基础信息",
+        "app-plus": {
+          "titleNView": false,
+          "popGesture": "none"
+        }
+      }
+    },
+    {
+      "path": "pages/chatRoom/chatRoom",
+      "type": "page",
+      "style": {
+        "navigationBarTitleText": "聊天室",
+        "enablePullDownRefresh": false,
+        "navigationBarBackgroundColor": "#ffffff",
+        "app-plus": {
+          "titleNView": {
+            "buttons": [
+              {
+                "type": "menu",
+                "float": "right",
+                "fontSize": "30px",
+                "width": "auto",
+                "fontWeight": "bold"
+              }
+            ]
+          }
+        }
+      }
+    },
+    {
+      "path": "pages/checkVerifyOrder/checkVerifyOrder",
+      "type": "page",
+      "style": {
+        "navigationBarTitleText": "Confirm the order",
+        "enablePullDownRefresh": false,
+        "navigationBarBackgroundColor": "#ffffff"
+      }
+    },
+    {
+      "path": "pages/community/community",
+      "type": "page",
+      "layout": "default",
+      "style": {
+        "navigationBarTitleText": "社区",
+        "app-plus": {
+          "titleNView": false,
+          "popGesture": "none"
+        }
+      }
+    },
+    {
+      "path": "pages/communityDetail/communityDetail",
+      "type": "page",
+      "style": {
+        "navigationBarTitleText": "Post",
+        "enablePullDownRefresh": false,
+        "navigationBarBackgroundColor": "#ffffff"
+      }
+    },
+    {
+      "path": "pages/confirmPayment/confirmPayment",
+      "type": "page",
+      "style": {
+        "navigationBarTitleText": "确认支付",
+        "enablePullDownRefresh": false,
+        "navigationBarBackgroundColor": "#ffffff"
+      }
+    },
+    {
+      "path": "pages/confirmShopOrder/confirmShopOrder",
+      "type": "page",
+      "style": {
+        "navigationBarTitleText": "Confirm the order",
+        "enablePullDownRefresh": false,
+        "navigationBarBackgroundColor": "#ffffff"
+      }
+    },
+    {
+      "path": "pages/contact-list/contact-list",
+      "type": "page",
+      "layout": "default",
+      "style": {
+        "app-plus": {
+          "titleNView": false,
+          "popGesture": "none"
+        }
+      }
+    },
+    {
+      "path": "pages/convertRecord/convertRecord",
+      "type": "page",
+      "style": {
+        "navigationBarTitleText": "Redemption history",
+        "enablePullDownRefresh": false,
+        "navigationBarBackgroundColor": "#ffffff"
+      }
+    },
+    {
+      "path": "pages/crowRaffle/crowRaffle",
+      "type": "page",
+      "style": {
+        "navigationBarTitleText": "Croefunding Gift",
+        "enablePullDownRefresh": false,
+        "navigationBarBackgroundColor": "#ffffff"
+      }
+    },
+    {
+      "path": "pages/crowRaffleDetail/crowRaffleDetail",
+      "type": "page",
+      "layout": "default",
+      "style": {
+        "app-plus": {
+          "titleNView": false,
+          "popGesture": "none"
+        }
+      }
+    },
+    {
+      "path": "pages/follow/follow",
+      "type": "page",
+      "layout": "default",
+      "style": {
+        "app-plus": {
+          "titleNView": false,
+          "popGesture": "none"
+        }
+      }
+    },
+    {
+      "path": "pages/follower/follower",
+      "type": "page",
+      "layout": "default",
+      "style": {
+        "app-plus": {
+          "titleNView": false,
+          "popGesture": "none"
+        }
+      }
+    },
+    {
+      "path": "pages/groupRaffle/groupRaffle",
+      "type": "page",
+      "style": {
+        "navigationBarTitleText": "Group lottery",
+        "enablePullDownRefresh": false,
+        "navigationBarBackgroundColor": "#ffffff"
+      }
+    },
+    {
+      "path": "pages/groupRaffleDetail/groupRaffleDetail",
+      "type": "page",
+      "layout": "default",
+      "style": {
+        "app-plus": {
+          "titleNView": false,
+          "popGesture": "none"
+        }
+      }
+    },
+    {
+      "path": "pages/integralDetail/integralDetail",
+      "type": "page",
+      "style": {
+        "navigationBarTitleText": "Points Details",
+        "enablePullDownRefresh": false,
+        "navigationBarBackgroundColor": "#ffffff"
+      }
+    },
+    {
+      "path": "pages/login/login",
+      "type": "page",
+      "style": {
+        "navigationBarTitleText": "登录",
+        "app-plus": {
+          "titleNView": false,
+          "popGesture": "none"
+        },
+        "enablePullDownRefresh": false
+      }
+    },
+    {
+      "path": "pages/my/my",
+      "type": "page",
+      "layout": "default",
+      "style": {
+        "navigationBarTitleText": "我的",
+        "app-plus": {
+          "titleNView": false,
+          "popGesture": "none"
+        }
+      }
+    },
+    {
+      "path": "pages/my-data/my-data",
+      "type": "page",
+      "style": {
+        "navigationBarTitleText": "Edit Profile",
+        "enablePullDownRefresh": false,
+        "navigationBarBackgroundColor": "#ffffff"
+      }
+    },
+    {
+      "path": "pages/my-events/my-events",
+      "type": "page",
+      "style": {
+        "navigationBarTitleText": "My Events",
+        "enablePullDownRefresh": false,
+        "navigationBarBackgroundColor": "#ffffff"
+      }
+    },
+    {
+      "path": "pages/my-messages/my-messages",
+      "type": "page",
+      "style": {
+        "navigationBarTitleText": "My Messages",
+        "enablePullDownRefresh": false,
+        "navigationBarBackgroundColor": "#ffffff"
+      }
+    },
+    {
+      "path": "pages/my-wallet/my-wallet",
+      "type": "page",
+      "layout": "default",
+      "style": {
+        "app-plus": {
+          "titleNView": false,
+          "popGesture": "none"
+        }
+      }
+    },
+    {
+      "path": "pages/noticeDetail/noticeDetail",
+      "type": "page",
+      "layout": "default",
+      "style": {
+        "app-plus": {
+          "titleNView": false,
+          "popGesture": "none"
+        }
+      }
+    },
+    {
+      "path": "pages/order/order",
+      "type": "page",
+      "style": {
+        "navigationBarTitleText": "My Orders",
+        "enablePullDownRefresh": false,
+        "navigationBarBackgroundColor": "#ffffff"
+      }
+    },
+    {
+      "path": "pages/order-detail/order-detail",
+      "type": "page",
+      "layout": "default",
+      "style": {
+        "navigationBarTitleText": "Order Details",
+        "app-plus": {
+          "titleNView": false,
+          "popGesture": "none"
+        }
+      }
+    },
+    {
+      "path": "pages/paymentResult/paymentResult",
+      "type": "page",
+      "layout": "default",
+      "style": {
+        "navigationBarTitleText": "Payment Result",
+        "app-plus": {
+          "titleNView": false,
+          "popGesture": "none"
+        }
+      }
+    },
+    {
+      "path": "pages/person-page/person-page",
+      "type": "page",
+      "layout": "default",
+      "style": {
+        "app-plus": {
+          "titleNView": false,
+          "popGesture": "none"
+        }
+      }
+    },
+    {
+      "path": "pages/publishLive/publishLive",
+      "type": "page",
+      "style": {
+        "navigationBarTitleText": "Post Update",
+        "enablePullDownRefresh": false,
+        "navigationBarBackgroundColor": "#ffffff"
+      }
+    },
+    {
+      "path": "pages/recharge-detail/recharge-detail",
+      "type": "page",
+      "style": {
+        "navigationBarTitleText": "Details",
+        "enablePullDownRefresh": false,
+        "navigationBarBackgroundColor": "#ffffff"
+      }
+    },
+    {
+      "path": "pages/recharge-history/recharge-history",
+      "type": "page",
+      "style": {
+        "navigationBarTitleText": "History",
+        "enablePullDownRefresh": false,
+        "navigationBarBackgroundColor": "#ffffff"
+      }
+    },
+    {
+      "path": "pages/refundProgress/refundProgress",
+      "type": "page",
+      "style": {
+        "navigationBarTitleText": "Refund Progress",
+        "enablePullDownRefresh": false,
+        "navigationBarBackgroundColor": "#ffffff"
+      }
+    },
+    {
+      "path": "pages/search/search",
+      "type": "search",
+      "style": {
+        "navigationStyle": "custom"
+      }
+    },
+    {
+      "path": "pages/shop/shop",
+      "type": "page",
+      "layout": "default",
+      "style": {
+        "navigationBarTitleText": "商城",
+        "app-plus": {
+          "titleNView": false,
+          "popGesture": "none"
+        }
+      }
+    },
+    {
+      "path": "pages/shopDetail/shopDetail",
+      "type": "page",
+      "layout": "default",
+      "style": {
+        "navigationBarTitleText": "商品详情",
+        "app-plus": {
+          "titleNView": false,
+          "popGesture": "none"
+        }
+      }
+    },
+    {
+      "path": "pages/systemNotice/systemNotice",
+      "type": "page",
+      "layout": "default",
+      "style": {
+        "app-plus": {
+          "titleNView": false,
+          "popGesture": "none"
+        }
+      }
+    },
+    {
+      "path": "pages/wallet-detail/wallet-detail",
+      "type": "page",
+      "style": {
+        "navigationBarTitleText": "Details",
+        "enablePullDownRefresh": false,
+        "navigationBarBackgroundColor": "#ffffff"
+      }
+    },
+    {
+      "path": "pages/webview/webview",
+      "type": "page"
+    }
+  ]
+}

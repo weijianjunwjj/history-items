@@ -1,0 +1,10 @@
+{
+    "id": "kun-bgrun",
+    "name": "Android后台保持运行",
+    "version": "1.01",
+    "description": "uniappAndroid 在手机熄屏的状态下依然运行",
+    "keywords": [
+        "uniappAndroid",
+        "后台运行"
+    ]
+}

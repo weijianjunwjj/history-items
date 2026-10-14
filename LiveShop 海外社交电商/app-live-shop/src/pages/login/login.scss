@@ -1,0 +1,86 @@
+:deep(uni-page-body) {
+  height: 100vh;
+}
+
+:deep(.wd-toast) {
+  background: #00dba1;
+
+  .wd-toast__msg {
+    font-size: 36rpx;
+  }
+}
+
+:deep(.wot-theme-light) {
+  height: 100%;
+}
+
+.loginContainer {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100vh;
+  background: #000000;
+
+  .bannerIconInfo {
+    position: relative;
+    box-sizing: border-box;
+    padding: 200rpx 72rpx 0 72rpx;
+
+    .bannerLoginImg {
+      width: 100%;
+      height: 334rpx;
+    }
+
+    .bannerDesc {
+      position: absolute;
+      bottom: 40rpx;
+      left: 50%;
+      width: 100%;
+      font-size: 28rpx;
+      font-weight: 400;
+      color: #cfcfcf;
+      text-align: center;
+      transform: translateX(-50%);
+    }
+  }
+
+  .loginBtnContentBox {
+    box-sizing: border-box;
+    padding: 0 60rpx;
+
+    .googleBtn {
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      height: 84rpx;
+      font-size: 32rpx;
+      font-weight: 400;
+      color: #030303;
+      background: linear-gradient(90deg, #2bf7bc 0%, #16d9d1 100%);
+      border-radius: 24rpx;
+
+      .loginbtnIcon {
+        width: 36rpx;
+        height: 36rpx;
+        margin-right: 44rpx;
+      }
+
+      span {
+        display: inline-block;
+        width: 300rpx;
+      }
+    }
+
+    .twittleBtn {
+      margin-top: 52rpx;
+      background: #ffffff;
+    }
+  }
+
+  .loginBottomTips {
+    margin: 112rpx 76rpx 116rpx 62rpx;
+    font-size: 20rpx;
+    font-weight: 400;
+    color: #cfcfcf;
+  }
+}

@@ -1,0 +1,9 @@
+<svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<rect id="wechat" width="40" height="40" fill="url(#pattern0)"/>
+<defs>
+<pattern id="pattern0" patternContentUnits="objectBoundingBox" width="1" height="1">
+<use xlink:href="#image0_2221_569" transform="scale(0.0208333)"/>
+</pattern>
+<image id="image0_2221_569" data-name="wechat.png" width="48" height="48" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAADk0lEQVRoge2YaYhOURjHf4YRQoYiW9bigyX7B2QrkrFkDVk+iEYaSwoha/iCzJjwRVGWGFnK9oUPI1OyfFBIloT4gJGlmLF18qd37px773nve1+K+6vb9J7znHPP/8xznuc8l4SEhISE/5paXvGFhYVh+9EQGA2MAPoAHYBm6vsGvATuAdeAC0CZ2mOhqKio2jR10pi0I7AKmAE08LHJAVrpGQ6sBJ4Bu4ES4EPc3pLjYFMX2ATcBeYFLN6PNsA24D4wKb6l/yRMQHPgCrBGQjKhJVAKFAO1/4SAFsBVoF9cLxOLgINxifATkAucATr59L93nN/P58052uA4RyB+Aszh629pNweyB9AYGAy89Rl/C2gPNAImA18sNiYgDMiGgGYSYGMXcFvtV+QKNjYDT9R+QuHU9u6t2RAwJyDSNAz57WfXyMduGNDVebUWbHlgTID9MoVDs/v5wCwfuy3AK+CONmSIp/+pnjdKhPfiFNArwN7s5CGHeVsDZ1N+VwGn5E7m3HQG2gF5wDhgEPAAKE9XjE1AXjoThPAd2K+zMg3Y4zD/I40pCQgSv7Gdga8xLf4FMFKh9BKw0HFzOioIPAYW2O5rqdgEPM946fAQmABsBxZHTFpNgL3A0aBbgE1AeYSXpWIO5lTgsHJGppi5jvltgk3A8QxfWKAoZMvi5qDeCBh7W5HLy3glvhrYBJyWC0ThmiLOKMvYi4r5feVaXsxB7wl0A45Y+lfrZlsNmwCT9kOrGh9MlFni01eeEiDKLP1lilrflWe81APmuwgwnAN2RhBwVTHdhnn5UO3yGkv/ct18zf1oqc8c+d6GoIpsue5Fsx0X/1Zh0m9TTJV2OWB8F7lgEN29fUH1gKlj5wLrHGvaj0B9B7tMqLHhYRWZ8ceNwD6Hl5rqrSLLAt55G1xq4loe3/sMVFrscvX3U/T1hXLTa+DyVWIg0FYR5ACwXv5uCpreSv1NlS1bqpKbmiUBpd4GFwHTgZOKw3dT2s/p8WKu0VPC7jAReKkNrIaLC+0AJnoWH8R1VW5xU2CrsV0ERMnKK4DzMQpYq3qiBi4ColCp22iNf3ma/LoVbPYbli0BSMRcnYenEcZXKTMXBxllU8AvSlVCzpRbfQ6wfa3cg8JyaJBJ5+NuJlSqPjishXVTTdxEeaNCHwse67qwRblnuoLCXxeQSpU+fJnHhqkJxupSuEheEtvn+YSEhISEfwjgB8lfqeZlz0TEAAAAAElFTkSuQmCC"/>
+</defs>
+</svg>

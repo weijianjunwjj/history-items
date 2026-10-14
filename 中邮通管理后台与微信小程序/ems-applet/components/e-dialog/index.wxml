@@ -1,0 +1,11 @@
+<van-dialog
+  use-slot
+  title="{{title}}"
+  use-title-slot="{{useTitleSlot}}"
+  show="{{ show }}"
+  showConfirmButton="{{false}}"
+  bind:close="onClose"
+>
+<slot name="title" wx:if="{{useTitleSlot}}"></slot>
+ <slot></slot>
+</van-dialog>

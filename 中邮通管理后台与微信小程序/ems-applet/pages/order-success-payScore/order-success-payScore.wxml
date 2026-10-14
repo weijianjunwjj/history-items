@@ -1,0 +1,56 @@
+<view class="order-success">
+  <view class="box m-def p-def bgw txt-c br-16">
+    <view class="mod1 flex-vc">
+      <image class style="width:224rpx;height:224rpx" src="https://zyt-network.oss-cn-qingdao.aliyuncs.com/images/order-success.png" />
+      <text class="black" style="font-size:44rpx">下单成功</text>
+    </view>
+    <view class="mod2 flex-vc">
+      <view class="fs-26 c-aaa mt-10 mb-10 my-red flex">
+        <!-- <text>预计明天微信提醒支付邮费\n逾期支付的包裹会退回！</text> -->
+      </view>
+    </view>
+    <view class="mod3">
+      <view class="flex-sb-c mb-2">
+        <van-button round plain type="primary" custom-style="width:280rpx;height:90rpx" bind:tap="checkOrder">
+          查看订单
+        </van-button>
+        <van-button round type="primary" custom-style="width:280rpx;height:90rpx" bind:tap="anotherOrder">
+          再来一单
+        </van-button>
+      </view>
+    </view>
+  </view>
+  <!-- <view class="m-def bgw" style="border-radius: 16rpx;">
+    <van-notice-bar
+      class="my-notice-bar"
+      left-icon="https://zyt-network.oss-cn-qingdao.aliyuncs.com/images/alert.png"
+      text="下单后支付运费，未支付的包裹会退回哦！"
+      scrollable="{{false}}"
+    />
+  </view> -->
+  <van-dialog class="my-dialog6" use-slot title="{{null}}" show="{{ show2 }}" showConfirmButton="{{false}}" bind:close="onClose2">
+    <view>
+      <official-account></official-account>
+      <view class="plr-def mb-9 full-w flex-vc">
+        <view class="txt-c" style="font-weight: bold;font-size: 34rpx;margin-top:48rpx;margin-bottom:34rpx">
+          关注公众号及时接收物流消息
+        </view>
+        <view class="fs-28 mb-2" style="color: #808080;">
+          <text class="red">温馨提示：</text>
+          请务必关注公众号，以免错过本单的快递物流信息推送。
+        </view>
+        <image show-menu-by-longpress="{{true}}" style="width: 200px;height:200px" src="../../images/order-success/0.jpg" />
+        <view class="txt-c fs-32">长按二维码关注公众号</view>
+      </view>
+      <image class="close-icon" bind:tap="onClose2" style="width: 48rpx;height:48rpx" src="../../images/station-master/close.png" />
+    </view>
+  </van-dialog>
+  <van-dialog class="my-dialog6" customStyle=" width: 640rpx;height: 878rpx;border-radius:25px" use-slot title="{{null}}" show="{{ show3 }}" showConfirmButton="{{false}}" bind:close="onClose3">
+    <view>
+      <view class="p-def mb-9 full-w flex-vc hb-content txt-c" style="background: url(https://abx-network.oss-cn-qingdao.aliyuncs.com/images/kmd/order-success/hb.jpg) no-repeat center center / 100% 100%;">
+        <e-button bind:tap="goFollow2" type="primary" className="def hbbtn" customStyle="width: 300rpx;height: 40px!important;background: #FFC24D;border-radius: 82rpx 82rpx 82rpx 82rpx;border:0;color:#FC5502;font-size:16px;font-weight:bold" >去关注</e-button>
+      </view>
+      <image class="close-icon" bind:tap="onClose3" style="width: 48rpx;height:48rpx" src="../../images/station-master/close.png" />
+    </view>
+  </van-dialog>
+</view>

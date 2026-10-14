@@ -1,0 +1,3 @@
+import {resolve} from 'node:path';import {openDatabase,ROOT} from '../server/database.mjs';
+const action=process.argv[2],repo=openDatabase(process.env.REPLAY_DB?resolve(ROOT,process.env.REPLAY_DB):undefined);
+try{if(action==='inspect')console.log(JSON.stringify({...repo.info(),integrity:repo.db.prepare('PRAGMA quick_check').get()},null,2));else if(action==='backup'){const file=resolve(ROOT,'data/backups/replay-'+new Date().toISOString().replaceAll(':','-').replaceAll('.','-')+'.sqlite');repo.backup(file);console.log('已生成一致性SQLite备份：'+file);}else throw new Error('用法：npm run db:inspect 或 npm run db:backup');}finally{repo.close();}

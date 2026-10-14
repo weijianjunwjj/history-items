@@ -1,0 +1,201 @@
+{
+	"easycom": {
+		"autoscan": true, // autoscan是否开启自动扫描，开启后将会自动扫描符合components/组件名称/组件名称.vue目录结构的组件
+		"^u-(.*)": "@/uni_modules/uview-ui/components/u-$1/u-$1.vue",
+		"custom": {
+			//表示components/em路径下，所有的em-开头文件下，所有的em-开头的vue文件
+			"my-(.*)": "@/components/my/my-$1/my-$1.vue"
+		}
+	},
+	"tabBar": {
+		"borderStyle": "black",
+		"selectedColor": "#165DFF",
+		"color": "#444444",
+		"iconWidth": "24px",
+		"list": [{
+				"pagePath": "pages/index/index",
+				"iconPath": "/static/menu1.png",
+				"selectedIconPath": "/static/menu1_sel.png",
+				"text": "首页"
+			},
+			{
+				"pagePath": "pages/work-order-admin/work-order-admin",
+				"iconPath": "/static/menu2.png",
+				"selectedIconPath": "/static/menu2_sel.png",
+				"text": "工单"
+			},
+			{
+				"pagePath": "pages/function/function",
+				"iconPath": "/static/menu3.png",
+				"selectedIconPath": "/static/menu3_sel.png",
+				"text": "功能"
+			},
+			{
+				"pagePath": "pages/my/my",
+				"iconPath": "/static/menu4.png",
+				"selectedIconPath": "/static/menu4_sel.png",
+				"text": "我的"
+			}
+		]
+	},
+	"pages": [{
+			"path": "pages/index/index",
+			"style": {
+				"app-plus": {
+					"enablePullDownRefresh": false,
+					"titleNView": false
+				}
+			}
+		},
+		{
+			"path": "pages/device-info/device-info",
+			"style": {
+				"navigationBarTitleText": "设备信息",
+				"enablePullDownRefresh": false
+			}
+		},
+		//pages数组中第一项表示应用启动页，参考：https://uniapp.dcloud.io/collocation/pages
+		{
+			"path": "pages/login/login",
+			"style": {
+				"app-plus": {
+					"titleNView": false
+				}
+			}
+		},
+		{
+			"path": "pages/function/function",
+			"style": {
+				"navigationBarTitleText": "功能"
+			}
+		},
+		{
+			"path": "pages/my/my",
+			"style": {
+				"app-plus": {
+					"titleNView": false
+				}
+			}
+		},
+		{
+			"path": "pages/call/call",
+			"style": {
+				"app-plus": {
+					"enablePullDownRefresh": true,
+					"titleNView": false
+				}
+			}
+		},
+		{
+			"path": "uni_modules/imengyu-IMDebuggerWindow/pages/debugger",
+			"style": {
+				"navigationBarTitleText": "调试输出窗口",
+				"disableScroll": true,
+				"background": "transparent"
+			}
+		},
+		{
+			"path": "pages/function/function",
+			"style": {
+				"navigationBarTitleText": "",
+				"enablePullDownRefresh": false
+			}
+		},
+		{
+			"path": "pages/video-call-record/video-call-record",
+			"style": {
+				"app-plus": {
+					"titleNView": true
+				},
+				"navigationBarTitleText": "视频通话记录",
+				"enablePullDownRefresh": false
+			}
+		},
+		{
+			"path": "pages/scan-code-bind-device/scan-code-bind-device",
+			"style": {
+				"app-plus": {
+					"titleNView": true
+				},
+				"navigationBarTitleText": "扫码绑设备"
+			}
+		},
+		{
+			"path": "pages/scan-code-bind-device-detail/scan-code-bind-device-detail",
+			"style": {
+				"app-plus": {
+					"titleNView": true
+				},
+				"navigationBarTitleText": "扫码绑设备"
+			}
+		},
+		{
+			"path": "pages/work-order-admin/work-order-admin",
+			"style": {
+				"navigationBarTitleText": "工单管理",
+				"enablePullDownRefresh": false
+			}
+
+		}, {
+			"path": "pages/create-work-order/create-work-order",
+			"style": {
+				"navigationBarTitleText": "创建工单",
+				"enablePullDownRefresh": false
+			}
+
+		}, {
+			"path": "pages/processing-results/processing-results",
+			"style": {
+				"navigationBarTitleText": "处理结果",
+				"enablePullDownRefresh": false
+			}
+
+		}, {
+			"path": "pages/work-order-assignment/work-order-assignment",
+			"style": {
+				"navigationBarTitleText": "工单分配",
+				"enablePullDownRefresh": false
+			}
+
+		}, {
+			"path": "pages/work-order-detail/work-order-detail",
+			"style": {
+				"navigationBarTitleText": "工单详情",
+				"enablePullDownRefresh": false
+			}
+
+		}, {
+			"path": "pages/map/map",
+			"style": {
+				"navigationBarTitleText": "地图",
+				"enablePullDownRefresh": false
+			}
+
+		}, {
+			"path": "pages/device-bind-qrcode/device-bind-qrcode",
+			"style": {
+				"navigationBarTitleText": "设备绑二维码",
+				"enablePullDownRefresh": false
+			}
+
+		}, {
+			"path": "pages/unbind/unbind",
+			"style": {
+				"navigationBarTitleText": "解绑",
+				"enablePullDownRefresh": false
+			}
+
+		}
+	],
+	"globalStyle": {
+		"navigationBarTextStyle": "black",
+		"navigationBarBackgroundColor": "#FFFFFF",
+		"backgroundColor": "#F8F8F8",
+		"usingComponents": {
+			"van-grid": "@/wxcomponents/vant/grid/index",
+			"van-grid-item": "@/wxcomponents/vant/grid-item/index",
+			"van-dialog": "@/wxcomponents/vant/dialog/index",
+			"van-notify": "@/wxcomponents/vant/notify/index"
+		}
+	}
+}

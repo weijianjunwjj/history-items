@@ -1,0 +1,7 @@
+<cu-custom isBack="{{false}}">
+  <view slot="content">数据统计</view>
+</cu-custom>
+
+<view class="container">
+	<ec-canvas id="mychart-dom-line" canvas-id="mychart-line" ec="{{ ec }}"></ec-canvas>
+</view>

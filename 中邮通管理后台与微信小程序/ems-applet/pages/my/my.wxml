@@ -1,0 +1,146 @@
+<view class="my">
+  <view class="header">
+    <cu-custom whiteArrow="1">
+      <view slot="content">个人中心</view>
+    </cu-custom>
+
+    <view class="person-info flex-c">
+      <image
+        src="https://zyt-network.oss-cn-qingdao.aliyuncs.com/images/my/avatar.png"
+        style="width:116rpx;height:116rpx"
+      />
+
+      <view class="flex-v-c ml-4">
+        <view class="white fs-32">用户名</view>
+        <view class="mt-3 fs-24" style="color:#6DB6AD;">{{user.phone}}</view>
+      </view>
+    </view>
+    <e-card style="margin-top:60rpx">
+      <view class="pandel">
+        <view class="item" bind:tap="toAllOrder">
+          <image src="https://zyt-network.oss-cn-qingdao.aliyuncs.com/images/my/all-order.png" />
+          <text class="mt-1">全部订单</text>
+        </view>
+        <view class="item" bind:tap="toAddress">
+          <image src="https://zyt-network.oss-cn-qingdao.aliyuncs.com/images/my/locate.png" />
+          <text class="mt-1">地址簿</text>
+        </view>
+        <view class="item" bind:tap="toMyStation">
+          <image src="https://zyt-network.oss-cn-qingdao.aliyuncs.com/images/my/home.png" />
+          <text class="mt-1">我的站点</text>
+        </view>
+      </view>
+    </e-card>
+
+    <e-card>
+      <view class="menus">
+        <view class="title">其他功能</view>
+
+        <view class="item flex-sb-c" bind:tap="toApplyStation">
+          <view class="flex-c">
+            <image
+              style="width:32rpx;height:32rpx"
+              src="https://zyt-network.oss-cn-qingdao.aliyuncs.com/images/my/apply-list.png"
+            />
+            <view class="ml-4">申请站点</view>
+          </view>
+
+          <image
+            style="width:20rpx;height:20rpx"
+            src="https://zyt-network.oss-cn-qingdao.aliyuncs.com/images/my/right-arrow.png"
+          />
+        </view>
+          <view class="item flex-sb-c" bind:tap="toActiveRecord">
+          <view class="flex-c">
+            <image
+              style="width:32rpx;height:32rpx"
+              src="https://zyt-network.oss-cn-qingdao.aliyuncs.com/images/my/apply-list.png"
+            />
+            <view class="ml-4">激活记录</view>
+          </view>
+
+          <image
+            style="width:20rpx;height:20rpx"
+            src="https://zyt-network.oss-cn-qingdao.aliyuncs.com/images/my/right-arrow.png"
+          />
+        </view>
+        <!-- --------------------------------- -->
+        <view class="item flex-sb-c" bind:tap="openShow1">
+          <view class="flex-c">
+            <image
+              style="width:32rpx;height:32rpx"
+              src="https://zyt-network.oss-cn-qingdao.aliyuncs.com/images/my/partner.png"
+            />
+            <view class="ml-4">商务合作</view>
+          </view>
+
+          <image
+            style="width:20rpx;height:20rpx"
+            src="https://zyt-network.oss-cn-qingdao.aliyuncs.com/images/my/right-arrow.png"
+          />
+        </view>
+        <!-- --------------------------------- -->
+        <view class="item flex-sb-c rel">
+          <button open-type="share" class="share">1</button>
+          <view class="flex-c">
+            <image
+              style="width:32rpx;height:32rpx"
+              src="https://zyt-network.oss-cn-qingdao.aliyuncs.com/images/my/recommend.png"
+            />
+            <view class="ml-4">推荐小程序</view>
+          </view>
+
+          <image
+            style="width:20rpx;height:20rpx"
+            src="https://zyt-network.oss-cn-qingdao.aliyuncs.com/images/my/right-arrow.png"
+          />
+        </view>
+        <!-- --------------------------------- -->
+        <view class="item flex-sb-c" bind:tap="feedback">
+          <view class="flex-c">
+            <image
+              style="width:32rpx;height:32rpx"
+              src="https://zyt-network.oss-cn-qingdao.aliyuncs.com/images/my/feedback.png"
+            />
+            <view class="ml-4">意见反馈</view>
+          </view>
+
+          <image
+            style="width:20rpx;height:20rpx"
+            src="https://zyt-network.oss-cn-qingdao.aliyuncs.com/images/my/right-arrow.png"
+          />
+        </view>
+      </view>
+    </e-card>
+  </view>
+
+  <van-dialog
+    use-slot
+    title="{{null}}"
+    show="{{ show1 }}"
+    showConfirmButton="{{false}}"
+    bind:close="closeShow1"
+    class="my-dialog6"
+    round
+    custom-class="my-dialog6-class"
+  >
+    <view class="show6-dialog rel flex-vc">
+      <view class="full-w txt-r" style="padding-right: 28rpx;">
+        <image
+          bindtap="closeShow1"
+          class="close"
+          style="width:40rpx;height:40rpx;margin-top:24rpx"
+          src="../../images/my/close.png"
+        />
+      </view>
+
+      <image
+        style="width:402rpx;height:402rpx;margin-top:38rpx;margin-bottom:30rpx"
+        show-menu-by-longpress="true"
+        src="/images/my/qrcode1.jpg"
+      />
+
+      <view class="fs-32" style="color:#2A2E2E">长按识别上方二维码</view>
+    </view>
+  </van-dialog>
+</view>

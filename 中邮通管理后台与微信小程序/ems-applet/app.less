@@ -1,0 +1,211 @@
+@import 'colorui/main.wxss';
+@import 'colorui/icon.wxss';
+@import 'styles/variable.less';
+@import 'styles/atom.less';
+
+
+.font-def{
+  font-family: PingFangSC-Regular, PingFang SC;
+}
+
+page {
+  background-color: @page-bgc!important;
+  --button-default-color: @black;
+  --button-primary-background-color: @theme-color;
+  --button-primary-border-color: @theme-color;
+  --radio-checked-icon-color: @theme-color;
+  --checkbox-checked-icon-color: @theme-color;
+  --button-default-border-color: @777;
+  --notice-bar-background-color: #fff;
+  --notice-bar-text-color: @aaa;
+  --notice-bar-font-size: 24rpx;
+  .font-def;
+}
+
+page,view,text,button,textarea,input{
+  .font-def;
+}
+
+.van-button--normal {
+  // padding: 20rpx 56rpx!important;
+}
+
+.title {
+  &-require {
+    padding: 4rpx 12rpx;
+    background: rgba(255, 91, 91, 0.1);
+    border-radius: 200rpx 200rpx 200rpx 0rpx;
+    font-size: 20rpx;
+    font-weight: 400;
+    color: #ff5b5b;
+  }
+}
+
+// width: 64rpx;
+// height: 36rpx;
+// background: #FF5B5B;
+// border-radius: 20rpx 200rpx 200rpx 0rpx;
+// opacity: 0.1;
+
+.search-bgw{
+  .van-search{
+    background: @page-bgc!important;
+  }
+  .van-search__content {
+    background: #fff;
+  }
+}
+
+.btn-br-48 {
+  .van-button {
+    border-radius: 48rpx;
+  }
+}
+
+.devide-line {
+  width: calc(100% - 32px);
+  height: 1px;
+  background-color: #ebedf0;
+  margin: auto;
+}
+
+.e-form-group {
+  padding: 1rpx 30rpx;
+  display: flex;
+  align-items: center;
+  min-height: 100rpx;
+  justify-content: space-between;
+
+  & + & {
+    border-top: 1rpx solid #eee;
+  }
+
+  .title {
+    text-align: justify;
+    padding-right: 30rpx;
+    font-size: 28rpx;
+    color: @777;
+    position: relative;
+    &-require {
+      padding: 4rpx 12rpx;
+      background: rgba(255, 91, 91, 0.1);
+      border-radius: 200rpx 200rpx 200rpx 0rpx;
+      font-size: 20rpx;
+      font-weight: 400;
+      color: #ff5b5b;
+    }
+  }
+
+  input {
+    flex: 1;
+    font-size: 30rpx;
+    color: #555;
+    padding-right: 20rpx;
+  }
+
+  & > text[class*='cuIcon-'] {
+    font-size: 36rpx;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  textarea {
+    margin: 32rpx 0 30rpx;
+    height: 4.6em;
+    width: 100%;
+    line-height: 1.2em;
+    flex: 1;
+    font-size: 28rpx;
+    padding: 0;
+  }
+
+  &.align-start .title {
+    height: 1em;
+    margin-top: 32rpx;
+    line-height: 1em;
+  }
+
+  picker {
+    flex: 1;
+    // padding-right: 40rpx;
+    overflow: hidden;
+    position: relative;
+  }
+
+  picker .picker {
+    // line-height: 100rpx;
+    font-size: 28rpx;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    width: 100%;
+    text-align: right;
+  }
+
+  // picker::after {
+  //   font-family: 'cuIcon';
+  //   display: block;
+  //   content: '\e6a3';
+  //   position: absolute;
+  //   font-size: 34rpx;
+  //   color: var(--grey);
+  //   line-height: 100rpx;
+  //   width: 60rpx;
+  //   text-align: center;
+  //   top: 0;
+  //   bottom: 0;
+  //   right: -20rpx;
+  //   margin: auto;
+  // }
+
+  textarea[disabled],
+  textarea[disabled] .placeholder {
+    color: transparent;
+  }
+}
+
+.my-submit-bar__safe {
+  height: env(safe-area-inset-bottom);
+}
+.my-submit-bar__safe-mb {
+  margin-bottom: env(safe-area-inset-bottom);
+}
+
+.my-field {
+  .van-field__label {
+    color: @black;
+  }
+  .van-field__control {
+    font-size: 28rpx!important;
+    // color: @aaa!important;
+  }
+}
+
+.my-field2 {
+  .van-cell{
+    padding-left: 0!important;
+  }
+}
+
+.fw-fold{
+  font-weight: 600;
+}
+
+// .group1:after {
+//   content: '';
+//   bottom: 0;
+//   box-sizing: border-box;
+//   left: 16px;
+//   pointer-events: none;
+//   position: absolute;
+//   right: 16px;
+//   transform: scaleY(0.5);
+//   transform-origin: center;
+//   border-bottom-width: 1px;
+//   border-bottom-style: solid;
+//   border-bottom-color: rgb(235, 237, 240);
+// }
+
+
+
+

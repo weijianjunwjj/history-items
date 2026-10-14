@@ -1,0 +1,31 @@
+<!-- <device wx:if="{{PageCur=='device'}}"></device>
+<map wx:if="{{PageCur=='map'}}"></map>
+<data wx:if="{{PageCur=='data'}}"></data>
+<my wx:if="{{PageCur=='my'}}"></my> -->
+
+<view hidden="{{PageCur!=='device'}}">
+  <device></device>
+</view>
+
+<view hidden="{{PageCur!=='map'}}">
+  <map></map>
+</view>
+
+<view wx:if="{{PageCur==='data'}}">
+  <data></data>
+</view>
+
+<view hidden="{{PageCur!=='my'}}">
+  <my></my>
+</view>
+
+
+<van-tabbar active="{{ active }}" bind:change="onTabChange" >
+
+  <van-tabbar-item wx:for="{{list}}" wx:key="index">
+    {{item.text}}
+    <image slot="icon" src="{{ item.iconPath }}" mode="aspectFit" style="width: 30px; height: 18px;" />
+    <image slot="icon-active" src="{{ item.selectedIconPath }}" mode="aspectFit" style="width: 30px; height: 18px;" />
+  </van-tabbar-item>
+
+</van-tabbar>

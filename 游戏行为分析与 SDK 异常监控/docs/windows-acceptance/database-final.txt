@@ -1,0 +1,48 @@
+
+> youyi-replay-local@0.8.0 db:inspect
+> node scripts/database.mjs inspect
+
+(node:62368) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+(Use `node --trace-warnings ...` to show where the warning was created)
+{
+  "engine": "SQLite",
+  "sqlite": "3.51.2",
+  "schemaVersion": 1,
+  "revision": 9,
+  "tables": [
+    {
+      "name": "behavior_records",
+      "rows": 12923
+    },
+    {
+      "name": "sdk_samples",
+      "rows": 36720
+    },
+    {
+      "name": "crm_activities",
+      "rows": 2
+    },
+    {
+      "name": "crm_prizes",
+      "rows": 4
+    },
+    {
+      "name": "report_fields",
+      "rows": 8
+    },
+    {
+      "name": "report_events",
+      "rows": 1
+    },
+    {
+      "name": "workspace_state",
+      "rows": 5
+    }
+  ],
+  "databaseFile": "D:\\VSCode\\history-items\\游戏行为分析与 SDK 异常监控\\data\\replay.sqlite",
+  "mode": "loopback-only",
+  "sampleNotice": "样本仍为固定模拟数据；不是生产日志。",
+  "integrity": {
+    "quick_check": "ok"
+  }
+}

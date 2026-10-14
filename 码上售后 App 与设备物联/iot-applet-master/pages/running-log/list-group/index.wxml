@@ -1,0 +1,21 @@
+<view class="list-group">
+  <view class="title fc-2">
+    {{title}}
+  </view>
+
+  <view class="list">
+    <view class="list-item flex-sb" wx:for="{{list}}" wx:key="index" bindtap="toDetail" data-item="{{item}}">
+      <view class="fc-1">
+        {{item.startTime}}
+        <text> ~ </text>
+        {{item.endTime}}
+      </view>
+
+      <view class="fc-2">
+        {{item.diffTime}}
+        <text class="cuIcon-right "></text>
+      </view>
+    </view>
+  </view>
+
+</view>

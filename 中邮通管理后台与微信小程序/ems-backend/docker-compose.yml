@@ -1,0 +1,13 @@
+version: '3'
+services:
+  ems-backend-admin:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: ems-backend-admin
+    ports:
+      - "8008:3100"
+    environment:
+      - SERVICE_NAME=ems-backend-admin
+      - ENV=pro
+    network_mode: bridge
