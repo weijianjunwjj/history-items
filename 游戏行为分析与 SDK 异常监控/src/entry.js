@@ -2,7 +2,7 @@ import {SqlWorkspaceClient} from './shared/sql-client.js';
 import {installBehaviorSnapshot} from './domain/data.js';
 import {installMonitorSnapshot} from './domain/monitor.js';
 const shell=document.querySelector('#shell');
-async function load(url){const response=await fetch(url,{credentials:'same-origin',signal:AbortSignal.timeout(20000)});if(!response.ok)throw new Error('本地服务未就绪：'+response.status);return response.json();}
+async function load(url){const response=await fetch(url,{credentials:'same-origin',signal:AbortSignal.timeout(20000)});if(!response.ok){const detail=await response.json().catch(()=>null);throw new Error(`本地服务请求失败（${response.status}）：${detail?.error||url}`);}return response.json();}
 try{
  const [bootstrap,datasets]=await Promise.all([load('/api/bootstrap'),load('/api/datasets')]);
  installBehaviorSnapshot(datasets.behavior);installMonitorSnapshot(datasets.monitor);

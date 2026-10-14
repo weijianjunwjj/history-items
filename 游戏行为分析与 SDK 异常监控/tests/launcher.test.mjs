@@ -1,10 +1,28 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import {createServer} from 'node:http';
+import {spawn} from 'node:child_process';
 import {mkdtempSync,rmSync} from 'node:fs';
 import {tmpdir} from 'node:os';
-import {join} from 'node:path';
+import {join,dirname,resolve} from 'node:path';
+import {fileURLToPath} from 'node:url';
 import {DEFAULT_PORT,selectPorts,sameDatabaseFile,inspectRunningService,findRunningService,listenWithFallback} from '../scripts/port-launch.mjs';
+import {createApplication} from '../server/server.mjs';
+
+const root=resolve(dirname(fileURLToPath(import.meta.url)),'..');
+const openBrowser=process.env.REPLAY_TEST_OPEN_BROWSER==='1';
+
+function runLauncher(env){
+  return new Promise((done,reject)=>{
+    const child=spawn(process.execPath,[join(root,'scripts/start.mjs'),...(openBrowser?['--open']:[])],{cwd:root,env:{...process.env,...env},windowsHide:true,stdio:['ignore','pipe','pipe']});
+    let output='';
+    child.stdout.on('data',data=>output+=data);
+    child.stderr.on('data',data=>output+=data);
+    const timeout=setTimeout(()=>{child.kill();reject(new Error(`复用启动器未能正常退出：${output}`));},15000);
+    child.once('error',error=>{clearTimeout(timeout);reject(error);});
+    child.once('close',(code,signal)=>{clearTimeout(timeout);done({code,signal,output});});
+  });
+}
 
 function serve(fn){
   const server=createServer(fn);
@@ -85,4 +103,26 @@ test('探测到竞态新启动的同库服务会复用并返回reused',async()=>
     assert.equal(result.reused,true);
     assert.equal(result.url,url);
   }finally{await blocker.close()}
+});
+
+test(`真实启动器重复复用隔离 SQLite 服务后正常退出${openBrowser?'（打开系统浏览器）':''}`,{timeout:40000},async()=>{
+  const dir=mkdtempSync(join(tmpdir(),'replay-launcher-'));
+  const file=join(dir,'复用 回归.sqlite');
+  const app=createApplication({databasePath:file});
+  try{
+    const url=await app.listen(0),port=new URL(url).port;
+    const before=await (await fetch(url+'/api/bootstrap')).json();
+    for(let attempt=0;attempt<2;attempt++){
+      const result=await runLauncher({PORT:port,REPLAY_DB:file});
+      assert.equal(result.code,0,result.output);
+      assert.equal(result.signal,null,result.output);
+      assert.match(result.output,/系统已经启动，本次只打开现有页面/);
+      assert.doesNotMatch(result.output,/Assertion failed|UV_HANDLE_CLOSING|未能自动打开浏览器|构建失败/);
+      assert.ok(app.server.listening,'原服务必须持续运行');
+    }
+    const after=await (await fetch(url+'/api/bootstrap')).json();
+    assert.equal(after.token,before.token,'必须复用原服务，不能重启生成新令牌');
+    assert.deepEqual(after.workspace,before.workspace,'重复打开不得修改 SQL 工作区');
+    assert.deepEqual(after.database.tables,before.database.tables);
+  }finally{await app.close();rmSync(dir,{recursive:true,force:true});}
 });

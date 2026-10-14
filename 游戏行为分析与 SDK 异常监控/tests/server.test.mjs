@@ -9,6 +9,36 @@ test('HTTP: real server starts and reports SQLite',async()=>{const r=await fetch
 test('HTTP: bootstrap and SQL snapshots come from the real repository',async()=>{const data=await (await fetch(url+'/api/datasets')).json();assert.equal(data.behavior.length,12923);assert.equal(data.monitor.length,36720);assert.equal(bootstrap.database.schemaVersion,1);});
 test('HTTP: parameterized SQL query preserves 10 / 25 and reports source',async()=>{const r=await post('/api/query/summary',{q:{...UNIFIED_DEFAULT,sdkFrom:240,sdkTo:270}});assert.equal(r.status,200);assert.equal(r.headers.get('x-replay-repository'),'sqlite');const d=await r.json();assert.equal(d.result.devices,10);assert.equal(d.result.events,25);});
 test('HTTP: missing token, cross-site origin and wrong Host are rejected',async()=>{assert.equal((await post('/api/workspace/commit',{}, {'X-Replay-Token':''})).status,403);assert.equal((await post('/api/workspace/commit',{}, {Origin:'https://untrusted.example'})).status,403);assert.equal(await new Promise((ok,reject)=>{const r=httpRequest(url+'/api/bootstrap',{headers:{Host:'untrusted.example'}},res=>{res.resume();ok(res.statusCode);});r.on('error',reject);r.end();}),403);});
+test('HTTP: same-origin 浏览器移除 Origin 端口时仍可加载和保存 SQL',async()=>{
+ const headers={Origin:'http://127.0.0.1','Sec-Fetch-Site':'same-origin'};
+ for(const path of ['/api/bootstrap','/api/datasets']){
+  const response=await fetch(url+path,{headers});assert.equal(response.status,200,path);await response.arrayBuffer();
+ }
+ const key='note:crm',value='"同源端口兼容回归"';
+ const response=await post('/api/workspace/commit',{requestId:randomUUID(),operations:[{area:'local',key,value,expected:0}]},headers);
+ assert.equal(response.status,200);await response.json();
+ assert.equal(app.repository.workspace().stores.local.find(row=>row.key===key).value,value);
+ assert.equal((await post('/api/workspace/commit',{}, {...headers,'X-Replay-Token':''})).status,403);
+});
+test('HTTP: Origin 端口兼容不放过跨站、跨端口或缺少同源标记的请求',async()=>{
+ const cases=[
+  {Origin:'http://127.0.0.1'},
+  {Origin:'http://127.0.0.1','Sec-Fetch-Site':'same-site'},
+  {Origin:'http://127.0.0.1','Sec-Fetch-Site':'cross-site'},
+  {Origin:'http://127.0.0.1:1','Sec-Fetch-Site':'same-origin'},
+  {Origin:'http://localhost','Sec-Fetch-Site':'same-origin'},
+  {Origin:'https://127.0.0.1','Sec-Fetch-Site':'same-origin'},
+  {Origin:'null','Sec-Fetch-Site':'same-origin'},
+  {Origin:'https://untrusted.example','Sec-Fetch-Site':'same-origin'},
+  {Origin:url,'Sec-Fetch-Site':'cross-site'}
+ ];
+ const before=app.repository.workspace();
+ for(const headers of cases){
+  assert.equal((await fetch(url+'/api/bootstrap',{headers})).status,403,JSON.stringify(headers));
+  assert.equal((await post('/api/workspace/commit',{},headers)).status,403,JSON.stringify(headers));
+ }
+ assert.deepEqual(app.repository.workspace(),before);
+});
 test('HTTP: database files, server code and path traversal are not served',async()=>{for(const path of ['/data/replay.sqlite','/server/database.mjs','/package.json','/src/%2e%2e/%2e%2e/data/replay.sqlite'])assert.ok([403,404].includes((await fetch(url+path)).status),path);});
 test('HTTP: invalid methods and body types return explicit errors',async()=>{assert.equal((await fetch(url+'/api/health',{method:'DELETE'})).status,405);assert.equal((await fetch(url+'/api/workspace/commit',{method:'POST',headers:{'X-Replay-Token':bootstrap.token,'Content-Type':'text/plain'},body:'x'})).status,415);assert.equal((await fetch(url+'/api/workspace/commit',{method:'POST',headers:{'X-Replay-Token':bootstrap.token,'Content-Type':'application/json'},body:'{'})).status,400);});
 test('HTTP: all six independent micro-app entries and manifests are available',async()=>{for(const name of ['ebi','crm','report','monitor','journey','workbench']){const html=await fetch(url+`/apps/${name}/index.html`);assert.equal(html.status,200);assert.match(await html.text(),new RegExp(`data-standalone="${name}"`));const m=await (await fetch(url+`/apps/${name}/manifest.json`)).json();assert.equal(m.name,name);assert.equal((await fetch(url+m.entry)).status,200);assert.deepEqual(m.lifecycle,['bootstrap','mount','update','unmount']);}});

@@ -9,6 +9,7 @@
   },
   "scripts": {
     "start": "node scripts/start.mjs",
+    "start:open": "node scripts/start.mjs --open",
     "dev": "node scripts/start.mjs --dev",
     "build": "node scripts/build.mjs",
     "build:ebi": "node scripts/build.mjs ebi",

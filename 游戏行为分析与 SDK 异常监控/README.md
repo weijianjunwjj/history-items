@@ -12,10 +12,10 @@
 
 ```sh
 node -v
-npm start
+npm run start:open
 ```
 
-浏览器打开：
+这条命令会构建并启动服务、自动打开浏览器；已有同库服务时直接复用。只启动服务而不打开浏览器仍可用 `npm start`。页面地址：
 
 ```text
 http://127.0.0.1:4173
@@ -103,8 +103,9 @@ npm start
 
 ```sh
 npm run dev          # 直接服务源码；刷新加载修改，非自动热更新
+npm run start:open   # 一键启动并打开默认浏览器；重复执行复用已有服务
 npm run build        # 全部静态入口；不碰数据库
-npm test             # 197项：原160项 + SQL/HTTP/写入协议37项
+npm test             # 业务、SQL/HTTP、写入协议与启动器回归
 npm run test:sql      # 只跑新增SQL相关测试
 npm run doctor       # Node、目录权限、schema、seed、quick_check
 npm run db:inspect   # 真实表数量和SQLite状态

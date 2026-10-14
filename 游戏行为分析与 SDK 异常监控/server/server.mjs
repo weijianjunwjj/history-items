@@ -23,7 +23,11 @@ export function createApplication({databasePath,staticRoot=resolve(ROOT,'dist'),
    if(![`127.0.0.1:${port}`,`localhost:${port}`].includes(host))throw fail(403,'仅允许本机 Host');
    const url=new URL(req.url,`http://${host}`),origin=req.headers.origin;
    if(url.pathname.startsWith('/api/')){
-    if(req.headers['sec-fetch-site']==='cross-site'||origin&&origin!==`http://${host}`)throw fail(403,'拒绝跨站API访问');
+    const fetchSite=req.headers['sec-fetch-site'];
+    // 本机浏览器环境实测 Origin 缺少端口；仅在浏览器确认 same-origin 且主机/协议仍完全一致时兼容。
+    // 不接受跨端口来源、其他主机、null Origin 或缺少同源标记的请求；POST 仍须本进程令牌。
+    const localOriginWithoutPort=fetchSite==='same-origin'&&origin===`http://${url.hostname}`;
+    if(fetchSite==='cross-site'||origin&&origin!==`http://${host}`&&!localOriginWithoutPort)throw fail(403,'拒绝跨站API访问');
     if(req.method==='POST'){
      const supplied=String(req.headers['x-replay-token']||'');
      if(supplied.length!==token.length||!timingSafeEqual(Buffer.from(supplied),Buffer.from(token)))throw fail(403,'缺少本机请求凭证，请刷新页面');

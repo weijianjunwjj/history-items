@@ -72,3 +72,15 @@ node scripts/accept-backup-launcher.mjs
 本次Windows验收范围内没有剩余FAIL/BLOCKED。macOS、Safari、Firefox与其他Node版本未在本次测试，不沿用Windows结果。默认浏览器的自动弹窗仅记录 `OPEN_REQUESTED`，未单独控制/观测系统默认浏览器窗口；实际Windows Edge HTTP页面及可见的Codex内置浏览器已分别验证。主服务保留运行，测试服务均停止。
 
 日志保留了首次标题、CSP测试驱动及异步绘制等待失败，见 `windows-acceptance/browser-initial.txt`、`browser-title-fixed.txt`、`browser-expanded-initial.txt`；最终结论以 `browser-final.txt` 和结果JSON为准。原交付环境的150个离线注入场景及Linux BLOCKED为历史证据，未计入本次18个真实浏览器场景。
+
+## 2026-10-14 追加：Chrome 403 与重复启动崩溃
+
+用户真实 Chrome 请求中 `Host=127.0.0.1:4173`、`Origin=http://127.0.0.1`、`Sec-Fetch-Site=same-origin`，Origin 丢失端口导致服务误判跨站。独立干净 Chrome 155.0.8059.40 没有这个现象；没有认定具体扩展或改动用户浏览器设置。服务只兼容浏览器同源标记正确、协议/主机一致且 Origin 恰好缺少端口的情况。其他主机、不同端口、跨站、缺少同源标记及写请求缺少令牌继续拒绝。页面启动失败现显示服务端原因。
+
+Windows 启动器在异步打开浏览器后立即 `process.exit(0)`，存在截图中 `UV_HANDLE_CLOSING` 崩溃路径。现等待 PowerShell 7 打开命令完成，复用服务和关闭服务时让 Node 正常退出；隔离库两次复用退出码均为 0、无断言失败、原服务令牌与数据库不变。
+
+新增一键命令：在项目目录运行 `npm run start:open`。自动构建、启动服务并打开默认浏览器；已有同库服务时复用。`npm start` 继续只启动服务，双击启动脚本继续可用。
+
+本轮验证：`npm run verify` **208/208** 与自检通过；`npm run test:browser` **18/18**，全 **19/19** 站完成且主工作区不变；Chrome 专项 **5/5**。Chrome 专项区分真实正常入口与通过 `route.fetch` 重放故障请求头的真实 HTTP/SQLite 测试，包含笔记保存、SQL 回读和刷新恢复，不冒充直接控制用户原有 Chrome 窗口。一次并行构建引起 `ENOTEMPTY`，顺序重跑通过；以后验收命令顺序执行。
+
+本轮详细日志保留在本机被 Git 忽略的 `data/startup-fix-verify.log`、`data/startup-fix-browser.log`、`data/startup-fix-browser-evidence/` 与 `data/chrome-origin-compat-results.json`；浏览器专项截图为 `data/chrome-normal-entry.png`、`data/chrome-origin-compat-note.png`。修复前主库一致性备份为 `data/backups/replay-2026-10-14T05-47-04-224Z.sqlite`。主库保留，临时诊断服务已退出，4173 已换成修复后的正常 `npm start` 服务。
