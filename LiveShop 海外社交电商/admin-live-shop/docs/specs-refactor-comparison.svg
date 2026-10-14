@@ -1,0 +1,103 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1800" height="1710" viewBox="0 0 1800 1710" role="img" aria-labelledby="title desc">
+<title id="title">商品规格页面重构代码对比</title>
+<desc id="desc">九组原代码与替换后代码，逐项对应解决的问题；完整片段见 specs-refactor.md。</desc>
+<style>text { font-family: "Microsoft YaHei", "Noto Sans CJK SC", sans-serif; fill: #18263b; } .code { font-family: Consolas, "Microsoft YaHei", monospace; font-size: 21px; } .body { font-size: 22px; } .label { font-size: 19px; font-weight: 600; }</style>
+<rect width="1800" height="1710" fill="#f5f7fb"/>
+<text x="52" y="66" font-size="36" font-weight="700">商品规格页面 · 重构代码对比</text>
+<text x="52" y="106" font-size="21">关键代码块映射｜完整片段与验证说明见 specs-refactor.md</text>
+<rect x="40" y="139" width="1720" height="58" rx="8" fill="#e5eaf2"/>
+<text x="64" y="177" font-size="24" font-weight="700">原代码</text>
+<text x="624" y="177" font-size="24" font-weight="700">替换后的代码</text>
+<text x="1280" y="177" font-size="24" font-weight="700">解决的问题</text>
+<rect x="40" y="213" width="1720" height="142" rx="8" fill="white"/>
+<path d="M 604 229 V 339" stroke="#e5eaf2"/>
+<path d="M 1254 229 V 339" stroke="#e5eaf2"/>
+<text x="64" y="244" class="label">01  表单状态</text>
+<text x="64" y="286" class="code">specForm + spec + categoryId</text>
+<text x="64" y="321" class="code">watch(..., { deep: true })</text>
+<text x="624" y="286" class="code">form = reactive&lt;SpecForm&gt;({...})</text>
+<text x="624" y="321" class="code">页面、增删、校验、提交都使用 form</text>
+<text x="1280" y="286" class="body">消除重复状态与同步监听</text>
+<text x="1280" y="321" class="body">数据来源明确</text>
+<rect x="40" y="369" width="1720" height="142" rx="8" fill="white"/>
+<path d="M 604 385 V 495" stroke="#e5eaf2"/>
+<path d="M 1254 385 V 495" stroke="#e5eaf2"/>
+<text x="64" y="400" class="label">02  规格选项</text>
+<text x="64" y="442" class="code">disabledArray.splice(index, 1)</text>
+<text x="64" y="477" class="code">手动更新 specsNames.disabled</text>
+<text x="624" y="442" class="code">selectedIds = computed(...)</text>
+<text x="624" y="477" class="code">getSpecOptions(currentId)</text>
+<text x="1280" y="442" class="body">删除或更换名称后自动释放选项</text>
+<text x="1280" y="477" class="body">当前行仍可选择自己的名称</text>
+<rect x="40" y="525" width="1720" height="142" rx="8" fill="white"/>
+<path d="M 604 541 V 651" stroke="#e5eaf2"/>
+<path d="M 1254 541 V 651" stroke="#e5eaf2"/>
+<text x="64" y="556" class="label">03  保存校验</text>
+<text x="64" y="598" class="code">specVal.every(v =&gt; v.label == &#x27;&#x27;)</text>
+<text x="64" y="633" class="code">只检查规格值是否全为空</text>
+<text x="624" y="598" class="code">动态 rules + getSpecNameError</text>
+<text x="624" y="633" class="code">some(v =&gt; !v.label.trim())</text>
+<text x="1280" y="598" class="body">混入空值、空格均拦截</text>
+<text x="1280" y="633" class="body">校验名称必选、有效、不重复</text>
+<rect x="40" y="681" width="1720" height="142" rx="8" fill="white"/>
+<path d="M 604 697 V 807" stroke="#e5eaf2"/>
+<path d="M 1254 697 V 807" stroke="#e5eaf2"/>
+<text x="64" y="712" class="label">04  新增 / 编辑</text>
+<text x="64" y="754" class="code">relationSpec.value ? 1 : 0</text>
+<text x="64" y="789" class="code">id: detail?.CateId</text>
+<text x="624" y="754" class="code">hasExistingSpecs = specs.length &gt; 0</text>
+<text x="624" y="789" class="code">toSpecPayload(form, isEdit)</text>
+<text x="1280" y="754" class="body">空类目正确调用 add</text>
+<text x="1280" y="789" class="body">集中转换参数、保留编辑值 ID</text>
+<rect x="40" y="837" width="1720" height="142" rx="8" fill="white"/>
+<path d="M 604 853 V 963" stroke="#e5eaf2"/>
+<path d="M 1254 853 V 963" stroke="#e5eaf2"/>
+<text x="64" y="868" class="label">05  请求生命周期</text>
+<text x="64" y="910" class="code">debounce + isLock</text>
+<text x="64" y="945" class="code">成功后 setTimeout 解锁</text>
+<text x="624" y="910" class="code">saving = true; try { ... }</text>
+<text x="624" y="945" class="code">finally { saving.value = false; }</text>
+<text x="1280" y="910" class="body">新增与编辑都防重复提交</text>
+<text x="1280" y="945" class="body">校验失败、请求失败均解锁</text>
+<rect x="40" y="993" width="1720" height="142" rx="8" fill="white"/>
+<path d="M 604 1009 V 1119" stroke="#e5eaf2"/>
+<path d="M 1254 1009 V 1119" stroke="#e5eaf2"/>
+<text x="64" y="1024" class="label">06  保存后回读</text>
+<text x="64" y="1066" class="code">新增后只更新 relationSpec</text>
+<text x="64" y="1101" class="code">编辑后不回读</text>
+<text x="624" y="1066" class="code">await loadSpecs(categoryId, true)</text>
+<text x="624" y="1101" class="code">失败保留草稿并提供重新加载</text>
+<text x="1280" y="1066" class="body">回读最新的服务器值 ID</text>
+<text x="1280" y="1101" class="body">回读失败时阻止继续写入</text>
+<rect x="40" y="1149" width="1720" height="142" rx="8" fill="white"/>
+<path d="M 604 1165 V 1275" stroke="#e5eaf2"/>
+<path d="M 1254 1165 V 1275" stroke="#e5eaf2"/>
+<text x="64" y="1180" class="label">07  类目查询</text>
+<text x="64" y="1222" class="code">await fetchList(+value)</text>
+<text x="64" y="1257" class="code">不判断请求是否已经过期</text>
+<text x="624" y="1222" class="code">version = ++loadVersion</text>
+<text x="624" y="1257" class="code">过期版本 / 已卸载：忽略结果</text>
+<text x="1280" y="1222" class="body">快速切换仍显示当前类目</text>
+<text x="1280" y="1257" class="body">清空或离开页面后不再回填</text>
+<rect x="40" y="1305" width="1720" height="142" rx="8" fill="white"/>
+<path d="M 604 1321 V 1431" stroke="#e5eaf2"/>
+<path d="M 1254 1321 V 1431" stroke="#e5eaf2"/>
+<text x="64" y="1336" class="label">08  规格值删除</text>
+<text x="64" y="1378" class="code">specVal.pop()</text>
+<text x="64" y="1413" class="code">:key=&quot;valueIndex&quot;</text>
+<text x="624" y="1378" class="code">specVal.splice(index, 1)</text>
+<text x="624" y="1413" class="code">:key=&quot;value.key&quot;</text>
+<text x="1280" y="1378" class="body">可以删除指定的规格值</text>
+<text x="1280" y="1413" class="body">保留至少一个值、稳定输入身份</text>
+<rect x="40" y="1461" width="1720" height="142" rx="8" fill="white"/>
+<path d="M 604 1477 V 1587" stroke="#e5eaf2"/>
+<path d="M 1254 1477 V 1587" stroke="#e5eaf2"/>
+<text x="64" y="1492" class="label">09  数据处理</text>
+<text x="64" y="1534" class="code">spec[0] + 固定两层类目映射</text>
+<text x="64" y="1569" class="code">data.ts 存放无关商品表单配置</text>
+<text x="624" y="1534" class="code">toSpecDrafts + toCategoryOptions</text>
+<text x="624" y="1569" class="code">data.ts 集中类型、校验、转换</text>
+<text x="1280" y="1534" class="body">读取全部规格、递归处理类目</text>
+<text x="1280" y="1569" class="body">清理无引用配置与调试代码</text>
+<text x="52" y="1662" font-size="20">验证：12 项测试通过 · 生产构建通过｜真实后端联调与浏览器交互尚未执行</text>
+</svg>
