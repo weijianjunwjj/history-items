@@ -23,14 +23,18 @@ http://127.0.0.1:4173
 
 **无需 `npm install`，无需 MySQL、Docker、Python 或额外数据库服务。** 项目没有运行时第三方依赖。`npm start` 会先构建，再创建/迁移 SQLite、装入初始模拟样本、启动一个本地服务。保留终端运行；按 Ctrl+C 停止。
 
-Windows 可双击 `start-windows.cmd`；macOS 可在终端执行 `bash start-macos.command`。首次看到 SQLite ExperimentalWarning 不等于启动失败；以终端地址和 `npm run doctor` 结果为准。
+**Windows 推荐直接双击 `双击启动.cmd`**（旧入口 `start-windows.cmd` 同样可用）；macOS 可在终端执行 `bash start-macos.command`。首次看到 SQLite ExperimentalWarning 不等于启动失败；以终端地址和 `npm run doctor` 结果为准。
 
-端口占用时，PowerShell：
+一键启动会先检测是否已有**使用相同 SQLite 文件**的本项目实例：如果有，直接打开该页面，不会重复构建和启动。默认 `4173` 被其他软件占用时，自动尝试后续端口（通常为 `4174`）；不会关闭别的程序，也不会删除数据库。服务首次启动成功后请保留终端窗口，按 `Ctrl+C` 才会停止服务。浏览器关闭不代表后台服务停止。
+
+如需手动固定端口，PowerShell：
 
 ```powershell
 $env:PORT = '4180'
 npm start
 ```
+
+**显式设置 `PORT` 时不会自动换端口**；不想指定就先执行 `Remove-Item Env:PORT -ErrorAction SilentlyContinue`。独立启动测试：`npm run test:launcher`。
 
 数据库默认位置：`data/replay.sqlite`。构建不会删除数据库，重启不会重新覆盖已保存内容。不要再用“双击 HTML”运行本地 SQL 版。
 
