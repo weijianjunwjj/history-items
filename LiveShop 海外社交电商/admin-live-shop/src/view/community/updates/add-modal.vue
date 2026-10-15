@@ -31,7 +31,7 @@
         </n-row>
         <n-row>
           <n-col :span="24">
-            <n-form-item label="动态内容" path="title">
+            <n-form-item label="动态内容" path="content">
               <n-input v-model:value="form.content" type="textarea" />
             </n-form-item>
           </n-col>
@@ -59,6 +59,7 @@
                   :accept="UploadImgAccept"
                   :customRequest="customRequest1"
                   :on-before-upload="handleBeforeUploadImg"
+                  :on-remove="onRemoveImg"
                 />
                 <n-upload
                   v-else
@@ -69,6 +70,7 @@
                   :accept="UploadVideoAccept"
                   :customRequest="customRequest2"
                   :on-before-upload="handleBeforeUploadVideo"
+                  :on-remove="onRemoveVideo"
                   :on-preview="onPreviewVideo"
                   show-preview-button
                 ></n-upload>
@@ -115,13 +117,11 @@ import {
 } from '@/utils/uploadService';
 import { UploadCustomRequestOptions } from 'naive-ui';
 import { FileInfo } from 'naive-ui/es/upload/src/interface';
-import { configUpdates, detailUpdates } from '@/api/community/updates';
+import { configUpdates } from '@/api/community/updates';
 import { getUrl } from '@/utils/utils';
 import {rules} from './data'
 
-const initialData = ref({
-  mediaType: 1,
-});
+const createForm = () => ({ mediaType: 1, title: '', content: '', newTopic: '', mediaUrl: '' });
 // 接收父组件传递的属性
 const props = defineProps({
   show: Boolean, // 控制模态框的显示
@@ -132,42 +132,57 @@ const props = defineProps({
   edit: Number,
 });
 
-const form = ref(props.initialData);
+const form = ref<any>(createForm());
+const formRef = ref();
 
 const productImg = ref([]);
 const productVideo = ref([]);
 const img: any = ref([]);
 const video: any = ref([]);
 
-// 当初始数据发生变化时更新表单
+// 每次打开都重新初始化，避免编辑后的 id 被带到新增请求。
 watch(
-  () => props.initialData,
-  newData => {
-    if (props.edit) {
+  () => props.show,
+  show => {
+    reset();
+    if (show && props.edit && props.initialData) {
+      const newData = props.initialData;
       const obj: any = {
         ...newData,
-        newTopic: newData.linkTopic?.[0],
+        newTopic: newData.linkTopic?.[0] || '',
       };
+      const media = String(obj.mediaUrl || '').split(',').filter(Boolean).map((url, index) => ({
+        id: `existing-${index}`, url, name: `媒体 ${index + 1}`,
+      }));
       if (obj.mediaType == 1) {
-        productImg.value = obj.mediaUrl
-          ?.split(',')
-          ?.filter(v => v)
-          ?.map((v, i) => {
-            return { id: i, url: getUrl(v), status: 'finished' };
-          });
+        img.value = media;
+        productImg.value = media.map(item => ({ ...item, url: getUrl(item.url), status: 'finished' }));
       } else {
-        productVideo.value = obj.mediaUrl
-          ?.split(',')
-          ?.filter(v => v)
-          ?.map((v, i) => {
-            return { id: i, url: getUrl(v), status: 'finished' };
-          });
+        video.value = media;
+        productVideo.value = media.map(item => ({ ...item, url: getUrl(item.url), status: 'finished' }));
       }
       form.value = { ...obj };
     }
   },
   { immediate: true }
 );
+
+function syncMedia() {
+  form.value.mediaUrl = (Number(form.value.mediaType) === 1 ? img.value : video.value)
+    .map(item => item.url).filter(Boolean).join(',');
+}
+
+function onRemoveImg({ file }) {
+  img.value = img.value.filter(item => item.id !== file.id);
+  syncMedia();
+}
+
+function onRemoveVideo({ file }) {
+  video.value = video.value.filter(item => item.id !== file.id);
+  syncMedia();
+}
+
+watch(() => form.value.mediaType, syncMedia);
 
 // 发出事件通知父组件
 const emit = defineEmits(['update:show', 'save', 'edit', 'query']);
@@ -190,7 +205,7 @@ const customRequest1 = async (obj: UploadCustomRequestOptions) => {
     name,
   });
 
-  form.value.mediaUrl = img.value.map(item => item.url)?.join(',');
+  syncMedia();
 };
 const customRequest2 = async (obj: UploadCustomRequestOptions) => {
   const uploadFile: any = await uploadService(obj);
@@ -200,7 +215,7 @@ const customRequest2 = async (obj: UploadCustomRequestOptions) => {
     url,
     name,
   });
-  form.value.mediaUrl = video.value.map(item => item.url)?.join(',');
+  syncMedia();
 };
 const showVideo = ref(false);
 const previewVideoUrlRef = ref();
@@ -222,25 +237,16 @@ const isVisible = computed({
   },
 });
 
-watch(
-  () => isVisible,
-  _isVisible => {
-    if (!isVisible) {
-      reset();
-    }
-  }
-);
-
 function reset() {
   img.value = [];
   video.value = [];
   productImg.value = [];
   productVideo.value = [];
-  form.value = initialData.value;
+  form.value = createForm();
+  formRef.value?.restoreValidation?.();
 }
 const message = window.$message;
 
-const formRef = ref();
 function save() {
   formRef.value?.validate(errors => {
     if (!errors) {
@@ -259,6 +265,7 @@ function save() {
       message.error('验证失败');
     }
   });
+  return false;
 }
 
 function query() {

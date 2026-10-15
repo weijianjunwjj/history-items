@@ -12,7 +12,7 @@ import ECharts from 'vue-echarts'
 import * as echarts from 'echarts/core';
 import { CanvasRenderer } from 'echarts/renderers';
 // 导入需要的图例
-import { LineChart } from 'echarts/charts';
+import { LineChart, BarChart, PieChart } from 'echarts/charts';
 import {
   TitleComponent,
   TooltipComponent,
@@ -25,6 +25,8 @@ const app = createApp(App)
 echarts.use([
   CanvasRenderer,
   LineChart,
+  BarChart,
+  PieChart,
   TitleComponent,
   TooltipComponent,
   GridComponent,
@@ -42,9 +44,8 @@ app.config.errorHandler = (err, instance, info) => {
   console.error('全局错误捕获:', err, info);
 
   // 如果需要，可以在这里进行全局错误处理，如跳转到错误页面
-  if (err.message.includes('Network Error')) {
-    router.push({ name: '500' });
-  }
+  const message = err instanceof Error ? err.message : String(err);
+  if (message.includes('Network Error')) window.$message?.error('本地后端连接失败，请检查服务是否启动');
 };
 
 app.use(init).use(router)

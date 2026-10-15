@@ -611,12 +611,10 @@ const data = ref([]);
 const currentRow: any = ref({});
 
 const resetForm = () => {
-  // 使用 for...in 循环遍历 _form 并将值赋给 form
-  for (const key in defaultForm) {
-    form[key] = defaultForm[key];
-  }
-  form.img=[]
-  form.video=[]
+  Object.assign(form, _.cloneDeep(defaultForm));
+  editObj.is = false;
+  editObj.id = null;
+  activeTab.value = '基础设置';
 
   columns2.value = defaultColumns2;
   tableData.value = [];
@@ -624,9 +622,7 @@ const resetForm = () => {
   specs.length = 0;
   productImg.value = [];
   productVideo.value = [];
-  form.ProductRule.RuleType = 0;
-  form.ProductRule.Coin = undefined;
-  form.ProductRule.Point = undefined;
+  productForm.value?.restoreValidation?.();
 };
 const transformSpecData = specData => {
   return specData.map(spec => {
@@ -660,6 +656,7 @@ const columns = createColumns({
     const {
       categoryId,
       name,
+      itemNumber,
       intro,
       freight,
       classId,
@@ -691,6 +688,7 @@ const columns = createColumns({
     const _form = reactive({
       categoryId, //类目id
       name,
+      itemNumber: itemNumber || row.itemNumber || '',
       intro,
       freight,
       payOnline,
@@ -701,7 +699,6 @@ const columns = createColumns({
       details,
       img: productImg.value,
       video: productVideo.value,
-      specStatus: '',
       ProductRule: {
         RuleType: ruleType.toString(),
         Point: point,
@@ -1075,12 +1072,14 @@ watch(
 
 // 校验表格的每一行数据
 const validateTableData = () => {
+  if (!tableData.value.length) return false;
+  const ruleType = Number(form.ProductRule.RuleType);
   tableData.value.forEach(row => {
     row.error = {};
-    if (form.ProductRule.RuleType === 1 || form.ProductRule.RuleType === 3) {
+    if (ruleType === 1 || ruleType === 3) {
       row.error.coin = !row.coin || isNaN(row.coin);
     }
-    if (form.ProductRule.RuleType === 2 || form.ProductRule.RuleType === 3) {
+    if (ruleType === 2 || ruleType === 3) {
       row.error.point = !row.point || isNaN(row.point);
     }
     row.error.stock = !row.stock || isNaN(row.stock);
@@ -1327,9 +1326,9 @@ const getSku = () => {
 const reverseSkuToTableData = skuData => {
   return skuData.map(sku => {
     const item = {
-      coin: sku.coin || '', // 若无 coin 字段则留空
-      point: sku.point || '', // 若无 coin 字段则留空
-      stock: sku.stock || '',
+      coin: String(sku.coin ?? ''),
+      point: String(sku.point ?? ''),
+      stock: String(sku.stock ?? ''),
       imgs: sku.specImg?.split(',')?.map((item, index) => ({
         url: getUrl(item),
         batchId: index,

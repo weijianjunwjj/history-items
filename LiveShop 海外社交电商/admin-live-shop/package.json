@@ -4,7 +4,11 @@
     "version": "4.0.4",
     "type": "module",
     "scripts": {
-        "dev": "vite",
+        "dev": "node scripts/dev.mjs",
+        "dev:frontend": "vite --host 127.0.0.1 --port 5173 --strictPort",
+        "dev:backend": "node server/index.mjs",
+        "start": "node server/index.mjs",
+        "test:local": "node --test tests/backend.test.mjs tests/api-coverage.test.mjs",
         "build": "vite build",
         "test": "vite build --mode test",
         "preview": "vite preview",

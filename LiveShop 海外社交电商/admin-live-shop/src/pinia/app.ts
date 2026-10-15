@@ -7,9 +7,11 @@ const paths = ['userSetting'],
     id = 'app';
 const appLocal = window.localStorage.getItem(id);
 if (appLocal) {
-    const { userSetting } = JSON.parse(appLocal);
-    if (userSetting.lasting) {
-        paths.push('tabs');
+    try {
+        const { userSetting } = JSON.parse(appLocal);
+        if (userSetting?.lasting) paths.push('tabs');
+    } catch {
+        window.localStorage.removeItem(id);
     }
 }
 
@@ -89,8 +91,8 @@ const app = defineStore({
             paths: [], // 路由路径
             tabs: <any>[], // 标签
             hasRoles: false, // 是否加载菜单
-            currentRouter: {}, // 当前路由信息
-            fileUrlPre: "", // 文件链接前缀
+            currentRouter: { meta: {} }, // 当前路由信息
+            fileUrlPre: "/api/", // 文件链接前缀
         };
     },
     getters: {

@@ -12,36 +12,34 @@
         </template>
         <n-dialog-provider>
             <n-row :gutter="[20, 10]" style="margin-top: 20px">
-                <n-col :span="6">
+                <n-col v-for="row in data" :key="row.id" :span="6">
                     <n-card
-                        title="物流通知"
+                        :title="row.name || templateTypeOptions.find(item => Number(item.value) === Number(row.templateType))?.label || '消息通知'"
                         header-style="background:rgb(232 232 232);padding:10px 24px;"
                     >
                         <template #header-extra>
-                            <n-switch v-model:value="switchvalue" />
+                            <n-switch :value="row.onSale === 2" @update:value="handleToggle(row, $event)" />
                         </template>
                         <div style="margin-top: 20px">
-                            您于2024-04-05
-                            08:23:24购买的商品【商品名称】已发货，物流单号【SF4663634742】
+                            {{ row.content || row.templateContent || '暂无通知内容' }}
                         </div>
                         <template #footer>
                             <n-flex justify="space-between" align="center">
                                 <n-space>
-                                    <n-checkbox v-model:checked="checkedvalue1">
+                                    <n-checkbox :checked="Boolean(row.inSite ?? true)" disabled>
                                         站内通知</n-checkbox
                                     >
-                                    <n-checkbox v-model:checked="checkedvalue2">
+                                    <n-checkbox :checked="Boolean(row.outSite)" disabled>
                                         站外通知</n-checkbox
                                     >
                                 </n-space>
-                                <n-icon color="red" size="25">
-                                    <component is="antd-DeleteOutlined"></component>
-                                </n-icon>
+                                <n-button quaternary type="error" @click="handleDel(row)">删除</n-button>
                             </n-flex>
                         </template>
                     </n-card>
                 </n-col>
             </n-row>
+            <n-empty v-if="!data.length" description="暂无消息通知" style="margin: 40px 0" />
 
             <!-- <n-data-table :single-line="false" :columns="columns" :data="data" /> -->
         </n-dialog-provider>
@@ -55,7 +53,8 @@
 </template>
 
 <script setup lang="ts">
-import { createColumns, visible, searchForm } from './data';
+import { visible, searchForm, templateTypeOptions } from './data';
+import { ref, onMounted } from 'vue';
 import GroupConfig from './group-config.vue';
 import { getNotificationList, delNotification, OnChangeNotification } from '@/api/operate/message';
 import { useMessage, useDialog } from 'naive-ui';
@@ -63,47 +62,28 @@ import { useMessage, useDialog } from 'naive-ui';
 const message = useMessage();
 const dialog = useDialog();
 
-const data = ref([]);
+const data = ref<any[]>([]);
 const currentRow = ref({});
-const switchvalue = ref(false);
-const checkedvalue1 = ref(false);
-const checkedvalue2 = ref(false);
-const columns = createColumns({
-    handleUnmount(row: any) {
-        if (row.onSale == 2) {
-            //去下架
-            OnChangeNotification({ id: row.id, onSale: 1 }).then(res => {
-                message.success('下架成功');
-                fetchList();
-            });
-        } else {
-            OnChangeNotification({ id: row.id, onSale: 2 }).then(res => {
-                message.success('上架成功');
-                fetchList();
-            });
-        }
-    },
-    handleEdit(row: any) {
-        currentRow.value = row;
-        visible.groupConfig = true;
-    },
-    handleDel(row: any) {
-        dialog.warning({
-            title: '警告',
-            content: `确定删除这个消息通知吗？`,
-            positiveText: '确定',
-            negativeText: '取消',
-            onPositiveClick: async () => {
-                try {
-                    await delNotification({ id: row.id });
-                    fetchList();
-                    message.success('删除成功');
-                } catch (error) {}
-            },
-            onNegativeClick: () => {}
-        });
-    }
-});
+
+async function handleToggle(row: any, enabled: boolean) {
+    await OnChangeNotification({ id: row.id, onSale: enabled ? 2 : 1 });
+    message.success(enabled ? '通知已开启' : '通知已关闭');
+    fetchList();
+}
+
+function handleDel(row: any) {
+    dialog.warning({
+        title: '删除消息通知',
+        content: '确定删除这个消息通知吗？',
+        positiveText: '确定',
+        negativeText: '取消',
+        onPositiveClick: async () => {
+            await delNotification({ id: row.id });
+            fetchList();
+            message.success('删除成功');
+        },
+    });
+}
 
 function fetchList() {
     getNotificationList({

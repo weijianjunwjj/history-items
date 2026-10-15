@@ -182,7 +182,7 @@ export const statusOptions = [
 
 export const showModal = ref(false);
 interface ProductRule {
-  RuleType: number;
+  RuleType: string;
   Point?: string;
   Coin?: string; // Coin 在第二个 specStock 对象中出现，应该是可选的
 }
@@ -195,7 +195,6 @@ interface FormState {
   freight: string;
   classId: number;
   purPrice: string;
-  specStatus: string;
   op: string;
   brand: string;
   details: string;
@@ -218,9 +217,8 @@ export const defaultForm={
   details: '',
   img: [],
   video: [],
-  specStatus: '',
   ProductRule: {
-    RuleType: 0,
+    RuleType: '1',
     Point: '',
     Coin:''
   },
@@ -340,11 +338,6 @@ export const rules: FormRules = {
     required: true,
     trigger: ['blur', 'input'],
     message: '商品图不可为空',
-  },
-  specStatus: {
-    required: true,
-    trigger: ['blur', 'change'],
-    message: '规格与库存不可为空',
   },
 };
 

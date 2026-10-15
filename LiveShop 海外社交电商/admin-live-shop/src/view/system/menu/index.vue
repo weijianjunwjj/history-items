@@ -106,6 +106,8 @@ import AddForm from "@/view/system/menu/add-form.vue"
 import { useMessage, useDialog, FormInst } from "naive-ui"
 import { getList, edit, add, delBatch } from "@/api/system/menu"
 import { options, compData, treeConf, menuData, originFormItem, formRules } from "@/view/system/menu/data"
+import appPinia from '@/pinia/app'
+const appStore = appPinia()
 const message = useMessage()
 const dialog = useDialog()
 const formRef = ref<FormInst | null>(null)

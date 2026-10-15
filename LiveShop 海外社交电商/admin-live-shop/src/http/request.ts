@@ -13,7 +13,7 @@ interface CustomAxiosRequestConfig extends AxiosRequestConfig {
   hint?: boolean;
 }
 
-const http: AxiosInstance = axios.create();
+const http: AxiosInstance = axios.create({ timeout: 15000 });
 
 axiosRetry(http, {
   retries: 3,
@@ -70,7 +70,7 @@ http.interceptors.response.use(
       logout();
       return Promise.reject(false);
     } else {
-      window.$message.error(data.msg);
+      window.$message?.error(data.msg || '请求失败');
       return Promise.reject({
         code: data.code,
         details: data.details,
@@ -79,12 +79,16 @@ http.interceptors.response.use(
     }
   },
   (error: AxiosError) => {
+    if (error.response?.status === 401) {
+      logout();
+      return Promise.reject(error);
+    }
     if (error.code === 'ECONNABORTED') {
       return Promise.reject({
         code: 'timeout',
       });
     }
-    if (error.message && error.code === 'canceled' && !error.code) {
+    if (error.code === 'ERR_CANCELED') {
       return Promise.reject({
         code: 'canceled',
       });

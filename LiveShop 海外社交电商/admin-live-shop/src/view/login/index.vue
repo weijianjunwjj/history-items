@@ -32,11 +32,11 @@
                                     </template>
                                 </n-input>
                             </n-form-item>
-                            <n-form-item label="密码" path1="password">
+                            <n-form-item label="密码" path="password">
                                 <n-input size="large" :show-password-on="'click'" type="password"
                                     v-model:value="compData.form.password" placeholder="输入你的密码" />
                             </n-form-item>
-                            <n-form-item label="验证码" path="code">
+                            <n-form-item label="验证码" path="captcha">
                                 <n-grid cols="5" item-responsive>
                                     <n-grid-item span="3">
                                         <n-input size="large" v-model:value="compData.form.captcha"
@@ -49,8 +49,9 @@
                                 </n-grid>
                             </n-form-item>
                             <n-space justify="space-between" :size="[10, 15]" vertical>
-                                <n-button type="primary" style="width: 100%" @click="handleLogin">
+                                <n-button type="primary" style="width: 100%" :loading="loggingIn" @click="handleLogin">
                                     登录</n-button>
+                                <n-text depth="3">本地体验：账号 admin，密码 admin123，验证码 1234</n-text>
                             </n-space>
                         </n-form>
                     </div>
@@ -65,7 +66,7 @@ import { ref, reactive } from 'vue';
 import { useRouter } from 'vue-router';
 import appStore from '@/pinia/app';
 import localStore from '@/utils/localStore';
-import { login, getCaptcha } from '@/api/login';
+import { login, getCaptcha, userInfo } from '@/api/login';
 
 console.log("Welcome Live Shop")
 
@@ -73,9 +74,9 @@ const router = useRouter();
 const formRef = ref();
 const compData = reactive({
     form: {
-        username: '',
-        password: '',
-        captcha: '',
+        username: 'admin',
+        password: 'admin123',
+        captcha: '1234',
         captchaId: '',
     },
     rules: {
@@ -85,30 +86,35 @@ const compData = reactive({
     }
 });
 const captchaUrl = ref('');
+const loggingIn = ref(false);
 
 const refreshCaptcha = () => {
     getCaptcha().then(result => {
         captchaUrl.value = result.data.picPath;
         compData.form.captchaId = result.data.captchaId;
-    });
+    }).catch(() => window.$message?.error('无法连接本地后端，请检查服务是否启动'));
 };
 refreshCaptcha();
 
 const handleLogin = () => {
+    if (loggingIn.value) return;
     formRef.value?.validate((errors: any) => {
         if (!errors) {
-            login(compData.form).then(async result => {
+            loggingIn.value = true;
+            login(compData.form).then(async (result: any) => {
                 const token = result.data.token
                 localStore.set('token', token);
                 const app = appStore();
-                app.userInfo = result;
-                app.permissions = result.data.access;
+                app.userInfo = result.data.user || (await userInfo()).data;
+                app.permissions = result.data.access || [];
+                app.hasRoles = false;
+                window.SITE_CONFIG.dynamicMenuRoutesHasAdded = false;
                 await app.setMenuList()
-                router.replace('/home');
+                await router.replace('/home');
             }).catch((err) => {
                 refreshCaptcha()
                 compData.form.captcha=''
-            })
+            }).finally(() => { loggingIn.value = false; })
 
         }
     });

@@ -3,10 +3,10 @@
     <div>
       <n-grid x-gap="1" :cols="4">
         <n-gi class="p-2">
-          <Panel :title="'今日新增用户'" :panel-data="{now: newUsers}" :suffix="'人'" icon-str="antd-UserAddOutlined" />
+          <Panel :title="'昨日新增用户'" :panel-data="{now: newUsers}" :suffix="'人'" icon-str="antd-UserAddOutlined" />
         </n-gi>
         <n-gi class="p-2">
-          <Panel :title="'今日活跃用户'" :panel-data="{now: detail.activeUser}" :suffix="'人'" icon-str="antd-UserSwitchOutlined" />
+          <Panel :title="'昨日活跃用户'" :panel-data="{now: detail.activeUser}" :suffix="'人'" icon-str="antd-UserSwitchOutlined" />
         </n-gi>
         <n-gi class="p-2">
           <Panel :title="'累计用户总量'" :panel-data="{now: totalUser}" :suffix="'人'" icon-str="antd-IdcardOutlined" />
@@ -21,7 +21,7 @@
           <Panel :title="'充值订单数量'" :panel-data="{now: detail.rechargeTotal}" :suffix="'单'" icon-str="antd-SketchOutlined" />
         </n-gi>
         <n-gi class="p-2">
-          <Panel :title="'充值订单总金额'" :panel-data="{now: detail.rechargeAmount}" :suffix="'元'" icon-str="antd-AccountBookOutlined" />
+          <Panel :title="'昨日充值金额'" :panel-data="{now: detail.rechargeAmount}" :suffix="'美元'" icon-str="antd-AccountBookOutlined" />
         </n-gi>
         <n-gi class="p-2">
           <Panel :title="'活动参与总人次'" :panel-data="{now: activitys}" :suffix="'人'" icon-str="antd-TeamOutlined" />

@@ -1,12 +1,13 @@
 import localStore from '@/utils/localStore';
 import { uploadFile } from '@/api/system/upload';
 import Config from '@/config/index';
+import { getUrl } from '@/utils/utils';
 
 export type InsertFnType = (url: string, alt: string, href: string) => void;
 
 export const MENU_CONF = {
   ['uploadImage']: {
-    server: Config.uploadUrl + 'BasePrivate/uploadFile',
+    server: Config.baseUrl + 'BasePrivate/uploadFile',
     fieldName: 'file',
     maxFileSize: 1 * 1024 * 1024,
     maxNumberOfFiles: 10,
@@ -19,14 +20,17 @@ export const MENU_CONF = {
         const message = window.$message;
         const formData = new FormData();
         formData.append('file', file, file.name);
-        const response: any = await uploadFile(formData, { headers: Headers });
-        if (response.code != 500) {
-          insertFn(Config.uploadUrl + response.data.file_name, '', ''); // 插入图片，参数：图片 src、alt、href
+        const response: any = await uploadFile(formData, {
+          headers: { 'X-TOKEN': localStore.get('token') },
+        });
+        if (response.code === 0) {
+          insertFn(getUrl(response.data.file_name) || '', '', '');
         } else {
-          message.error(response.data.msg);
+          message.error(response.msg || '上传失败');
         }
       } catch (error) {
         console.error('Error posting data:', error);
+        window.$message.error('图片上传失败');
       }
     },
   },

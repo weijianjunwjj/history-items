@@ -18,7 +18,7 @@ export const OnSaleMessageTemplate = (params: any) => post('Msg/changeStatus', p
 export const getNotificationList = (params: any) => post('Notification/index', params)
 
 // 消息通知新增
-export const configNotificatione = (params: any) => post(`Notification/add}`, params)
+export const configNotificatione = (params: any) => post('Notification/add', params)
 
 // 消息通知删除
 export const delNotification = (params: any) => post('Notification/del', params)

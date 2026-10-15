@@ -48,7 +48,7 @@ export const createColumns = (compHandle: any): DataTableColumns => {
       },
       render(row) {
         const {linkTopic} = row;
-        return linkTopic?.map(item => `#${linkTopic}`);
+        return Array.isArray(linkTopic) ? linkTopic.map(item => `#${item}`).join(' ') : '';
       },
     },
     {

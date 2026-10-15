@@ -3,7 +3,7 @@ import Main from "@/layout/index.vue"
 import {renderIcon} from "@/config/icon"
 const routerMap: Array<RouteRecordRaw> = [
     {
-        path: "/:W+",
+        path: "/:pathMatch(.*)*",
         component: () => import("@/view/single/error/404.vue"),
     },
     {

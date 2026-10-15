@@ -81,22 +81,18 @@ const data: RouteItem[] = [
   // 你的路由数据
 ];
 
-export function processRoutes(routes: RouteItem[]): RouteItem[] {
-  return (
-    routes?.map(route => {
-      if (route.children && route.children.length > 0) {
-        // 仅处理二级路由
-        route.children = route.children.map(child => {
-          // 避免重复添加父路由前缀
-          if (!child.router.startsWith(route.router)) {
-            child.router = `${route.router}/${child.router}`; // 拼接父级与二级路由
-          }
-          return child;
-        });
-      }
-      return route;
-    }) || routes
-  );
+export function processRoutes(routes: RouteItem[], parentPath = ''): RouteItem[] {
+  if (!Array.isArray(routes)) return [];
+  return routes.map(route => {
+    const path = route.router || route.component || '';
+    const router = (path.startsWith('/') ? path : `${parentPath}/${path}`)
+      .replace(/\/+/g, '/');
+    return {
+      ...route,
+      router,
+      ...(route.children ? { children: processRoutes(route.children, router) } : {}),
+    };
+  });
 }
 
 export async function getMenuList() {
@@ -204,18 +200,12 @@ export const is = (type, data) => {
 };
 
 export function getUrl(url: string) {
-  const oldUrl = 'https://files.njyykj.com/';
-  const curUrl = appPinia().fileUrlPre;
-  if (is('string', url)) {
-    if (url.startsWith('http')) {
-      const newUrl=url.replace(oldUrl, curUrl)
-      return newUrl;
-    } else {
-      return appPinia().fileUrlPre + url;
-    }
-  } else {
-    console.error(`${url} is not string`);
-  }
+  if (typeof url !== 'string' || !url) return '';
+  const curUrl = appPinia().fileUrlPre || '/api/';
+  const legacyPrefix = 'https://files.njyykj.com/';
+  if (url.startsWith(legacyPrefix)) return curUrl + url.slice(legacyPrefix.length);
+  if (/^(https?:|data:|blob:|\/)/i.test(url)) return url;
+  return curUrl.replace(/\/?$/, '/') + url;
 }
 
 export function removeCurUrlPrefix(url: string) {

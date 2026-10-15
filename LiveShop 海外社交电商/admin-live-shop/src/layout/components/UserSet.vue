@@ -31,7 +31,7 @@
 </template>
 <script lang="ts" setup>
 import {NAvatar} from "naive-ui"
-import {reactive, ref} from "vue"
+import {computed, reactive, ref} from "vue"
 import appStore from "@/pinia/app"
 import {useFullscreen} from "@vueuse/core"
 import {useRouter} from "vue-router"
@@ -58,18 +58,20 @@ const compData = reactive({
   handleDarkTheme(value: any) {
     app.userSetting.themeName = value ? "darkTheme" : null
   },
-  handleSelect(key: string | number) {
+  async handleSelect(key: string | number) {
     if (key === "stmt3") {
       router.push("/own")
     }
     if (key === "stmt4") {
-      const id = app.userInfo?.user?.Id
-      logout(id?.toString())
-      setTimeout(() => {
+      const id = app.userInfo?.id
+      try {
+        await logout(id?.toString())
+      } finally {
         app.$reset()
         localStore.clearAll()
-        router.push("/login")
-      }, 100);
+        window.SITE_CONFIG.dynamicMenuRoutesHasAdded = false
+        await router.push("/login")
+      }
 
     }
   }
