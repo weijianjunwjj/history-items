@@ -442,7 +442,7 @@ async function onGetCode() {
   const { data } = await bookingRideApi.getAuthCode(authCodeParams)
   const $data = data.value
   if ($data.status == 200) {
-    message.success('发送成功')
+    message.info($data.data?.delivery === 'local_only' ? '本地演示码：' + $data.data.demoCode + '（没有发送短信）' : '发送成功')
   }
 }
 

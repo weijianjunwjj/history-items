@@ -15,13 +15,15 @@ export default new (class grey extends Http {
    * 预约骑行
    */
   preBook(body: any) {
-    return this.post(`/api/preBook`, body)
+    const base = String(useRuntimeConfig().public.HISTORY_LAB_API_URL || '').replace(/\/$/, '')
+    return this.post(base ? base + '/api/preBook' : '/api/preBook', body)
   }
 
   /**
    * 骑行预约获取手机验证码
    */
   getAuthCode(params: any) {
-    return this.get(`/api/code?${qs.stringify(params)}`)
+    const base = String(useRuntimeConfig().public.HISTORY_LAB_API_URL || '').replace(/\/$/, '')
+    return this.get((base ? base : '') + `/api/code?${qs.stringify(params)}`)
   }
 })()
