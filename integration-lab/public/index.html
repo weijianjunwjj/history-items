@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>五大系统 · 微前端实验台</title>
+  <style>
+    :root{font:14px/1.5 system-ui,-apple-system,"Microsoft YaHei",sans-serif;color:#e8edf7;background:#0b1020}
+    *{box-sizing:border-box}body{margin:0}button,select,input{font:inherit}button{cursor:pointer}
+    .layout{display:grid;grid-template-columns:260px 1fr;min-height:100vh}
+    aside{background:#111a2d;border-right:1px solid #27324b;padding:22px 15px}aside h1{font-size:18px;margin:0 0 7px}aside p{color:#8fa2be;font-size:12px;margin-bottom:25px}
+    .nav button{display:block;text-align:left;width:100%;border:1px solid transparent;border-radius:12px;color:#c4d0e4;background:transparent;padding:13px;margin:6px 0}
+    .nav button.active{border-color:#617af7;background:#1d2e54;color:white}.nav span{display:block;font-size:11px;color:#8fa2be;margin-top:3px}
+    main{min-width:0;padding:25px;max-width:1600px;width:100%;margin:auto}
+    header{display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap}
+    h2{font-size:24px;margin:0 0 5px}.sub{color:#a9b8ce;margin:0}
+    a{color:#9bb5ff}.toolbar{display:flex;align-items:center;gap:12px;background:#18233b;border:1px solid #2f4261;border-radius:12px;padding:10px 12px}
+    select{background:#111a2d;color:white;border:1px solid #52637e;border-radius:7px;padding:8px 10px}
+    .note{background:#18243d;border-left:3px solid #7199ff;color:#c5d2e8;padding:13px 17px;margin:20px 0;border-radius:8px}
+    #stage{min-height:65vh;background:#141e32;border:1px solid #31415f;border-radius:13px;overflow:hidden}
+    #stage iframe{height:70vh;width:100%;border:0;background:white}
+    .hint{color:#9db2ce;font-size:13px}.foot{margin-top:20px;color:#8699b8;font-size:12px}
+    @media(max-width:750px){.layout{display:block}aside{padding:12px;border-right:0}.nav{display:flex;overflow:auto;gap:4px}.nav button{flex:0 0 180px;margin:0}main{padding:14px}h2{font-size:20px}}
+  </style>
+</head>
+<body>
+<div class="layout">
+  <aside>
+    <h1>五大系统 · Integration Lab</h1>
+    <p>旧业务复现 × 本地真实 HTTP × 微前端方案对比</p>
+    <nav class="nav" id="systems" aria-label="业务系统"></nav>
+  </aside>
+  <main>
+    <header>
+      <div><h2 id="title">系统加载中</h2><p class="sub" id="subtitle"></p></div>
+      <div class="toolbar">
+        <label for="strategy">集成方式</label>
+        <select id="strategy">
+          <option value="iframe">iframe · 原系统页面</option>
+          <option value="esm">ESM · mount / unmount</option>
+          <option value="webcomponent">Web Components · Shadow DOM</option>
+        </select>
+      </div>
+    </header>
+    <p class="note" id="note">接口请求来自本机 Node HTTP，数据在 SQLite 持久化；演示业务数据并非企业真实数据。</p>
+    <div id="stage" aria-live="polite"></div>
+    <div class="foot" id="footer"></div>
+  </main>
+</div>
+<script type="module">
+  import { bootstrap, mount, unmount, defineMicroElement } from './microapps.mjs'
+  const nav = document.querySelector('#systems')
+  const stage = document.querySelector('#stage')
+  const strategy = document.querySelector('#strategy')
+  const title = document.querySelector('#title')
+  const subtitle = document.querySelector('#subtitle')
+  const note = document.querySelector('#note')
+  const footer = document.querySelector('#footer')
+  const json = await fetch('/api/systems').then(r => r.json())
+  if (json.code !== 0) throw new Error('系统清单读取失败')
+  const systems = json.data
+  let active = systems[0].id
+  let release = async () => {}
+  let seq = 0
+  function selectedSystem() { return systems.find(s => s.id === active) }
+  function renderNav() {
+    nav.replaceChildren()
+    for (const system of systems) {
+      const b = document.createElement('button')
+      b.className = active === system.id ? 'active' : ''
+      b.textContent = system.name
+      const small = document.createElement('span')
+      small.textContent = system.backend
+      b.append(small)
+      b.onclick = () => { active = system.id; renderNav(); render() }
+      nav.append(b)
+    }
+  }
+  async function render() {
+    const current = ++seq
+    await release()
+    if (current !== seq) return
+    stage.replaceChildren()
+    const system = selectedSystem()
+    title.textContent = system.name
+    subtitle.textContent = system.backend
+    note.textContent = system.note + '。实验数据只保存在本地 SQLite；未实现的接口明确返回 404，不偷偷使用 Mock。'
+    footer.textContent = '当前方案：' + strategy.selectedOptions[0].textContent + '。iframe 用于查看原项目完整界面；ESM 和 Web Components 是共享真实 API 的小型微应用，用于比较宿主生命周期与隔离。'
+    if (strategy.value === 'iframe') {
+      if (system.id === 'ems') {
+        const p = document.createElement('p')
+        p.className = 'hint'
+        p.style.padding = '25px'
+        p.textContent = '当前 GitHub 快照的中邮通后台缺失 src 主源码，无法直接作为完整页面运行；请先恢复原源码。可切到 ESM 或 Web Components 操作真实的本地物流单 API。'
+        stage.append(p)
+      } else {
+        const bar = document.createElement('div')
+        bar.style.padding = '9px 14px'
+        const a = document.createElement('a')
+        a.href = system.url
+        a.target = '_blank'
+        a.rel = 'noopener noreferrer'
+        a.textContent = '在新窗口打开原应用 ↗（须先启动对应服务）'
+        bar.append(a)
+        stage.append(bar)
+        const frame = document.createElement('iframe')
+        frame.title = system.name
+        frame.src = system.url
+        frame.referrerPolicy = 'no-referrer'
+        stage.append(frame)
+      }
+      release = async () => {}
+      return
+    }
+    if (strategy.value === 'esm') {
+      await bootstrap()
+      if (current !== seq) return
+      await mount({ element: stage, system })
+      release = unmount
+    } else {
+      defineMicroElement()
+      const el = document.createElement('lab-micro-panel')
+      el.system = system
+      stage.append(el)
+      release = async () => el.remove()
+    }
+  }
+  strategy.addEventListener('change', render)
+  renderNav()
+  render().catch(err => { stage.textContent = '挂载失败：' + err.message })
+</script>
+</body>
+</html>
