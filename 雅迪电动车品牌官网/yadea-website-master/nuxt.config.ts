@@ -64,7 +64,8 @@ export default defineNuxtConfig({
     // Keys within public are also exposed client-side
     public: {
       ...envData,
-      isG
+      isG,
+      HISTORY_LAB_API_URL: process.env.HISTORY_LAB_API_URL || ''
     }
   },
   vite: {
