@@ -7,11 +7,12 @@ import { join } from 'node:path'
 const dir = await mkdtemp(join(tmpdir(), 'history-items-lab-'))
 process.env.LAB_DB = join(dir, 'test.sqlite')
 process.env.LAB_NO_LISTEN = '1'
-const { server } = await import('../server.mjs')
+const { server, closeDatabase } = await import('../server.mjs')
 await new Promise(resolve => server.listen(0, '127.0.0.1', resolve))
 const url = 'http://127.0.0.1:' + server.address().port
 after(async () => {
   await new Promise(resolve => server.close(resolve))
+  closeDatabase()
   await rm(dir, { recursive: true, force: true, maxRetries: 4, retryDelay: 50 })
 })
 async function api(path, method = 'GET', body, headers = {}) {
