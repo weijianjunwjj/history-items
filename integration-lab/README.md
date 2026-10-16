@@ -19,8 +19,8 @@ npm test
 
 | 域 | 接口 | 行为 |
 |---|---|---|
-| 雅迪 | `POST /api/preBook` | 接收姓名、电话、车型，保存骑行预约 |
-| 雅迪 | `GET /api/code` | **明确返回未发送**；没有短信供应商，不返回伪验证码 |
+| 雅迪 | `POST /api/preBook` | 兼容原页面 userName/phone/carType/code，校验演示码并持久化 |
+| 雅迪 | `GET /api/code` | 生成仅在本地页面展示的随机演示码，10分钟有效，不发送真实短信 |
 | 雅迪 | `GET/POST /api/lab/yadea/records` | 查询/创建本地预约 |
 | 售后 | `GET /qrcode/work-ticket/list` | 查询真实 SQLite 工单 |
 | 售后 | `GET /qrcode/work-ticket/types` | 工单类型 |
@@ -35,6 +35,20 @@ npm test
 | 通用 | `GET /api/health` / `GET /api/systems` | 健康检查和五系统注册 |
 
 约束：仅演示样本，未实现的端点返回 404，不用空白成功数据欺骗页面；请求字段做基本校验；本地实验环境不含生产认证、短信、支付、物流公司、物联网与视频服务。**不可暴露到公网使用。**
+
+### 雅迪原页面：可选接到真实本地预约接口
+
+先启动 `integration-lab`，再打开一个 PowerShell：
+
+```powershell
+cd "雅迪电动车品牌官网/yadea-website-master"
+$env:HISTORY_LAB_API_URL = "http://127.0.0.1:4300"
+pnpm dev
+```
+
+只在设置 `HISTORY_LAB_API_URL` 后，预约骑行的 `/api/code` 和 `/api/preBook` 会改走集成实验台；其余旧 API **不会自动切换**。从原预约页面点击“获取验证码”，界面会明确提示**本地演示码**（不发送真实短信）；后端生成十分钟有效的随机码，提交表单后核对验证码、保存到 SQLite，且该验证码只能用一次。桌面、移动预约页均接了相同的兼容逻辑。
+
+这个改造以原预约表单真实字段（`userName/phone/carType/code`）为基础，但还没有在真实浏览器完成原 Nuxt 构建/交互验收；请不要将其视为原页面已验收通过。
 
 ## 微前端切换（同一个页面，下拉框自由切换）
 
@@ -58,7 +72,7 @@ ESM/Web Components 目前是**可操作的最小功能面板**（预约创建、
 
 ## 下一批应做的事
 
-- 雅迪：查明预约表单字段，替换 `api/static/bookingRideApi.ts` 的历史硬编码第三方接口；恢复车型/资讯的本地 API。
+- 雅迪：预约字段与演示码已接入（环境变量显式开启），后续重点恢复车型/资讯本地 API 并完成原 Nuxt 页面浏览器验收。
 - 售后：检查 `@hx/packages/service/request` 的响应约定和 dev proxy，按工单/设备/用户最短闭环接本地服务，未覆盖接口一律显示错误。
 - 中邮通：找回缺失的 `src` 才能在原界面验证后台 CRUD；不能靠编造页面替代源码。
 - 追加 Wujie/qiankun 比较前，先解决子应用跨域、资源路径、路由和生命周期：目前没有假装两者已接入。Wujie 对子应用入侵较小，但仍需满足资源 CORS 和启动前提。
