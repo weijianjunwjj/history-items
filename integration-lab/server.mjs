@@ -85,17 +85,24 @@ function updateTicket(b, state) {
   else db.prepare('UPDATE tickets SET ticket_state = 3, ticket_result_content = ? WHERE id = ?').run(required(b, 'ticketResultContent'), id)
   return { id, ticketState: state }
 }
-const knownOrigins = new Set(['http://127.0.0.1:' + port, 'http://localhost:' + port])
-for (const s of systems) {
-  knownOrigins.add(s.url)
-  knownOrigins.add(s.url.replace('127.0.0.1', 'localhost'))
+function isLocalOrigin(origin) {
+  try {
+    const url = new URL(origin)
+    // 浏览器 Origin 必须是完整、规范的 HTTP(S) 来源；仅放行回环主机，端口可随开发服务变化。
+    return url.origin === origin &&
+      (url.protocol === 'http:' || url.protocol === 'https:') &&
+      ['localhost', '127.0.0.1', '[::1]'].includes(url.hostname) &&
+      !url.username && !url.password
+  } catch {
+    return false
+  }
 }
 const publicFiles = { '/': ['index.html', 'text/html; charset=utf-8'], '/index.html': ['index.html', 'text/html; charset=utf-8'], '/microapps.mjs': ['microapps.mjs', 'text/javascript; charset=utf-8'] }
 export const closeDatabase = () => db.close()
 export const server = http.createServer(async (req, res) => {
   try {
     const origin = req.headers.origin
-    if (origin && !knownOrigins.has(origin)) return error(res, 403, '仅允许本机实验台的来源')
+    if (origin !== undefined && !isLocalOrigin(origin)) return error(res, 403, '仅允许本机实验台的来源')
     if (origin) res.setHeader('access-control-allow-origin', origin)
     res.setHeader('vary', 'Origin')
     res.setHeader('access-control-allow-methods', 'GET, POST, PATCH, OPTIONS')

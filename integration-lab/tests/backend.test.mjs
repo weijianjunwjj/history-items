@@ -17,8 +17,59 @@ after(async () => {
 })
 async function api(path, method = 'GET', body, headers = {}) {
   const response = await fetch(url + path, { method, headers: { ...(body ? { 'content-type': 'application/json' } : {}), ...headers }, ...(body ? { body: JSON.stringify(body) } : {}) })
-  return { status: response.status, body: await response.json() }
+  return { status: response.status, headers: response.headers, body: await response.json() }
 }
+test('本机来源允许开发端口变化，并返回浏览器需要的 CORS 头', async () => {
+  const systems = await api('/api/systems')
+  const registeredOrigins = systems.body.data.flatMap(system => [system.url, system.url.replace('127.0.0.1', 'localhost')])
+  for (const origin of [...registeredOrigins, 'http://localhost', 'http://127.0.0.1', 'http://localhost:3000', 'http://127.0.0.1:3000', 'http://localhost:8004', 'http://127.0.0.1:8005', 'http://localhost:53127', 'http://[::1]:5175', 'https://localhost:3443', new URL(url).origin]) {
+    const result = await api('/api/health', 'GET', undefined, { origin })
+    assert.equal(result.status, 200, origin)
+    assert.equal(result.headers.get('access-control-allow-origin'), origin)
+    assert.equal(result.headers.get('vary'), 'Origin')
+    const preflight = await fetch(url + '/api/preBook', {
+      method: 'OPTIONS', headers: { origin, 'access-control-request-method': 'POST', 'access-control-request-headers': 'content-type' }
+    })
+    assert.equal(preflight.status, 204, origin)
+    assert.equal(await preflight.text(), '')
+    assert.equal(preflight.headers.get('access-control-allow-origin'), origin)
+    assert.match(preflight.headers.get('access-control-allow-methods'), /POST/)
+    assert.equal(preflight.headers.get('access-control-allow-headers'), 'Content-Type')
+    assert.equal(preflight.headers.get('access-control-allow-credentials'), null)
+  }
+})
+test('外部、伪造及非 HTTP 来源的请求和预检仍被拒绝', async () => {
+  for (const origin of ['', 'https://attacker.example', 'http://localhost.attacker.example:3000', 'http://127.0.0.1.attacker.example', 'http://localhost@attacker.example', 'http://attacker.example@localhost:3000', 'http://192.168.1.20:3000', 'http://0.0.0.0:3000', 'null', 'file://', 'ftp://localhost:3000', 'http://localhost:3000/path', 'http://localhost:3000?x=1', 'http://localhost:3000#x', 'http://localhost:65536', 'http://localhost:3000 http://attacker.example']) {
+    for (const method of ['GET', 'OPTIONS', 'POST']) {
+      const result = await api('/api/preBook', method, method === 'POST' ? { userName: '拒绝写入', phone: '13000000001', carType: '测试车型' } : undefined, { origin })
+      assert.equal(result.status, 403, method + ' ' + origin)
+      assert.equal(result.body.msg, '仅允许本机实验台的来源')
+      assert.equal(result.headers.get('access-control-allow-origin'), null)
+    }
+  }
+  const records = await api('/api/lab/yadea/records')
+  assert.equal(records.body.data.some(x => x.name === '拒绝写入'), false)
+})
+test('雅迪桌面及移动原表单在变动端口下获取演示码并保存预约', async () => {
+  for (const [index, origin] of ['http://localhost:8004', 'http://127.0.0.1:3000'].entries()) {
+    const phone = '1300000001' + index
+    const headers = { origin }
+    const sms = await api('/api/code?phone=' + phone, 'GET', undefined, headers)
+    assert.equal(sms.status, 200)
+    assert.equal(sms.body.status, 200)
+    assert.equal(sms.body.data.delivery, 'local_only')
+    assert.match(sms.body.data.demoCode, /^\d{6}$/)
+    const payload = { userName: '原预约页面', userSex: '男士', province: '江苏省', city: '无锡市', coutry: '中国', userAddress: '测试街道', carType: '测试车型', carSeries: '测试车型', phone, code: sms.body.data.demoCode }
+    assert.equal((await api('/api/preBook', 'POST', { ...payload, code: '000000' }, headers)).status, 400)
+    const saved = await api('/api/preBook', 'POST', payload, headers)
+    assert.equal(saved.status, 201)
+    assert.equal(saved.body.status, 200)
+    const list = await api('/api/lab/yadea/records', 'GET', undefined, headers)
+    assert.ok(list.body.data.some(x => x.id === saved.body.data.id && x.model === payload.carType))
+    assert.equal((await api('/api/preBook', 'POST', payload, headers)).status, 400)
+    assert.equal((await api('/api/not-implemented', 'GET', undefined, headers)).status, 404)
+  }
+})
 test('system registry and health are backed by a live local server', async () => {
   const health = await api('/api/health')
   assert.equal(health.status, 200)
