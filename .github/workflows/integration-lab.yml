@@ -1,0 +1,21 @@
+name: Integration Lab
+on:
+  push:
+    paths:
+      - 'integration-lab/**'
+      - '.github/workflows/integration-lab.yml'
+  pull_request:
+    paths:
+      - 'integration-lab/**'
+      - '.github/workflows/integration-lab.yml'
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22.16.0'
+      - run: npm --prefix integration-lab test
