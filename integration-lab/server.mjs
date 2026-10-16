@@ -84,12 +84,13 @@ function updateTicket(b, state) {
   else db.prepare('UPDATE tickets SET ticket_state = 3, ticket_result_content = ? WHERE id = ?').run(required(b, 'ticketResultContent'), id)
   return { id, ticketState: state }
 }
-const knownOrigins = new Set(['http://127.0.0.1:4300', 'http://localhost:4300'])
+const knownOrigins = new Set(['http://127.0.0.1:' + port, 'http://localhost:' + port])
 for (const s of systems) {
   knownOrigins.add(s.url)
   knownOrigins.add(s.url.replace('127.0.0.1', 'localhost'))
 }
 const publicFiles = { '/': ['index.html', 'text/html; charset=utf-8'], '/index.html': ['index.html', 'text/html; charset=utf-8'], '/microapps.mjs': ['microapps.mjs', 'text/javascript; charset=utf-8'] }
+export const closeDatabase = () => db.close()
 export const server = http.createServer(async (req, res) => {
   try {
     const origin = req.headers.origin
