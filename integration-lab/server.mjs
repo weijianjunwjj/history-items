@@ -3,7 +3,7 @@ import { readFile, mkdir } from 'node:fs/promises'
 import { existsSync } from 'node:fs'
 import { join, dirname } from 'node:path'
 import { fileURLToPath } from 'node:url'
-import { randomUUID } from 'node:crypto'
+import { randomUUID, randomInt } from 'node:crypto'
 import { DatabaseSync } from 'node:sqlite'
 
 const root = dirname(fileURLToPath(import.meta.url))
@@ -14,6 +14,7 @@ await mkdir(dirname(dbFile), { recursive: true })
 const db = new DatabaseSync(dbFile)
 db.exec('PRAGMA journal_mode=WAL; PRAGMA busy_timeout=5000;')
 db.exec('CREATE TABLE IF NOT EXISTS bookings (id TEXT PRIMARY KEY, name TEXT NOT NULL, phone TEXT NOT NULL, model TEXT NOT NULL, created_at TEXT NOT NULL)')
+db.exec('CREATE TABLE IF NOT EXISTS demo_codes (phone TEXT PRIMARY KEY, code TEXT NOT NULL, expires_at INTEGER NOT NULL)')
 db.exec('CREATE TABLE IF NOT EXISTS tickets (id TEXT PRIMARY KEY, device_sn TEXT NOT NULL, ticket_content TEXT NOT NULL, ticket_type TEXT NOT NULL, engineer_id TEXT, ticket_state INTEGER NOT NULL DEFAULT 1, ticket_result_content TEXT, created_at TEXT NOT NULL)')
 db.exec('CREATE TABLE IF NOT EXISTS shipments (id TEXT PRIMARY KEY, tracking_no TEXT NOT NULL UNIQUE, recipient TEXT NOT NULL, status TEXT NOT NULL, updated_at TEXT NOT NULL)')
 if (!db.prepare('SELECT 1 FROM tickets LIMIT 1').get()) {
@@ -59,7 +60,7 @@ const rows = (table) => {
   return null
 }
 function createBooking(b) {
-  const item = { id: randomUUID(), name: required(b, 'name'), phone: required(b, 'phone', 30), model: required(b, 'model'), createdAt: new Date().toISOString() }
+  const item = { id: randomUUID(), name: required({ name: b.name ?? b.userName }, 'name'), phone: required(b, 'phone', 30), model: required({ model: b.model ?? b.carType }, 'model'), createdAt: new Date().toISOString() }
   db.prepare('INSERT INTO bookings VALUES (?, ?, ?, ?, ?)').run(item.id, item.name, item.phone, item.model, item.createdAt)
   return item
 }
@@ -140,8 +141,23 @@ export const server = http.createServer(async (req, res) => {
       const changes = db.prepare('UPDATE shipments SET status=?, updated_at=? WHERE id=?').run(status, new Date().toISOString(), id)
       return changes.changes ? ok(res, { id, status }) : error(res, 404, '运单不存在')
     }
-    if (req.method === 'POST' && path === '/api/preBook') return ok(res, createBooking(await bodyOf(req)), 201)
-    if (req.method === 'GET' && path === '/api/code') return ok(res, { delivery: 'not_sent', reason: '未接入短信服务；本地演示不发送验证码' })
+    if (req.method === 'GET' && path === '/api/code') {
+      const phone = required({ phone: url.searchParams.get('phone') }, 'phone', 30)
+      const code = String(randomInt(100000, 1000000))
+      db.prepare('INSERT INTO demo_codes (phone, code, expires_at) VALUES (?, ?, ?) ON CONFLICT(phone) DO UPDATE SET code=excluded.code, expires_at=excluded.expires_at').run(phone, code, Date.now() + 600000)
+      return json(res, 200, { status: 200, code: 0, msg: '本地演示码仅返回页面，不发送短信', data: { delivery: 'local_only', demoCode: code } })
+    }
+    if (req.method === 'POST' && path === '/api/preBook') {
+      const body = await bodyOf(req)
+      if (body.code !== undefined) {
+        const phone = required(body, 'phone', 30)
+        const row = db.prepare('SELECT code, expires_at FROM demo_codes WHERE phone=?').get(phone)
+        if (!row || row.code !== String(body.code) || row.expires_at < Date.now()) return error(res, 400, '验证码不正确或已过期（仅本地演示）')
+      }
+      const booking = createBooking(body)
+      if (body.code !== undefined) db.prepare('DELETE FROM demo_codes WHERE phone=?').run(body.phone)
+      return json(res, 201, { status: 200, code: 0, msg: '本地预约保存成功', data: booking })
+    }
     return error(res, 404, '未实现该接口：' + req.method + ' ' + path)
   } catch (err) {
     if (err instanceof SyntaxError || /必须|仅支持|不得|需要 JSON/.test(String(err.message))) return error(res, 400, err.message)
