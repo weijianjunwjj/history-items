@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="20px" height="20px" viewBox="0 0 20 20" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>icon/账单管理/选中备份 7</title>
+    <g id="管理后台（自己后台）" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="图标" transform="translate(-44.000000, -200.000000)">
+            <g id="icon/账单管理/选中备份-7" transform="translate(44.000000, 200.000900)">
+                <rect id="矩形" x="0" y="0" width="20" height="20"></rect>
+                <g id="编组-9" transform="translate(3.896380, 3.702066)" stroke="#474747" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M11.2387236,11.1428571 L0.761276407,11.1428571 C0.34105183,11.1428571 0,10.8072199 0,10.3919908 L0,0.750866384 C0,0.335637274 0.34105183,0 0.761276407,0 L11.2387236,0 C11.6589482,0 12,0.335637274 12,0.750866384 L12,10.3919908 C12,10.8072199 11.6589482,11.1428571 11.2387236,11.1428571 Z" id="Stroke-1"></path>
+                    <polygon id="Stroke-3" points="2.57142857 8.57142857 5.14285714 8.57142857 5.14285714 5.14285714 2.57142857 5.14285714"></polygon>
+                    <line x1="2.1" y1="3" x2="9.42857143" y2="3" id="Stroke-5"></line>
+                    <line x1="6.85714286" y1="8.14285714" x2="9.42857143" y2="8.14285714" id="Stroke-7"></line>
+                    <line x1="6.85714286" y1="5.57142857" x2="9.42857143" y2="5.57142857" id="Stroke-6"></line>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

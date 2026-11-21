@@ -1,0 +1,127 @@
+@import "./variable.scss";
+@import "./my-flex-core.scss";
+@import "./nativeUI-custom.scss";
+
+.pl-def {
+  padding-left: $p-l;
+}
+.pr-def {
+  padding-r: $p-r;
+}
+.pt-def {
+  padding-top: $p-t;
+}
+.pb-def {
+  padding-bottom: $p-b;
+}
+
+.plr-def {
+  @extend .pl-def;
+  @extend .pr-def;
+}
+.ptb-def {
+  @extend .pl-def;
+  @extend .pr-def;
+}
+
+.p-def {
+  @extend .plr-def;
+  @extend .ptb-def;
+}
+
+.ml-def {
+  margin-left: $m-l;
+}
+.mr-def {
+  margin-right: $m-r;
+}
+.mt-def {
+  margin-top: $m-t;
+}
+.mb-def {
+  margin-bottom: $m-b;
+}
+.mb-def {
+  margin-bottom: $m-b;
+}
+
+.mlr-def {
+  @extend .ml-def;
+  @extend .mr-def;
+}
+.mtb-def {
+  @extend .ml-def;
+  @extend .mr-def;
+}
+
+.m-def {
+  @extend .mlr-def;
+  @extend .mtb-def;
+}
+
+.w-half {
+  width: 50%;
+}
+.full {
+  width: 100%;
+  height: 100%;
+}
+.full-w {
+  width: 100%;
+}
+.full-h {
+  height: 100%;
+}
+
+.black {
+  color: #000;
+}
+
+.black-1 {
+  color: rgba(0, 0, 0, 0.1);
+}
+.black-2 {
+  color: rgba(0, 0, 0, 0.2);
+}
+.black-3 {
+  color: rgba(0, 0, 0, 0.3);
+}
+.black-4 {
+  color: rgba(0, 0, 0, 0.4);
+}
+.black-5 {
+  color: rgba(0, 0, 0, 0.5);
+}
+.black-6 {
+  color: rgba(0, 0, 0, 0.6);
+}
+.black-7 {
+  color: rgba(0, 0, 0, 0.7);
+}
+.black-8 {
+  color: rgba(0, 0, 0, 0.8);
+}
+.black-9 {
+  color: rgba(0, 0, 0, 0.9);
+}
+
+.txt-c {
+  text-align: center;
+}
+
+.common-min-w {
+  min-width: 1440px;
+}
+
+.theme {
+  color: $primaryColor;
+}
+
+.fold {
+  font-weight: 600;
+}
+
+.hover-point:hover {
+  color: $primaryColor;
+  cursor: pointer;
+}

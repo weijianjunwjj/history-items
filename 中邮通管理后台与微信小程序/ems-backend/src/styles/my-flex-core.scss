@@ -1,0 +1,98 @@
+.flex {
+  display: flex;
+}
+
+.just-c {
+  justify-content: center;
+}
+
+.align-c {
+  align-items: center;
+}
+
+.flex-v {
+  @extend .flex;
+  flex-direction: column;
+}
+
+.align-end {
+  align-items: baseline;
+}
+
+.align-start {
+  align-items: flex-start;
+}
+
+.just-sb {
+  justify-content: space-between;
+}
+.just-sa {
+  justify-content: space-around;
+}
+
+.flex-1 {
+  flex: 1;
+}
+
+.flex-wrap {
+  @extend.flex;
+  flex-wrap: wrap;
+}
+
+.flex-c {
+  @extend.flex;
+  @extend.align-c;
+}
+
+.flex-end {
+  @extend .flex;
+  @extend.align-end;
+}
+
+.flex-r {
+  @extend.flex;
+  justify-content: flex-end;
+}
+
+.flex-vc {
+  @extend.flex-v;
+  @extend.align-c;
+}
+.flex-hvc {
+  @extend.flex-v;
+  @extend.align-c;
+  @extend.just-c;
+}
+
+.flex-vr {
+  @extend.flex-v;
+  text-align: right;
+}
+
+.flex-sb {
+  @extend.flex;
+  @extend.just-sb;
+}
+.flex-sa {
+  @extend.flex;
+  @extend.just-sa;
+}
+
+.flex-sb-c {
+  @extend.flex-sb;
+  @extend.align-c;
+}
+.flex-sa-c {
+  @extend.flex-sa;
+  @extend.align-c;
+}
+
+.flex-jc {
+  @extend.flex;
+  @extend.just-c;
+}
+
+.flex-start {
+  @extend.flex;
+  @extend.align-start;
+}
